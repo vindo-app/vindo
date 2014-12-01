@@ -1,0 +1,13 @@
+{
+// Configure your Run and Preview buttons here.
+
+// Run button configuration
+  "commands": {
+        "Start Jekyll": "jekyll serve --host 0.0.0.0"
+  },
+
+// Preview button configuration
+  "preview": {
+        "Preview": "http://{{domain}}:4000/"
+  }
+}
