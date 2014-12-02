@@ -3,11 +3,11 @@
 
 // Run button configuration
   "commands": {
-        "Start Jekyll": "jekyll serve --host 0.0.0.0"
+        "Start Jekyll": "jekyll serve --host 0.0.0.0 --port 9500"
   },
 
 // Preview button configuration
   "preview": {
-        "Preview": "http://{{domain}}:4000/"
+        "Preview": "https://{{domain}}:9500/"
   }
 }
