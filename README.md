@@ -16,7 +16,7 @@ https://vital-ego.box.codio.io:9500/
 We set this up using https so it can be previewed inside a Codio Tab.
 
 ##How the Pack was prepared
-This Starter Pack was built on the Jekyll Codio Certified Stack (Node, Grunt, MongoDB, Jekyll). The following commands were used to create the code workspace
+This Starter Pack was built on the `Jekyll` Codio Certified Stack (Node, Grunt, MongoDB, Jekyll). The following commands were used to create the code workspace
 
 ```bash
 jekyll .
