@@ -28,7 +28,10 @@
 
 - (IBAction)showPreferences: (id)sender {
     if (preferencesController == nil)
-        preferencesController = [[NSWindowController alloc] initWithWindowNibName:@"Preferences"];
+        preferencesController = [[RHPreferencesWindowController alloc] initWithViewControllers:
+                                 [NSArray arrayWithObjects:
+                                  [GeneralPreferencesViewController new],
+                                  nil]];
     [preferencesController showWindow:self];
 }
 

@@ -9,10 +9,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <RHPreferences/RHPreferences.h>
+#import "GeneralPreferencesViewController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     NSStatusItem *statusItem;
-    NSWindowController *preferencesController;
+    RHPreferencesWindowController *preferencesController;
 }
 
 @property (assign) IBOutlet NSMenu *statusBarMenu;

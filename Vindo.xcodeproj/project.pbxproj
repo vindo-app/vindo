@@ -7,24 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC1957BF1AA52A900077A25C /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1957BD1AA52A900077A25C /* GeneralPreferencesViewController.m */; };
+		AC1957C01AA52A900077A25C /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC1957BE1AA52A900077A25C /* GeneralPreferencesViewController.xib */; };
+		AC1957DD1AA52D920077A25C /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1957D81AA52D770077A25C /* RHPreferences.framework */; };
+		AC1957DE1AA52D920077A25C /* RHPreferences.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC1957D81AA52D770077A25C /* RHPreferences.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC3A4EE21AA12F9A00781626 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE11AA12F9A00781626 /* main.m */; };
 		AC3A4EE51AA12F9A00781626 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE41AA12F9A00781626 /* AppDelegate.m */; };
 		AC3A4EEA1AA12F9B00781626 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC3A4EE81AA12F9B00781626 /* MainMenu.xib */; };
-		AC6E1DA91AA3DD5900282977 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DA71AA3DD5900282977 /* Preferences.xib */; };
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
 		ACB107DA1AA3B8F900E031F5 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D71AA3B8F900E031F5 /* Icon.icns */; };
 		ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D81AA3B8F900E031F5 /* Icon16.png */; };
 		ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D91AA3B8F900E031F5 /* Icon32.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AC1957C81AA52B7B0077A25C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC1957C31AA52B7B0077A25C /* RHPreferences.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1330B76C156DA90C00F2E3ED;
+			remoteInfo = RHPreferences;
+		};
+		AC1957CA1AA52B7B0077A25C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC1957C31AA52B7B0077A25C /* RHPreferences.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1330B78E156DAA4D00F2E3ED;
+			remoteInfo = RHPreferencesTester;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AC1957DF1AA52D920077A25C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AC1957DE1AA52D920077A25C /* RHPreferences.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		AC1957BC1AA52A900077A25C /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeneralPreferencesViewController.h; path = Vindo/Preferences/General/GeneralPreferencesViewController.h; sourceTree = "<group>"; };
+		AC1957BD1AA52A900077A25C /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeneralPreferencesViewController.m; path = Vindo/Preferences/General/GeneralPreferencesViewController.m; sourceTree = "<group>"; };
+		AC1957BE1AA52A900077A25C /* GeneralPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GeneralPreferencesViewController.xib; path = Vindo/Preferences/General/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
+		AC1957C31AA52B7B0077A25C /* RHPreferences.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RHPreferences.xcodeproj; path = ../../headrwt/RHPreferences/RHPreferences.xcodeproj; sourceTree = "<group>"; };
+		AC1957D81AA52D770077A25C /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
 		AC3A4EDC1AA12F9900781626 /* Vindo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vindo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3A4EE01AA12F9A00781626 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC3A4EE11AA12F9A00781626 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AC3A4EE31AA12F9A00781626 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Vindo/AppDelegate.h; sourceTree = "<group>"; };
 		AC3A4EE41AA12F9A00781626 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Vindo/AppDelegate.m; sourceTree = "<group>"; };
 		AC3A4EE91AA12F9B00781626 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		AC6E1DA81AA3DD5900282977 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Vindo/Base.lproj/Preferences.xib; sourceTree = "<group>"; };
 		AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		ACB107D71AA3B8F900E031F5 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Vindo/Icon.icns; sourceTree = "<group>"; };
 		ACB107D81AA3B8F900E031F5 /* Icon16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon16.png; path = Vindo/Icon16.png; sourceTree = "<group>"; };
@@ -36,18 +74,57 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC1957DD1AA52D920077A25C /* RHPreferences.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC1957C11AA52A980077A25C /* General */ = {
+			isa = PBXGroup;
+			children = (
+				AC1957BC1AA52A900077A25C /* GeneralPreferencesViewController.h */,
+				AC1957BD1AA52A900077A25C /* GeneralPreferencesViewController.m */,
+				AC1957BE1AA52A900077A25C /* GeneralPreferencesViewController.xib */,
+			);
+			name = General;
+			sourceTree = "<group>";
+		};
+		AC1957C21AA52AB50077A25C /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				AC1957C11AA52A980077A25C /* General */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		AC1957C41AA52B7B0077A25C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC1957C91AA52B7B0077A25C /* RHPreferences.framework */,
+				AC1957CB1AA52B7B0077A25C /* RHPreferencesTester.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC1957D01AA52BB10077A25C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC1957D81AA52D770077A25C /* RHPreferences.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AC3A4ED31AA12F9900781626 = {
 			isa = PBXGroup;
 			children = (
+				AC1957C31AA52B7B0077A25C /* RHPreferences.xcodeproj */,
 				AC8DB5AF1AA130A1000A6C51 /* Classes */,
+				AC1957C21AA52AB50077A25C /* Preferences */,
 				AC8DB5B01AA130A8000A6C51 /* Other Sources */,
 				AC3A4EDF1AA12F9A00781626 /* Supporting Files */,
+				AC1957D01AA52BB10077A25C /* Frameworks */,
 				AC3A4EDD1AA12F9900781626 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,7 +163,6 @@
 				ACB107D71AA3B8F900E031F5 /* Icon.icns */,
 				ACB107D81AA3B8F900E031F5 /* Icon16.png */,
 				ACB107D91AA3B8F900E031F5 /* Icon32.png */,
-				AC6E1DA71AA3DD5900282977 /* Preferences.xib */,
 				AC3A4EE81AA12F9B00781626 /* MainMenu.xib */,
 			);
 			name = "Other Sources";
@@ -102,6 +178,7 @@
 				AC3A4ED81AA12F9900781626 /* Sources */,
 				AC3A4ED91AA12F9900781626 /* Frameworks */,
 				AC3A4EDA1AA12F9900781626 /* Resources */,
+				AC1957DF1AA52D920077A25C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,12 +214,35 @@
 			mainGroup = AC3A4ED31AA12F9900781626;
 			productRefGroup = AC3A4EDD1AA12F9900781626 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AC1957C41AA52B7B0077A25C /* Products */;
+					ProjectRef = AC1957C31AA52B7B0077A25C /* RHPreferences.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AC3A4EDB1AA12F9900781626 /* Vindo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AC1957C91AA52B7B0077A25C /* RHPreferences.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RHPreferences.framework;
+			remoteRef = AC1957C81AA52B7B0077A25C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AC1957CB1AA52B7B0077A25C /* RHPreferencesTester.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = RHPreferencesTester.app;
+			remoteRef = AC1957CA1AA52B7B0077A25C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AC3A4EDA1AA12F9900781626 /* Resources */ = {
@@ -154,7 +254,7 @@
 				ACB107DA1AA3B8F900E031F5 /* Icon.icns in Resources */,
 				ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */,
 				ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */,
-				AC6E1DA91AA3DD5900282977 /* Preferences.xib in Resources */,
+				AC1957C01AA52A900077A25C /* GeneralPreferencesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC1957BF1AA52A900077A25C /* GeneralPreferencesViewController.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* AppDelegate.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 			);
@@ -180,14 +281,6 @@
 			);
 			name = MainMenu.xib;
 			path = Vindo;
-			sourceTree = "<group>";
-		};
-		AC6E1DA71AA3DD5900282977 /* Preferences.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AC6E1DA81AA3DD5900282977 /* Base */,
-			);
-			name = Preferences.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -275,6 +368,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/RHPreferences-cosvbmytbofgiedgafmaepmnrzzq/Build/Products/Debug",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Vindo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
@@ -288,6 +386,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/RHPreferences-cosvbmytbofgiedgafmaepmnrzzq/Build/Products/Debug",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Vindo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
