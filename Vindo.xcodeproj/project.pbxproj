@@ -20,23 +20,6 @@
 		ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D91AA3B8F900E031F5 /* Icon32.png */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		AC1957C81AA52B7B0077A25C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AC1957C31AA52B7B0077A25C /* RHPreferences.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1330B76C156DA90C00F2E3ED;
-			remoteInfo = RHPreferences;
-		};
-		AC1957CA1AA52B7B0077A25C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AC1957C31AA52B7B0077A25C /* RHPreferences.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1330B78E156DAA4D00F2E3ED;
-			remoteInfo = RHPreferencesTester;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		AC1957DF1AA52D920077A25C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -55,7 +38,6 @@
 		AC1957BC1AA52A900077A25C /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeneralPreferencesViewController.h; path = Vindo/Preferences/General/GeneralPreferencesViewController.h; sourceTree = "<group>"; };
 		AC1957BD1AA52A900077A25C /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeneralPreferencesViewController.m; path = Vindo/Preferences/General/GeneralPreferencesViewController.m; sourceTree = "<group>"; };
 		AC1957BE1AA52A900077A25C /* GeneralPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GeneralPreferencesViewController.xib; path = Vindo/Preferences/General/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
-		AC1957C31AA52B7B0077A25C /* RHPreferences.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RHPreferences.xcodeproj; path = ../../headrwt/RHPreferences/RHPreferences.xcodeproj; sourceTree = "<group>"; };
 		AC1957D81AA52D770077A25C /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
 		AC3A4EDC1AA12F9900781626 /* Vindo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vindo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3A4EE01AA12F9A00781626 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,15 +81,6 @@
 			name = Preferences;
 			sourceTree = "<group>";
 		};
-		AC1957C41AA52B7B0077A25C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AC1957C91AA52B7B0077A25C /* RHPreferences.framework */,
-				AC1957CB1AA52B7B0077A25C /* RHPreferencesTester.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		AC1957D01AA52BB10077A25C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +92,6 @@
 		AC3A4ED31AA12F9900781626 = {
 			isa = PBXGroup;
 			children = (
-				AC1957C31AA52B7B0077A25C /* RHPreferences.xcodeproj */,
 				AC8DB5AF1AA130A1000A6C51 /* Classes */,
 				AC1957C21AA52AB50077A25C /* Preferences */,
 				AC8DB5B01AA130A8000A6C51 /* Other Sources */,
@@ -214,35 +186,12 @@
 			mainGroup = AC3A4ED31AA12F9900781626;
 			productRefGroup = AC3A4EDD1AA12F9900781626 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = AC1957C41AA52B7B0077A25C /* Products */;
-					ProjectRef = AC1957C31AA52B7B0077A25C /* RHPreferences.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				AC3A4EDB1AA12F9900781626 /* Vindo */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		AC1957C91AA52B7B0077A25C /* RHPreferences.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RHPreferences.framework;
-			remoteRef = AC1957C81AA52B7B0077A25C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AC1957CB1AA52B7B0077A25C /* RHPreferencesTester.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = RHPreferencesTester.app;
-			remoteRef = AC1957CA1AA52B7B0077A25C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AC3A4EDA1AA12F9900781626 /* Resources */ = {
