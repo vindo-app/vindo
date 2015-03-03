@@ -45,7 +45,7 @@
 		AC3A4EE31AA12F9A00781626 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Vindo/AppDelegate.h; sourceTree = "<group>"; };
 		AC3A4EE41AA12F9A00781626 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Vindo/AppDelegate.m; sourceTree = "<group>"; };
 		AC3A4EE91AA12F9B00781626 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = Vindo/Credits.rtf; sourceTree = "<group>"; };
 		ACB107D71AA3B8F900E031F5 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Vindo/Icon.icns; sourceTree = "<group>"; };
 		ACB107D81AA3B8F900E031F5 /* Icon16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon16.png; path = Vindo/Icon16.png; sourceTree = "<group>"; };
 		ACB107D91AA3B8F900E031F5 /* Icon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon32.png; path = Vindo/Icon32.png; sourceTree = "<group>"; };
@@ -63,6 +63,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A655B7C1AA6773E00FFCD0C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AC3A4EE81AA12F9B00781626 /* MainMenu.xib */,
+				ACB107D71AA3B8F900E031F5 /* Icon.icns */,
+				ACB107D81AA3B8F900E031F5 /* Icon16.png */,
+				ACB107D91AA3B8F900E031F5 /* Icon32.png */,
+				AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		AC1957C11AA52A980077A25C /* General */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,7 +106,7 @@
 			children = (
 				AC8DB5AF1AA130A1000A6C51 /* Classes */,
 				AC1957C21AA52AB50077A25C /* Preferences */,
-				AC8DB5B01AA130A8000A6C51 /* Other Sources */,
+				8A655B7C1AA6773E00FFCD0C /* Resources */,
 				AC3A4EDF1AA12F9A00781626 /* Supporting Files */,
 				AC1957D01AA52BB10077A25C /* Frameworks */,
 				AC3A4EDD1AA12F9900781626 /* Products */,
@@ -112,7 +124,6 @@
 		AC3A4EDF1AA12F9A00781626 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */,
 				AC3A4EE01AA12F9A00781626 /* Info.plist */,
 				AC3A4EE11AA12F9A00781626 /* main.m */,
 			);
@@ -127,17 +138,6 @@
 				AC3A4EE41AA12F9A00781626 /* AppDelegate.m */,
 			);
 			name = Classes;
-			sourceTree = "<group>";
-		};
-		AC8DB5B01AA130A8000A6C51 /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				ACB107D71AA3B8F900E031F5 /* Icon.icns */,
-				ACB107D81AA3B8F900E031F5 /* Icon16.png */,
-				ACB107D91AA3B8F900E031F5 /* Icon32.png */,
-				AC3A4EE81AA12F9B00781626 /* MainMenu.xib */,
-			);
-			name = "Other Sources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
