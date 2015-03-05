@@ -14,7 +14,7 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     NSStatusItem *statusItem;
-    RHPreferencesWindowController *preferencesController;
+    RHPreferencesWindowController *prefs;
 }
 
 @property (assign) IBOutlet NSMenu *statusBarMenu;

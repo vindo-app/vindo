@@ -27,12 +27,19 @@
 }
 
 - (IBAction)showPreferences: (id)sender {
-    if (preferencesController == nil)
-        preferencesController = [[RHPreferencesWindowController alloc] initWithViewControllers:
+    if (prefs == nil) {
+        prefs = [[RHPreferencesWindowController alloc] initWithViewControllers:
                                  [NSArray arrayWithObjects:
+                                  [RHPreferencesWindowController flexibleSpacePlaceholderController],
                                   [GeneralPreferencesViewController new],
+                                  [RHPreferencesWindowController flexibleSpacePlaceholderController],
                                   nil]];
-    [preferencesController showWindow:self];
+        prefs.window.collectionBehavior =
+            NSWindowCollectionBehaviorMoveToActiveSpace |
+            NSWindowCollectionBehaviorFullScreenAuxiliary;
+    }
+    [prefs showWindow:self];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (IBAction)doNothing: (id)sender {
