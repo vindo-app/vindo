@@ -18,10 +18,13 @@
     statusItem.highlightMode = YES;
     statusItem.image = [NSImage imageNamed:@"Icon16"];
     statusItem.menu = statusBarMenu;
+    
+    server = [WineServer new];
 }
 
 - (void)dealloc {
     [statusItem release];
+    [server release];
     
     [super dealloc];
 }
@@ -32,6 +35,7 @@
                                  [NSArray arrayWithObjects:
                                   [RHPreferencesWindowController flexibleSpacePlaceholderController],
                                   [GeneralPreferencesViewController new],
+                                  [WineCfgViewController new],
                                   [RHPreferencesWindowController flexibleSpacePlaceholderController],
                                   nil]];
         prefs.window.collectionBehavior =
@@ -43,8 +47,7 @@
 }
 
 - (IBAction)doNothing: (id)sender {
-    NSAlert *alert = [NSAlert alertWithMessageText:@"That option does nothing" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"That's because this is a non-functioning prototype."];
-    [alert runModal];
+    [server runExe:@"ignored"];
 }
 
 @end

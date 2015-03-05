@@ -15,6 +15,10 @@
 		AC3A4EE51AA12F9A00781626 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE41AA12F9A00781626 /* AppDelegate.m */; };
 		AC3A4EEA1AA12F9B00781626 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC3A4EE81AA12F9B00781626 /* MainMenu.xib */; };
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
+		ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA9D6161AA7E41A00194089 /* winecfg.png */; };
+		ACA9D61A1AA7E60A00194089 /* WineServer.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9D6191AA7E60A00194089 /* WineServer.m */; };
+		ACA9D61E1AA7E64F00194089 /* WineCfgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9D61C1AA7E64F00194089 /* WineCfgViewController.m */; };
+		ACA9D61F1AA7E64F00194089 /* WineCfgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA9D61D1AA7E64F00194089 /* WineCfgViewController.xib */; };
 		ACB107DA1AA3B8F900E031F5 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D71AA3B8F900E031F5 /* Icon.icns */; };
 		ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D81AA3B8F900E031F5 /* Icon16.png */; };
 		ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D91AA3B8F900E031F5 /* Icon32.png */; };
@@ -46,6 +50,12 @@
 		AC3A4EE41AA12F9A00781626 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Vindo/AppDelegate.m; sourceTree = "<group>"; };
 		AC3A4EE91AA12F9B00781626 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = Vindo/Credits.rtf; sourceTree = "<group>"; };
+		ACA9D6161AA7E41A00194089 /* winecfg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = winecfg.png; path = Vindo/winecfg.png; sourceTree = "<group>"; };
+		ACA9D6181AA7E60A00194089 /* WineServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineServer.h; path = Vindo/WineServer.h; sourceTree = "<group>"; };
+		ACA9D6191AA7E60A00194089 /* WineServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineServer.m; path = Vindo/WineServer.m; sourceTree = "<group>"; };
+		ACA9D61B1AA7E64F00194089 /* WineCfgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineCfgViewController.h; path = Vindo/Preferences/WineCfg/WineCfgViewController.h; sourceTree = "<group>"; };
+		ACA9D61C1AA7E64F00194089 /* WineCfgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineCfgViewController.m; path = Vindo/Preferences/WineCfg/WineCfgViewController.m; sourceTree = "<group>"; };
+		ACA9D61D1AA7E64F00194089 /* WineCfgViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineCfgViewController.xib; path = Vindo/Preferences/WineCfg/WineCfgViewController.xib; sourceTree = "<group>"; };
 		ACB107D71AA3B8F900E031F5 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Vindo/Icon.icns; sourceTree = "<group>"; };
 		ACB107D81AA3B8F900E031F5 /* Icon16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon16.png; path = Vindo/Icon16.png; sourceTree = "<group>"; };
 		ACB107D91AA3B8F900E031F5 /* Icon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon32.png; path = Vindo/Icon32.png; sourceTree = "<group>"; };
@@ -89,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				AC1957C11AA52A980077A25C /* General */,
+				ACA9D6101AA7E2B500194089 /* Wine Control Panel */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -134,10 +145,23 @@
 		AC8DB5AF1AA130A1000A6C51 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				ACA9D6181AA7E60A00194089 /* WineServer.h */,
+				ACA9D6191AA7E60A00194089 /* WineServer.m */,
 				AC3A4EE31AA12F9A00781626 /* AppDelegate.h */,
 				AC3A4EE41AA12F9A00781626 /* AppDelegate.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		ACA9D6101AA7E2B500194089 /* Wine Control Panel */ = {
+			isa = PBXGroup;
+			children = (
+				ACA9D61B1AA7E64F00194089 /* WineCfgViewController.h */,
+				ACA9D61C1AA7E64F00194089 /* WineCfgViewController.m */,
+				ACA9D61D1AA7E64F00194089 /* WineCfgViewController.xib */,
+				ACA9D6161AA7E41A00194089 /* winecfg.png */,
+			);
+			name = "Wine Control Panel";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,8 +223,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC3A4EEA1AA12F9B00781626 /* MainMenu.xib in Resources */,
+				ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */,
 				AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */,
 				ACB107DA1AA3B8F900E031F5 /* Icon.icns in Resources */,
+				ACA9D61F1AA7E64F00194089 /* WineCfgViewController.xib in Resources */,
 				ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */,
 				ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */,
 				AC1957C01AA52A900077A25C /* GeneralPreferencesViewController.xib in Resources */,
@@ -216,7 +242,9 @@
 			files = (
 				AC1957BF1AA52A900077A25C /* GeneralPreferencesViewController.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* AppDelegate.m in Sources */,
+				ACA9D61E1AA7E64F00194089 /* WineCfgViewController.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
+				ACA9D61A1AA7E60A00194089 /* WineServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

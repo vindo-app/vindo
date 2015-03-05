@@ -11,8 +11,11 @@
 #import <Cocoa/Cocoa.h>
 #import <RHPreferences/RHPreferences.h>
 #import "GeneralPreferencesViewController.h"
+#import "WineCfgViewController.h"
+#import "WineServer.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
+    WineServer *server;
     NSStatusItem *statusItem;
     RHPreferencesWindowController *prefs;
 }
