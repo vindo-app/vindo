@@ -1,0 +1,3 @@
+[submodule "Vindo/usr"]
+	path = Vindo/usr
+	url = https://github.com/tbodt/wine-minimal
