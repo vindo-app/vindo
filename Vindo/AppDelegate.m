@@ -19,7 +19,12 @@
     statusItem.image = [NSImage imageNamed:@"Icon16"];
     statusItem.menu = statusBarMenu;
     
-    server = [WineServer new];
+    // workaround bug in RHPreferences
+    [[NSUserDefaults standardUserDefaults] registerDefaults:
+        [NSDictionary dictionaryWithObject:@"GeneralPreferencesViewController"
+                                    forKey:@"RHPreferencesWindowControllerSelectedItemIdentifier"]];
+    
+    [[WineServer new] makeDefaultServer];
 }
 
 - (void)dealloc {
@@ -34,10 +39,11 @@
         prefs = [[RHPreferencesWindowController alloc] initWithViewControllers:
                                  [NSArray arrayWithObjects:
                                   [RHPreferencesWindowController flexibleSpacePlaceholderController],
-                                  [GeneralPreferencesViewController new],
-                                  [WineCfgViewController new],
+                                  [[GeneralPreferencesViewController new] autorelease],
+                                  [[WineCfgViewController new] autorelease],
                                   [RHPreferencesWindowController flexibleSpacePlaceholderController],
                                   nil]];
+        // workaround for missing behavior in RHPreferences
         prefs.window.collectionBehavior =
             NSWindowCollectionBehaviorMoveToActiveSpace |
             NSWindowCollectionBehaviorFullScreenAuxiliary;
@@ -47,7 +53,7 @@
 }
 
 - (IBAction)doNothing: (id)sender {
-    [server runExe:@"ignored"];
+    [[WineServer defaultServer] runExe:@"ignored"];
 }
 
 @end

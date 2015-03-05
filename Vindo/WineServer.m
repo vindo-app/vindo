@@ -8,11 +8,25 @@
 
 #import "WineServer.h"
 
+static WineServer *defaultServer;
+
 @implementation WineServer
 
++ (WineServer *)defaultServer {
+    return defaultServer;
+}
+
 - (void)runExe:(NSString *)exePath {
-    NSAlert *alert = [NSAlert alertWithMessageText:@"That option does nothing" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"That's because this is a non-functioning prototype."];
+    NSAlert *alert = [NSAlert alertWithMessageText:@"That option does nothing"
+                                     defaultButton:@"OK"
+                                   alternateButton:nil
+                                       otherButton:nil
+                         informativeTextWithFormat:@"That's because this is a non-functioning prototype."];
     [alert runModal];
+}
+
+- (void)makeDefaultServer {
+    defaultServer = self;
 }
 
 @end

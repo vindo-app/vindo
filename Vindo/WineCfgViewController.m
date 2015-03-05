@@ -10,17 +10,20 @@
 
 @implementation WineCfgViewController
 
+- (id)init {
+    return [super initWithNibName:@"WineCfgViewController" bundle:nil];
+}
+
 - (IBAction)runWinecfg:(id)sender {
-    AppDelegate *appDelegate = [NSApplication sharedApplication].delegate;
-    [appDelegate doNothing:sender];
+    [[WineServer defaultServer] runExe:@"winecfg"];
 }
 
 - (NSString *)identifier {
-    return NSStringFromClass(self.class);
+    return self.className;
 }
 
 - (NSString *)toolbarItemLabel {
-    return @"Wine Control Panel";
+    return @"WineCfg";
 }
 
 - (NSImage *)toolbarItemImage {

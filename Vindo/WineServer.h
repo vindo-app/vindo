@@ -10,6 +10,10 @@
 
 @interface WineServer : NSObject
 
++ (WineServer *)defaultServer;
+
 - (void)runExe:(NSString *)exePath;
+
+- (void)makeDefaultServer;
 
 @end

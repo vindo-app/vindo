@@ -22,7 +22,7 @@
 }
 
 - (NSString *)identifier {
-    return NSStringFromClass(self.class);
+    return self.className;
 }
 
 - (NSString *)toolbarItemLabel {
