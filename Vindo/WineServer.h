@@ -8,12 +8,22 @@
 
 #import <Cocoa/Cocoa.h>
 
+extern NSString *WineServerWillStartNotification;
+extern NSString *WineServerDidStartNotification;
+
 @interface WineServer : NSObject
 
+- (id)initWithPrefix:(NSString *)prefix;
+
 + (WineServer *)defaultServer;
+
+- (void)start;
+- (void)stop;
 
 - (void)runExe:(NSString *)exePath;
 
 - (void)makeDefaultServer;
+
+@property (readonly) NSString *prefix;
 
 @end
