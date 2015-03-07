@@ -11,19 +11,15 @@
 extern NSString *WineServerWillStartNotification;
 extern NSString *WineServerDidStartNotification;
 
-@interface WineServer : NSObject
+@interface WinePrefix : NSObject
 
-- (id)initWithPrefix:(NSString *)prefix;
+- (id)initWithPath:(NSURL *)path;
 
-+ (WineServer *)defaultServer;
+- (void)startServer;
+- (void)stopServer;
 
-- (void)start;
-- (void)stop;
+- (void)run:(NSString *)exePath;
 
-- (void)runExe:(NSString *)exePath;
-
-- (void)makeDefaultServer;
-
-@property (readonly) NSString *prefix;
+@property (readonly) NSURL *path;
 
 @end

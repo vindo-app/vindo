@@ -15,7 +15,7 @@
 }
 
 - (IBAction)runWinecfg:(id)sender {
-    [[WineServer defaultServer] runExe:@"winecfg"];
+    
 }
 
 - (NSString *)identifier {
