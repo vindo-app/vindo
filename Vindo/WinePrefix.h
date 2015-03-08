@@ -10,6 +10,11 @@
 
 extern NSString *const WineServerWillStartNotification;
 extern NSString *const WineServerDidStartNotification;
+extern NSString *const WineServerWillStopNotification;
+extern NSString *const WineServerDidStopNotification;
+extern NSString *const WineServerDidCrashNotification;
+
+extern NSString *const kWineServerExitStatus;
 
 @interface WinePrefix : NSObject
 

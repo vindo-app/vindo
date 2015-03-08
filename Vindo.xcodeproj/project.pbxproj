@@ -11,7 +11,6 @@
 		8A23F3B51AA913FC00F1467C /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3B31AA913FC00F1467C /* GeneralPreferencesViewController.xib */; };
 		8A23F3B91AA9141500F1467C /* WineCfgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A23F3B71AA9141500F1467C /* WineCfgViewController.m */; };
 		8A23F3BA1AA9141500F1467C /* WineCfgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3B81AA9141500F1467C /* WineCfgViewController.xib */; };
-		8A23F3BF1AA91EF600F1467C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BD1AA91EF600F1467C /* Info.plist */; };
 		8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BE1AA91EF600F1467C /* MainMenu.xib */; };
 		8A23F3C31AA9237A00F1467C /* usr in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3C21AA9237900F1467C /* usr */; };
 		AC1957DD1AA52D920077A25C /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1957D81AA52D770077A25C /* RHPreferences.framework */; };
@@ -228,7 +227,6 @@
 			files = (
 				8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */,
 				ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */,
-				8A23F3BF1AA91EF600F1467C /* Info.plist in Resources */,
 				AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */,
 				ACB107DA1AA3B8F900E031F5 /* Icon.icns in Resources */,
 				8A23F3BA1AA9141500F1467C /* WineCfgViewController.xib in Resources */,

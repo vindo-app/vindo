@@ -12,6 +12,11 @@ static NSString *usrPath;
 
 NSString *const WineServerWillStartNotification = @"WineServerWillStartNotification";
 NSString *const WineServerDidStartNotification = @"WineServerDidStartNotification";
+NSString *const WineServerWillStopNotification = @"WineServerWillStopNotification";
+NSString *const WineServerDidStopNotification = @"WineServerDidStopNotification";
+NSString *const WineServerDidCrashNotification = @"WineServerDidCrashNotification";
+
+NSString *const kWineServerExitStatus = @"kWineServerExitStatus";
 
 @interface WinePrefix ()
 
@@ -53,30 +58,54 @@ NSString *const WineServerDidStartNotification = @"WineServerDidStartNotificatio
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center postNotificationName:WineServerWillStartNotification object:self];
     
-    self.server = [NSTask new];
-    self.server.launchPath = [usrPath stringByAppendingPathComponent:@"bin/wineserver"];
-    self.server.arguments = [NSArray arrayWithObjects:@"-f", nil]; // stay in foreground
-    self.server.environment = self.wineEnvironment;
-    self.server.standardInput = [NSFileHandle fileHandleWithNullDevice];
-    self.server.standardOutput = [self logFileHandle];
-    self.server.standardError = [self logFileHandle];
+    server = [NSTask new];
+    server.launchPath = [usrPath stringByAppendingPathComponent:@"bin/wineserver"];
+    server.arguments = [NSArray arrayWithObjects:@"-f", nil]; // stay in foreground
+    server.environment = self.wineEnvironment;
+    server.standardInput = [NSFileHandle fileHandleWithNullDevice];
+    server.standardOutput = [self logFileHandle];
+    server.standardError = [self logFileHandle];
     
-    [self.server launch];
+    [center addObserver:self
+               selector:@selector(serverTaskStopped:)
+                   name:NSTaskDidTerminateNotification
+                 object:server];
+    [server launch];
     
     [center postNotificationName:WineServerDidStartNotification object:self];
     
     self.isStarting = NO;
 }
 
+- (void)serverTaskStopped:(NSNotification *)notification {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    
+    NSString *stopNotification;
+    if (server.terminationStatus == 0)
+        stopNotification = WineServerDidStopNotification;
+    else
+        stopNotification = WineServerDidCrashNotification;
+    
+    [center postNotificationName:stopNotification
+                          object:self
+                        userInfo:
+     [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:server.terminationStatus]
+                                 forKey:kWineServerExitStatus]];
+}
+
 - (void)stopServer {
-    [self.server terminate];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    
+    [center postNotificationName:WineServerWillStopNotification object:self];
+    [server terminate];
+    [server waitUntilExit];
 }
 
 - (BOOL)isServerRunning {
     if (self.isStarting)
         return NO;
-    if (self.server != nil)
-        return [self.server isRunning];
+    if (server != nil)
+        return [server isRunning];
     else
         return NO;
 }
@@ -110,6 +139,9 @@ NSString *const WineServerDidStartNotification = @"WineServerDidStartNotificatio
 
 - (void)dealloc {
     [path release];
+    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self];
     
     [super dealloc];
 }
