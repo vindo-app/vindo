@@ -8,8 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-extern NSString *WineServerWillStartNotification;
-extern NSString *WineServerDidStartNotification;
+extern NSString *const WineServerWillStartNotification;
+extern NSString *const WineServerDidStartNotification;
 
 @interface WinePrefix : NSObject
 

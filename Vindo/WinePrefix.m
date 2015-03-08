@@ -10,8 +10,8 @@
 
 static NSString *usrPath;
 
-NSString *WineServerWillStartNotification = @"WineServerWillStartNotification";
-NSString *WineServerDidStartNotification = @"WineServerDidStartNotification";
+NSString *const WineServerWillStartNotification = @"WineServerWillStartNotification";
+NSString *const WineServerDidStartNotification = @"WineServerDidStartNotification";
 
 @interface WinePrefix ()
 
