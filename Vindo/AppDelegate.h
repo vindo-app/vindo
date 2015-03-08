@@ -12,10 +12,10 @@
 #import <RHPreferences/RHPreferences.h>
 #import "GeneralPreferencesViewController.h"
 #import "WineCfgViewController.h"
-#import "WineServer.h"
+#import "WinePrefix.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
-    WineServer *server;
+    WinePrefix *prefix;
     NSStatusItem *statusItem;
     RHPreferencesWindowController *prefs;
 }
@@ -23,7 +23,6 @@
 @property (assign) IBOutlet NSMenu *statusBarMenu;
 
 - (IBAction)showPreferences:(id)sender;
-- (IBAction)doNothing: (id)sender;
 
 @end
 

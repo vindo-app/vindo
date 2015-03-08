@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -25,52 +24,28 @@
                         <items>
                             <menuItem title="File Manager…" id="3GW-fg-DaD">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="doNothing:" target="Voe-Tx-rLC" id="N8y-MH-d7E"/>
-                                </connections>
                             </menuItem>
                             <menuItem title="Internet Explorer…" id="kfW-VG-7Jy">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="doNothing:" target="Voe-Tx-rLC" id="9Gu-47-fEG"/>
-                                </connections>
                             </menuItem>
                             <menuItem title="Minesweeper…" id="sz2-fP-fcd">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="doNothing:" target="Voe-Tx-rLC" id="8Kp-te-MMH"/>
-                                </connections>
                             </menuItem>
                             <menuItem title="Notepad…" id="blf-aG-A51">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="doNothing:" target="Voe-Tx-rLC" id="woP-72-Mld"/>
-                                </connections>
                             </menuItem>
                             <menuItem title="Console…" id="vce-K3-SEv">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="doNothing:" target="Voe-Tx-rLC" id="ZoK-7u-ZvD"/>
-                                </connections>
                             </menuItem>
                             <menuItem title="Wine Configuration…" id="ziQ-6u-X5a">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="doNothing:" target="Voe-Tx-rLC" id="TpF-Od-nGp"/>
-                                </connections>
                             </menuItem>
                             <menuItem title="Registry Editor…" id="puT-oK-UIc">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="doNothing:" target="Voe-Tx-rLC" id="xa0-0x-ZdJ"/>
-                                </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="iI8-vx-iZ5"/>
                             <menuItem title="Other…" id="uWc-UV-hsk">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="doNothing:" target="Voe-Tx-rLC" id="5dx-zy-8OS"/>
-                                </connections>
                             </menuItem>
                         </items>
                     </menu>
@@ -81,15 +56,9 @@
                         <items>
                             <menuItem title="C:" id="NV6-BW-wbC">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="doNothing:" target="Voe-Tx-rLC" id="i6G-OK-A5b"/>
-                                </connections>
                             </menuItem>
                             <menuItem title="Z:" id="jPv-bQ-eYc">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="doNothing:" target="Voe-Tx-rLC" id="f4M-mc-I8b"/>
-                                </connections>
                             </menuItem>
                         </items>
                     </menu>
@@ -100,21 +69,12 @@
                         <items>
                             <menuItem title="Force Quit All Processes" id="vru-Oz-TsM">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="doNothing:" target="Voe-Tx-rLC" id="vNa-9f-CTg"/>
-                                </connections>
                             </menuItem>
                             <menuItem title="Emulate Shutdown" id="xom-s7-q58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="doNothing:" target="Voe-Tx-rLC" id="0dO-mQ-kBA"/>
-                                </connections>
                             </menuItem>
                             <menuItem title="Emulate Reboot" id="NAJ-JR-WMS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="doNothing:" target="Voe-Tx-rLC" id="COe-q3-gFm"/>
-                                </connections>
                             </menuItem>
                         </items>
                     </menu>

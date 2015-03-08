@@ -20,7 +20,7 @@
 		AC3A4EE51AA12F9A00781626 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE41AA12F9A00781626 /* AppDelegate.m */; };
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
 		ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA9D6161AA7E41A00194089 /* winecfg.png */; };
-		ACA9D61A1AA7E60A00194089 /* WineServer.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9D6191AA7E60A00194089 /* WineServer.m */; };
+		ACA9D61A1AA7E60A00194089 /* WinePrefix.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9D6191AA7E60A00194089 /* WinePrefix.m */; };
 		ACB107DA1AA3B8F900E031F5 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D71AA3B8F900E031F5 /* Icon.icns */; };
 		ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D81AA3B8F900E031F5 /* Icon16.png */; };
 		ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D91AA3B8F900E031F5 /* Icon32.png */; };
@@ -57,8 +57,8 @@
 		AC3A4EE41AA12F9A00781626 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Vindo/AppDelegate.m; sourceTree = "<group>"; };
 		AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = Vindo/Credits.rtf; sourceTree = "<group>"; };
 		ACA9D6161AA7E41A00194089 /* winecfg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = winecfg.png; path = Vindo/winecfg.png; sourceTree = "<group>"; };
-		ACA9D6181AA7E60A00194089 /* WineServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineServer.h; path = Vindo/WineServer.h; sourceTree = "<group>"; };
-		ACA9D6191AA7E60A00194089 /* WineServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WineServer.m; path = Vindo/WineServer.m; sourceTree = "<group>"; };
+		ACA9D6181AA7E60A00194089 /* WinePrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinePrefix.h; path = Vindo/WinePrefix.h; sourceTree = "<group>"; };
+		ACA9D6191AA7E60A00194089 /* WinePrefix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WinePrefix.m; path = Vindo/WinePrefix.m; sourceTree = "<group>"; };
 		ACB107D71AA3B8F900E031F5 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Vindo/Icon.icns; sourceTree = "<group>"; };
 		ACB107D81AA3B8F900E031F5 /* Icon16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon16.png; path = Vindo/Icon16.png; sourceTree = "<group>"; };
 		ACB107D91AA3B8F900E031F5 /* Icon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon32.png; path = Vindo/Icon32.png; sourceTree = "<group>"; };
@@ -80,9 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				8A23F3C21AA9237900F1467C /* usr */,
+				ACB107D71AA3B8F900E031F5 /* Icon.icns */,
 				8A23F3BE1AA91EF600F1467C /* MainMenu.xib */,
 				AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */,
-				ACB107D71AA3B8F900E031F5 /* Icon.icns */,
 				ACB107D81AA3B8F900E031F5 /* Icon16.png */,
 				ACB107D91AA3B8F900E031F5 /* Icon32.png */,
 			);
@@ -149,8 +149,8 @@
 		AC8DB5AF1AA130A1000A6C51 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				ACA9D6181AA7E60A00194089 /* WineServer.h */,
-				ACA9D6191AA7E60A00194089 /* WineServer.m */,
+				ACA9D6181AA7E60A00194089 /* WinePrefix.h */,
+				ACA9D6191AA7E60A00194089 /* WinePrefix.m */,
 				AC3A4EE31AA12F9A00781626 /* AppDelegate.h */,
 				AC3A4EE41AA12F9A00781626 /* AppDelegate.m */,
 			);
@@ -250,7 +250,7 @@
 				AC3A4EE51AA12F9A00781626 /* AppDelegate.m in Sources */,
 				8A23F3B91AA9141500F1467C /* WineCfgViewController.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
-				ACA9D61A1AA7E60A00194089 /* WineServer.m in Sources */,
+				ACA9D61A1AA7E60A00194089 /* WinePrefix.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,14 +24,16 @@
         [NSDictionary dictionaryWithObject:@"GeneralPreferencesViewController"
                                     forKey:@"RHPreferencesWindowControllerSelectedItemIdentifier"]];
     
-    [[WineServer new] makeDefaultServer];
+    prefix = [[WinePrefix alloc] initWithPath:[self defaultPrefixPath]];
+    [prefix startServer];
 }
 
-- (void)dealloc {
-    [statusItem release];
-    [server release];
-    
-    [super dealloc];
+- (void)applicationWillTerminate:(NSNotification *)notification {
+    [prefix stopServer];
+}
+              
+- (NSURL *)defaultPrefixPath {
+    return [[NSURL fileURLWithPath:NSHomeDirectory()] URLByAppendingPathComponent:@"Wine Files"];
 }
 
 - (IBAction)showPreferences: (id)sender {
@@ -52,8 +54,12 @@
     [NSApp activateIgnoringOtherApps:YES];
 }
 
-- (IBAction)doNothing: (id)sender {
-    [[WineServer defaultServer] runExe:@"ignored"];
+- (void)dealloc {
+    [statusItem release];
+    [prefix stopServer];
+    [prefix release];
+    
+    [super dealloc];
 }
 
 @end
