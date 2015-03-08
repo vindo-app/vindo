@@ -27,6 +27,10 @@
     prefix = [[WinePrefix alloc] initWithPath:[self defaultPrefixPath]];
     [prefix startServer];
 }
+
+- (void)applicationWillTerminate:(NSNotification *)notification {
+    [prefix stopServer];
+}
               
 - (NSURL *)defaultPrefixPath {
     return [[NSURL fileURLWithPath:NSHomeDirectory()] URLByAppendingPathComponent:@"Wine Files"];

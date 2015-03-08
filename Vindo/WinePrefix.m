@@ -28,8 +28,15 @@ NSString *WineServerDidStartNotification = @"WineServerDidStartNotification";
 @synthesize wineEnvironment;
 
 - (id)initWithPath:(NSURL *)prefixPath {
-    if (self = [super init])
-        path = prefixPath;
+    if (self = [super init]) {
+        path = [prefixPath retain];
+        NSFileManager *manager = [NSFileManager defaultManager];
+        if (![manager createDirectoryAtURL:path
+               withIntermediateDirectories:YES
+                                attributes:nil
+                                     error:nil])
+            [NSException raise:NSGenericException format:@"could not create prefix directory %@", path];
+    }
     return self;
 }
 
@@ -85,7 +92,7 @@ NSString *WineServerDidStartNotification = @"WineServerDidStartNotification";
 
 - (NSDictionary *)wineEnvironment {
     return [NSDictionary dictionaryWithObjectsAndKeys:
-                                                 self.path, @"WINEPREFIX",
+                                          [self.path path], @"WINEPREFIX",
            [usrPath stringByAppendingPathComponent:@"bin"], @"PATH", nil];
 }
 
@@ -95,12 +102,21 @@ NSString *WineServerDidStartNotification = @"WineServerDidStartNotification";
     int logFileDescriptor = open([logFilePath UTF8String],
                                      O_WRONLY | O_CREAT | O_APPEND,
                                      S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+    if (logFileDescriptor < 0) {
+        [NSException raise:NSGenericException format:@"error opening file: %s", strerror(errno)];
+    }
     return [[[NSFileHandle alloc] initWithFileDescriptor:logFileDescriptor closeOnDealloc:YES] autorelease];
+}
+
+- (void)dealloc {
+    [path release];
+    
+    [super dealloc];
 }
 
 + (void)initialize {
     if (self == [WinePrefix self])
-        usrPath = [NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:@"usr"];
+        usrPath = [[NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:@"usr"] retain];
 }
 
 @end
