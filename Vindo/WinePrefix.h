@@ -22,6 +22,7 @@ extern NSString *const kWineServerExitStatus;
 
 - (void)startServer;
 - (void)stopServer;
+- (BOOL)isServerRunning;
 
 - (void)run:(NSString *)exePath;
 

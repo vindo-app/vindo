@@ -25,11 +25,31 @@
                                     forKey:@"RHPreferencesWindowControllerSelectedItemIdentifier"]];
     
     prefix = [[WinePrefix alloc] initWithPath:[self defaultPrefixPath]];
+#ifdef DEBUG
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self
+               selector:@selector(prefixNotificationSpy:)
+                   name:nil
+                 object:prefix];
+#endif
     [prefix startServer];
 }
 
-- (void)applicationWillTerminate:(NSNotification *)notification {
-    [prefix stopServer];
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+    if ([prefix isServerRunning]) {
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self
+                   selector:@selector(retryTerminateApp:)
+                       name:WineServerDidStopNotification
+                     object:prefix];
+        [prefix stopServer];
+        return NSTerminateCancel;
+    } else
+        return NSTerminateNow;
+}
+
+- (void)retryTerminateApp:(NSNotification *)notifications {
+    [NSApp terminate:self];
 }
               
 - (NSURL *)defaultPrefixPath {
@@ -61,5 +81,11 @@
     
     [super dealloc];
 }
+
+#ifdef DEBUG
+- (void)prefixNotificationSpy:(NSNotification *)notification {
+    NSLog(@"%@", notification);
+}
+#endif
 
 @end
