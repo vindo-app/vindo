@@ -18,14 +18,14 @@ extern NSString *const kWineServerExitStatus;
 
 @interface WinePrefix : NSObject
 
-- (id)initWithPath:(NSURL *)path;
+- (instancetype)initWithPath:(NSURL *)path;
 
 - (void)startServer;
 - (void)stopServer;
-- (BOOL)isServerRunning;
 
 - (void)run:(NSString *)exePath;
 
 @property (readonly) NSURL *path;
+@property (readonly, getter=isServerRunning) BOOL serverRunning;
 
 @end

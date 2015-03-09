@@ -10,13 +10,11 @@
 
 @implementation GeneralPreferencesViewController
 
-- (id)init {
+- (instancetype)init {
     if (self = [super init]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
-                                       [NSNumber numberWithBool:NO], @"startAtLogin",
-                                       @"Windows 7", @"windowsVersion",
-                                    nil]];
+        [defaults registerDefaults:@{@"startAtLogin":   @NO,
+                                     @"windowsVersion": @"Windows 7"}];
     }
     return self;
 }

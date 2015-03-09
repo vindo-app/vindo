@@ -10,7 +10,7 @@
 
 @implementation WineCfgViewController
 
-- (id)init {
+- (instancetype)init {
     return [super initWithNibName:@"WineCfgViewController" bundle:nil];
 }
 

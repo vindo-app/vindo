@@ -19,8 +19,7 @@
     
     // workaround bug in RHPreferences
     [[NSUserDefaults standardUserDefaults] registerDefaults:
-        [NSDictionary dictionaryWithObject:@"GeneralPreferencesViewController"
-                                    forKey:@"RHPreferencesWindowControllerSelectedItemIdentifier"]];
+        @{@"RHPreferencesWindowControllerSelectedItemIdentifier": @"GeneralPreferencesViewController"}];
     
     prefix = [[WinePrefix alloc] initWithPath:[self defaultPrefixPath]];
 #ifdef DEBUG
@@ -57,12 +56,12 @@
 - (IBAction)showPreferences: (id)sender {
     if (prefs == nil) {
         prefs = [[RHPreferencesWindowController alloc] initWithViewControllers:
-                                 [NSArray arrayWithObjects:
-                                  [RHPreferencesWindowController flexibleSpacePlaceholderController],
-                                  [GeneralPreferencesViewController new],
-                                  [WineCfgViewController new],
-                                  [RHPreferencesWindowController flexibleSpacePlaceholderController],
-                                  nil]];
+                                 @[
+                                   [RHPreferencesWindowController flexibleSpacePlaceholderController],
+                                   [GeneralPreferencesViewController new],
+                                   [WineCfgViewController new],
+                                   [RHPreferencesWindowController flexibleSpacePlaceholderController]
+                                  ]];
         // workaround for missing behavior in RHPreferences
         prefs.window.collectionBehavior =
             NSWindowCollectionBehaviorMoveToActiveSpace |

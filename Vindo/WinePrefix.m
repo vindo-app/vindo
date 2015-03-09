@@ -14,7 +14,7 @@ static NSString *usrPath;
 
 @interface StartWineServerOperation : NSOperation
 
-- (id)initWithPrefix:(WinePrefix *)prefix;
+- (instancetype)initWithPrefix:(WinePrefix *)prefix;
 
 @property (readonly) WinePrefix *prefix;
 
@@ -25,7 +25,7 @@ static NSString *usrPath;
 
 @interface StopWineServerOperation : NSOperation
 
-- (id)initWithPrefix:(WinePrefix *)prefix serverTask:(NSTask *)server;
+- (instancetype)initWithPrefix:(WinePrefix *)prefix serverTask:(NSTask *)server;
 
 @property (readonly, strong) WinePrefix *prefix;
 
@@ -45,7 +45,7 @@ static NSString *usrPath;
 
 @implementation WinePrefix
 
-- (id)initWithPath:(NSURL *)prefixPath {
+- (instancetype)initWithPath:(NSURL *)prefixPath {
     if (self = [super init]) {
         _path = prefixPath;
         
@@ -93,9 +93,8 @@ static NSOperationQueue *ops;
 }
 
 - (NSDictionary *)wineEnvironment {
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-                                          [self.path path], @"WINEPREFIX",
-           [usrPath stringByAppendingPathComponent:@"bin"], @"PATH", nil];
+    return @{@"WINEPREFIX": [self.path path],
+           @"PATH": [usrPath stringByAppendingPathComponent:@"bin"]};
 }
 
 - (void)dealloc {    
@@ -119,7 +118,7 @@ static NSOperationQueue *ops;
 
 @implementation StartWineServerOperation
 
-- (id)initWithPrefix:(WinePrefix *)prefix {
+- (instancetype)initWithPrefix:(WinePrefix *)prefix {
     if (self = [super init])
         _prefix = prefix;
     return self;
@@ -132,7 +131,7 @@ static NSOperationQueue *ops;
         
         self.server = [NSTask new];
         self.server.launchPath = [usrPath stringByAppendingPathComponent:@"bin/wineserver"];
-        self.server.arguments = [NSArray arrayWithObjects:@"-f", nil]; // stay in foreground
+        self.server.arguments = @[@"-f", @"-k"]; // stay in foreground, kill existing server
         self.server.environment = _prefix.wineEnvironment;
         self.server.standardInput = [NSFileHandle fileHandleWithNullDevice];
         self.server.standardOutput = [self logFileHandle];
@@ -179,8 +178,7 @@ static NSOperationQueue *ops;
     [center postNotificationName:stopNotification
                           object:self
                         userInfo:
-     [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:_server.terminationStatus]
-                                 forKey:kWineServerExitStatus]];
+     @{kWineServerExitStatus: @(_server.terminationStatus)}];
 }
 
 - (NSFileHandle *)logFileHandle {
@@ -201,7 +199,7 @@ static NSOperationQueue *ops;
 
 @implementation StopWineServerOperation
 
-- (id)initWithPrefix:(WinePrefix *)prefix serverTask:(NSTask *)server {
+- (instancetype)initWithPrefix:(WinePrefix *)prefix serverTask:(NSTask *)server {
     if (self = [super init]) {
         _prefix = prefix;
         self.server = server;
