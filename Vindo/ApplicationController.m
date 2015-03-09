@@ -9,15 +9,13 @@
 #import "ApplicationController.h"
 
 @implementation ApplicationController
-@synthesize statusBarMenu;
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification {
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
     statusItem = [statusBar statusItemWithLength:NSSquareStatusItemLength];
-    [statusItem retain];
     statusItem.highlightMode = YES;
     statusItem.image = [NSImage imageNamed:@"Icon16"];
-    statusItem.menu = statusBarMenu;
+    statusItem.menu = _statusBarMenu;
     
     // workaround bug in RHPreferences
     [[NSUserDefaults standardUserDefaults] registerDefaults:
@@ -28,7 +26,7 @@
 #ifdef DEBUG
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self
-               selector:@selector(prefixNotificationSpy:)
+               selector:@selector(notificationSpy:)
                    name:nil
                  object:prefix];
 #endif
@@ -61,8 +59,8 @@
         prefs = [[RHPreferencesWindowController alloc] initWithViewControllers:
                                  [NSArray arrayWithObjects:
                                   [RHPreferencesWindowController flexibleSpacePlaceholderController],
-                                  [[GeneralPreferencesViewController new] autorelease],
-                                  [[WineCfgViewController new] autorelease],
+                                  [GeneralPreferencesViewController new],
+                                  [WineCfgViewController new],
                                   [RHPreferencesWindowController flexibleSpacePlaceholderController],
                                   nil]];
         // workaround for missing behavior in RHPreferences
@@ -75,15 +73,12 @@
 }
 
 - (void)dealloc {
-    [statusItem release];
     [prefix stopServer];
-    [prefix release];
     
-    [super dealloc];
 }
 
 #ifdef DEBUG
-- (void)prefixNotificationSpy:(NSNotification *)notification {
+- (void)notificationSpy:(NSNotification *)notification {
     NSLog(@"%@", notification);
 }
 #endif

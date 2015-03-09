@@ -20,7 +20,7 @@
     RHPreferencesWindowController *prefs;
 }
 
-@property (assign) IBOutlet NSMenu *statusBarMenu;
+@property (weak) IBOutlet NSMenu *statusBarMenu;
 
 - (IBAction)showPreferences:(id)sender;
 

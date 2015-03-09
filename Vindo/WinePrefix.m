@@ -17,9 +17,9 @@ static NSString *usrPath;
 
 - (id)initWithPrefix:(WinePrefix *)prefix;
 
-@property (readonly, retain) WinePrefix *prefix;
+@property (readonly) WinePrefix *prefix;
 
-@property (retain) NSTask *server;
+@property NSTask *server;
 
 @end
 
@@ -28,20 +28,17 @@ static NSString *usrPath;
 
 - (id)initWithPrefix:(WinePrefix *)prefix serverTask:(NSTask *)server;
 
-@property (readonly, retain) WinePrefix *prefix;
+@property (readonly, strong) WinePrefix *prefix;
 
-@property (retain) NSTask *server;
+@property NSTask *server;
 
 @end
 
 
 @interface WinePrefix ()
 
-@property (retain) StartWineServerOperation *startOp;
-@property (retain) StopWineServerOperation *stopOp;
-
-@property (readonly) NSDictionary *wineEnvironment;
-@property (readonly) NSFileHandle *logFileHandle;
+@property StartWineServerOperation *startOp;
+@property StopWineServerOperation *stopOp;
 
 @end
 
@@ -51,7 +48,7 @@ static NSString *usrPath;
 
 - (id)initWithPath:(NSURL *)prefixPath {
     if (self = [super init]) {
-        _path = [prefixPath retain];
+        _path = prefixPath;
         
         // make sure prefix directory exists
         NSFileManager *manager = [NSFileManager defaultManager];
@@ -61,9 +58,9 @@ static NSString *usrPath;
                                      error:nil])
             [NSException raise:NSGenericException format:@"could not create prefix directory %@", self.path];
         
-        self.startOp = [[[StartWineServerOperation alloc] initWithPrefix:self] autorelease];
-        self.stopOp = [[[StopWineServerOperation alloc] initWithPrefix:self
-                                                            serverTask:self.startOp.server] autorelease];
+        self.startOp = [[StartWineServerOperation alloc] initWithPrefix:self];
+        self.stopOp = [[StopWineServerOperation alloc] initWithPrefix:self
+                                                            serverTask:self.startOp.server];
     }
     return self;
 }
@@ -106,12 +103,11 @@ static NSOperationQueue *ops;
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center removeObserver:self];
     
-    [super dealloc];
 }
 
 + (void)initialize {
     if (self == [WinePrefix self]) {
-        usrPath = [[NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:@"usr"] retain];
+        usrPath = [NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:@"usr"];
         
         if (ops == nil)
             ops = [NSOperationQueue new];
@@ -126,7 +122,7 @@ static NSOperationQueue *ops;
 
 - (id)initWithPrefix:(WinePrefix *)prefix {
     if (self = [super init])
-        _prefix = [prefix retain];
+        _prefix = prefix;
     return self;
 }
 
@@ -135,7 +131,7 @@ static NSOperationQueue *ops;
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center postNotificationName:WineServerWillStartNotification object:self.prefix];
         
-        self.server = [[NSTask new] autorelease];
+        self.server = [NSTask new];
         self.server.launchPath = [usrPath stringByAppendingPathComponent:@"bin/wineserver"];
         self.server.arguments = [NSArray arrayWithObjects:@"-f", nil]; // stay in foreground
         self.server.environment = _prefix.wineEnvironment;
@@ -144,7 +140,6 @@ static NSOperationQueue *ops;
         self.server.standardError = [self logFileHandle];
         
         if (self.isCancelled) {
-            [self.server release];
             return;
         }
         
@@ -157,7 +152,6 @@ static NSOperationQueue *ops;
         if (self.isCancelled) {
             [self.server terminate];
             [self.server waitUntilExit];
-            [self.server release];
             return;
         }
         
@@ -166,7 +160,6 @@ static NSOperationQueue *ops;
         if (self.isCancelled) {
             [self.server terminate];
             [self.server waitUntilExit];
-            [self.server release];
             return;
         }
     }
@@ -201,7 +194,7 @@ static NSOperationQueue *ops;
     if (logFileDescriptor < 0)
         [NSException raise:NSGenericException format:@"error opening file: %s", strerror(errno)];
     
-    return [[[NSFileHandle alloc] initWithFileDescriptor:logFileDescriptor closeOnDealloc:YES] autorelease];
+    return [[NSFileHandle alloc] initWithFileDescriptor:logFileDescriptor closeOnDealloc:YES];
 }
 
 @end
@@ -211,7 +204,7 @@ static NSOperationQueue *ops;
 
 - (id)initWithPrefix:(WinePrefix *)prefix serverTask:(NSTask *)server {
     if (self = [super init]) {
-        _prefix = [prefix retain];
+        _prefix = prefix;
         self.server = server;
     }
     return self;
