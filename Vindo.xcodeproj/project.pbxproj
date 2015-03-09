@@ -16,7 +16,7 @@
 		AC1957DD1AA52D920077A25C /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1957D81AA52D770077A25C /* RHPreferences.framework */; };
 		AC1957DE1AA52D920077A25C /* RHPreferences.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC1957D81AA52D770077A25C /* RHPreferences.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC3A4EE21AA12F9A00781626 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE11AA12F9A00781626 /* main.m */; };
-		AC3A4EE51AA12F9A00781626 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE41AA12F9A00781626 /* AppDelegate.m */; };
+		AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE41AA12F9A00781626 /* ApplicationController.m */; };
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
 		ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA9D6161AA7E41A00194089 /* winecfg.png */; };
 		ACA9D61A1AA7E60A00194089 /* WinePrefix.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9D6191AA7E60A00194089 /* WinePrefix.m */; };
@@ -52,8 +52,8 @@
 		AC1957D81AA52D770077A25C /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
 		AC3A4EDC1AA12F9900781626 /* Vindo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vindo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3A4EE11AA12F9A00781626 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AC3A4EE31AA12F9A00781626 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Vindo/AppDelegate.h; sourceTree = "<group>"; };
-		AC3A4EE41AA12F9A00781626 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Vindo/AppDelegate.m; sourceTree = "<group>"; };
+		AC3A4EE31AA12F9A00781626 /* ApplicationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ApplicationController.h; path = Vindo/ApplicationController.h; sourceTree = "<group>"; };
+		AC3A4EE41AA12F9A00781626 /* ApplicationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ApplicationController.m; path = Vindo/ApplicationController.m; sourceTree = "<group>"; };
 		AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = Vindo/Credits.rtf; sourceTree = "<group>"; };
 		ACA9D6161AA7E41A00194089 /* winecfg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = winecfg.png; path = Vindo/winecfg.png; sourceTree = "<group>"; };
 		ACA9D6181AA7E60A00194089 /* WinePrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinePrefix.h; path = Vindo/WinePrefix.h; sourceTree = "<group>"; };
@@ -150,8 +150,8 @@
 			children = (
 				ACA9D6181AA7E60A00194089 /* WinePrefix.h */,
 				ACA9D6191AA7E60A00194089 /* WinePrefix.m */,
-				AC3A4EE31AA12F9A00781626 /* AppDelegate.h */,
-				AC3A4EE41AA12F9A00781626 /* AppDelegate.m */,
+				AC3A4EE31AA12F9A00781626 /* ApplicationController.h */,
+				AC3A4EE41AA12F9A00781626 /* ApplicationController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A23F3B41AA913FC00F1467C /* GeneralPreferencesViewController.m in Sources */,
-				AC3A4EE51AA12F9A00781626 /* AppDelegate.m in Sources */,
+				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				8A23F3B91AA9141500F1467C /* WineCfgViewController.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 				ACA9D61A1AA7E60A00194089 /* WinePrefix.m in Sources */,

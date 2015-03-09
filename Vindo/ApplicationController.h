@@ -14,7 +14,7 @@
 #import "WineCfgViewController.h"
 #import "WinePrefix.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
+@interface ApplicationController : NSObject <NSApplicationDelegate> {
     WinePrefix *prefix;
     NSStatusItem *statusItem;
     RHPreferencesWindowController *prefs;

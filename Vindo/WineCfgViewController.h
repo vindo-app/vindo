@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "RHPreferences/RHPreferences.h"
-#import "AppDelegate.h"
+#import "ApplicationController.h"
 
 @interface WineCfgViewController : NSViewController <RHPreferencesViewControllerProtocol>
 

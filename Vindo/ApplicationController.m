@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "ApplicationController.h"
 
-@implementation AppDelegate
+@implementation ApplicationController
 @synthesize statusBarMenu;
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification {
