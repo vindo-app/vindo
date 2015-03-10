@@ -13,7 +13,6 @@
 #import "WinePrefix.h"
 
 @interface ApplicationController : NSObject <NSApplicationDelegate> {
-    WinePrefix *prefix;
     NSStatusItem *statusItem;
     RHPreferencesWindowController *prefs;
 }
@@ -21,6 +20,8 @@
 @property (weak) IBOutlet NSMenu *statusBarMenu;
 
 - (IBAction)showPreferences:(id)sender;
+- (IBAction)runCannedProgram:(id)sender;
+- (IBAction)runProgram:(id)sender;
 
 @end
 

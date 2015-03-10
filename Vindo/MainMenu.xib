@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -22,30 +23,54 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Run" id="9xe-Uv-mhL">
                         <items>
-                            <menuItem title="File Manager…" id="3GW-fg-DaD">
+                            <menuItem title="File Manager" id="3GW-fg-DaD">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="runCannedProgram:" target="Voe-Tx-rLC" id="PxM-Xt-4rA"/>
+                                </connections>
                             </menuItem>
-                            <menuItem title="Internet Explorer…" id="kfW-VG-7Jy">
+                            <menuItem title="Internet Explorer" tag="1" id="kfW-VG-7Jy">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="runCannedProgram:" target="Voe-Tx-rLC" id="RZQ-Qc-T48"/>
+                                </connections>
                             </menuItem>
-                            <menuItem title="Minesweeper…" id="sz2-fP-fcd">
+                            <menuItem title="Minesweeper" tag="2" id="sz2-fP-fcd">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="runCannedProgram:" target="Voe-Tx-rLC" id="wOe-uV-JmV"/>
+                                </connections>
                             </menuItem>
-                            <menuItem title="Notepad…" id="blf-aG-A51">
+                            <menuItem title="Notepad" tag="3" id="blf-aG-A51">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="runCannedProgram:" target="Voe-Tx-rLC" id="I2J-2m-MYl"/>
+                                </connections>
                             </menuItem>
-                            <menuItem title="Console…" id="vce-K3-SEv">
+                            <menuItem title="Console" tag="4" id="vce-K3-SEv">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="runCannedProgram:" target="Voe-Tx-rLC" id="2Bw-MH-SnX"/>
+                                </connections>
                             </menuItem>
-                            <menuItem title="Wine Configuration…" id="ziQ-6u-X5a">
+                            <menuItem title="Wine Configuration" tag="5" id="ziQ-6u-X5a">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="runCannedProgram:" target="Voe-Tx-rLC" id="nOb-80-WMM"/>
+                                </connections>
                             </menuItem>
-                            <menuItem title="Registry Editor…" id="puT-oK-UIc">
+                            <menuItem title="Registry Editor" tag="6" id="puT-oK-UIc">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="runCannedProgram:" target="Voe-Tx-rLC" id="6nn-1q-pdd"/>
+                                </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="iI8-vx-iZ5"/>
                             <menuItem title="Other…" id="uWc-UV-hsk">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="runProgram:" target="Voe-Tx-rLC" id="mSf-Ce-bOs"/>
+                                </connections>
                             </menuItem>
                         </items>
                     </menu>

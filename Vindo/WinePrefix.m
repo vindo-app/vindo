@@ -34,10 +34,11 @@ static NSURL *usrURL;
 
 @interface RunOperation : NSOperation
 
-- (instancetype)initWithPrefix:(WinePrefix *)prefix program:(NSString *)program;
+- (instancetype)initWithPrefix:(WinePrefix *)prefix program:(NSString *)program arguments:(NSArray *)arguments;
 
 @property (readonly) WinePrefix *prefix;
 @property (readonly) NSString *program;
+@property (readonly) NSArray *arguments;
 
 @end
 
@@ -91,7 +92,12 @@ static NSOperationQueue *ops;
 }
 
 - (void)run:(NSString *)program {
-    RunOperation *runOp = [[RunOperation alloc] initWithPrefix:self program:program];
+    RunOperation *runOp = [[RunOperation alloc] initWithPrefix:self program:program arguments:@[]];
+    [ops addOperation:runOp];
+}
+
+- (void)run:(NSString *)program withArguments:(NSArray *)arguments {
+    RunOperation *runOp = [[RunOperation alloc] initWithPrefix:self program:program arguments:arguments];
     [ops addOperation:runOp];
 }
 
@@ -102,6 +108,7 @@ static NSOperationQueue *ops;
                        path];
     task.arguments = arguments;
     task.environment = self.wineEnvironment;
+    task.currentDirectoryPath = NSHomeDirectoryForUser(NSUserName());
     task.standardInput = [NSFileHandle fileHandleWithNullDevice];
     task.standardOutput = [self logFileHandle];
     task.standardError = [self logFileHandle];
@@ -163,7 +170,7 @@ static NSOperationQueue *ops;
         if (self.isCancelled)
             return;
         
-        self.server = [_prefix taskWithProgram:@"wineserver" arguments:@[@"-f"]]; // stay in foreground
+        self.server = [_prefix taskWithProgram:@"wineserver" arguments:@[@"--foreground", @"--persistent"]];
         
         if (self.isCancelled)
             return;
@@ -224,12 +231,17 @@ static NSOperationQueue *ops;
             [_prefix.startOp waitUntilFinished];
         }
         
+        // first end the session with wineboot
+        NSTask *endSession = [_prefix taskWithProgram:@"wine" arguments:@[@"wineboot", @"--end-session"]];
+        [endSession launch];
+        [endSession waitUntilExit];
+        
         NSTask *server = _prefix.startOp.server;
         
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         
         [center postNotificationName:WineServerWillStopNotification object:self.prefix];
-        [server terminate];
+        [server interrupt];
         [server waitUntilExit];
     } @catch (NSException *exception) {
         // Don't throw it, because it will go nowhere.
@@ -241,17 +253,18 @@ static NSOperationQueue *ops;
 
 @implementation RunOperation
 
-- (instancetype)initWithPrefix:(WinePrefix *)prefix program:(NSString *)program {
+- (instancetype)initWithPrefix:(WinePrefix *)prefix program:(NSString *)program arguments:(NSArray *)arguments {
     if (self = [super init]) {
         _prefix = prefix;
         _program = program;
+        _arguments = arguments;
     }
     return self;
 }
 
 - (void)main {
     @try {
-        NSTask *program = [_prefix taskWithProgram:@"wine" arguments:@[program]];
+        NSTask *program = [_prefix taskWithProgram:@"wine" arguments:[@[_program] arrayByAddingObjectsFromArray:_arguments]];
         [program launch];
     } @catch (NSException *exception) {
         // Don't throw it, because it will go nowhere.

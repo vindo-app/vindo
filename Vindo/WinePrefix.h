@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 extern NSString *const WineServerWillStartNotification;
 extern NSString *const WineServerDidStartNotification;
@@ -23,7 +23,8 @@ extern NSString *const kWineServerExitStatus;
 - (void)startServer;
 - (void)stopServer;
 
-- (void)run:(NSString *)exePath;
+- (void)run:(NSString *)program;
+- (void)run:(NSString *)program withArguments:(NSArray *)arguments;
 
 @property (readonly) NSURL *path;
 @property (readonly, getter=isServerRunning) BOOL serverRunning;
