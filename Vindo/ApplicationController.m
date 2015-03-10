@@ -7,6 +7,7 @@
 //
 
 #import "ApplicationController.h"
+#import "PrefixesController.h"
 
 @implementation ApplicationController
 
@@ -21,7 +22,8 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:
         @{@"RHPreferencesWindowControllerSelectedItemIdentifier": @"GeneralPreferencesViewController"}];
     
-    prefix = [[WinePrefix alloc] initWithPath:[self defaultPrefixPath]];
+    WinePrefix *prefix = [[WinePrefix alloc] initWithPath:[self defaultPrefixPath]];
+    [PrefixesController sharedController].defaultPrefix = prefix;
 #ifdef DEBUG
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self
@@ -32,7 +34,52 @@
     [prefix startServer];
 }
 
+- (void)runCannedProgram:(id)sender {
+    WinePrefix *prefix = [PrefixesController defaultPrefix];
+    
+    switch ([sender tag]) {
+        case 0: // file manager
+            [prefix run:@"winefile"];
+            break;
+        case 1: // internet explorer
+            [prefix run:@"iexplore"];
+            break;
+        case 2: // minesweeper
+            [prefix run:@"winemine"];
+            break;
+        case 3: // notepad
+            [prefix run:@"notepad"];
+            break;
+        case 4: // console
+            [prefix run:@"wineconsole" withArguments:@[@"cmd"]];
+            break;
+        case 5: // winecfg
+            [prefix run:@"winecfg"];
+            break;
+        case 6: // regedit
+            [prefix run:@"regedit"];
+            break;
+        default:
+            break;
+    }
+}
+
+- (IBAction)runProgram:(id)sender {
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    panel.canChooseDirectories = NO;
+    panel.allowsMultipleSelection = NO;
+    [panel beginWithCompletionHandler:^(NSInteger result) {
+        WinePrefix *prefix = [PrefixesController defaultPrefix];
+        
+        if (result == NSFileHandlingPanelOKButton) {
+            [prefix run:[panel.URLs.firstObject path]];
+        }
+    }];
+}
+
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+    WinePrefix *prefix = [PrefixesController defaultPrefix];
+    
     if (prefix.serverRunning) {
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
@@ -69,11 +116,6 @@
     }
     [prefs showWindow:self];
     [NSApp activateIgnoringOtherApps:YES];
-}
-
-- (void)dealloc {
-    [prefix stopServer];
-    
 }
 
 #ifdef DEBUG
