@@ -8,7 +8,7 @@
 
 #import "WinePrefix.h"
 
-static NSString *usrPath;
+static NSURL *usrURL;
 
 #pragma mark Private Interfaces
 
@@ -25,11 +25,9 @@ static NSString *usrPath;
 
 @interface StopWineServerOperation : NSOperation
 
-- (instancetype)initWithPrefix:(WinePrefix *)prefix serverTask:(NSTask *)server;
+- (instancetype)initWithPrefix:(WinePrefix *)prefix;
 
-@property (readonly, strong) WinePrefix *prefix;
-
-@property NSTask *server;
+@property (readonly) WinePrefix *prefix;
 
 @end
 
@@ -58,8 +56,7 @@ static NSString *usrPath;
             [NSException raise:NSGenericException format:@"could not create prefix directory %@", self.path];
         
         self.startOp = [[StartWineServerOperation alloc] initWithPrefix:self];
-        self.stopOp = [[StopWineServerOperation alloc] initWithPrefix:self
-                                                            serverTask:self.startOp.server];
+        self.stopOp = [[StopWineServerOperation alloc] initWithPrefix:self];
     }
     return self;
 }
@@ -94,7 +91,7 @@ static NSOperationQueue *ops;
 
 - (NSDictionary *)wineEnvironment {
     return @{@"WINEPREFIX": [self.path path],
-           @"PATH": [usrPath stringByAppendingPathComponent:@"bin"]};
+                   @"PATH": [[usrURL URLByAppendingPathComponent:@"bin"] path]};
 }
 
 - (void)dealloc {    
@@ -105,7 +102,7 @@ static NSOperationQueue *ops;
 
 + (void)initialize {
     if (self == [WinePrefix self]) {
-        usrPath = [NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:@"usr"];
+        usrURL = [NSBundle.mainBundle.resourceURL URLByAppendingPathComponent:@"usr"];
         
         if (ops == nil)
             ops = [NSOperationQueue new];
@@ -129,17 +126,20 @@ static NSOperationQueue *ops;
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center postNotificationName:WineServerWillStartNotification object:self.prefix];
         
-        self.server = [NSTask new];
-        self.server.launchPath = [usrPath stringByAppendingPathComponent:@"bin/wineserver"];
-        self.server.arguments = @[@"-f", @"-k"]; // stay in foreground, kill existing server
-        self.server.environment = _prefix.wineEnvironment;
-        self.server.standardInput = [NSFileHandle fileHandleWithNullDevice];
-        self.server.standardOutput = [self logFileHandle];
-        self.server.standardError = [self logFileHandle];
-        
-        if (self.isCancelled) {
+        if (self.isCancelled)
             return;
-        }
+        
+        NSTask *killExistingServer = [self taskWithProgram:@"wineserver" arguments:@[@"-k"]]; // kill any existing wineserver
+        [killExistingServer launch];
+        [killExistingServer waitUntilExit];
+        
+        if (self.isCancelled)
+            return;
+        
+        self.server = [self taskWithProgram:@"wineserver" arguments:@[@"-f"]]; // stay in foreground
+        
+        if (self.isCancelled)
+            return;
         
         [center addObserver:self
                    selector:@selector(serverTaskStopped:)
@@ -169,16 +169,22 @@ static NSOperationQueue *ops;
 - (void)serverTaskStopped:(NSNotification *)notification {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
-    NSString *stopNotification;
-    if (_server.terminationStatus == 0)
-        stopNotification = WineServerDidStopNotification;
-    else
-        stopNotification = WineServerDidCrashNotification;
+    [center postNotificationName:WineServerDidStopNotification
+                          object:self.prefix];
+}
+
+- (NSTask *)taskWithProgram:(NSString *)program arguments:(NSArray *)arguments {
+    NSTask *task = [NSTask new];
+    task.launchPath = [[[usrURL URLByAppendingPathComponent:@"bin"]
+                                URLByAppendingPathComponent:program]
+                       path];
+    task.arguments = arguments;
+    task.environment = _prefix.wineEnvironment;
+    task.standardInput = [NSFileHandle fileHandleWithNullDevice];
+    task.standardOutput = [self logFileHandle];
+    task.standardError = [self logFileHandle];
     
-    [center postNotificationName:stopNotification
-                          object:self
-                        userInfo:
-     @{kWineServerExitStatus: @(_server.terminationStatus)}];
+    return task;
 }
 
 - (NSFileHandle *)logFileHandle {
@@ -199,10 +205,9 @@ static NSOperationQueue *ops;
 
 @implementation StopWineServerOperation
 
-- (instancetype)initWithPrefix:(WinePrefix *)prefix serverTask:(NSTask *)server {
+- (instancetype)initWithPrefix:(WinePrefix *)prefix {
     if (self = [super init]) {
         _prefix = prefix;
-        self.server = server;
     }
     return self;
 }
@@ -213,11 +218,13 @@ static NSOperationQueue *ops;
         [_prefix.startOp waitUntilFinished];
     }
     
+    NSTask *server = _prefix.startOp.server;
+    
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
     [center postNotificationName:WineServerWillStopNotification object:self.prefix];
-    [_server terminate];
-    [_server waitUntilExit];
+    [server terminate];
+    [server waitUntilExit];
 }
 
 @end

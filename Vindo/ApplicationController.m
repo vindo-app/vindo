@@ -33,7 +33,7 @@
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-    if ([prefix isServerRunning]) {
+    if (prefix.serverRunning) {
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
                    selector:@selector(retryTerminateApp:)
