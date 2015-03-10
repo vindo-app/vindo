@@ -32,6 +32,16 @@ static NSURL *usrURL;
 @end
 
 
+@interface RunOperation : NSOperation
+
+- (instancetype)initWithPrefix:(WinePrefix *)prefix program:(NSString *)program;
+
+@property (readonly) WinePrefix *prefix;
+@property (readonly) NSString *program;
+
+@end
+
+
 @interface WinePrefix ()
 
 @property StartWineServerOperation *startOp;
@@ -80,13 +90,23 @@ static NSOperationQueue *ops;
         return NO;
 }
 
-- (void)run:(NSString *)exePath {
-    NSAlert *alert = [NSAlert alertWithMessageText:@"That option does nothing"
-                                     defaultButton:@"OK"
-                                   alternateButton:nil
-                                       otherButton:nil
-                         informativeTextWithFormat:@"That's because this is a non-functioning prototype."];
-    [alert runModal];
+- (void)run:(NSString *)program {
+    RunOperation *runOp = [[RunOperation alloc] initWithPrefix:self program:program];
+    [ops addOperation:runOp];
+}
+
+- (NSTask *)taskWithProgram:(NSString *)program arguments:(NSArray *)arguments {
+    NSTask *task = [NSTask new];
+    task.launchPath = [[[usrURL URLByAppendingPathComponent:@"bin"]
+                        URLByAppendingPathComponent:program]
+                       path];
+    task.arguments = arguments;
+    task.environment = self.wineEnvironment;
+    task.standardInput = [NSFileHandle fileHandleWithNullDevice];
+    task.standardOutput = [self logFileHandle];
+    task.standardError = [self logFileHandle];
+    
+    return task;
 }
 
 - (NSDictionary *)wineEnvironment {
@@ -94,10 +114,17 @@ static NSOperationQueue *ops;
                    @"PATH": [[usrURL URLByAppendingPathComponent:@"bin"] path]};
 }
 
-- (void)dealloc {    
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center removeObserver:self];
+- (NSFileHandle *)logFileHandle {
+    // we have to use the unix functions for opening files because NSFileHandle doesn't do appending
+    NSString *logFilePath = [[self.path URLByAppendingPathComponent:@"wine.log"] path];
+    int logFileDescriptor = open([logFilePath UTF8String],
+                                 O_WRONLY | O_CREAT | O_APPEND,
+                                 0644); // mode: -rw-r--r--
     
+    if (logFileDescriptor < 0)
+        [NSException raise:NSGenericException format:@"error opening file: %s", strerror(errno)];
+    
+    return [[NSFileHandle alloc] initWithFileDescriptor:logFileDescriptor closeOnDealloc:YES];
 }
 
 + (void)initialize {
@@ -129,14 +156,14 @@ static NSOperationQueue *ops;
         if (self.isCancelled)
             return;
         
-        NSTask *killExistingServer = [self taskWithProgram:@"wineserver" arguments:@[@"-k"]]; // kill any existing wineserver
+        NSTask *killExistingServer = [_prefix taskWithProgram:@"wineserver" arguments:@[@"-k"]]; // kill any existing wineserver
         [killExistingServer launch];
         [killExistingServer waitUntilExit];
         
         if (self.isCancelled)
             return;
         
-        self.server = [self taskWithProgram:@"wineserver" arguments:@[@"-f"]]; // stay in foreground
+        self.server = [_prefix taskWithProgram:@"wineserver" arguments:@[@"-f"]]; // stay in foreground
         
         if (self.isCancelled)
             return;
@@ -146,6 +173,11 @@ static NSOperationQueue *ops;
                        name:NSTaskDidTerminateNotification
                      object:self.server];
         [self.server launch];
+        
+        // now that the server is launched, run wineboot to initialize the wine prefix (and kick the wineserver into action)
+        NSTask *wineboot = [_prefix taskWithProgram:@"wine" arguments:@[@"wineboot", @"--init"]];
+        [wineboot launch];
+        [wineboot waitUntilExit];
         
         if (self.isCancelled) {
             [self.server terminate];
@@ -173,33 +205,6 @@ static NSOperationQueue *ops;
                           object:self.prefix];
 }
 
-- (NSTask *)taskWithProgram:(NSString *)program arguments:(NSArray *)arguments {
-    NSTask *task = [NSTask new];
-    task.launchPath = [[[usrURL URLByAppendingPathComponent:@"bin"]
-                                URLByAppendingPathComponent:program]
-                       path];
-    task.arguments = arguments;
-    task.environment = _prefix.wineEnvironment;
-    task.standardInput = [NSFileHandle fileHandleWithNullDevice];
-    task.standardOutput = [self logFileHandle];
-    task.standardError = [self logFileHandle];
-    
-    return task;
-}
-
-- (NSFileHandle *)logFileHandle {
-    // we have to use the unix functions for opening files because NSFileHandle doesn't do appending
-    NSString *logFilePath = [[_prefix.path URLByAppendingPathComponent:@"wine.log"] path];
-    int logFileDescriptor = open([logFilePath UTF8String],
-                                 O_WRONLY | O_CREAT | O_APPEND,
-                                 0644); // mode: -rw-r--r--
-    
-    if (logFileDescriptor < 0)
-        [NSException raise:NSGenericException format:@"error opening file: %s", strerror(errno)];
-    
-    return [[NSFileHandle alloc] initWithFileDescriptor:logFileDescriptor closeOnDealloc:YES];
-}
-
 @end
 
 
@@ -213,18 +218,44 @@ static NSOperationQueue *ops;
 }
 
 - (void)main {
-    if (_prefix.startOp.isExecuting) {
-        [_prefix.startOp cancel];
-        [_prefix.startOp waitUntilFinished];
+    @try {
+        if (_prefix.startOp.isExecuting) {
+            [_prefix.startOp cancel];
+            [_prefix.startOp waitUntilFinished];
+        }
+        
+        NSTask *server = _prefix.startOp.server;
+        
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        
+        [center postNotificationName:WineServerWillStopNotification object:self.prefix];
+        [server terminate];
+        [server waitUntilExit];
+    } @catch (NSException *exception) {
+        // Don't throw it, because it will go nowhere.
     }
-    
-    NSTask *server = _prefix.startOp.server;
-    
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    
-    [center postNotificationName:WineServerWillStopNotification object:self.prefix];
-    [server terminate];
-    [server waitUntilExit];
+}
+
+@end
+
+
+@implementation RunOperation
+
+- (instancetype)initWithPrefix:(WinePrefix *)prefix program:(NSString *)program {
+    if (self = [super init]) {
+        _prefix = prefix;
+        _program = program;
+    }
+    return self;
+}
+
+- (void)main {
+    @try {
+        NSTask *program = [_prefix taskWithProgram:@"wine" arguments:@[program]];
+        [program launch];
+    } @catch (NSException *exception) {
+        // Don't throw it, because it will go nowhere.
+    }
 }
 
 @end
