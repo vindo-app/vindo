@@ -208,8 +208,9 @@ static NSOperationQueue *ops;
 - (void)serverTaskStopped:(NSNotification *)notification {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
-    [center postNotificationName:WineServerDidStopNotification
-                          object:self.prefix];
+    if (self.server.terminationStatus != 0)
+        [center postNotificationName:WineServerDidCrashNotification
+                              object:self.prefix];
 }
 
 @end
@@ -243,6 +244,9 @@ static NSOperationQueue *ops;
         [center postNotificationName:WineServerWillStopNotification object:self.prefix];
         [server interrupt];
         [server waitUntilExit];
+        
+        [center postNotificationName:WineServerDidStopNotification
+                              object:self.prefix];
     } @catch (NSException *exception) {
         // Don't throw it, because it will go nowhere.
     }
