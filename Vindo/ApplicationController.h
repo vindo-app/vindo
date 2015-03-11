@@ -17,7 +17,7 @@
     RHPreferencesWindowController *prefs;
 }
 
-@property (weak) IBOutlet NSMenu *statusBarMenu;
+@property IBOutlet NSMenu *statusBarMenu;
 
 - (IBAction)showPreferences:(id)sender;
 - (IBAction)runCannedProgram:(id)sender;
