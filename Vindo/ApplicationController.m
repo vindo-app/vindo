@@ -11,17 +11,7 @@
 
 @implementation ApplicationController
 
-- (void)applicationDidFinishLaunching: (NSNotification *)aNotification {
-    NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
-    statusItem = [statusBar statusItemWithLength:NSSquareStatusItemLength];
-    statusItem.highlightMode = YES;
-    statusItem.image = [NSImage imageNamed:@"Icon16"];
-    statusItem.menu = _statusBarMenu;
-    
-    // workaround bug in RHPreferences
-    [[NSUserDefaults standardUserDefaults] registerDefaults:
-        @{@"RHPreferencesWindowControllerSelectedItemIdentifier": @"GeneralPreferencesViewController"}];
-    
+- (void)applicationWillFinishLaunching:(NSNotification *)notification {
     WinePrefix *prefix = [[WinePrefix alloc] initWithPath:[self defaultPrefixPath]];
     [PrefixesController sharedController].defaultPrefix = prefix;
 #ifdef DEBUG
@@ -32,6 +22,24 @@
                  object:prefix];
 #endif
     [prefix startServer];
+}
+
+- (void)applicationDidFinishLaunching: (NSNotification *)aNotification {
+    NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
+    statusItem = [statusBar statusItemWithLength:NSSquareStatusItemLength];
+    statusItem.highlightMode = YES;
+    statusItem.image = [NSImage imageNamed:@"Icon16"];
+    statusItem.menu = _statusBarMenu;
+    
+    // workaround bug in RHPreferences
+    [[NSUserDefaults standardUserDefaults] registerDefaults:
+        @{@"RHPreferencesWindowControllerSelectedItemIdentifier": @"GeneralPreferencesViewController"}];
+}
+
+- (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
+    WinePrefix *prefix = [PrefixesController defaultPrefix];
+    [prefix run:filename];
+    return YES;
 }
 
 - (void)runCannedProgram:(id)sender {
