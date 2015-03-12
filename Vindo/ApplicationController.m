@@ -42,6 +42,11 @@
     return YES;
 }
 
+- (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames {
+    for (NSString *file in filenames)
+        [self application:sender openFile:file];
+}
+
 - (void)runCannedProgram:(id)sender {
     WinePrefix *prefix = [PrefixesController defaultPrefix];
     
@@ -103,7 +108,11 @@
 - (void)retryTerminateApp:(NSNotification *)notifications {
     [NSApp terminate:self];
 }
-              
+
+- (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
+    return NO;
+}
+
 - (NSURL *)defaultPrefixPath {
     return [[NSURL fileURLWithPath:NSHomeDirectory()] URLByAppendingPathComponent:@"Wine Files"];
 }
