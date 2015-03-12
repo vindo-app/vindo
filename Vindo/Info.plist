@@ -11,6 +11,8 @@
 			<array>
 				<string>exe</string>
 			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Executable</string>
 			<key>CFBundleTypeName</key>
 			<string>Windows Executable</string>
 			<key>CFBundleTypeRole</key>
