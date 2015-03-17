@@ -101,14 +101,34 @@ static NSOperationQueue *ops;
     [ops addOperation:runOp];
 }
 
+- (NSTask *)taskWithWindowsProgram:(NSString *)program arguments:(NSArray *)arguments {
+    NSString *currentDirectory;
+    if ([program rangeOfString:@"/"].location == NSNotFound) // quick and dirty
+        currentDirectory = NSHomeDirectory();
+    else
+        currentDirectory = [program stringByDeletingLastPathComponent];
+    
+    return [self taskWithProgram:@"wine"
+                       arguments:[@[program] arrayByAddingObjectsFromArray:arguments]
+                currentDirectory:currentDirectory];
+}
+
 - (NSTask *)taskWithProgram:(NSString *)program arguments:(NSArray *)arguments {
+    return [self taskWithProgram:program
+                       arguments:arguments
+                currentDirectory:NSHomeDirectory()];
+}
+
+- (NSTask *)taskWithProgram:(NSString *)program
+                  arguments:(NSArray *)arguments
+           currentDirectory:(NSString *)currentDirectory {
     NSTask *task = [NSTask new];
     task.launchPath = [[[usrURL URLByAppendingPathComponent:@"bin"]
                         URLByAppendingPathComponent:program]
                        path];
     task.arguments = arguments;
     task.environment = self.wineEnvironment;
-    task.currentDirectoryPath = NSHomeDirectoryForUser(NSUserName());
+    task.currentDirectoryPath = currentDirectory;
     task.standardInput = [NSFileHandle fileHandleWithNullDevice];
     task.standardOutput = [self logFileHandle];
     task.standardError = [self logFileHandle];
@@ -182,7 +202,7 @@ static NSOperationQueue *ops;
         [self.server launch];
         
         // now that the server is launched, run wineboot to initialize the wine prefix (and kick the wineserver into action)
-        NSTask *wineboot = [_prefix taskWithProgram:@"wine" arguments:@[@"wineboot", @"--init"]];
+        NSTask *wineboot = [_prefix taskWithWindowsProgram:@"wineboot" arguments:@[@"--init"]];
         [wineboot launch];
         [wineboot waitUntilExit];
         
@@ -233,7 +253,7 @@ static NSOperationQueue *ops;
         }
         
         // first end the session with wineboot
-        NSTask *endSession = [_prefix taskWithProgram:@"wine" arguments:@[@"wineboot", @"--end-session"]];
+        NSTask *endSession = [_prefix taskWithWindowsProgram:@"wineboot" arguments:@[@"--end-session"]];
         [endSession launch];
         [endSession waitUntilExit];
         
@@ -268,7 +288,7 @@ static NSOperationQueue *ops;
 
 - (void)main {
     @try {
-        NSTask *program = [_prefix taskWithProgram:@"wine" arguments:[@[_program] arrayByAddingObjectsFromArray:_arguments]];
+        NSTask *program = [_prefix taskWithWindowsProgram:_program arguments:_arguments];
         [program launch];
     } @catch (NSException *exception) {
         // Don't throw it, because it will go nowhere.
