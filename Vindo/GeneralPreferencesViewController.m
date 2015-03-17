@@ -11,7 +11,7 @@
 @implementation GeneralPreferencesViewController
 
 - (instancetype)init {
-    if (self = [super init]) {
+    if (self = [super initWithNibName:@"GeneralPreferences" bundle:nil]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults registerDefaults:@{@"startAtLogin":   @NO,
                                      @"windowsVersion": @"Windows 7"}];

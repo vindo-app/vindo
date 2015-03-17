@@ -7,15 +7,16 @@
 //
 
 #import "WineCfgViewController.h"
+#import "PrefixesController.h"
 
 @implementation WineCfgViewController
 
 - (instancetype)init {
-    return [super initWithNibName:@"WineCfgViewController" bundle:nil];
+    return [super initWithNibName:@"WineCfgPreferences" bundle:nil];
 }
 
 - (IBAction)runWinecfg:(id)sender {
-    
+    [[PrefixesController defaultPrefix] run:@"winecfg"];
 }
 
 - (NSString *)identifier {
