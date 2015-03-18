@@ -13,7 +13,7 @@
 		8A23F3BA1AA9141500F1467C /* WineCfgPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3B81AA9141500F1467C /* WineCfgPreferences.xib */; };
 		8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BE1AA91EF600F1467C /* MainMenu.xib */; };
 		8A23F3C31AA9237A00F1467C /* usr in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3C21AA9237900F1467C /* usr */; };
-		8A88B0551AAFAB200046B828 /* PrefixesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A88B0541AAFAB200046B828 /* PrefixesController.m */; };
+		8A88B0551AAFAB200046B828 /* WorldsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A88B0541AAFAB200046B828 /* WorldsController.m */; };
 		8ABB4AC51AB8DE7B00CDB93C /* ServerStatusWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC31AB8DE7B00CDB93C /* ServerStatusWindowController.m */; };
 		8ABB4AC61AB8DE7B00CDB93C /* ServerStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* ServerStatus.xib */; };
 		8ABB4AC91AB8ED3D00CDB93C /* ServerMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC81AB8ED3D00CDB93C /* ServerMonitor.m */; };
@@ -54,8 +54,8 @@
 		8A23F3BD1AA91EF600F1467C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = Vindo/MainMenu.xib; sourceTree = "<group>"; };
 		8A23F3C21AA9237900F1467C /* usr */ = {isa = PBXFileReference; lastKnownFileType = folder; name = usr; path = Vindo/usr; sourceTree = "<group>"; };
-		8A88B0531AAFAB200046B828 /* PrefixesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixesController.h; path = Vindo/PrefixesController.h; sourceTree = "<group>"; };
-		8A88B0541AAFAB200046B828 /* PrefixesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrefixesController.m; path = Vindo/PrefixesController.m; sourceTree = "<group>"; };
+		8A88B0531AAFAB200046B828 /* WorldsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorldsController.h; path = Vindo/WorldsController.h; sourceTree = "<group>"; };
+		8A88B0541AAFAB200046B828 /* WorldsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorldsController.m; path = Vindo/WorldsController.m; sourceTree = "<group>"; };
 		8ABB4AC21AB8DE7B00CDB93C /* ServerStatusWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerStatusWindowController.h; path = Vindo/ServerStatusWindowController.h; sourceTree = "<group>"; };
 		8ABB4AC31AB8DE7B00CDB93C /* ServerStatusWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerStatusWindowController.m; path = Vindo/ServerStatusWindowController.m; sourceTree = "<group>"; };
 		8ABB4AC41AB8DE7B00CDB93C /* ServerStatus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ServerStatus.xib; path = Vindo/ServerStatus.xib; sourceTree = "<group>"; };
@@ -173,14 +173,14 @@
 		AC8DB5AF1AA130A1000A6C51 /* Code */ = {
 			isa = PBXGroup;
 			children = (
-				8ABB4AC71AB8ED3D00CDB93C /* ServerMonitor.h */,
-				8ABB4AC81AB8ED3D00CDB93C /* ServerMonitor.m */,
-				ACA9D6181AA7E60A00194089 /* WinePrefix.h */,
-				ACA9D6191AA7E60A00194089 /* WinePrefix.m */,
-				8A88B0531AAFAB200046B828 /* PrefixesController.h */,
-				8A88B0541AAFAB200046B828 /* PrefixesController.m */,
 				AC3A4EE31AA12F9A00781626 /* ApplicationController.h */,
 				AC3A4EE41AA12F9A00781626 /* ApplicationController.m */,
+				ACA9D6181AA7E60A00194089 /* WinePrefix.h */,
+				ACA9D6191AA7E60A00194089 /* WinePrefix.m */,
+				8A88B0531AAFAB200046B828 /* WorldsController.h */,
+				8A88B0541AAFAB200046B828 /* WorldsController.m */,
+				8ABB4AC71AB8ED3D00CDB93C /* ServerMonitor.h */,
+				8ABB4AC81AB8ED3D00CDB93C /* ServerMonitor.m */,
 			);
 			name = Code;
 			sourceTree = "<group>";
@@ -281,7 +281,7 @@
 				8A23F3B91AA9141500F1467C /* WineCfgViewController.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 				ACA9D61A1AA7E60A00194089 /* WinePrefix.m in Sources */,
-				8A88B0551AAFAB200046B828 /* PrefixesController.m in Sources */,
+				8A88B0551AAFAB200046B828 /* WorldsController.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* ServerStatusWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

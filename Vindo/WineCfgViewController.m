@@ -7,7 +7,7 @@
 //
 
 #import "WineCfgViewController.h"
-#import "PrefixesController.h"
+#import "WorldsController.h"
 
 @implementation WineCfgViewController
 
@@ -16,7 +16,7 @@
 }
 
 - (IBAction)runWinecfg:(id)sender {
-    [[PrefixesController defaultPrefix] run:@"winecfg"];
+    [[WorldsController defaultWorld] run:@"winecfg"];
 }
 
 - (NSString *)identifier {

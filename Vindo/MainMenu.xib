@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -18,6 +17,11 @@
             </connections>
         </customObject>
         <customObject id="UD3-En-pm3" customClass="ServerMonitor"/>
+        <customObject id="VAL-3R-Vpz" customClass="WorldsController">
+            <connections>
+                <outlet property="worldsMenu" destination="CXr-IV-7TW" id="QjU-Zi-CTY"/>
+            </connections>
+        </customObject>
         <menu id="cpY-Is-ZQ8">
             <items>
                 <menuItem title="Run" id="Nzl-9r-3bJ">
@@ -76,30 +80,12 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Show Drive in Finder" id="tbV-Et-R1K">
+                <menuItem title="World" id="wH6-nO-AEf">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Show Drive in Finder" id="1J7-Em-o1L">
+                    <menu key="submenu" title="World" id="CXr-IV-7TW">
                         <items>
-                            <menuItem title="C:" id="NV6-BW-wbC">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                            <menuItem title="Z:" id="jPv-bQ-eYc">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
-                <menuItem title="Boot" id="RJe-19-fcT">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Boot" id="6je-ow-Q8m">
-                        <items>
-                            <menuItem title="Force Quit All Processes" id="vru-Oz-TsM">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                            <menuItem title="Emulate Shutdown" id="xom-s7-q58">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                            <menuItem title="Emulate Reboot" id="NAJ-JR-WMS">
+                            <menuItem isSeparatorItem="YES" id="wpz-SG-hC0"/>
+                            <menuItem title="Manage Worlds…" id="pjx-dL-hd4">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
                         </items>

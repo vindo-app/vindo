@@ -9,7 +9,7 @@
 #import "ServerMonitor.h"
 #import "ServerStatusWindowController.h"
 #import "WinePrefix.h"
-#import "PrefixesController.h"
+#import "WorldsController.h"
 
 @interface ServerMonitor ()
 

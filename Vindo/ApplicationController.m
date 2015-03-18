@@ -7,13 +7,13 @@
 //
 
 #import "ApplicationController.h"
-#import "PrefixesController.h"
+#import "WorldsController.h"
 
 @implementation ApplicationController
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
     WinePrefix *prefix = [[WinePrefix alloc] initWithPath:[self defaultPrefixPath]];
-    [PrefixesController sharedController].defaultPrefix = prefix;
+    [WorldsController sharedController].defaultPrefix = prefix;
 #ifdef DEBUG
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self
@@ -37,7 +37,7 @@
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
-    WinePrefix *prefix = [PrefixesController defaultPrefix];
+    WinePrefix *prefix = [WorldsController defaultWorld];
     [prefix run:filename];
     return YES;
 }
@@ -48,7 +48,7 @@
 }
 
 - (void)runCannedProgram:(id)sender {
-    WinePrefix *prefix = [PrefixesController defaultPrefix];
+    WinePrefix *prefix = [WorldsController defaultWorld];
     
     switch ([sender tag]) {
         case 0: // file manager
@@ -82,7 +82,7 @@
     panel.canChooseDirectories = NO;
     panel.allowsMultipleSelection = NO;
     [panel beginWithCompletionHandler:^(NSInteger result) {
-        WinePrefix *prefix = [PrefixesController defaultPrefix];
+        WinePrefix *prefix = [WorldsController defaultWorld];
         
         if (result == NSFileHandlingPanelOKButton) {
             [prefix run:[panel.URLs.firstObject path]];
@@ -91,7 +91,7 @@
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-    WinePrefix *prefix = [PrefixesController defaultPrefix];
+    WinePrefix *prefix = [WorldsController defaultWorld];
     
     if (prefix.serverRunning) {
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
