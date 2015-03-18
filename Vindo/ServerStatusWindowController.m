@@ -49,7 +49,6 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     
-    self.window.title = self.message;
     self.placeholder.stringValue = self.message;
     [self.progress startAnimation:self];
 }
