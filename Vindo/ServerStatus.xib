@@ -15,6 +15,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="&lt;placeholder>" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="5pA-kO-4vu" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES" fullScreenAuxiliary="YES"/>
             <rect key="contentRect" x="139" y="85" width="276" height="83"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <view key="contentView" id="2Zq-WH-6ME">
@@ -36,7 +37,7 @@
                     </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="598" y="296.5"/>
+            <point key="canvasLocation" x="445" y="332.5"/>
         </window>
     </objects>
 </document>
