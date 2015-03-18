@@ -16,6 +16,7 @@
 		8A88B0551AAFAB200046B828 /* PrefixesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A88B0541AAFAB200046B828 /* PrefixesController.m */; };
 		8ABB4AC51AB8DE7B00CDB93C /* ServerStatusWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC31AB8DE7B00CDB93C /* ServerStatusWindowController.m */; };
 		8ABB4AC61AB8DE7B00CDB93C /* ServerStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* ServerStatus.xib */; };
+		8ABB4AC91AB8ED3D00CDB93C /* ServerMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC81AB8ED3D00CDB93C /* ServerMonitor.m */; };
 		8AE52F031AB10EAE00B03327 /* Executable.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8AE52F021AB10EAE00B03327 /* Executable.icns */; };
 		AC1957DD1AA52D920077A25C /* RHPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1957D81AA52D770077A25C /* RHPreferences.framework */; };
 		AC1957DE1AA52D920077A25C /* RHPreferences.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC1957D81AA52D770077A25C /* RHPreferences.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -58,6 +59,8 @@
 		8ABB4AC21AB8DE7B00CDB93C /* ServerStatusWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerStatusWindowController.h; path = Vindo/ServerStatusWindowController.h; sourceTree = "<group>"; };
 		8ABB4AC31AB8DE7B00CDB93C /* ServerStatusWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerStatusWindowController.m; path = Vindo/ServerStatusWindowController.m; sourceTree = "<group>"; };
 		8ABB4AC41AB8DE7B00CDB93C /* ServerStatus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ServerStatus.xib; path = Vindo/ServerStatus.xib; sourceTree = "<group>"; };
+		8ABB4AC71AB8ED3D00CDB93C /* ServerMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerMonitor.h; sourceTree = "<group>"; };
+		8ABB4AC81AB8ED3D00CDB93C /* ServerMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerMonitor.m; sourceTree = "<group>"; };
 		8AE52F021AB10EAE00B03327 /* Executable.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Executable.icns; sourceTree = "<group>"; };
 		AC1957D81AA52D770077A25C /* RHPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RHPreferences.framework; sourceTree = "<group>"; };
 		AC3A4EDC1AA12F9900781626 /* Vindo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vindo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +173,8 @@
 		AC8DB5AF1AA130A1000A6C51 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				8ABB4AC71AB8ED3D00CDB93C /* ServerMonitor.h */,
+				8ABB4AC81AB8ED3D00CDB93C /* ServerMonitor.m */,
 				ACA9D6181AA7E60A00194089 /* WinePrefix.h */,
 				ACA9D6191AA7E60A00194089 /* WinePrefix.m */,
 				8A88B0531AAFAB200046B828 /* PrefixesController.h */,
@@ -271,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A23F3B41AA913FC00F1467C /* GeneralPreferencesViewController.m in Sources */,
+				8ABB4AC91AB8ED3D00CDB93C /* ServerMonitor.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				8A23F3B91AA9141500F1467C /* WineCfgViewController.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,

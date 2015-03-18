@@ -17,6 +17,7 @@
                 <outlet property="statusBarMenu" destination="cpY-Is-ZQ8" id="d8A-G3-7GJ"/>
             </connections>
         </customObject>
+        <customObject id="UD3-En-pm3" customClass="ServerMonitor"/>
         <menu id="cpY-Is-ZQ8">
             <items>
                 <menuItem title="Run" id="Nzl-9r-3bJ">

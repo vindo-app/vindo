@@ -7,24 +7,51 @@
 //
 
 #import "ServerStatusWindowController.h"
+#import "PrefixesController.h"
+#import "WinePrefix.h"
 
 @interface ServerStatusWindowController ()
+
+@property IBOutlet NSTextField *placeholder;
+@property IBOutlet NSProgressIndicator *progress;
+
+@property NSTimer *timer;
 
 @end
 
 @implementation ServerStatusWindowController
 
-- (instancetype)init {
+- (instancetype)initWithMessage:(NSString *)message {
     if (self = [super initWithWindowNibName:@"ServerStatus"]) {
-        
+        _message = message;
     }
-    return [super initWithWindowNibName:@"ServerStatus"];
+    return self;
+}
+
+- (void)appear {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                                  target:self
+                                                selector:@selector(actuallyAppear:)
+                                                userInfo:nil
+                                                 repeats:NO];
+}
+
+- (void)actuallyAppear:(NSTimer *)timer {
+    [self showWindow:timer];
+}
+
+- (void)disappear {
+    [self.timer invalidate];
+    self.timer = nil;
+    [self close];
 }
 
 - (void)windowDidLoad {
     [super windowDidLoad];
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    self.window.title = self.message;
+    self.placeholder.stringValue = self.message;
+    [self.progress startAnimation:self];
 }
 
 @end

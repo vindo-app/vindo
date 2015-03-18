@@ -10,4 +10,11 @@
 
 @interface ServerStatusWindowController : NSWindowController
 
+- (instancetype)initWithMessage:(NSString *)message;
+
+- (void)appear;
+- (void)disappear;
+
+@property (readonly) NSString *message;
+
 @end
