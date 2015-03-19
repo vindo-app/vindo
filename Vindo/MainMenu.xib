@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -17,9 +18,10 @@
             </connections>
         </customObject>
         <customObject id="UD3-En-pm3" customClass="ServerMonitor"/>
-        <customObject id="VAL-3R-Vpz" customClass="WorldsController">
+        <customObject id="m6U-j8-RMv" customClass="WorldsMenuController">
             <connections>
-                <outlet property="worldsMenu" destination="CXr-IV-7TW" id="QjU-Zi-CTY"/>
+                <outlet property="worldsArrayController" destination="Qox-EO-R5a" id="Aw6-ai-Wqv"/>
+                <outlet property="worldsMenu" destination="CXr-IV-7TW" id="o7C-Tl-Qb1"/>
             </connections>
         </customObject>
         <menu id="cpY-Is-ZQ8">
@@ -114,5 +116,16 @@
             </items>
             <point key="canvasLocation" x="247" y="44.5"/>
         </menu>
+        <arrayController objectClassName="World" editable="NO" selectsInsertedObjects="NO" clearsFilterPredicateOnInsertion="NO" id="Qox-EO-R5a">
+            <connections>
+                <binding destination="OC0-WH-O9L" name="contentArray" keyPath="values.worlds" id="pzg-Lz-4Ac"/>
+                <binding destination="OC0-WH-O9L" name="selectionIndexes" keyPath="values.defaultWorldIndex" id="HWi-0G-txu">
+                    <dictionary key="options">
+                        <string key="NSValueTransformerName">IndexSetToIntTransformer</string>
+                    </dictionary>
+                </binding>
+            </connections>
+        </arrayController>
+        <userDefaultsController representsSharedInstance="YES" id="OC0-WH-O9L"/>
     </objects>
 </document>

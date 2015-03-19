@@ -7,21 +7,20 @@
 //
 
 #import "ApplicationController.h"
-#import "WorldsController.h"
+#import "World.h"
 
 @implementation ApplicationController
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
-    WinePrefix *prefix = [[WinePrefix alloc] initWithPath:[self defaultPrefixPath]];
-    [WorldsController sharedController].defaultPrefix = prefix;
+    World *world = [World worldNamed:@"Default World"];
 #ifdef DEBUG
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self
                selector:@selector(notificationSpy:)
                    name:nil
-                 object:prefix];
+                 object:world];
 #endif
-    [prefix startServer];
+    [world startServer];
 }
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification {
@@ -37,8 +36,8 @@
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
-    WinePrefix *prefix = [WorldsController defaultWorld];
-    [prefix run:filename];
+    World *world = [World defaultWorld];
+    [world run:filename];
     return YES;
 }
 
@@ -48,29 +47,29 @@
 }
 
 - (void)runCannedProgram:(id)sender {
-    WinePrefix *prefix = [WorldsController defaultWorld];
+    World *world = [World defaultWorld];
     
     switch ([sender tag]) {
         case 0: // file manager
-            [prefix run:@"winefile"];
+            [world run:@"winefile"];
             break;
         case 1: // internet explorer
-            [prefix run:@"iexplore"];
+            [world run:@"iexplore"];
             break;
         case 2: // minesweeper
-            [prefix run:@"winemine"];
+            [world run:@"winemine"];
             break;
         case 3: // notepad
-            [prefix run:@"notepad"];
+            [world run:@"notepad"];
             break;
         case 4: // console
-            [prefix run:@"wineconsole" withArguments:@[@"cmd"]];
+            [world run:@"wineconsole" withArguments:@[@"cmd"]];
             break;
         case 5: // winecfg
-            [prefix run:@"winecfg"];
+            [world run:@"winecfg"];
             break;
         case 6: // regedit
-            [prefix run:@"regedit"];
+            [world run:@"regedit"];
             break;
         default:
             break;
@@ -82,24 +81,24 @@
     panel.canChooseDirectories = NO;
     panel.allowsMultipleSelection = NO;
     [panel beginWithCompletionHandler:^(NSInteger result) {
-        WinePrefix *prefix = [WorldsController defaultWorld];
+        World *world = [World defaultWorld];
         
         if (result == NSFileHandlingPanelOKButton) {
-            [prefix run:[panel.URLs.firstObject path]];
+            [world run:[panel.URLs.firstObject path]];
         }
     }];
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-    WinePrefix *prefix = [WorldsController defaultWorld];
+    World *world = [World defaultWorld];
     
-    if (prefix.serverRunning) {
+    if (world.serverRunning) {
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
                    selector:@selector(retryTerminateApp:)
                        name:WineServerDidStopNotification
-                     object:prefix];
-        [prefix stopServer];
+                     object:world];
+        [world stopServer];
         return NSTerminateCancel;
     } else
         return NSTerminateNow;
@@ -111,10 +110,6 @@
 
 - (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
     return NO;
-}
-
-- (NSURL *)defaultPrefixPath {
-    return [[NSURL fileURLWithPath:NSHomeDirectory()] URLByAppendingPathComponent:@"Wine Files"];
 }
 
 - (IBAction)showPreferences: (id)sender {

@@ -7,8 +7,6 @@
 //
 
 #import "ServerStatusWindowController.h"
-#import "WorldsController.h"
-#import "WinePrefix.h"
 
 @interface ServerStatusWindowController ()
 
