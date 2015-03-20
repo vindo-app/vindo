@@ -20,6 +20,17 @@
 
 @implementation WorldsMenuController
 
+- (instancetype)init {
+    if (self = [super init]) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults registerDefaults:@{
+                                     @"worlds": @[@"Default World"],
+                                     @"defaultWorldIndex": @0
+                                     }];
+    }
+    return self;
+}
+
 - (void)awakeFromNib {
     template = [self.worldsMenu copy];
     
@@ -44,13 +55,13 @@
 - (void)redoMenu {
     [self.worldsMenu removeAllItems];
     
-    for (NSString *worldName in self.worldsArrayController.arrangedObjects) {
+    for (World *world in self.worldsArrayController.arrangedObjects) {
         NSMenuItem *item = [NSMenuItem new];
-        item.title = worldName;
-        item.representedObject = [World worldNamed:worldName];
+        item.title = world.name;
+        item.representedObject = world;
         item.target = self;
         item.action = @selector(worldSelected:);
-        if ([self.worldsArrayController.selectedObjects indexOfObject:worldName] != NSNotFound) // object is selected
+        if ([self.worldsArrayController.selectedObjects indexOfObject:world] != NSNotFound) // object is selected
             item.state = NSOnState;
         [self.worldsMenu addItem:item];
     }

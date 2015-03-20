@@ -25,6 +25,7 @@
 		AC3A4EE21AA12F9A00781626 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE11AA12F9A00781626 /* main.m */; };
 		AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE41AA12F9A00781626 /* ApplicationController.m */; };
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
+		AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */; };
 		ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA9D6161AA7E41A00194089 /* winecfg.png */; };
 		ACA9D61A1AA7E60A00194089 /* WinePrefix.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9D6191AA7E60A00194089 /* WinePrefix.m */; };
 		ACB107DA1AA3B8F900E031F5 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D71AA3B8F900E031F5 /* Icon.icns */; };
@@ -74,6 +75,8 @@
 		AC3A4EE31AA12F9A00781626 /* ApplicationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ApplicationController.h; path = Vindo/ApplicationController.h; sourceTree = "<group>"; };
 		AC3A4EE41AA12F9A00781626 /* ApplicationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ApplicationController.m; path = Vindo/ApplicationController.m; sourceTree = "<group>"; };
 		AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = Vindo/Credits.rtf; sourceTree = "<group>"; };
+		AC9681BD1ABCD59D00A9233B /* WorldsTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorldsTransformer.h; path = Vindo/WorldsTransformer.h; sourceTree = "<group>"; };
+		AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorldsTransformer.m; path = Vindo/WorldsTransformer.m; sourceTree = "<group>"; };
 		ACA9D6161AA7E41A00194089 /* winecfg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = winecfg.png; path = Vindo/winecfg.png; sourceTree = "<group>"; };
 		ACA9D6181AA7E60A00194089 /* WinePrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinePrefix.h; path = Vindo/WinePrefix.h; sourceTree = "<group>"; };
 		ACA9D6191AA7E60A00194089 /* WinePrefix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WinePrefix.m; path = Vindo/WinePrefix.m; sourceTree = "<group>"; };
@@ -181,18 +184,28 @@
 			children = (
 				AC3A4EE31AA12F9A00781626 /* ApplicationController.h */,
 				AC3A4EE41AA12F9A00781626 /* ApplicationController.m */,
-				8AC01D591ABB72E200F8C066 /* World.h */,
-				8AC01D5A1ABB72E200F8C066 /* World.m */,
-				8AC01D611ABB879D00F8C066 /* WorldsMenuController.h */,
-				8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */,
 				ACA9D6181AA7E60A00194089 /* WinePrefix.h */,
 				ACA9D6191AA7E60A00194089 /* WinePrefix.m */,
 				8AC01D5D1ABB84D100F8C066 /* ServerMonitor.h */,
 				8AC01D5E1ABB84D100F8C066 /* ServerMonitor.m */,
+				AC9681BC1ABCD57400A9233B /* Worlds */,
+			);
+			name = Code;
+			sourceTree = "<group>";
+		};
+		AC9681BC1ABCD57400A9233B /* Worlds */ = {
+			isa = PBXGroup;
+			children = (
+				8AC01D591ABB72E200F8C066 /* World.h */,
+				8AC01D5A1ABB72E200F8C066 /* World.m */,
+				8AC01D611ABB879D00F8C066 /* WorldsMenuController.h */,
+				8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */,
+				AC9681BD1ABCD59D00A9233B /* WorldsTransformer.h */,
+				AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */,
 				8AC01D6A1ABB930F00F8C066 /* IndexSetToIntTransformer.h */,
 				8AC01D6B1ABB930F00F8C066 /* IndexSetToIntTransformer.m */,
 			);
-			name = Code;
+			name = Worlds;
 			sourceTree = "<group>";
 		};
 		ACA9D6101AA7E2B500194089 /* WineCfg */ = {
@@ -294,6 +307,7 @@
 				8A23F3B91AA9141500F1467C /* WineCfgViewController.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 				ACA9D61A1AA7E60A00194089 /* WinePrefix.m in Sources */,
+				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* ServerStatusWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

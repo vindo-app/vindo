@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
+        <deployment defaultVersion="1060" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -114,11 +114,16 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="247" y="44.5"/>
+            <point key="canvasLocation" x="424" y="52.5"/>
         </menu>
         <arrayController objectClassName="World" editable="NO" selectsInsertedObjects="NO" clearsFilterPredicateOnInsertion="NO" id="Qox-EO-R5a">
             <connections>
-                <binding destination="OC0-WH-O9L" name="contentArray" keyPath="values.worlds" id="pzg-Lz-4Ac"/>
+                <binding destination="OC0-WH-O9L" name="contentArray" keyPath="values.worlds" id="Wpe-4L-5oZ">
+                    <dictionary key="options">
+                        <bool key="NSHandlesContentAsCompoundValue" value="YES"/>
+                        <string key="NSValueTransformerName">WorldsTransformer</string>
+                    </dictionary>
+                </binding>
                 <binding destination="OC0-WH-O9L" name="selectionIndexes" keyPath="values.defaultWorldIndex" id="HWi-0G-txu">
                     <dictionary key="options">
                         <string key="NSValueTransformerName">IndexSetToIntTransformer</string>

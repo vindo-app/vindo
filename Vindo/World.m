@@ -29,7 +29,7 @@ static NSMutableDictionary *worldsDictionary;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSArray *worlds = [defaults arrayForKey:@"worlds"];
     NSUInteger defaultWorldIndex = [defaults integerForKey:@"defaultWorldIndex"];
-    return [self worldNamed:[worlds objectAtIndex:defaultWorldIndex]];
+    return [self worldNamed:worlds[defaultWorldIndex]];
 }
 
 - (NSURL *)prefixPath:(NSString *)name {
