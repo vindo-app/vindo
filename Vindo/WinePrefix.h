@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 extern NSString *const WineServerWillStartNotification;
 extern NSString *const WineServerDidStartNotification;

@@ -7,41 +7,9 @@
 //
 
 #import "WinePrefix.h"
+#import "WineServerOperations.h"
 
 static NSURL *usrURL;
-
-#pragma mark Private Interfaces
-
-@interface StartWineServerOperation : NSOperation
-
-- (instancetype)initWithPrefix:(WinePrefix *)prefix;
-
-@property (readonly) WinePrefix *prefix;
-
-@property NSTask *server;
-
-@end
-
-
-@interface StopWineServerOperation : NSOperation
-
-- (instancetype)initWithPrefix:(WinePrefix *)prefix;
-
-@property (readonly) WinePrefix *prefix;
-
-@end
-
-
-@interface RunOperation : NSOperation
-
-- (instancetype)initWithPrefix:(WinePrefix *)prefix program:(NSString *)program arguments:(NSArray *)arguments;
-
-@property (readonly) WinePrefix *prefix;
-@property (readonly) NSString *program;
-@property (readonly) NSArray *arguments;
-
-@end
-
 
 @interface WinePrefix ()
 
@@ -49,8 +17,6 @@ static NSURL *usrURL;
 @property StopWineServerOperation *stopOp;
 
 @end
-
-#pragma mark Implementations
 
 @implementation WinePrefix
 
@@ -68,18 +34,41 @@ static NSURL *usrURL;
         
         self.startOp = [[StartWineServerOperation alloc] initWithPrefix:self];
         self.stopOp = [[StopWineServerOperation alloc] initWithPrefix:self];
+        
+        // make sure to stop the server when the app is about to terminate
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self
+                   selector:@selector(stopServerFromNotification:)
+                       name:NSApplicationWillTerminateNotification
+                     object:NSApp];
     }
     return self;
 }
 
 static NSOperationQueue *ops;
 
+#pragma mark Public Interfaces
+
 - (void)startServer {
+    if (self.isServerRunning)
+        return;
     [ops addOperation:self.startOp];
+    
 }
 
 - (void)stopServer {
+    if (self.startOp.isExecuting) {
+        [self.startOp cancel];
+        [self.startOp waitUntilFinished];
+    }
+    if (!self.isServerRunning)
+        return;
     [ops addOperation:self.stopOp];
+}
+
+- (void)stopServerFromNotification:(NSNotification *)notification {
+    [self stopServer];
+    [self.stopOp waitUntilFinished];
 }
 
 - (BOOL)isServerRunning {
@@ -100,6 +89,8 @@ static NSOperationQueue *ops;
     RunOperation *runOp = [[RunOperation alloc] initWithPrefix:self program:program arguments:arguments];
     [ops addOperation:runOp];
 }
+
+#pragma mark Task Creaters
 
 - (NSTask *)taskWithWindowsProgram:(NSString *)program arguments:(NSArray *)arguments {
     NSString *currentDirectory;
@@ -136,6 +127,8 @@ static NSOperationQueue *ops;
     return task;
 }
 
+#pragma mark Utilities for Task Creaters
+
 - (NSDictionary *)wineEnvironment {
     return @{@"WINEPREFIX": [self.path path],
                    @"PATH": [[usrURL URLByAppendingPathComponent:@"bin"] path]};
@@ -154,6 +147,13 @@ static NSOperationQueue *ops;
     return [[NSFileHandle alloc] initWithFileDescriptor:logFileDescriptor closeOnDealloc:YES];
 }
 
+#pragma mark Messy stuff that has to exist
+
+- (void)dealloc {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self];
+}
+
 + (void)initialize {
     if (self == [WinePrefix self]) {
         usrURL = [NSBundle.mainBundle.resourceURL URLByAppendingPathComponent:@"usr"];
@@ -164,140 +164,6 @@ static NSOperationQueue *ops;
 }
 
 @end
-
-#pragma mark Operations
-
-@implementation StartWineServerOperation
-
-- (instancetype)initWithPrefix:(WinePrefix *)prefix {
-    if (self = [super init])
-        _prefix = prefix;
-    return self;
-}
-
-- (void)main {
-    @try {
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center postNotificationName:WineServerWillStartNotification object:self.prefix];
-        
-        if (self.isCancelled)
-            return;
-        
-        NSTask *killExistingServer = [_prefix taskWithProgram:@"wineserver" arguments:@[@"-k"]]; // kill any existing wineserver
-        [killExistingServer launch];
-        [killExistingServer waitUntilExit];
-        
-        if (self.isCancelled)
-            return;
-        
-        self.server = [_prefix taskWithProgram:@"wineserver" arguments:@[@"--foreground", @"--persistent"]];
-        
-        if (self.isCancelled)
-            return;
-        
-        [center addObserver:self
-                   selector:@selector(serverTaskStopped:)
-                       name:NSTaskDidTerminateNotification
-                     object:self.server];
-        [self.server launch];
-        
-        // now that the server is launched, run wineboot to initialize the wine prefix (and kick the wineserver into action)
-        NSTask *wineboot = [_prefix taskWithWindowsProgram:@"wineboot" arguments:@[@"--init"]];
-        [wineboot launch];
-        [wineboot waitUntilExit];
-        
-        if (self.isCancelled) {
-            [self.server terminate];
-            [self.server waitUntilExit];
-            return;
-        }
-        
-        [center postNotificationName:WineServerDidStartNotification object:self.prefix];
-        
-        if (self.isCancelled) {
-            [self.server terminate];
-            [self.server waitUntilExit];
-            return;
-        }
-    }
-    @catch (NSException *exception) {
-        // Don't throw it, because it will go nowhere.
-    }
-}
-
-- (void)serverTaskStopped:(NSNotification *)notification {
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    
-    if (self.server.terminationStatus != 0)
-        [center postNotificationName:WineServerDidCrashNotification
-                              object:self.prefix];
-}
-
-@end
-
-
-@implementation StopWineServerOperation
-
-- (instancetype)initWithPrefix:(WinePrefix *)prefix {
-    if (self = [super init]) {
-        _prefix = prefix;
-    }
-    return self;
-}
-
-- (void)main {
-    @try {
-        if (_prefix.startOp.isExecuting) {
-            [_prefix.startOp cancel];
-            [_prefix.startOp waitUntilFinished];
-        }
-        
-        // first end the session with wineboot
-        NSTask *endSession = [_prefix taskWithWindowsProgram:@"wineboot" arguments:@[@"--end-session"]];
-        [endSession launch];
-        [endSession waitUntilExit];
-        
-        NSTask *server = _prefix.startOp.server;
-        
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        
-        [center postNotificationName:WineServerWillStopNotification object:self.prefix];
-        [server interrupt];
-        [server waitUntilExit];
-        
-        [center postNotificationName:WineServerDidStopNotification
-                              object:self.prefix];
-    } @catch (NSException *exception) {
-        // Don't throw it, because it will go nowhere.
-    }
-}
-
-@end
-
-
-@implementation RunOperation
-
-- (instancetype)initWithPrefix:(WinePrefix *)prefix program:(NSString *)program arguments:(NSArray *)arguments {
-    if (self = [super init]) {
-        _prefix = prefix;
-        _program = program;
-        _arguments = arguments;
-    }
-    return self;
-}
-
-- (void)main {
-    @try {
-        NSTask *program = [_prefix taskWithWindowsProgram:_program arguments:_arguments];
-        [program launch];
-    } @catch (NSException *exception) {
-        // Don't throw it, because it will go nowhere.
-    }
-}
-
-@end
-
-#pragma mark Notification Constants
 
 NSString *const WineServerWillStartNotification = @"WineServerWillStartNotification";
 NSString *const WineServerDidStartNotification = @"WineServerDidStartNotification";

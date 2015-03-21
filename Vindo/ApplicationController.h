@@ -8,9 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import <RHPreferences/RHPreferences.h>
-#import "GeneralPreferencesViewController.h"
-#import "WineCfgViewController.h"
-#import "WinePrefix.h"
 
 @interface ApplicationController : NSObject <NSApplicationDelegate> {
     NSStatusItem *statusItem;

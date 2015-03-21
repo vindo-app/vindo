@@ -7,6 +7,10 @@
 //
 
 #import "ApplicationController.h"
+#import "GeneralPreferencesViewController.h"
+#import "WineCfgViewController.h"
+#import "WorldsPreferencesViewController.h"
+#import "WinePrefix.h"
 #import "World.h"
 
 @implementation ApplicationController
@@ -119,6 +123,7 @@
                                    [RHPreferencesWindowController flexibleSpacePlaceholderController],
                                    [GeneralPreferencesViewController new],
                                    [WineCfgViewController new],
+                                   [WorldsPreferencesViewController new],
                                    [RHPreferencesWindowController flexibleSpacePlaceholderController]
                                   ]];
         // workaround for missing behavior in RHPreferences
