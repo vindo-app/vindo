@@ -8,6 +8,12 @@
 
 #import "WorldsPreferencesViewController.h"
 
+@interface WorldsPreferencesViewController ()
+
+@property IBOutlet NSTableView *table;
+
+@end
+
 @implementation WorldsPreferencesViewController
 
 - (instancetype)init {
@@ -19,11 +25,15 @@
 }
 
 - (NSImage *)toolbarItemImage {
-    return [NSImage imageNamed:NSImageNameBonjour];
+    return [NSImage imageNamed:NSImageNameNetwork];
 }
 
 - (NSString *)identifier {
     return self.className;
+}
+
+-(void)viewDidAppear {
+    
 }
 
 @end
