@@ -93,21 +93,6 @@
     }];
 }
 
-- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-    World *world = [World defaultWorld];
-    
-    if (world.serverRunning) {
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center addObserver:self
-                   selector:@selector(retryTerminateApp:)
-                       name:WineServerDidStopNotification
-                     object:world];
-        [world stopServer];
-        return NSTerminateCancel;
-    } else
-        return NSTerminateNow;
-}
-
 - (void)retryTerminateApp:(NSNotification *)notifications {
     [NSApp terminate:self];
 }
