@@ -6,11 +6,16 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
+#import "World.h"
 #import "WorldsPreferencesViewController.h"
+#import "WorldsPreferencesArrayController.h"
 
 @interface WorldsPreferencesViewController ()
 
-@property IBOutlet NSTableView *table;
+@property IBOutlet NSWindow *querySheet;
+@property IBOutlet NSTextField *queryText;
+
+@property IBOutlet WorldsPreferencesArrayController *arrayController;
 
 @end
 
@@ -18,6 +23,30 @@
 
 - (instancetype)init {
     return [super initWithNibName:@"WorldsPreferences" bundle:nil];
+}
+
+- (IBAction)addWorld:(id)sender {
+    [NSApp beginSheet:_querySheet
+       modalForWindow:self.view.window
+        modalDelegate:self
+       didEndSelector:@selector(didEndSheet:returnCode:contextInfo:)
+          contextInfo:NULL];
+}
+
+- (IBAction)querySheetDidEnd:(NSButton *)sender {
+    [NSApp endSheet:_querySheet returnCode:[sender tag]];
+}
+
+- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+    if (returnCode == 0) {
+        World *newWorld = [World worldNamed:_queryText.stringValue];
+        [_arrayController addObject:newWorld];
+        _arrayController.selectedObjects = @[newWorld];
+    }
+    [_querySheet orderOut:self];
+}
+
+- (IBAction)removeWorld:(id)sender {
 }
 
 - (NSString *)toolbarItemLabel {
@@ -30,10 +59,6 @@
 
 - (NSString *)identifier {
     return self.className;
-}
-
--(void)viewDidAppear {
-    
 }
 
 @end

@@ -17,6 +17,8 @@
 @property StartWineServerOperation *startOp;
 @property StopWineServerOperation *stopOp;
 
+@property NSTask *server;
+
 @end
 
 @implementation StartWineServerOperation
@@ -42,7 +44,7 @@
         if (self.isCancelled)
             return;
         
-        self.server = [_prefix taskWithProgram:@"wineserver" arguments:@[@"--foreground", @"--persistent"]];
+        NSTask *server = [_prefix taskWithProgram:@"wineserver" arguments:@[@"--foreground", @"--persistent"]];
         
         if (self.isCancelled)
             return;
@@ -50,14 +52,16 @@
         [center addObserver:self
                    selector:@selector(serverTaskStopped:)
                        name:NSTaskDidTerminateNotification
-                     object:self.server];
-        [self.server launch];
+                     object:server];
+        [server launch];
         
         if (self.isCancelled) {
-            [self.server terminate];
-            [self.server waitUntilExit];
+            [server terminate];
+            [server waitUntilExit];
             return;
         }
+        
+        _prefix.server = server;
         
         // now that the server is launched, run wineboot to initialize the wine prefix (and kick the wineserver into action)
         NSTask *wineboot = [_prefix taskWithWindowsProgram:@"wineboot" arguments:@[@"--init"]];
@@ -74,9 +78,9 @@
 - (void)serverTaskStopped:(NSNotification *)notification {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
-    if (self.server.terminationStatus != 0)
+    if (_prefix.server.terminationStatus != 0)
         [center postNotificationName:WineServerDidCrashNotification
-                              object:self.prefix];
+                              object:_prefix];
 }
 
 @end
@@ -97,7 +101,7 @@
         [endSession launch];
         [endSession waitUntilExit];
         
-        NSTask *server = _prefix.startOp.server;
+        NSTask *server = _prefix.server;
         
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         

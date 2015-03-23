@@ -16,6 +16,8 @@ static NSURL *usrURL;
 @property StartWineServerOperation *startOp;
 @property StopWineServerOperation *stopOp;
 
+@property NSTask *server;
+
 @end
 
 @implementation WinePrefix
@@ -50,7 +52,7 @@ static NSOperationQueue *ops;
 #pragma mark Public Interfaces
 
 - (void)startServer {
-    if (self.isServerRunning)
+    if (self.server != nil && self.server.isRunning)
         return;
     [ops addOperation:self.startOp];
     
@@ -61,7 +63,7 @@ static NSOperationQueue *ops;
         [self.startOp cancel];
         [self.startOp waitUntilFinished];
     }
-    if (!self.isServerRunning)
+    if (self.server == nil || !self.server.isRunning)
         return;
     [ops addOperation:self.stopOp];
 }
@@ -74,8 +76,8 @@ static NSOperationQueue *ops;
 - (BOOL)isServerRunning {
     if (self.startOp.isExecuting)
         return NO;
-    if (self.startOp.server != nil)
-        return [self.startOp.server isRunning];
+    if (self.server != nil)
+        return [self.server isRunning];
     else
         return NO;
 }

@@ -15,8 +15,6 @@
 
 @property (readonly) WinePrefix *prefix;
 
-@property NSTask *server;
-
 @end
 
 
