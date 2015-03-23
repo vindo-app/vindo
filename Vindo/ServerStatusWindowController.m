@@ -19,14 +19,27 @@
 
 @implementation ServerStatusWindowController
 
-- (instancetype)initWithMessage:(NSString *)message {
+- (instancetype)initWithMessage:(NSString *)message
+              startNotification:(NSString *)startNotification
+               stopNotification:(NSString *)stopNotification
+                         object:(id)object {
     if (self = [super initWithWindowNibName:@"ServerStatus"]) {
         _message = message;
+        
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self
+                   selector:@selector(appear:)
+                       name:startNotification
+                     object:object];
+        [center addObserver:self
+                   selector:@selector(disappear:)
+                       name:stopNotification
+                     object:object];
     }
     return self;
 }
 
-- (void)appear {
+- (void)appear:(NSNotification *)notification {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5
                                                   target:self
                                                 selector:@selector(actuallyAppear:)
@@ -38,7 +51,7 @@
     [self showWindow:timer];
 }
 
-- (void)disappear {
+- (void)disappear:(NSNotification *)notification {
     [self.timer invalidate];
     self.timer = nil;
     [self close];

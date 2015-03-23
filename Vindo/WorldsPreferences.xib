@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" headerView="PbN-a3-Rl7" id="NAj-ty-2OG">
-                                <rect key="frame" x="0.0" y="0.0" width="238" height="117"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="19"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,14 +44,15 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                        <connections>
-                                            <binding destination="Dir-K8-Rli" name="value" keyPath="arrangedObjects.name" id="lAv-3m-gPU"/>
-                                        </connections>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="identifier" value="world"/>
+                                        </userDefinedRuntimeAttributes>
                                     </tableColumn>
                                 </tableColumns>
                                 <connections>
                                     <binding destination="Dir-K8-Rli" name="content" keyPath="arrangedObjects" id="pMB-ub-bit"/>
                                     <binding destination="Dir-K8-Rli" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="pMB-ub-bit" id="QpS-BR-tXp"/>
+                                    <outlet property="dataSource" destination="O0T-dh-etB" id="YYQ-nz-Qrx"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -106,19 +107,8 @@
                     </popUpButtonCell>
                 </popUpButton>
             </subviews>
-            <point key="canvasLocation" x="-110" y="24"/>
+            <point key="canvasLocation" x="-22" y="8"/>
         </customView>
-        <userDefaultsController representsSharedInstance="YES" id="xwJ-0n-dk7"/>
-        <arrayController objectClassName="World" editable="NO" selectsInsertedObjects="NO" avoidsEmptySelection="NO" clearsFilterPredicateOnInsertion="NO" automaticallyRearrangesObjects="YES" id="Dir-K8-Rli" customClass="WorldsPreferencesArrayController">
-            <connections>
-                <binding destination="xwJ-0n-dk7" name="contentArray" keyPath="values.worlds" id="UYR-PK-ODS">
-                    <dictionary key="options">
-                        <bool key="NSHandlesContentAsCompoundValue" value="YES"/>
-                        <string key="NSValueTransformerName">WorldsTransformer</string>
-                    </dictionary>
-                </binding>
-            </connections>
-        </arrayController>
         <window title="Query Sheet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="oXA-Yo-anN" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" documentModal="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -176,8 +166,24 @@ Gw
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="-55" y="311.5"/>
+            <point key="canvasLocation" x="-86" y="311.5"/>
         </window>
+        <customObject id="O0T-dh-etB" customClass="WorldsPreferencesDataSource">
+            <connections>
+                <outlet property="arrayController" destination="Dir-K8-Rli" id="tni-W6-SZ3"/>
+            </connections>
+        </customObject>
+        <userDefaultsController representsSharedInstance="YES" id="xwJ-0n-dk7"/>
+        <arrayController objectClassName="World" editable="NO" selectsInsertedObjects="NO" avoidsEmptySelection="NO" clearsFilterPredicateOnInsertion="NO" automaticallyRearrangesObjects="YES" id="Dir-K8-Rli" customClass="WorldsPreferencesArrayController">
+            <connections>
+                <binding destination="xwJ-0n-dk7" name="contentArray" keyPath="values.worlds" id="UYR-PK-ODS">
+                    <dictionary key="options">
+                        <bool key="NSHandlesContentAsCompoundValue" value="YES"/>
+                        <string key="NSValueTransformerName">WorldsTransformer</string>
+                    </dictionary>
+                </binding>
+            </connections>
+        </arrayController>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
