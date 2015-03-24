@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
-#import "ServerStatusWindowController.h"
+#import "StatusWindowController.h"
 
-@interface ServerStatusWindowController ()
+@interface StatusWindowController ()
 
 @property IBOutlet NSTextField *placeholder;
 @property IBOutlet NSProgressIndicator *progress;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation ServerStatusWindowController
+@implementation StatusWindowController
 
 - (instancetype)initWithMessage:(NSString *)message
               startNotification:(NSString *)startNotification

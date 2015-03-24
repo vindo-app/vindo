@@ -13,8 +13,11 @@
 		8A23F3BA1AA9141500F1467C /* WineCfgPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3B81AA9141500F1467C /* WineCfgPreferences.xib */; };
 		8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BE1AA91EF600F1467C /* MainMenu.xib */; };
 		8A23F3C31AA9237A00F1467C /* usr in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3C21AA9237900F1467C /* usr */; };
-		8ABB4AC51AB8DE7B00CDB93C /* ServerStatusWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC31AB8DE7B00CDB93C /* ServerStatusWindowController.m */; };
-		8ABB4AC61AB8DE7B00CDB93C /* ServerStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* ServerStatus.xib */; };
+		8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */; };
+		8A525F0C1AC22A3500D9538A /* WorldTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A525F0B1AC22A3500D9538A /* WorldTask.m */; };
+		8A525F0F1AC22BD000D9538A /* CreateWorldTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A525F0E1AC22BD000D9538A /* CreateWorldTask.m */; };
+		8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */; };
+		8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* Status.xib */; };
 		8AC01D5B1ABB72E200F8C066 /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01D5A1ABB72E200F8C066 /* World.m */; };
 		8AC01D5F1ABB84D100F8C066 /* Executable.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8AC01D5C1ABB84D100F8C066 /* Executable.icns */; };
 		8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */; };
@@ -61,9 +64,15 @@
 		8A23F3BD1AA91EF600F1467C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		8A23F3C21AA9237900F1467C /* usr */ = {isa = PBXFileReference; lastKnownFileType = folder; path = usr; sourceTree = "<group>"; };
-		8ABB4AC21AB8DE7B00CDB93C /* ServerStatusWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerStatusWindowController.h; sourceTree = "<group>"; };
-		8ABB4AC31AB8DE7B00CDB93C /* ServerStatusWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerStatusWindowController.m; sourceTree = "<group>"; };
-		8ABB4AC41AB8DE7B00CDB93C /* ServerStatus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerStatus.xib; sourceTree = "<group>"; };
+		8A525F071AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+DefaultQueue.h"; sourceTree = "<group>"; };
+		8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+DefaultQueue.m"; sourceTree = "<group>"; };
+		8A525F0A1AC22A3500D9538A /* WorldTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldTask.h; sourceTree = "<group>"; };
+		8A525F0B1AC22A3500D9538A /* WorldTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldTask.m; sourceTree = "<group>"; };
+		8A525F0D1AC22BD000D9538A /* CreateWorldTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateWorldTask.h; sourceTree = "<group>"; };
+		8A525F0E1AC22BD000D9538A /* CreateWorldTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateWorldTask.m; sourceTree = "<group>"; };
+		8ABB4AC21AB8DE7B00CDB93C /* StatusWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusWindowController.h; sourceTree = "<group>"; };
+		8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusWindowController.m; sourceTree = "<group>"; };
+		8ABB4AC41AB8DE7B00CDB93C /* Status.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Status.xib; sourceTree = "<group>"; };
 		8AC01D591ABB72E200F8C066 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		8AC01D5A1ABB72E200F8C066 /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
 		8AC01D5C1ABB84D100F8C066 /* Executable.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Executable.icns; sourceTree = "<group>"; };
@@ -126,9 +135,9 @@
 		8ABB4AC11AB8D8FF00CDB93C /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				8ABB4AC21AB8DE7B00CDB93C /* ServerStatusWindowController.h */,
-				8ABB4AC31AB8DE7B00CDB93C /* ServerStatusWindowController.m */,
-				8ABB4AC41AB8DE7B00CDB93C /* ServerStatus.xib */,
+				8ABB4AC21AB8DE7B00CDB93C /* StatusWindowController.h */,
+				8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */,
+				8ABB4AC41AB8DE7B00CDB93C /* Status.xib */,
 				AC1957C21AA52AB50077A25C /* Preferences */,
 				8A23F3BE1AA91EF600F1467C /* MainMenu.xib */,
 			);
@@ -139,6 +148,10 @@
 		AC0580811ABF829500854813 /* Worlds */ = {
 			isa = PBXGroup;
 			children = (
+				8A525F0D1AC22BD000D9538A /* CreateWorldTask.h */,
+				8A525F0E1AC22BD000D9538A /* CreateWorldTask.m */,
+				8A525F0A1AC22A3500D9538A /* WorldTask.h */,
+				8A525F0B1AC22A3500D9538A /* WorldTask.m */,
 				AC05808A1ABF97F700854813 /* WorldsPreferencesViewController.h */,
 				AC05808B1ABF97F700854813 /* WorldsPreferencesViewController.m */,
 				AC0580781ABE13F300854813 /* WorldsPreferences.xib */,
@@ -211,6 +224,8 @@
 				ACA9D6191AA7E60A00194089 /* WinePrefix.m */,
 				AC05807B1ABE16F300854813 /* WineServerOperations.h */,
 				AC05807C1ABE16F300854813 /* WineServerOperations.m */,
+				8A525F071AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.h */,
+				8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */,
 				AC9681BC1ABCD57400A9233B /* Worlds */,
 			);
 			name = Code;
@@ -297,7 +312,7 @@
 				8A23F3BA1AA9141500F1467C /* WineCfgPreferences.xib in Resources */,
 				8AC01D5F1ABB84D100F8C066 /* Executable.icns in Resources */,
 				8A23F3B51AA913FC00F1467C /* GeneralPreferences.xib in Resources */,
-				8ABB4AC61AB8DE7B00CDB93C /* ServerStatus.xib in Resources */,
+				8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */,
 				AC05807A1ABE13F300854813 /* WorldsPreferences.xib in Resources */,
 				ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */,
 				ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */,
@@ -313,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */,
+				8A525F0C1AC22A3500D9538A /* WorldTask.m in Sources */,
 				8A23F3B41AA913FC00F1467C /* GeneralPreferencesViewController.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
@@ -323,8 +339,10 @@
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 				ACA9D61A1AA7E60A00194089 /* WinePrefix.m in Sources */,
 				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
+				8A525F0F1AC22BD000D9538A /* CreateWorldTask.m in Sources */,
 				AC05807D1ABE16F300854813 /* WineServerOperations.m in Sources */,
-				8ABB4AC51AB8DE7B00CDB93C /* ServerStatusWindowController.m in Sources */,
+				8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */,
+				8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */,
 				AC0580841ABF82C000854813 /* WorldsPreferencesArrayController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

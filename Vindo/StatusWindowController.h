@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ServerStatusWindowController : NSWindowController
+@interface StatusWindowController : NSWindowController
 
 - (instancetype)initWithMessage:(NSString *)message
               startNotification:(NSString *)startNotification

@@ -9,6 +9,8 @@
 #import "World.h"
 #import "WorldsPreferencesViewController.h"
 #import "WorldsPreferencesArrayController.h"
+#import "CreateWorldTask.h"
+#import "NSOperationQueue+DefaultQueue.h"
 
 @interface WorldsPreferencesViewController ()
 
@@ -39,10 +41,10 @@
 
 - (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
     if (returnCode == 0) {
-        World *newWorld = [World worldNamed:_queryText.stringValue];
-        [_arrayController addObject:newWorld];
-        _arrayController.selectedObjects = @[newWorld];
+        [[NSOperationQueue defaultQueue] addOperation:
+         [[CreateWorldTask alloc] initWithWorldName:_queryText.stringValue arrayController:_arrayController]];
     }
+    [NSApp endSheet:_querySheet];
     [_querySheet orderOut:self];
 }
 

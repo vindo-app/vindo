@@ -8,6 +8,7 @@
 
 #import "WinePrefix.h"
 #import "WineServerOperations.h"
+#import "NSOperationQueue+DefaultQueue.h"
 
 static NSURL *usrURL;
 
@@ -47,14 +48,12 @@ static NSURL *usrURL;
     return self;
 }
 
-static NSOperationQueue *ops;
-
 #pragma mark Public Interfaces
 
 - (void)startServer {
     if (self.server != nil && self.server.isRunning)
         return;
-    [ops addOperation:self.startOp];
+    [[NSOperationQueue defaultQueue] addOperation:self.startOp];
     
 }
 
@@ -65,7 +64,7 @@ static NSOperationQueue *ops;
     }
     if (self.server == nil || !self.server.isRunning)
         return;
-    [ops addOperation:self.stopOp];
+    [[NSOperationQueue defaultQueue] addOperation:self.stopOp];
 }
 
 - (void)stopServerFromNotification:(NSNotification *)notification {
@@ -84,12 +83,12 @@ static NSOperationQueue *ops;
 
 - (void)run:(NSString *)program {
     RunOperation *runOp = [[RunOperation alloc] initWithPrefix:self program:program arguments:@[]];
-    [ops addOperation:runOp];
+    [[NSOperationQueue defaultQueue] addOperation:runOp];
 }
 
 - (void)run:(NSString *)program withArguments:(NSArray *)arguments {
     RunOperation *runOp = [[RunOperation alloc] initWithPrefix:self program:program arguments:arguments];
-    [ops addOperation:runOp];
+    [[NSOperationQueue defaultQueue] addOperation:runOp];
 }
 
 #pragma mark Task Creaters
@@ -159,9 +158,6 @@ static NSOperationQueue *ops;
 + (void)initialize {
     if (self == [WinePrefix self]) {
         usrURL = [NSBundle.mainBundle.resourceURL URLByAppendingPathComponent:@"usr"];
-        
-        if (ops == nil)
-            ops = [NSOperationQueue new];
     }
 }
 
