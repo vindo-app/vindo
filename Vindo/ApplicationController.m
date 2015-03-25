@@ -33,10 +33,6 @@
     statusItem.highlightMode = YES;
     statusItem.image = [NSImage imageNamed:@"Icon16"];
     statusItem.menu = _statusBarMenu;
-    
-    // workaround bug in RHPreferences
-    [[NSUserDefaults standardUserDefaults] registerDefaults:
-        @{@"RHPreferencesWindowControllerSelectedItemIdentifier": @"GeneralPreferencesViewController"}];
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
@@ -93,6 +89,11 @@
     }];
 }
 
+- (IBAction)manageWorlds:(id)sender {
+    [self showPreferences:self];
+    prefs.selectedIndex = 2;
+}
+
 - (void)retryTerminateApp:(NSNotification *)notifications {
     [NSApp terminate:self];
 }
@@ -105,11 +106,9 @@
     if (prefs == nil) {
         prefs = [[RHPreferencesWindowController alloc] initWithViewControllers:
                                  @[
-                                   [RHPreferencesWindowController flexibleSpacePlaceholderController],
                                    [GeneralPreferencesViewController new],
                                    [WineCfgViewController new],
                                    [WorldsPreferencesViewController new],
-                                   [RHPreferencesWindowController flexibleSpacePlaceholderController]
                                   ]];
         // workaround for missing behavior in RHPreferences
         prefs.window.collectionBehavior =

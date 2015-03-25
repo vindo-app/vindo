@@ -71,7 +71,7 @@
     }
 }
 
-- (IBAction)worldSelected:(id)sender {
+- (void)worldSelected:(id)sender {
     NSLog(@"world selected");
 }
 
