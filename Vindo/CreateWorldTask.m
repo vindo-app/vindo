@@ -11,8 +11,11 @@
 
 @implementation CreateWorldTask
 
-- (instancetype)initWithWorldName:(NSString *)worldName arrayController:(NSArrayController *)arrayController {
-    if (self = [super initWithTaskDescription:[NSString stringWithFormat:@"Creating world \"%@\"…", worldName]]) {
+- (instancetype)initWithWorldName:(NSString *)worldName
+                  arrayController:(NSArrayController *)arrayController
+                      sheetWindow:(NSWindow *)window {
+    if (self = [super initWithTaskDescription:[NSString stringWithFormat:@"Creating world \"%@\"…", worldName]
+                                  sheetWindow:window]) {
         _worldName = worldName;
         _controller = arrayController;
     }

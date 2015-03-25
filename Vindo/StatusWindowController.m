@@ -10,6 +10,8 @@
 
 @interface StatusWindowController ()
 
+@property NSWindow *sheetWindow;
+
 @property IBOutlet NSTextField *placeholder;
 @property IBOutlet NSProgressIndicator *progress;
 
@@ -20,11 +22,13 @@
 @implementation StatusWindowController
 
 - (instancetype)initWithMessage:(NSString *)message
+                    sheetWindow:(NSWindow *)window
               startNotification:(NSString *)startNotification
                stopNotification:(NSString *)stopNotification
                          object:(id)object {
-    if (self = [super initWithWindowNibName:@"ServerStatus"]) {
+    if (self = [super initWithWindowNibName:@"Status"]) {
         _message = message;
+        _sheetWindow = window;
         
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
@@ -48,12 +52,21 @@
 }
 
 - (void)actuallyAppear:(NSTimer *)timer {
-    [self showWindow:timer];
+    if (_sheetWindow == nil)
+        [self showWindow:timer];
+    else
+        [NSApp beginSheet:self.window
+           modalForWindow:_sheetWindow
+            modalDelegate:nil
+           didEndSelector:nil
+              contextInfo:NULL];
 }
 
 - (void)disappear:(NSNotification *)notification {
     [self.timer invalidate];
     self.timer = nil;
+    if (_sheetWindow != nil)
+        [NSApp endSheet:self.window];
     [self close];
 }
 

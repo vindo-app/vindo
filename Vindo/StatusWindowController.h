@@ -11,6 +11,7 @@
 @interface StatusWindowController : NSWindowController
 
 - (instancetype)initWithMessage:(NSString *)message
+                    sheetWindow:(NSWindow *)window
               startNotification:(NSString *)startNotification
                stopNotification:(NSString *)stopNotification
                          object:(id)object;

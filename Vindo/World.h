@@ -14,6 +14,8 @@
 + (World *)worldNamed:(NSString *)name;
 + (World *)defaultWorld;
 
++ (void)deleteWorldNamed:(NSString *)name;
+
 @property (readonly) NSString *name;
 
 @end

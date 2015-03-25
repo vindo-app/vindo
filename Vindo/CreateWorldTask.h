@@ -12,7 +12,9 @@
 
 @interface CreateWorldTask : WorldTask
 
-- (instancetype)initWithWorldName:(NSString *)worldName arrayController:(NSArrayController *)controller;
+- (instancetype)initWithWorldName:(NSString *)worldName
+                  arrayController:(NSArrayController *)controller
+                      sheetWindow:(NSWindow *)window;
 
 @property (readonly) NSString *worldName;
 @property (readonly) NSArrayController *controller;

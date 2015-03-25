@@ -7,12 +7,25 @@
 //
 
 #import "WorldTask.h"
+#import "StatusWindowController.h"
+
+@interface WorldTask ()
+
+@property StatusWindowController *status;
+
+@end
 
 @implementation WorldTask
 
-- (instancetype)initWithTaskDescription:(NSString *)taskDescription {
+- (instancetype)initWithTaskDescription:(NSString *)taskDescription
+                            sheetWindow:(NSWindow *)window {
     if (self = [super init]) {
         _taskDescription = taskDescription;
+        _status = [[StatusWindowController alloc] initWithMessage:taskDescription
+                                                      sheetWindow:window
+                                                startNotification:WorldTaskWillRunNotification
+                                                 stopNotification:WorldTaskDidRunNotification
+                                                           object:self];
     }
     return self;
 }

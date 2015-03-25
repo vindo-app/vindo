@@ -38,6 +38,7 @@
 		ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D81AA3B8F900E031F5 /* Icon16.png */; };
 		ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D91AA3B8F900E031F5 /* Icon32.png */; };
 		ACFCBD0E1AC0C75B00A39B7A /* WorldsPreferencesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFCBD0D1AC0C75B00A39B7A /* WorldsPreferencesDataSource.m */; };
+		ACFCBD111AC3522E00A39B7A /* DeleteWorldTask.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFCBD101AC3522E00A39B7A /* DeleteWorldTask.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,6 +104,8 @@
 		ACB107D91AA3B8F900E031F5 /* Icon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon32.png; sourceTree = "<group>"; };
 		ACFCBD0C1AC0C75B00A39B7A /* WorldsPreferencesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsPreferencesDataSource.h; sourceTree = "<group>"; };
 		ACFCBD0D1AC0C75B00A39B7A /* WorldsPreferencesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsPreferencesDataSource.m; sourceTree = "<group>"; };
+		ACFCBD0F1AC3522E00A39B7A /* DeleteWorldTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteWorldTask.h; sourceTree = "<group>"; };
+		ACFCBD101AC3522E00A39B7A /* DeleteWorldTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteWorldTask.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,13 +151,15 @@
 		AC0580811ABF829500854813 /* Worlds */ = {
 			isa = PBXGroup;
 			children = (
-				8A525F0D1AC22BD000D9538A /* CreateWorldTask.h */,
-				8A525F0E1AC22BD000D9538A /* CreateWorldTask.m */,
-				8A525F0A1AC22A3500D9538A /* WorldTask.h */,
-				8A525F0B1AC22A3500D9538A /* WorldTask.m */,
 				AC05808A1ABF97F700854813 /* WorldsPreferencesViewController.h */,
 				AC05808B1ABF97F700854813 /* WorldsPreferencesViewController.m */,
 				AC0580781ABE13F300854813 /* WorldsPreferences.xib */,
+				8A525F0D1AC22BD000D9538A /* CreateWorldTask.h */,
+				8A525F0E1AC22BD000D9538A /* CreateWorldTask.m */,
+				ACFCBD0F1AC3522E00A39B7A /* DeleteWorldTask.h */,
+				ACFCBD101AC3522E00A39B7A /* DeleteWorldTask.m */,
+				8A525F0A1AC22A3500D9538A /* WorldTask.h */,
+				8A525F0B1AC22A3500D9538A /* WorldTask.m */,
 				ACFCBD0C1AC0C75B00A39B7A /* WorldsPreferencesDataSource.h */,
 				ACFCBD0D1AC0C75B00A39B7A /* WorldsPreferencesDataSource.m */,
 				AC0580821ABF82C000854813 /* WorldsPreferencesArrayController.h */,
@@ -327,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACFCBD111AC3522E00A39B7A /* DeleteWorldTask.m in Sources */,
 				8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */,
 				8A525F0C1AC22A3500D9538A /* WorldTask.m in Sources */,
 				8A23F3B41AA913FC00F1467C /* GeneralPreferencesViewController.m in Sources */,

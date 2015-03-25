@@ -6,14 +6,15 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 extern NSString *const WorldTaskWillRunNotification;
 extern NSString *const WorldTaskDidRunNotification;
 
 @interface WorldTask : NSOperation
 
-- (instancetype)initWithTaskDescription:(NSString *)taskDescription;
+- (instancetype)initWithTaskDescription:(NSString *)taskDescription
+                            sheetWindow:(NSWindow *)window;
 
 @property (readonly) NSString *taskDescription;
 

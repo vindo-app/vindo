@@ -32,6 +32,10 @@ static NSMutableDictionary *worldsDictionary;
     return [self worldNamed:worlds[defaultWorldIndex]];
 }
 
++ (void)deleteWorldNamed:(NSString *)name {
+    [worldsDictionary removeObjectForKey:name];
+}
+
 - (NSURL *)prefixPath:(NSString *)name {
     NSFileManager *manager = [NSFileManager defaultManager];
     NSURL *applicationSupport = [[[manager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] firstObject] URLByAppendingPathComponent:@"Vindo"];

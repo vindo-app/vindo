@@ -41,18 +41,11 @@
         [killExistingServer launch];
         [killExistingServer waitUntilExit];
         
-        if (self.isCancelled)
-            return;
-        
         NSTask *server = [_prefix taskWithProgram:@"wineserver" arguments:@[@"--foreground", @"--persistent"]];
         
         if (self.isCancelled)
             return;
-        
-        [center addObserver:self
-                   selector:@selector(serverTaskStopped:)
-                       name:NSTaskDidTerminateNotification
-                     object:server];
+
         [server launch];
         
         if (self.isCancelled) {
@@ -73,14 +66,6 @@
     @catch (NSException *exception) {
         // Don't throw it, because it will go nowhere.
     }
-}
-
-- (void)serverTaskStopped:(NSNotification *)notification {
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    
-    if (_prefix.server.terminationStatus != 0)
-        [center postNotificationName:WineServerDidCrashNotification
-                              object:_prefix];
 }
 
 @end
