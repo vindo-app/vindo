@@ -11,11 +11,10 @@
 // secret info about WinePrefix
 @interface WinePrefix ()
 
+@property WineServerState state;
+
 - (NSTask *)taskWithWindowsProgram:(NSString *)program arguments:(NSArray *)arguments;
 - (NSTask *)taskWithProgram:(NSString *)program arguments:(NSArray *)arguments;
-
-@property StartWineServerOperation *startOp;
-@property StopWineServerOperation *stopOp;
 
 @property NSTask *server;
 
@@ -24,8 +23,9 @@
 @implementation StartWineServerOperation
 
 - (instancetype)initWithPrefix:(WinePrefix *)prefix {
-    if (self = [super init])
+    if (self = [super init]) {
         _prefix = prefix;
+    }
     return self;
 }
 
@@ -66,6 +66,23 @@
     @catch (NSException *exception) {
         // Don't throw it, because it will go nowhere.
     }
+}
+
+- (BOOL)isReady {
+    switch (_prefix.state) {
+        case WineServerStopped:
+            return YES;
+        case WineServerStopping:
+            return NO;
+        case WineServerStarting:
+        case WineServerRunning:
+            [self cancel];
+            return NO;
+    }
+}
+
++ (NSSet *)keyPathsForValuesAffectingIsReady {
+    return [NSSet setWithObject:@"prefix.state"];
 }
 
 @end

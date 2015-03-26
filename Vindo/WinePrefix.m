@@ -14,10 +14,12 @@ static NSURL *usrURL;
 
 @interface WinePrefix ()
 
-@property StartWineServerOperation *startOp;
-@property StopWineServerOperation *stopOp;
+//@property StartWineServerOperation *startOp;
+//@property StopWineServerOperation *stopOp;
 
 @property NSTask *server;
+
+@property WineServerState state;
 
 @end
 
@@ -27,6 +29,8 @@ static NSURL *usrURL;
     if (self = [super init]) {
         _path = prefixPath;
         
+        self.state = WineServerStopped;
+        
         // make sure prefix directory exists
         NSFileManager *manager = [NSFileManager defaultManager];
         if (![manager createDirectoryAtURL:self.path
@@ -34,9 +38,6 @@ static NSURL *usrURL;
                                 attributes:nil
                                      error:nil])
             [NSException raise:NSGenericException format:@"could not create prefix directory %@", self.path];
-        
-        self.startOp = [[StartWineServerOperation alloc] initWithPrefix:self];
-        self.stopOp = [[StopWineServerOperation alloc] initWithPrefix:self];
         
         // make sure to stop the server when the app is about to terminate
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
@@ -50,35 +51,38 @@ static NSURL *usrURL;
 
 #pragma mark Public Interfaces
 
-- (void)startServer {
-    if (self.server != nil && self.server.isRunning)
-        return;
-    [[NSOperationQueue defaultQueue] addOperation:self.startOp];
-    
+- (void)start {
+    if (self.state == WineServerStopped || self.state == WineServerStopping) {
+        [[NSOperationQueue defaultQueue] addOperation:
+         [[StartWineServerOperation alloc] initWithPrefix:self]];
+    }
 }
 
-- (void)stopServer {
-    if (self.startOp.isExecuting) {
-        [self.startOp cancel];
-        [self.startOp waitUntilFinished];
+- (void)startAndWait {
+    if (self.state == WineServerStopped || self.state == WineServerStopping) {
+        NSOperation *startOp = [[StartWineServerOperation alloc] initWithPrefix:self];
+        [[NSOperationQueue defaultQueue] addOperation:startOp];
+        [startOp waitUntilFinished];
     }
-    if (self.server == nil || !self.server.isRunning)
-        return;
-    [[NSOperationQueue defaultQueue] addOperation:self.stopOp];
+}
+
+- (void)stop {
+    if (self.state == WineServerRunning || self.state == WineServerStarting) {
+        [[NSOperationQueue defaultQueue] addOperation:
+         [[StopWineServerOperation alloc] initWithPrefix:self]];
+    }
+}
+
+- (void)stopAndWait {
+    if (self.state == WineServerStopped || self.state == WineServerStarting) {
+        NSOperation *stopOp = [[StopWineServerOperation alloc] initWithPrefix:self];
+        [[NSOperationQueue defaultQueue] addOperation:stopOp];
+        [stopOp waitUntilFinished];
+    }
 }
 
 - (void)stopServerFromNotification:(NSNotification *)notification {
-    [self stopServer];
-    [self.stopOp waitUntilFinished];
-}
-
-- (BOOL)isServerRunning {
-    if (self.startOp.isExecuting)
-        return NO;
-    if (self.server != nil)
-        return [self.server isRunning];
-    else
-        return NO;
+    [self stopAndWait];
 }
 
 - (void)run:(NSString *)program {

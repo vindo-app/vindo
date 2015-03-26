@@ -24,7 +24,7 @@
                    name:nil
                  object:world];
 #endif
-    [world startServer];
+    [world start];
 }
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification {

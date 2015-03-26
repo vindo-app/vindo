@@ -16,17 +16,27 @@ extern NSString *const WineServerDidCrashNotification;
 
 extern NSString *const kWineServerExitStatus;
 
+typedef NS_ENUM(NSInteger, WineServerState) {
+    WineServerRunning,
+    WineServerStarting,
+    WineServerStopping,
+    WineServerStopped
+};
+
 @interface WinePrefix : NSObject
 
 - (instancetype)initWithPath:(NSURL *)path;
 
-- (void)startServer;
-- (void)stopServer;
+- (void)start;
+- (void)stop;
+
+- (void)startAndWait;
+- (void)stopAndWait;
 
 - (void)run:(NSString *)program;
 - (void)run:(NSString *)program withArguments:(NSArray *)arguments;
 
 @property (readonly) NSURL *path;
-@property (readonly, getter=isServerRunning) BOOL serverRunning;
+@property (readonly) WineServerState state;
 
 @end
