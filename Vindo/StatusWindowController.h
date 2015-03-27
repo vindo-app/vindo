@@ -16,6 +16,10 @@
                stopNotification:(NSString *)stopNotification
                          object:(id)object;
 
+- (instancetype)initWithMessage:(NSString *)message
+                    sheetWindow:(NSWindow *)window
+                      operation:(NSOperation *)operation;
+
 @property (readonly) NSString *message;
 
 @end

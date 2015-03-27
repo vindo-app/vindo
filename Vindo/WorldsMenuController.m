@@ -40,9 +40,8 @@
                                     context:NULL];
     [self.worldsArrayController addObserver:self
                                  forKeyPath:@"arrangedObjects"
-                                    options:NSKeyValueObservingOptionNew
+                                    options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial
                                     context:NULL];
-    [self redoMenu];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -71,8 +70,8 @@
     }
 }
 
-- (void)worldSelected:(id)sender {
-    NSLog(@"world selected");
+- (void)worldSelected:(NSMenuItem *)sender {
+    self.worldsArrayController.selectedObjects = @[sender.representedObject];
 }
 
 @end

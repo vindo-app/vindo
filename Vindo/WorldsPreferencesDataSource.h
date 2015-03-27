@@ -7,9 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "WorldsPreferencesArrayController.h"
 
 @interface WorldsPreferencesDataSource : NSObject <NSTableViewDataSource>
-@property IBOutlet WorldsPreferencesArrayController *arrayController;
+@property IBOutlet NSArrayController *arrayController;
 
 @end

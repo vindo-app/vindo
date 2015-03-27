@@ -43,12 +43,49 @@
     return self;
 }
 
+- (instancetype)initWithMessage:(NSString *)message
+                    sheetWindow:(NSWindow *)window
+                      operation:(NSOperation *)operation {
+    if (self = [super initWithWindowNibName:@"Status"]) {
+        _message = message;
+        _sheetWindow = window;
+        
+        [operation addObserver:self
+                    forKeyPath:@"isExecuting"
+                       options:NSKeyValueObservingOptionNew
+                       context:NULL];
+        [operation addObserver:self
+                    forKeyPath:@"isFinished"
+                       options:NSKeyValueObservingOptionNew
+                       context:NULL];
+    }
+    return self;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
+    if ([keyPath isEqualToString:@"isExecuting"]) {
+        if ([change[NSKeyValueChangeNewKey] boolValue] == YES) {
+            [self appear:nil];
+        }
+    } else if ([keyPath isEqualToString:@"isFinished"]) {
+        if ([change[NSKeyValueChangeNewKey] boolValue] == YES) {
+            [self disappear:nil];
+        }
+    }
+}
+
 - (void)appear:(NSNotification *)notification {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5
-                                                  target:self
-                                                selector:@selector(actuallyAppear:)
-                                                userInfo:nil
-                                                 repeats:NO];
+    // Since this might not be called from the main thread, we have to
+    // add the timer to the main run loop instead of the current thread's run loop.
+    self.timer = [NSTimer timerWithTimeInterval:0.5
+                                         target:self
+                                       selector:@selector(actuallyAppear:)
+                                       userInfo:nil
+                                        repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)actuallyAppear:(NSTimer *)timer {
@@ -63,6 +100,16 @@
 }
 
 - (void)disappear:(NSNotification *)notification {
+    // We need a timer here because we need to get the call across to the main thread
+    self.timer = [NSTimer timerWithTimeInterval:0
+                                         target:self
+                                       selector:@selector(actuallyDisappear:)
+                                       userInfo:nil
+                                        repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)actuallyDisappear:(NSTimer *)timer {
     [self.timer invalidate];
     self.timer = nil;
     if (_sheetWindow != nil)
