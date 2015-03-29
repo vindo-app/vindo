@@ -93,6 +93,23 @@
     [[NSOperationQueue defaultQueue] addOperation:op];
 }
 
+
+-           (id)tableView:(NSTableView *)tableView
+objectValueForTableColumn:(NSTableColumn *)tableColumn
+                      row:(NSInteger)row {
+    if ([tableColumn.identifier isEqualToString:@"world"]) {
+        return [self.arrayController.arrangedObjects[row] name];
+    }
+    return nil;
+}
+
+- (void)tableView:(NSTableView *)tableView
+   setObjectValue:(id)object
+   forTableColumn:(NSTableColumn *)tableColumn
+              row:(NSInteger)row {
+    // not implemented yet
+}
+
 - (NSString *)toolbarItemLabel {
     return @"Worlds";
 }

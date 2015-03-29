@@ -9,6 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import <RHPreferences/RHPreferences.h>
 
-@interface WorldsPreferencesViewController : NSViewController <RHPreferencesViewControllerProtocol>
+@interface WorldsPreferencesViewController : NSViewController <RHPreferencesViewControllerProtocol, NSTableViewDataSource>
 
 @end

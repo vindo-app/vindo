@@ -34,7 +34,6 @@
 		ACB107DA1AA3B8F900E031F5 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D71AA3B8F900E031F5 /* Icon.icns */; };
 		ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D81AA3B8F900E031F5 /* Icon16.png */; };
 		ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D91AA3B8F900E031F5 /* Icon32.png */; };
-		ACFCBD0E1AC0C75B00A39B7A /* WorldsPreferencesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFCBD0D1AC0C75B00A39B7A /* WorldsPreferencesDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -92,8 +91,6 @@
 		ACB107D71AA3B8F900E031F5 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		ACB107D81AA3B8F900E031F5 /* Icon16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon16.png; sourceTree = "<group>"; };
 		ACB107D91AA3B8F900E031F5 /* Icon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon32.png; sourceTree = "<group>"; };
-		ACFCBD0C1AC0C75B00A39B7A /* WorldsPreferencesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsPreferencesDataSource.h; sourceTree = "<group>"; };
-		ACFCBD0D1AC0C75B00A39B7A /* WorldsPreferencesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsPreferencesDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +139,6 @@
 				AC05808A1ABF97F700854813 /* WorldsPreferencesViewController.h */,
 				AC05808B1ABF97F700854813 /* WorldsPreferencesViewController.m */,
 				AC0580781ABE13F300854813 /* WorldsPreferences.xib */,
-				ACFCBD0C1AC0C75B00A39B7A /* WorldsPreferencesDataSource.h */,
-				ACFCBD0D1AC0C75B00A39B7A /* WorldsPreferencesDataSource.m */,
 			);
 			name = Worlds;
 			sourceTree = "<group>";
@@ -316,7 +311,6 @@
 				8A23F3B41AA913FC00F1467C /* GeneralPreferencesViewController.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
-				ACFCBD0E1AC0C75B00A39B7A /* WorldsPreferencesDataSource.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				8A23F3B91AA9141500F1467C /* WineCfgViewController.m in Sources */,
 				AC05808C1ABF97F700854813 /* WorldsPreferencesViewController.m in Sources */,
