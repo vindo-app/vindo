@@ -94,6 +94,13 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="4t1-oX-18y"/>
+                <menuItem title="Browser…" id="Q1f-B8-PEI">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showBrowser:" target="Voe-Tx-rLC" id="kZ6-fE-zNQ"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="yDJ-eC-Uvr"/>
                 <menuItem title="Preferences…" id="Jts-hD-NwD">
                     <modifierMask key="keyEquivalentModifierMask"/>
@@ -115,7 +122,7 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="581" y="28.5"/>
+            <point key="canvasLocation" x="391" y="213.5"/>
         </menu>
         <arrayController objectClassName="World" editable="NO" selectsInsertedObjects="NO" clearsFilterPredicateOnInsertion="NO" id="Qox-EO-R5a">
             <connections>

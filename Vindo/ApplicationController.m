@@ -7,11 +7,19 @@
 //
 
 #import "ApplicationController.h"
+#import "BrowserController.h"
 #import "GeneralPreferencesViewController.h"
 #import "WineCfgViewController.h"
 #import "WorldsPreferencesViewController.h"
 #import "WinePrefix.h"
 #import "World.h"
+
+@interface ApplicationController ()
+
+@property RHPreferencesWindowController *prefs;
+@property BrowserController *browser;
+
+@end
 
 @implementation ApplicationController
 
@@ -91,7 +99,7 @@
 
 - (IBAction)manageWorlds:(id)sender {
     [self showPreferences:self];
-    prefs.selectedIndex = 2;
+    _prefs.selectedIndex = 2;
 }
 
 - (void)retryTerminateApp:(NSNotification *)notifications {
@@ -103,19 +111,27 @@
 }
 
 - (IBAction)showPreferences: (id)sender {
-    if (prefs == nil) {
-        prefs = [[RHPreferencesWindowController alloc] initWithViewControllers:
+    if (_prefs == nil) {
+        _prefs = [[RHPreferencesWindowController alloc] initWithViewControllers:
                                  @[
                                    [GeneralPreferencesViewController new],
                                    [WineCfgViewController new],
                                    [WorldsPreferencesViewController new],
                                   ]];
         // workaround for missing behavior in RHPreferences
-        prefs.window.collectionBehavior =
+        _prefs.window.collectionBehavior =
             NSWindowCollectionBehaviorMoveToActiveSpace |
             NSWindowCollectionBehaviorFullScreenAuxiliary;
     }
-    [prefs showWindow:self];
+    [_prefs showWindow:self];
+    [NSApp activateIgnoringOtherApps:YES];
+}
+
+- (IBAction)showBrowser: (id)sender {
+    if (_browser == nil) {
+        _browser = [BrowserController new];
+    }
+    [_browser showWindow:self];
     [NSApp activateIgnoringOtherApps:YES];
 }
 
