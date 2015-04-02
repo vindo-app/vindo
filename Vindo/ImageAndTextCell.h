@@ -1,10 +1,10 @@
-//
-//  ImageAndTextCell.h
-//  Vindo
-//
-//  Created by Theodore Dubois on 4/1/15.
-//  Copyright (c) 2015 Theodore Dubois. All rights reserved.
-//
+/*
+ Copyright (C) 2015 Apple Inc. All Rights Reserved.
+ See LICENSE.txt for this sample’s licensing information
+ 
+ Abstract:
+ Subclass of NSTextFieldCell which can display text and an image simultaneously.
+ */
 
 #import <Cocoa/Cocoa.h>
 

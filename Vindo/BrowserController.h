@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Item.h"
 
-@interface BrowserController : NSWindowController
+@interface BrowserController : NSWindowController <NSBrowserDelegate>
 
 @property Item *rootItem;
 

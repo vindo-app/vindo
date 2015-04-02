@@ -20,6 +20,7 @@
 		8AC01D5F1ABB84D100F8C066 /* Executable.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8AC01D5C1ABB84D100F8C066 /* Executable.icns */; };
 		8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */; };
 		8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01D6B1ABB930F00F8C066 /* IndexSetToIntTransformer.m */; };
+		8AC761651ACDE2B500D52B99 /* FileItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC761641ACDE2B500D52B99 /* FileItem.m */; };
 		AC05807A1ABE13F300854813 /* WorldsPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC0580781ABE13F300854813 /* WorldsPreferences.xib */; };
 		AC05807D1ABE16F300854813 /* WineServerOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = AC05807C1ABE16F300854813 /* WineServerOperations.m */; };
 		AC05808C1ABF97F700854813 /* WorldsPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC05808B1ABF97F700854813 /* WorldsPreferencesViewController.m */; };
@@ -76,6 +77,8 @@
 		8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsMenuController.m; sourceTree = "<group>"; };
 		8AC01D6A1ABB930F00F8C066 /* IndexSetToIntTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexSetToIntTransformer.h; sourceTree = "<group>"; };
 		8AC01D6B1ABB930F00F8C066 /* IndexSetToIntTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexSetToIntTransformer.m; sourceTree = "<group>"; };
+		8AC761631ACDE2B500D52B99 /* FileItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileItem.h; sourceTree = "<group>"; };
+		8AC761641ACDE2B500D52B99 /* FileItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileItem.m; sourceTree = "<group>"; };
 		AC0580781ABE13F300854813 /* WorldsPreferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorldsPreferences.xib; sourceTree = "<group>"; };
 		AC05807B1ABE16F300854813 /* WineServerOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineServerOperations.h; sourceTree = "<group>"; };
 		AC05807C1ABE16F300854813 /* WineServerOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineServerOperations.m; sourceTree = "<group>"; };
@@ -215,6 +218,8 @@
 				AC64E48E1AC8C02A002C7E4D /* BrowserController.m */,
 				AC3CC24C1ACCD238003ED7EC /* Item.h */,
 				AC3CC24D1ACCD239003ED7EC /* Item.m */,
+				8AC761631ACDE2B500D52B99 /* FileItem.h */,
+				8AC761641ACDE2B500D52B99 /* FileItem.m */,
 				AC64E48F1AC8C02A002C7E4D /* Browser.xib */,
 				AC3CC24F1ACCDF36003ED7EC /* ImageAndTextCell.h */,
 				AC3CC2501ACCDF36003ED7EC /* ImageAndTextCell.m */,
@@ -350,6 +355,7 @@
 				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
 				AC64E4901AC8C02A002C7E4D /* BrowserController.m in Sources */,
 				AC05807D1ABE16F300854813 /* WineServerOperations.m in Sources */,
+				8AC761651ACDE2B500D52B99 /* FileItem.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */,
 				8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */,
 			);
@@ -447,7 +453,7 @@
 				);
 				INFOPLIST_FILE = Vindo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -465,7 +471,7 @@
 				);
 				INFOPLIST_FILE = Vindo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

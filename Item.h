@@ -10,9 +10,9 @@
 
 @interface Item : NSObject
 
-@property NSString *name;
-@property NSImage *image;
-@property (getter=isLeaf) BOOL leaf;
-@property NSArray *children;
+@property (readonly) NSString *name;
+@property (readonly) NSImage *image;
+@property (readonly, getter=isLeaf) BOOL leaf;
+@property (readonly) NSArray *children;
 
 @end
