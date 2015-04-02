@@ -7,7 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Item.h"
 
 @interface BrowserController : NSWindowController
+
+@property Item *rootItem;
 
 @end

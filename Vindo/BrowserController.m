@@ -11,6 +11,7 @@
 @interface BrowserController ()
 
 @property IBOutlet NSOutlineView *sidebar;
+@property IBOutlet NSView *fileView;
 
 @end
 

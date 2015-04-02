@@ -27,6 +27,8 @@
 		AC1957DE1AA52D920077A25C /* RHPreferences.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC1957D81AA52D770077A25C /* RHPreferences.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC3A4EE21AA12F9A00781626 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE11AA12F9A00781626 /* main.m */; };
 		AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE41AA12F9A00781626 /* ApplicationController.m */; };
+		AC3CC24E1ACCD239003ED7EC /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3CC24D1ACCD239003ED7EC /* Item.m */; };
+		AC3CC2511ACCDF36003ED7EC /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3CC2501ACCDF36003ED7EC /* ImageAndTextCell.m */; };
 		AC64E4901AC8C02A002C7E4D /* BrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC64E48E1AC8C02A002C7E4D /* BrowserController.m */; };
 		AC64E4911AC8C02A002C7E4D /* Browser.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC64E48F1AC8C02A002C7E4D /* Browser.xib */; };
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
@@ -84,6 +86,10 @@
 		AC3A4EE11AA12F9A00781626 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AC3A4EE31AA12F9A00781626 /* ApplicationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationController.h; sourceTree = "<group>"; };
 		AC3A4EE41AA12F9A00781626 /* ApplicationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationController.m; sourceTree = "<group>"; };
+		AC3CC24C1ACCD238003ED7EC /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = ../Item.h; sourceTree = "<group>"; };
+		AC3CC24D1ACCD239003ED7EC /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = ../Item.m; sourceTree = "<group>"; };
+		AC3CC24F1ACCDF36003ED7EC /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
+		AC3CC2501ACCDF36003ED7EC /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
 		AC64E48D1AC8C02A002C7E4D /* BrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserController.h; sourceTree = "<group>"; };
 		AC64E48E1AC8C02A002C7E4D /* BrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserController.m; sourceTree = "<group>"; };
 		AC64E48F1AC8C02A002C7E4D /* Browser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Browser.xib; sourceTree = "<group>"; };
@@ -207,7 +213,11 @@
 			children = (
 				AC64E48D1AC8C02A002C7E4D /* BrowserController.h */,
 				AC64E48E1AC8C02A002C7E4D /* BrowserController.m */,
+				AC3CC24C1ACCD238003ED7EC /* Item.h */,
+				AC3CC24D1ACCD239003ED7EC /* Item.m */,
 				AC64E48F1AC8C02A002C7E4D /* Browser.xib */,
+				AC3CC24F1ACCDF36003ED7EC /* ImageAndTextCell.h */,
+				AC3CC2501ACCDF36003ED7EC /* ImageAndTextCell.m */,
 			);
 			name = Browser;
 			path = Vindo;
@@ -326,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC3CC24E1ACCD239003ED7EC /* Item.m in Sources */,
 				8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */,
 				8A23F3B41AA913FC00F1467C /* GeneralPreferencesViewController.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
@@ -333,6 +344,7 @@
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				8A23F3B91AA9141500F1467C /* WineCfgViewController.m in Sources */,
 				AC05808C1ABF97F700854813 /* WorldsPreferencesViewController.m in Sources */,
+				AC3CC2511ACCDF36003ED7EC /* ImageAndTextCell.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 				ACA9D61A1AA7E60A00194089 /* WinePrefix.m in Sources */,
 				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,

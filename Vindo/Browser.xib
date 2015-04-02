@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="BrowserController">
             <connections>
+                <outlet property="fileView" destination="bD1-JP-sNe" id="ghb-wC-FaL"/>
                 <outlet property="sidebar" destination="wVI-7f-Ui5" id="zUT-3e-GTa"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -24,7 +25,7 @@
                 <subviews>
                     <splitView dividerStyle="thin" vertical="YES" id="CKZ-qh-a6d">
                         <rect key="frame" x="0.0" y="0.0" width="550" height="320"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <customView id="PF7-jq-2R7">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="320"/>
@@ -38,6 +39,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" indentationPerLevel="16" outlineTableColumn="pVU-gU-8oS" id="wVI-7f-Ui5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="24"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="0.0"/>
                                                     <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -75,6 +77,59 @@
                             <customView id="bD1-JP-sNe">
                                 <rect key="frame" x="151" y="0.0" width="399" height="320"/>
                                 <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="xzb-yY-BIf">
+                                        <rect key="frame" x="-1" y="-1" width="401" height="322"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <clipView key="contentView" id="8Fh-Je-8AP">
+                                            <rect key="frame" x="1" y="17" width="238" height="117"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" autosaveColumns="NO" headerView="bmC-We-wVo" indentationPerLevel="16" outlineTableColumn="H5l-Ty-50n" id="bzO-7b-h0e">
+                                                    <rect key="frame" x="0.0" y="0.0" width="399" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <size key="intercellSpacing" width="3" height="2"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                    <tableColumns>
+                                                        <tableColumn width="396" minWidth="40" maxWidth="1000" id="H5l-Ty-50n">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Name">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" placeholderString="" id="GWE-Dg-HKd" customClass="ImageAndTextCell">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                            <connections>
+                                                                <binding destination="2ZI-W6-tqx" name="value" keyPath="arrangedObjects.name" id="Ipi-FF-pVI"/>
+                                                            </connections>
+                                                        </tableColumn>
+                                                    </tableColumns>
+                                                    <connections>
+                                                        <binding destination="2ZI-W6-tqx" name="content" keyPath="arrangedObjects" id="QXP-Vy-So3"/>
+                                                    </connections>
+                                                </outlineView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </clipView>
+                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="BXV-cr-fZC">
+                                            <rect key="frame" x="1" y="119" width="223" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="ogH-IP-SDc">
+                                            <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <tableHeaderView key="headerView" id="bmC-We-wVo">
+                                            <rect key="frame" x="0.0" y="0.0" width="238" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableHeaderView>
+                                    </scrollView>
+                                </subviews>
                             </customView>
                         </subviews>
                         <holdingPriorities>
@@ -178,11 +233,11 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="199" y="246"/>
+            <point key="canvasLocation" x="383" y="196"/>
         </window>
-        <treeController id="4n5-v8-3DR">
+        <treeController objectClassName="Item" childrenKeyPath="children" leafKeyPath="leaf" id="2ZI-W6-tqx">
             <connections>
-                <binding destination="-2" name="contentArray" keyPath="sidebarRoot" id="W1S-T8-CXl"/>
+                <binding destination="-2" name="contentArray" keyPath="rootItem" id="S3b-E9-iTq"/>
             </connections>
         </treeController>
     </objects>
