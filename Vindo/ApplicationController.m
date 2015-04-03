@@ -17,7 +17,6 @@
 @interface ApplicationController ()
 
 @property RHPreferencesWindowController *prefs;
-@property BrowserController *browser;
 
 @end
 
@@ -128,10 +127,7 @@
 }
 
 - (IBAction)showBrowser: (id)sender {
-    if (_browser == nil) {
-        _browser = [BrowserController new];
-    }
-    [_browser showWindow:self];
+    [[BrowserController new] showWindow:self];
     [NSApp activateIgnoringOtherApps:YES];
 }
 

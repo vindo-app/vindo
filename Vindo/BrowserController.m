@@ -8,11 +8,14 @@
 
 #import "BrowserController.h"
 #import "FileItem.h"
+#import "ItemBrowserCell.h"
+
+static NSMutableArray *browsers;
 
 @interface BrowserController ()
 
-@property IBOutlet NSOutlineView *sidebar;
-@property IBOutlet NSTabView* tabView;
+@property IBOutlet NSTabView *tabView;
+@property IBOutlet NSBrowser *browser;
 
 @end
 
@@ -20,20 +23,27 @@
 
 - (id)init {
     if (self = [super initWithWindowNibName:@"Browser"]) {
+        [browsers addObject:self]; // to have a strong reference
+        self.window.delegate = self;
         self.rootItem = [[FileItem alloc] initWithFilePath:NSHomeDirectory()];
     }
     return self;
+}
+
+- (void)awakeFromNib {
+    self.browser.cellClass = [ItemBrowserCell class];
 }
 
 - (IBAction)switchView:(NSSegmentedControl *)sender {
     [self.tabView selectTabViewItemAtIndex:sender.selectedSegment];
 }
 
-- (void)browser:(NSBrowser *)sender willDisplayCell:(NSBrowserCell *)cell atRow:(NSInteger)row column:(NSInteger)column {
-    Item *item = [sender itemAtRow:row inColumn:column];
-    cell.image = item.image;
-    cell.stringValue = item.name;
-    
+- (void)windowWillClose:(NSNotification *)notification {
+    [browsers removeObject:self]; // get rid of the strong reference
+}
+
++ (void)initialize {
+    browsers = [NSMutableArray new];
 }
 
 @end

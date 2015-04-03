@@ -31,7 +31,7 @@ static NSWorkspace *ws;
 - (BOOL)isLeaf {
     BOOL isDir;
     [fm fileExistsAtPath:self.path isDirectory:&isDir];
-    return isDir;
+    return !isDir;
 }
 
 - (NSArray *)children {

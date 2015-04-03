@@ -39,6 +39,7 @@
 		ACB107DA1AA3B8F900E031F5 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D71AA3B8F900E031F5 /* Icon.icns */; };
 		ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D81AA3B8F900E031F5 /* Icon16.png */; };
 		ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D91AA3B8F900E031F5 /* Icon32.png */; };
+		ACC458D41ACF514A001838FC /* ItemBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC458D31ACF514A001838FC /* ItemBrowserCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,6 +106,8 @@
 		ACB107D71AA3B8F900E031F5 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		ACB107D81AA3B8F900E031F5 /* Icon16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon16.png; sourceTree = "<group>"; };
 		ACB107D91AA3B8F900E031F5 /* Icon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon32.png; sourceTree = "<group>"; };
+		ACC458D21ACF514A001838FC /* ItemBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBrowserCell.h; sourceTree = "<group>"; };
+		ACC458D31ACF514A001838FC /* ItemBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemBrowserCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +217,8 @@
 		AC64E4921AC8C035002C7E4D /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				ACC458D21ACF514A001838FC /* ItemBrowserCell.h */,
+				ACC458D31ACF514A001838FC /* ItemBrowserCell.m */,
 				AC64E48D1AC8C02A002C7E4D /* BrowserController.h */,
 				AC64E48E1AC8C02A002C7E4D /* BrowserController.m */,
 				AC3CC24C1ACCD238003ED7EC /* Item.h */,
@@ -344,6 +349,7 @@
 				AC3CC24E1ACCD239003ED7EC /* Item.m in Sources */,
 				8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */,
 				8A23F3B41AA913FC00F1467C /* GeneralPreferencesViewController.m in Sources */,
+				ACC458D41ACF514A001838FC /* ItemBrowserCell.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
