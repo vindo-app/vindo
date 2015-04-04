@@ -10,4 +10,6 @@
 
 @interface ItemBrowserCell : NSBrowserCell
 
+@property NSImage *image;
+
 @end

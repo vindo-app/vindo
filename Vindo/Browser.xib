@@ -167,7 +167,7 @@
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
                                                                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="eUG-PW-myk">
-                                                                                                <rect key="frame" x="9" y="0.0" width="16" height="16"/>
+                                                                                                <rect key="frame" x="9" y="1" width="16" height="16"/>
                                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="yHl-YA-qKO"/>
                                                                                                 <connections>
@@ -175,7 +175,7 @@
                                                                                                 </connections>
                                                                                             </imageView>
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" id="szp-vu-Vui">
-                                                                                                <rect key="frame" x="29" y="0.0" width="371" height="16"/>
+                                                                                                <rect key="frame" x="29" y="1" width="371" height="16"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="tCf-yH-sMr">
                                                                                                     <font key="font" metaFont="cellTitle"/>
@@ -231,8 +231,9 @@
                                                             <rect key="frame" x="-1" y="-1" width="400" height="322"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <connections>
-                                                                <binding destination="2ZI-W6-tqx" name="contentValues" keyPath="arrangedObjects" id="aFZ-QH-bhl"/>
-                                                                <binding destination="2ZI-W6-tqx" name="selectionIndexPaths" keyPath="selectionIndexPaths" id="sfX-ek-4LL"/>
+                                                                <binding destination="2ZI-W6-tqx" name="content" keyPath="arrangedObjects" id="lrf-Pn-jcN"/>
+                                                                <binding destination="2ZI-W6-tqx" name="contentValues" keyPath="arrangedObjects.self" previousBinding="lrf-Pn-jcN" id="BGF-IY-xTC"/>
+                                                                <binding destination="2ZI-W6-tqx" name="selectionIndexPaths" keyPath="selectionIndexPaths" previousBinding="BGF-IY-xTC" id="F1i-Fy-zRN"/>
                                                             </connections>
                                                         </browser>
                                                     </subviews>

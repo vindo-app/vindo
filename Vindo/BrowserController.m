@@ -32,6 +32,7 @@ static NSMutableArray *browsers;
 
 - (void)awakeFromNib {
     self.browser.cellClass = [ItemBrowserCell class];
+    self.browser.minColumnWidth = 205; // like the finder
 }
 
 - (IBAction)switchView:(NSSegmentedControl *)sender {

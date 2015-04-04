@@ -20,6 +20,10 @@ static NSWorkspace *ws;
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+    return self;
+}
+
 - (NSString *)name {
     return [self.path lastPathComponent];
 }
