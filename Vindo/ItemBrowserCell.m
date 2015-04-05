@@ -14,12 +14,14 @@
 #define ICON_TEXT_SPACING	2.0     // Distance between the end of the icon and the text part
 #define ICON_INSET_VERT         2.0     // Distance from top/bottom of icon
 
-@interface ItemTextFieldCell : NSTextFieldCell
-@end
-
-static ItemTextFieldCell *textCell;
-
 @implementation ItemBrowserCell
+
+- (id)init {
+    if (self = [super init]) {
+        [self setLineBreakMode:NSLineBreakByTruncatingTail];
+    }
+    return self;
+}
 
 - (void)setObjectValue:(NSObject <NSCopying> *)obj {
     if ([obj isKindOfClass:[Item class]]) {
@@ -34,6 +36,14 @@ static ItemTextFieldCell *textCell;
     ItemBrowserCell *result = [super copyWithZone:zone];
     result.image = self.image;
     return result;
+}
+
+- (NSRect)titleRectForBounds:(NSRect)bounds {
+    // Inset the title for the image
+    CGFloat inset = (ICON_INSET_HORIZ + ICON_SIZE + ICON_TEXT_SPACING);
+    bounds.origin.x += inset;
+    bounds.size.width -= inset;
+    return [super titleRectForBounds:bounds];
 }
 
 - (NSRect)imageRectForBounds:(NSRect)bounds {
@@ -75,36 +85,12 @@ static ItemTextFieldCell *textCell;
     cellFrame.size.width -= inset;
     cellFrame.origin.y += 1; // Looks better
     cellFrame.size.height -= 1;
-    [textCell drawInteriorWithFrame:cellFrame inView:controlView];
+    [super drawInteriorWithFrame:cellFrame inView:controlView];
 }
 
 - (void)drawWithExpansionFrame:(NSRect)cellFrame inView:(NSView *)view {
     // We want to exclude the icon from the expansion frame when you hover over the cell
-    [textCell drawInteriorWithFrame:cellFrame inView:view];
-}
-
-+ (void)initialize {
-    textCell = [ItemTextFieldCell new];
-}
-
-@end
-
-
-@implementation ItemTextFieldCell
-
-- (id)init {
-    if (self = [super init]) {
-        [self setLineBreakMode:NSLineBreakByTruncatingTail];
-    }
-    return self;
-}
-
-- (NSRect)titleRectForBounds:(NSRect)bounds {
-    // Inset the title for the image
-    CGFloat inset = (ICON_INSET_HORIZ + ICON_SIZE + ICON_TEXT_SPACING);
-    bounds.origin.x += inset;
-    bounds.size.width -= inset;
-    return [super titleRectForBounds:bounds];
+    [super drawInteriorWithFrame:cellFrame inView:view];
 }
 
 @end

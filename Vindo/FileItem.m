@@ -39,7 +39,7 @@ static NSWorkspace *ws;
 }
 
 - (NSArray *)children {
-    return @[];
+    return @[self];
 }
 
 + (void)initialize {

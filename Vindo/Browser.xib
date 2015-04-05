@@ -7,6 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="BrowserController">
             <connections>
                 <outlet property="browser" destination="h46-HN-CuM" id="FP4-sT-qv1"/>
+                <outlet property="browserDelegate" destination="j4V-pj-ygc" id="89U-v7-Kj1"/>
                 <outlet property="tabView" destination="ehi-Al-v5R" id="f9F-AP-lg1"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -155,7 +156,7 @@
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                                 </tableHeaderCell>
-                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" placeholderString="" id="GWE-Dg-HKd" customClass="ImageAndTextCell">
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" placeholderString="" id="GWE-Dg-HKd">
                                                                                     <font key="font" metaFont="system"/>
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -231,9 +232,7 @@
                                                             <rect key="frame" x="-1" y="-1" width="400" height="322"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <connections>
-                                                                <binding destination="2ZI-W6-tqx" name="content" keyPath="arrangedObjects" id="lrf-Pn-jcN"/>
-                                                                <binding destination="2ZI-W6-tqx" name="contentValues" keyPath="arrangedObjects.self" previousBinding="lrf-Pn-jcN" id="BGF-IY-xTC"/>
-                                                                <binding destination="2ZI-W6-tqx" name="selectionIndexPaths" keyPath="selectionIndexPaths" previousBinding="BGF-IY-xTC" id="F1i-Fy-zRN"/>
+                                                                <outlet property="delegate" destination="-2" id="6V0-M0-TdL"/>
                                                             </connections>
                                                         </browser>
                                                     </subviews>
@@ -348,13 +347,19 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="383" y="196"/>
+            <point key="canvasLocation" x="691" y="80"/>
         </window>
         <treeController objectClassName="Item" childrenKeyPath="children" leafKeyPath="leaf" id="2ZI-W6-tqx">
             <connections>
                 <binding destination="-2" name="contentObject" keyPath="rootItem" id="rg3-1F-J33"/>
             </connections>
         </treeController>
+        <customObject id="j4V-pj-ygc" customClass="BrowserDelegate">
+            <connections>
+                <outlet property="browser" destination="h46-HN-CuM" id="Ne9-6z-OJJ"/>
+                <outlet property="tree" destination="2ZI-W6-tqx" id="fVV-mY-uM2"/>
+            </connections>
+        </customObject>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>

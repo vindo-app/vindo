@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ItemBrowserCell : NSBrowserCell
+@interface ItemBrowserCell : NSTextFieldCell
 
 @property NSImage *image;
 

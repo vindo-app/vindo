@@ -9,10 +9,13 @@
 #import "BrowserController.h"
 #import "FileItem.h"
 #import "ItemBrowserCell.h"
+#import "BrowserDelegate.h"
 
 static NSMutableArray *browsers;
 
 @interface BrowserController ()
+
+@property IBOutlet BrowserDelegate *browserDelegate;
 
 @property IBOutlet NSTabView *tabView;
 @property IBOutlet NSBrowser *browser;
@@ -32,7 +35,7 @@ static NSMutableArray *browsers;
 
 - (void)awakeFromNib {
     self.browser.cellClass = [ItemBrowserCell class];
-    self.browser.minColumnWidth = 205; // like the finder
+    self.browserDelegate.controller = self;
 }
 
 - (IBAction)switchView:(NSSegmentedControl *)sender {

@@ -29,7 +29,6 @@
 		AC3A4EE21AA12F9A00781626 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE11AA12F9A00781626 /* main.m */; };
 		AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE41AA12F9A00781626 /* ApplicationController.m */; };
 		AC3CC24E1ACCD239003ED7EC /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3CC24D1ACCD239003ED7EC /* Item.m */; };
-		AC3CC2511ACCDF36003ED7EC /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3CC2501ACCDF36003ED7EC /* ImageAndTextCell.m */; };
 		AC64E4901AC8C02A002C7E4D /* BrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC64E48E1AC8C02A002C7E4D /* BrowserController.m */; };
 		AC64E4911AC8C02A002C7E4D /* Browser.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC64E48F1AC8C02A002C7E4D /* Browser.xib */; };
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
@@ -40,6 +39,7 @@
 		ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D81AA3B8F900E031F5 /* Icon16.png */; };
 		ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D91AA3B8F900E031F5 /* Icon32.png */; };
 		ACC458D41ACF514A001838FC /* ItemBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC458D31ACF514A001838FC /* ItemBrowserCell.m */; };
+		ACC458D71AD1ECD8001838FC /* BrowserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC458D61AD1ECD8001838FC /* BrowserDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -92,8 +92,6 @@
 		AC3A4EE41AA12F9A00781626 /* ApplicationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationController.m; sourceTree = "<group>"; };
 		AC3CC24C1ACCD238003ED7EC /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = ../Item.h; sourceTree = "<group>"; };
 		AC3CC24D1ACCD239003ED7EC /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = ../Item.m; sourceTree = "<group>"; };
-		AC3CC24F1ACCDF36003ED7EC /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
-		AC3CC2501ACCDF36003ED7EC /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
 		AC64E48D1AC8C02A002C7E4D /* BrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserController.h; sourceTree = "<group>"; };
 		AC64E48E1AC8C02A002C7E4D /* BrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserController.m; sourceTree = "<group>"; };
 		AC64E48F1AC8C02A002C7E4D /* Browser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Browser.xib; sourceTree = "<group>"; };
@@ -108,6 +106,8 @@
 		ACB107D91AA3B8F900E031F5 /* Icon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon32.png; sourceTree = "<group>"; };
 		ACC458D21ACF514A001838FC /* ItemBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBrowserCell.h; sourceTree = "<group>"; };
 		ACC458D31ACF514A001838FC /* ItemBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemBrowserCell.m; sourceTree = "<group>"; };
+		ACC458D51AD1ECD8001838FC /* BrowserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserDelegate.h; sourceTree = "<group>"; };
+		ACC458D61AD1ECD8001838FC /* BrowserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,17 +217,17 @@
 		AC64E4921AC8C035002C7E4D /* Browser */ = {
 			isa = PBXGroup;
 			children = (
-				ACC458D21ACF514A001838FC /* ItemBrowserCell.h */,
-				ACC458D31ACF514A001838FC /* ItemBrowserCell.m */,
 				AC64E48D1AC8C02A002C7E4D /* BrowserController.h */,
 				AC64E48E1AC8C02A002C7E4D /* BrowserController.m */,
-				AC3CC24C1ACCD238003ED7EC /* Item.h */,
-				AC3CC24D1ACCD239003ED7EC /* Item.m */,
+				ACC458D51AD1ECD8001838FC /* BrowserDelegate.h */,
+				ACC458D61AD1ECD8001838FC /* BrowserDelegate.m */,
 				8AC761631ACDE2B500D52B99 /* FileItem.h */,
 				8AC761641ACDE2B500D52B99 /* FileItem.m */,
+				AC3CC24C1ACCD238003ED7EC /* Item.h */,
+				AC3CC24D1ACCD239003ED7EC /* Item.m */,
+				ACC458D21ACF514A001838FC /* ItemBrowserCell.h */,
+				ACC458D31ACF514A001838FC /* ItemBrowserCell.m */,
 				AC64E48F1AC8C02A002C7E4D /* Browser.xib */,
-				AC3CC24F1ACCDF36003ED7EC /* ImageAndTextCell.h */,
-				AC3CC2501ACCDF36003ED7EC /* ImageAndTextCell.m */,
 			);
 			name = Browser;
 			path = Vindo;
@@ -355,7 +355,6 @@
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				8A23F3B91AA9141500F1467C /* WineCfgViewController.m in Sources */,
 				AC05808C1ABF97F700854813 /* WorldsPreferencesViewController.m in Sources */,
-				AC3CC2511ACCDF36003ED7EC /* ImageAndTextCell.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 				ACA9D61A1AA7E60A00194089 /* WinePrefix.m in Sources */,
 				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
@@ -364,6 +363,7 @@
 				8AC761651ACDE2B500D52B99 /* FileItem.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */,
 				8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */,
+				ACC458D71AD1ECD8001838FC /* BrowserDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
