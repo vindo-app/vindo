@@ -14,3 +14,29 @@
 @property Item *rootItem;
 
 @end
+/*
+ - (void)setDelegate:(id <NSBrowserDelegate>)delegate {
+    if (delegate == _delegate)
+        return;
+ 
+ // Optimizer avoids jumps here by shifting conditional result as indicated and then or-ing it.
+    if ([delegate respondsToSelector:@selector(browser:titleOfColumn:)])
+        _brflags |= 1 << 24;
+    if ([delegate respondsToSelector:@selector(browser:selectCellWithString:inColumn:)])
+        _brflags |= 1 << 23;
+    if ([delegate respondsToSelector:@selector(browser:selectRow:inColumn:)])
+        _brflags |= 1 << 13;
+    if ([delegate respondsToSelector:@selector(browser:isColumnValid:)])
+        _brflags |= 1 << 21;
+    if ([delegate respondsToSelector:@selector(browser:willDisplayCell:atRow:column:)])
+        _brflags |= 1 << 25;
+    if ([delegate respondsToSelector:@selector(browser:numberOfRowsInColumn:)])
+        _brflags |= 1 << 22;
+ 
+    _NSBrowserAuxiliary *aux = _brAuxiliaryStorage;
+    if ([delegate respondsToSelector:@selector(browser:shouldSizeColumn:forUserResize:toWidth:)])
+        aux->_brflags2 |= 1 << 0;
+    if ([delegate respondsToSelector:@selector(browser:sizeToFitWidthOfColumn:)]))
+        aux->_brflags2 |= 1 << 1;
+ 
+ */
