@@ -10,6 +10,6 @@
 
 @interface ItemBrowserCell : NSTextFieldCell
 
-@property NSImage *image;
+@property (nonatomic) NSImage *image;
 
 @end

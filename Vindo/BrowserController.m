@@ -9,13 +9,10 @@
 #import "BrowserController.h"
 #import "FileItem.h"
 #import "ItemBrowserCell.h"
-#import "BrowserDelegate.h"
 
 static NSMutableArray *browsers;
 
 @interface BrowserController ()
-
-@property IBOutlet BrowserDelegate *browserDelegate;
 
 @property IBOutlet NSTabView *tabView;
 @property IBOutlet NSBrowser *browser;
@@ -35,12 +32,41 @@ static NSMutableArray *browsers;
 
 - (void)awakeFromNib {
     self.browser.cellClass = [ItemBrowserCell class];
-    self.browserDelegate.controller = self;
 }
 
 - (IBAction)switchView:(NSSegmentedControl *)sender {
     [self.tabView selectTabViewItemAtIndex:sender.selectedSegment];
 }
+
+#pragma mark NSBrowserDelegate
+
+- (Item *)rootItemForBrowser:(NSBrowser *)browser {
+    return self.rootItem;
+}
+
+- (BOOL)browser:(NSBrowser *)browser isLeafItem:(Item *)item {
+    return item.leaf;
+}
+
+- (NSInteger)browser:(NSBrowser *)browser numberOfChildrenOfItem:(Item *)item {
+    return item.children.count;
+}
+
+- (Item *)browser:(NSBrowser *)browser child:(NSInteger)index ofItem:(Item *)item {
+    return item.children[index];
+}
+
+- (id)browser:(NSBrowser *)browser objectValueForItem:(Item *)item {
+    return [NSNull null];
+}
+
+- (void)browser:(NSBrowser *)sender willDisplayCell:(ItemBrowserCell *)cell atRow:(NSInteger)row column:(NSInteger)column {
+    Item *item = [sender itemAtRow:row inColumn:column];
+    cell.stringValue = item.name;
+    cell.image = item.image;
+}
+
+#pragma mark Other Stuff
 
 - (void)windowWillClose:(NSNotification *)notification {
     [browsers removeObject:self]; // get rid of the strong reference

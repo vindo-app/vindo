@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="BrowserController">
             <connections>
                 <outlet property="browser" destination="h46-HN-CuM" id="FP4-sT-qv1"/>
-                <outlet property="browserDelegate" destination="j4V-pj-ygc" id="89U-v7-Kj1"/>
                 <outlet property="tabView" destination="ehi-Al-v5R" id="f9F-AP-lg1"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -232,7 +232,7 @@
                                                             <rect key="frame" x="-1" y="-1" width="400" height="322"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <connections>
-                                                                <outlet property="delegate" destination="-2" id="6V0-M0-TdL"/>
+                                                                <outlet property="delegate" destination="-2" id="bhN-oN-TV5"/>
                                                             </connections>
                                                         </browser>
                                                     </subviews>
@@ -354,12 +354,6 @@
                 <binding destination="-2" name="contentObject" keyPath="rootItem" id="rg3-1F-J33"/>
             </connections>
         </treeController>
-        <customObject id="j4V-pj-ygc" customClass="BrowserDelegate">
-            <connections>
-                <outlet property="browser" destination="h46-HN-CuM" id="Ne9-6z-OJJ"/>
-                <outlet property="tree" destination="2ZI-W6-tqx" id="fVV-mY-uM2"/>
-            </connections>
-        </customObject>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>

@@ -39,7 +39,6 @@
 		ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D81AA3B8F900E031F5 /* Icon16.png */; };
 		ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D91AA3B8F900E031F5 /* Icon32.png */; };
 		ACC458D41ACF514A001838FC /* ItemBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC458D31ACF514A001838FC /* ItemBrowserCell.m */; };
-		ACC458D71AD1ECD8001838FC /* BrowserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC458D61AD1ECD8001838FC /* BrowserDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,8 +105,6 @@
 		ACB107D91AA3B8F900E031F5 /* Icon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon32.png; sourceTree = "<group>"; };
 		ACC458D21ACF514A001838FC /* ItemBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBrowserCell.h; sourceTree = "<group>"; };
 		ACC458D31ACF514A001838FC /* ItemBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemBrowserCell.m; sourceTree = "<group>"; };
-		ACC458D51AD1ECD8001838FC /* BrowserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserDelegate.h; sourceTree = "<group>"; };
-		ACC458D61AD1ECD8001838FC /* BrowserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,8 +216,6 @@
 			children = (
 				AC64E48D1AC8C02A002C7E4D /* BrowserController.h */,
 				AC64E48E1AC8C02A002C7E4D /* BrowserController.m */,
-				ACC458D51AD1ECD8001838FC /* BrowserDelegate.h */,
-				ACC458D61AD1ECD8001838FC /* BrowserDelegate.m */,
 				8AC761631ACDE2B500D52B99 /* FileItem.h */,
 				8AC761641ACDE2B500D52B99 /* FileItem.m */,
 				AC3CC24C1ACCD238003ED7EC /* Item.h */,
@@ -363,7 +358,6 @@
 				8AC761651ACDE2B500D52B99 /* FileItem.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */,
 				8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */,
-				ACC458D71AD1ECD8001838FC /* BrowserDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
