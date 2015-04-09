@@ -7,15 +7,19 @@
 //
 
 #import "FileItem.h"
-
-static NSFileManager *fm;
-static NSWorkspace *ws;
+#import "DirectoryItem.h"
 
 @implementation FileItem
 
-- (id)initWithFilePath:(NSString *)path {
+- (instancetype)initWithFilePath:(NSString *)path {
+    BOOL isDir;
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir])
+        if (isDir && ![self isKindOfClass:[DirectoryItem class]])
+            return [[DirectoryItem alloc] initWithFilePath:path];
+    
     if (self = [super init]) {
         _path = path;
+        [self refresh];
     }
     return self;
 }
@@ -24,27 +28,13 @@ static NSWorkspace *ws;
     return self;
 }
 
-- (NSString *)name {
-    return [self.path lastPathComponent];
-}
-
-- (NSImage *)image {
-    return [ws iconForFile:self.path];
+- (void)refresh {
+    _name = [_path lastPathComponent];
+    _image = [[NSWorkspace sharedWorkspace] iconForFile:_path];
 }
 
 - (BOOL)isLeaf {
-    BOOL isDir;
-    [fm fileExistsAtPath:self.path isDirectory:&isDir];
-    return !isDir;
-}
-
-- (NSArray *)children {
-    return @[self];
-}
-
-+ (void)initialize {
-    fm = [NSFileManager defaultManager];
-    ws = [NSWorkspace sharedWorkspace];
+    return NO;
 }
 
 @end

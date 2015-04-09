@@ -8,7 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface Item : NSObject
+@interface Item : NSObject {
+    @protected
+    NSString *_name;
+    NSImage *_image;
+    BOOL _leaf;
+    NSArray *_children;
+}
 
 @property (readonly) NSString *name;
 @property (readonly) NSImage *image;

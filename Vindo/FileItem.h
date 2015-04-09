@@ -11,7 +11,9 @@
 
 @interface FileItem : Item <NSCopying>
 
-- initWithFilePath:(NSString *)path;
+- (instancetype)initWithFilePath:(NSString *)path;
+
+- (void)refresh;
 
 @property (readonly) NSString *path;
 
