@@ -230,9 +230,9 @@
                                                     <subviews>
                                                         <browser verticalHuggingPriority="750" allowsExpansionToolTips="YES" enabled="YES" hasHorizontalScroller="YES" allowsMultipleSelection="YES" allowsEmptySelection="YES" allowsBranchSelection="YES" defaultColumnWidth="100" minColumnWidth="100" allowsTypeSelect="YES" columnResizingType="auto" id="h46-HN-CuM">
                                                             <rect key="frame" x="-1" y="-1" width="400" height="322"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <connections>
-                                                                <outlet property="delegate" destination="-2" id="bhN-oN-TV5"/>
+                                                                <outlet property="delegate" destination="Nqn-tE-qvt" id="KGl-ja-GKX"/>
                                                             </connections>
                                                         </browser>
                                                     </subviews>
@@ -345,7 +345,7 @@
                 </defaultToolbarItems>
             </toolbar>
             <connections>
-                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+                <outlet property="delegate" destination="Nqn-tE-qvt" id="1fx-od-OnQ"/>
             </connections>
             <point key="canvasLocation" x="691" y="80"/>
         </window>
@@ -354,6 +354,13 @@
                 <binding destination="-2" name="contentObject" keyPath="rootItem" id="rg3-1F-J33"/>
             </connections>
         </treeController>
+        <customObject id="Nqn-tE-qvt" customClass="BrowserDelegate">
+            <connections>
+                <outlet property="browser" destination="h46-HN-CuM" id="hdU-dv-O8P"/>
+                <outlet property="controller" destination="-2" id="CtB-bH-182"/>
+                <outlet property="tree" destination="2ZI-W6-tqx" id="8k2-Qi-jdr"/>
+            </connections>
+        </customObject>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
