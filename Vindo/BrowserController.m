@@ -25,13 +25,14 @@ static NSMutableArray *browsers;
     if (self = [super initWithWindowNibName:@"Browser"]) {
         [browsers addObject:self]; // to have a strong reference
         self.window.delegate = self;
-        self.rootItem = [[FileItem alloc] initWithFilePath:NSHomeDirectory()];
+        self.rootItem = [[FileItem alloc] initWithURL:[NSURL fileURLWithPath:NSHomeDirectory()]];
     }
     return self;
 }
 
 - (void)awakeFromNib {
     self.browser.cellClass = [ItemBrowserCell class];
+    self.browser.columnResizingType = NSBrowserUserColumnResizing;
 }
 
 - (IBAction)switchView:(NSSegmentedControl *)sender {

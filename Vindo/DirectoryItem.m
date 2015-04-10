@@ -10,8 +10,8 @@
 
 @implementation DirectoryItem
 
-- (instancetype)initWithFilePath:(NSString *)path {
-    if (self = [super initWithFilePath:path]) {
+- (instancetype)initWithURL:(NSURL *)url {
+    if (self = [super initWithURL:url]) {
         
     }
     return self;
@@ -20,11 +20,16 @@
 - (void)refreshChildren {
     NSFileManager *fm = [NSFileManager defaultManager];
     NSMutableArray *children = [NSMutableArray new];
-    NSDirectoryEnumerator *enumerator = [fm enumeratorAtPath:self.path];
-    for (NSString *relativePath in enumerator) {
-        NSString *path = [self.path stringByAppendingPathComponent:relativePath]; // paths returned by enumerator are relative
-        Item *item = [[FileItem alloc] initWithFilePath:path];
-        [children addObject:item];
+    BOOL (^errorHandler)(NSURL *url, NSError *error) = ^(NSURL *url, NSError *error) {
+        NSLog(@"%@", error);
+        return YES;
+    };
+    NSDirectoryEnumerator *enumerator = [fm enumeratorAtURL:self.url
+                                 includingPropertiesForKeys:nil
+                                                    options:NSDirectoryEnumerationSkipsHiddenFiles | NSDirectoryEnumerationSkipsSubdirectoryDescendants
+                                               errorHandler:errorHandler];
+    for (NSURL *url in enumerator) {
+        [children addObject:[[FileItem alloc] initWithURL:url]];
     }
     _children = children;
 }
@@ -36,7 +41,7 @@
 }
 
 - (BOOL)isLeaf {
-    return YES;
+    return NO;
 }
 
 @end

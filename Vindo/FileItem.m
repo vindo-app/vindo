@@ -11,14 +11,14 @@
 
 @implementation FileItem
 
-- (instancetype)initWithFilePath:(NSString *)path {
+- (instancetype)initWithURL:(NSURL *)url {
     BOOL isDir;
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir])
+    if ([[NSFileManager defaultManager] fileExistsAtPath:url.path isDirectory:&isDir])
         if (isDir && ![self isKindOfClass:[DirectoryItem class]])
-            return [[DirectoryItem alloc] initWithFilePath:path];
+            return [[DirectoryItem alloc] initWithURL:url];
     
     if (self = [super init]) {
-        _path = path;
+        _url = url;
         [self refresh];
     }
     return self;
@@ -29,12 +29,12 @@
 }
 
 - (void)refresh {
-    _name = [_path lastPathComponent];
-    _image = [[NSWorkspace sharedWorkspace] iconForFile:_path];
+    _name = [self.url lastPathComponent];
+    _image = [[NSWorkspace sharedWorkspace] iconForFile:self.url.path];
 }
 
 - (BOOL)isLeaf {
-    return NO;
+    return YES;
 }
 
 @end

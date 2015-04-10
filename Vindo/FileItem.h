@@ -11,10 +11,10 @@
 
 @interface FileItem : Item <NSCopying>
 
-- (instancetype)initWithFilePath:(NSString *)path;
+- (instancetype)initWithURL:(NSURL *)url;
 
 - (void)refresh;
 
-@property (readonly) NSString *path;
+@property (readonly) NSURL *url;
 
 @end

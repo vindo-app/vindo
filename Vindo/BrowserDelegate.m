@@ -46,6 +46,12 @@
     return item.children[index];
 }
 
+- (void)browser:(NSBrowser *)sender willDisplayCell:(ItemBrowserCell *)cell atRow:(NSInteger)row column:(NSInteger)column {
+    Item *item = [sender itemAtRow:row inColumn:column];
+    cell.stringValue = item.name;
+    cell.image = item.image;
+}
+
 - (id)browser:(NSBrowser *)browser objectValueForItem:(Item *)item {
     return @"";
 }
@@ -55,10 +61,15 @@
     return YES;
 }
 
-- (void)browser:(NSBrowser *)sender willDisplayCell:(ItemBrowserCell *)cell atRow:(NSInteger)row column:(NSInteger)column {
-    Item *item = [sender itemAtRow:row inColumn:column];
-    cell.stringValue = item.name;
-    cell.image = item.image;
+- (CGFloat)browser:(NSBrowser *)browser
+  shouldSizeColumn:(NSInteger)columnIndex
+     forUserResize:(BOOL)forUserResize
+           toWidth:(CGFloat)suggestedWidth {
+    return 204; // like the finder
+}
+
+- (BOOL)browser:(NSBrowser *)browser shouldShowCellExpansionForRow:(NSInteger)row column:(NSInteger)column {
+    return YES;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath

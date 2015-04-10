@@ -9,10 +9,10 @@
 #import "ItemBrowserCell.h"
 #import "Item.h"
 
-#define ICON_SIZE 		16.0	// Our Icons are ICON_SIZE x ICON_SIZE
+#define ICON_SIZE           16.0	// Our Icons are ICON_SIZE x ICON_SIZE
 #define ICON_INSET_HORIZ	6.0     // Distance to inset the icon from the left edge.
 #define ICON_TEXT_SPACING	4.0     // Distance between the end of the icon and the text part
-#define ICON_INSET_VERT         2.0     // Distance from top/bottom of icon
+#define ICON_INSET_VERT     3.0     // Distance from top/bottom of icon
 
 @implementation ItemBrowserCell
 @synthesize image = _image;
@@ -65,8 +65,6 @@
     CGFloat inset = (ICON_INSET_HORIZ + ICON_SIZE + ICON_TEXT_SPACING);
     cellFrame.origin.x += inset;
     cellFrame.size.width -= inset;
-    cellFrame.origin.y -= 2; // Looks better
-    cellFrame.size.height -= 1;
     [super drawInteriorWithFrame:cellFrame inView:controlView];
 }
 
