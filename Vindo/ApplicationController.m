@@ -23,7 +23,7 @@
 @implementation ApplicationController
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
-    World *world = [World worldNamed:@"Default World"];
+    World *world = [World defaultWorld];
 #ifdef DEBUG
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self
