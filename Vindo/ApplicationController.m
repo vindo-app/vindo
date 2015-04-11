@@ -101,8 +101,8 @@
     _prefs.selectedIndex = 2;
 }
 
-- (void)retryTerminateApp:(NSNotification *)notifications {
-    [NSApp terminate:self];
+- (void)applicationWillTerminate:(NSNotification *)notification {
+    [[NSStatusBar systemStatusBar] removeStatusItem:statusItem];
 }
 
 - (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
