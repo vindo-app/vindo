@@ -232,6 +232,7 @@
                                                             <rect key="frame" x="-1" y="-1" width="560" height="420"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <connections>
+                                                                <action selector="selectItem:" target="Nqn-tE-qvt" id="Hg6-4E-3dl"/>
                                                                 <outlet property="delegate" destination="Nqn-tE-qvt" id="KGl-ja-GKX"/>
                                                             </connections>
                                                         </browser>
@@ -351,7 +352,7 @@
         </window>
         <treeController objectClassName="Item" childrenKeyPath="children" leafKeyPath="leaf" id="2ZI-W6-tqx">
             <connections>
-                <binding destination="-2" name="contentObject" keyPath="rootItem" id="rg3-1F-J33"/>
+                <binding destination="-2" name="contentArray" keyPath="rootItem.children" id="OST-Ow-BKl"/>
             </connections>
         </treeController>
         <customObject id="Nqn-tE-qvt" customClass="BrowserDelegate">

@@ -56,9 +56,9 @@
     return @"";
 }
 
-- (BOOL)browser:(NSBrowser *)sender selectRow:(NSInteger)row inColumn:(NSInteger)column {
+// this is the browser's action
+- (IBAction)selectItem:(id)sender {
     self.tree.selectionIndexPaths = self.browser.selectionIndexPaths;
-    return YES;
 }
 
 - (CGFloat)browser:(NSBrowser *)browser
