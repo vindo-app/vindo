@@ -7,16 +7,23 @@
 //
 
 #import "ApplicationController.h"
+#import "BrowserController.h"
 #import "GeneralPreferencesViewController.h"
 #import "WineCfgViewController.h"
 #import "WorldsPreferencesViewController.h"
 #import "WinePrefix.h"
 #import "World.h"
 
+@interface ApplicationController ()
+
+@property RHPreferencesWindowController *prefs;
+
+@end
+
 @implementation ApplicationController
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
-    World *world = [World worldNamed:@"Default World"];
+    World *world = [World defaultWorld];
 #ifdef DEBUG
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self
@@ -91,11 +98,11 @@
 
 - (IBAction)manageWorlds:(id)sender {
     [self showPreferences:self];
-    prefs.selectedIndex = 2;
+    _prefs.selectedIndex = 2;
 }
 
-- (void)retryTerminateApp:(NSNotification *)notifications {
-    [NSApp terminate:self];
+- (void)applicationWillTerminate:(NSNotification *)notification {
+    [[NSStatusBar systemStatusBar] removeStatusItem:statusItem];
 }
 
 - (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
@@ -103,19 +110,24 @@
 }
 
 - (IBAction)showPreferences: (id)sender {
-    if (prefs == nil) {
-        prefs = [[RHPreferencesWindowController alloc] initWithViewControllers:
+    if (_prefs == nil) {
+        _prefs = [[RHPreferencesWindowController alloc] initWithViewControllers:
                                  @[
                                    [GeneralPreferencesViewController new],
                                    [WineCfgViewController new],
                                    [WorldsPreferencesViewController new],
                                   ]];
         // workaround for missing behavior in RHPreferences
-        prefs.window.collectionBehavior =
+        _prefs.window.collectionBehavior =
             NSWindowCollectionBehaviorMoveToActiveSpace |
             NSWindowCollectionBehaviorFullScreenAuxiliary;
     }
-    [prefs showWindow:self];
+    [_prefs showWindow:self];
+    [NSApp activateIgnoringOtherApps:YES];
+}
+
+- (IBAction)showBrowser: (id)sender {
+    [[BrowserController new] showWindow:self];
     [NSApp activateIgnoringOtherApps:YES];
 }
 

@@ -6,10 +6,12 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 #import "WinePrefix.h"
 
-@interface World : WinePrefix
+extern NSString *const WorldPasteboardType;
+
+@interface World : WinePrefix <NSPasteboardReading, NSPasteboardWriting>
 
 + (World *)worldNamed:(NSString *)name;
 + (World *)defaultWorld;

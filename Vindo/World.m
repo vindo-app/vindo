@@ -42,8 +42,30 @@ static NSMutableDictionary *worldsDictionary;
     return [applicationSupport URLByAppendingPathComponent:name];
 }
 
+- (NSArray *)writableTypesForPasteboard:(NSPasteboard *)pasteboard {
+    return @[WorldPasteboardType];
+}
+
+- (id)pasteboardPropertyListForType:(NSString *)type {
+    return [self.name pasteboardPropertyListForType:NSPasteboardTypeString];
+}
+
++ (NSArray *)readableTypesForPasteboard:(NSPasteboard *)pasteboard {
+    return @[WorldPasteboardType];
+}
+
++ (NSPasteboardReadingOptions)readingOptionsForType:(NSString *)type pasteboard:(NSPasteboard *)pasteboard {
+    return NSPasteboardReadingAsData;
+}
+
+- (id)initWithPasteboardPropertyList:(id)propertyList ofType:(NSString *)type {
+    return [World worldNamed:[[NSString alloc] initWithPasteboardPropertyList:propertyList ofType:NSPasteboardTypeString]];
+}
+
 + (void)initialize {
     worldsDictionary = [NSMutableDictionary new];
 }
 
 @end
+
+NSString *const WorldPasteboardType = @"org.vindo.world";

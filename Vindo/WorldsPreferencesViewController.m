@@ -17,6 +17,7 @@
 @property IBOutlet NSTextField *queryText;
 
 @property IBOutlet NSArrayController *arrayController;
+@property IBOutlet NSTableView *table;
 
 @property id strongReference; // need a strong reference to the sheet
 
@@ -77,8 +78,13 @@
     [self runBlock:^{
         for (World *world in worldsToDelete) {
             [world stopAndWait];
+            NSError *error;
             [[NSFileManager defaultManager]
-                trashItemAtURL:world.path resultingItemURL:nil error:nil]; // move world to trash
+                trashItemAtURL:world.path resultingItemURL:nil error:&error]; // move world to trash
+            if (error != nil) {
+                [NSApp presentError:error];
+                continue;
+            }
             [self.arrayController removeObject:world]; // remove object from worlds
             [World deleteWorldNamed:world.name];
         }
@@ -101,6 +107,41 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
         return [self.arrayController.arrangedObjects[row] name];
     }
     return nil;
+}
+
+- (void)awakeFromNib {
+    [self.table registerForDraggedTypes:@[WorldPasteboardType]];
+}
+
+-    (BOOL)tableView:(NSTableView *)tableView
+writeRowsWithIndexes:(NSIndexSet *)rowIndexes
+        toPasteboard:(NSPasteboard *)pboard {
+    return [pboard writeObjects:[self.arrayController.arrangedObjects objectsAtIndexes:rowIndexes]];
+}
+
+- (NSDragOperation)tableView:(NSTableView *)tableView
+                validateDrop:(id<NSDraggingInfo>)info
+                 proposedRow:(NSInteger)row
+       proposedDropOperation:(NSTableViewDropOperation)dropOperation {
+    if (dropOperation == NSTableViewDropOn)
+        return NSDragOperationNone;
+    
+    if ([[info draggingPasteboard] canReadItemWithDataConformingToTypes:@[WorldPasteboardType]])
+        return NSDragOperationMove;
+    else
+        return NSDragOperationNone;
+}
+
+- (BOOL)tableView:(NSTableView *)tableView
+       acceptDrop:(id<NSDraggingInfo>)info
+              row:(NSInteger)destination
+    dropOperation:(NSTableViewDropOperation)dropOperation {
+    World *worldToDrop = [[info draggingPasteboard] readObjectsForClasses:@[[World class]] options:nil][0];
+    if ([self.arrayController.arrangedObjects indexOfObject:worldToDrop] < destination)
+        destination--;
+    [self.arrayController removeObject:worldToDrop];
+    [self.arrayController insertObject:worldToDrop atArrangedObjectIndex:destination];
+    return YES;
 }
 
 - (void)tableView:(NSTableView *)tableView

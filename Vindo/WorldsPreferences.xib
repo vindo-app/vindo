@@ -9,6 +9,7 @@
                 <outlet property="arrayController" destination="Dir-K8-Rli" id="gG0-Ts-AlJ"/>
                 <outlet property="querySheet" destination="oXA-Yo-anN" id="Icg-zq-hSg"/>
                 <outlet property="queryText" destination="8uy-JD-MfM" id="nde-GR-k4B"/>
+                <outlet property="table" destination="NAj-ty-2OG" id="vsZ-nE-2Vn"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -18,6 +19,28 @@
             <rect key="frame" x="0.0" y="0.0" width="522" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
+                <button verticalHuggingPriority="750" tag="-1" id="bbK-BR-SDJ">
+                    <rect key="frame" x="20" y="19" width="23" height="23"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rtK-Ya-bMB">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="addWorld:" target="-2" id="w7T-BB-FeH"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" tag="-1" id="BPn-Cy-Bi5">
+                    <rect key="frame" x="42" y="19" width="23" height="23"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nZ3-Ky-QEo">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="removeWorld:" target="-2" id="fyl-q9-2v3"/>
+                    </connections>
+                </button>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="cEs-YH-DQn">
                     <rect key="frame" x="20" y="49" width="482" height="203"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,7 +48,7 @@
                         <rect key="frame" x="1" y="17" width="238" height="117"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" headerView="PbN-a3-Rl7" id="NAj-ty-2OG">
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" typeSelect="NO" id="NAj-ty-2OG">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="19"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -66,46 +89,7 @@
                         <rect key="frame" x="224" y="17" width="15" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <tableHeaderView key="headerView" id="PbN-a3-Rl7">
-                        <rect key="frame" x="0.0" y="0.0" width="10000" height="17"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </tableHeaderView>
                 </scrollView>
-                <button verticalHuggingPriority="750" tag="-1" id="bbK-BR-SDJ">
-                    <rect key="frame" x="20" y="19" width="23" height="23"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rtK-Ya-bMB">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="addWorld:" target="-2" id="w7T-BB-FeH"/>
-                    </connections>
-                </button>
-                <button verticalHuggingPriority="750" tag="-1" id="BPn-Cy-Bi5">
-                    <rect key="frame" x="42" y="19" width="23" height="23"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nZ3-Ky-QEo">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="removeWorld:" target="-2" id="fyl-q9-2v3"/>
-                    </connections>
-                </button>
-                <popUpButton verticalHuggingPriority="750" id="md3-dE-Mgx">
-                    <rect key="frame" x="73" y="19" width="35" height="23"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="dhu-6j-PVg">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="menu"/>
-                        <menu key="menu" id="k3Z-WK-BRv">
-                            <items>
-                                <menuItem state="on" image="NSActionTemplate" hidden="YES" id="qwg-CK-K2g"/>
-                            </items>
-                        </menu>
-                    </popUpButtonCell>
-                </popUpButton>
             </subviews>
             <point key="canvasLocation" x="-22" y="8"/>
         </customView>
@@ -181,7 +165,6 @@ Gw
         </arrayController>
     </objects>
     <resources>
-        <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSAddTemplate" width="8" height="8"/>
         <image name="NSRemoveTemplate" width="8" height="8"/>
     </resources>
