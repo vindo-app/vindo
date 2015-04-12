@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1070" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
     </dependencies>
     <objects>
@@ -10,6 +9,7 @@
                 <outlet property="arrayController" destination="Dir-K8-Rli" id="gG0-Ts-AlJ"/>
                 <outlet property="querySheet" destination="oXA-Yo-anN" id="Icg-zq-hSg"/>
                 <outlet property="queryText" destination="8uy-JD-MfM" id="nde-GR-k4B"/>
+                <outlet property="table" destination="NAj-ty-2OG" id="vsZ-nE-2Vn"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -19,6 +19,28 @@
             <rect key="frame" x="0.0" y="0.0" width="522" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
+                <button verticalHuggingPriority="750" tag="-1" id="bbK-BR-SDJ">
+                    <rect key="frame" x="20" y="19" width="23" height="23"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rtK-Ya-bMB">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="addWorld:" target="-2" id="w7T-BB-FeH"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" tag="-1" id="BPn-Cy-Bi5">
+                    <rect key="frame" x="42" y="19" width="23" height="23"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nZ3-Ky-QEo">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="removeWorld:" target="-2" id="fyl-q9-2v3"/>
+                    </connections>
+                </button>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="cEs-YH-DQn">
                     <rect key="frame" x="20" y="49" width="482" height="203"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,28 +90,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
-                <button verticalHuggingPriority="750" tag="-1" id="bbK-BR-SDJ">
-                    <rect key="frame" x="20" y="19" width="23" height="23"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rtK-Ya-bMB">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="addWorld:" target="-2" id="w7T-BB-FeH"/>
-                    </connections>
-                </button>
-                <button verticalHuggingPriority="750" tag="-1" id="BPn-Cy-Bi5">
-                    <rect key="frame" x="42" y="19" width="23" height="23"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nZ3-Ky-QEo">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="removeWorld:" target="-2" id="fyl-q9-2v3"/>
-                    </connections>
-                </button>
             </subviews>
             <point key="canvasLocation" x="-22" y="8"/>
         </customView>
