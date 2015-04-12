@@ -77,8 +77,13 @@
     [self runBlock:^{
         for (World *world in worldsToDelete) {
             [world stopAndWait];
+            NSError *error;
             [[NSFileManager defaultManager]
-                trashItemAtURL:world.path resultingItemURL:nil error:nil]; // move world to trash
+                trashItemAtURL:world.path resultingItemURL:nil error:&error]; // move world to trash
+            if (error != nil) {
+                [NSApp presentError:error];
+                continue;
+            }
             [self.arrayController removeObject:world]; // remove object from worlds
             [World deleteWorldNamed:world.name];
         }

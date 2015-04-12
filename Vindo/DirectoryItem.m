@@ -21,7 +21,8 @@
     NSFileManager *fm = [NSFileManager defaultManager];
     NSMutableArray *children = [NSMutableArray new];
     BOOL (^errorHandler)(NSURL *url, NSError *error) = ^(NSURL *url, NSError *error) {
-        NSLog(@"%@", error);
+        [NSApp presentError:error];
+        NSLog(@"[DirectoryItem refreshChildren]: directory enumeration for %@ failed with error: %@", url, error);
         return YES;
     };
     NSDirectoryEnumerator *enumerator = [fm enumeratorAtURL:self.url

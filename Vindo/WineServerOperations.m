@@ -37,6 +37,17 @@
         if (self.isCancelled)
             return;
         
+        // make sure prefix directory exists
+        NSFileManager *manager = [NSFileManager defaultManager];
+        NSError *error;
+        if (![manager createDirectoryAtURL:_prefix.path
+               withIntermediateDirectories:YES
+                                attributes:nil
+                                     error:&error]) {
+            [NSApp presentError:error];
+            return;
+        }
+        
         NSTask *killExistingServer = [_prefix taskWithProgram:@"wineserver" arguments:@[@"-k"]]; // kill any existing wineserver
         [killExistingServer launch];
         [killExistingServer waitUntilExit];

@@ -31,14 +31,6 @@ static NSURL *usrURL;
         
         self.state = WineServerStopped;
         
-        // make sure prefix directory exists
-        NSFileManager *manager = [NSFileManager defaultManager];
-        if (![manager createDirectoryAtURL:self.path
-               withIntermediateDirectories:YES
-                                attributes:nil
-                                     error:nil])
-            [NSException raise:NSGenericException format:@"could not create prefix directory %@", self.path];
-        
         // make sure to stop the server when the app is about to terminate
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
