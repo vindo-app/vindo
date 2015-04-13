@@ -84,7 +84,7 @@
         // OOB exception when it tries to access column 0 and there are no columns. So catch it and
         // ignore it. If it's not OOB, rethrow it.
         @try {
-            [self.browser reloadColumn:0];
+            //[self.browser reloadColumn:0];
             self.browser.selectionIndexPaths = self.tree.selectionIndexPaths;
         }
         @catch (NSException *exception) {

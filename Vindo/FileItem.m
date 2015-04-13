@@ -9,8 +9,6 @@
 #import "FileItem.h"
 #import "DirectoryItem.h"
 
-static NSMapTable *fileItemCache;
-
 @implementation FileItem
 
 - (instancetype)initWithURL:(NSURL *)url {
@@ -42,6 +40,8 @@ static NSMapTable *fileItemCache;
 - (BOOL)isLeaf {
     return YES;
 }
+
+static NSMapTable *fileItemCache;
 
 + (void)initialize {
     fileItemCache = [NSMapTable mapTableWithKeyOptions:NSMapTableStrongMemory valueOptions:NSMapTableWeakMemory];

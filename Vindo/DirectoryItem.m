@@ -6,13 +6,26 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
+#import <CoreServices/CoreServices.h>
 #import "DirectoryItem.h"
+
+@interface DirectoryItem ()
+
+@property FSEventStreamRef stream;
+
+@end
 
 @implementation DirectoryItem
 
 - (instancetype)initWithURL:(NSURL *)url {
     if (self = [super initWithURL:url]) {
-        
+        self.stream = FSEventStreamCreate(NULL,
+                                          FSEventCallback,
+                                          self,
+                                          (CFArrayRef)@[self.url.path],
+                                          kFSEventStreamEventIdSinceNow,
+                                          1,
+                                          kFSEventStreamCreateFlagUseCFTypes | kFSEventStreamCreateFlagNoDefer | )
     }
     return self;
 }
@@ -43,6 +56,18 @@
 
 - (BOOL)isLeaf {
     return NO;
+}
+
+#pragma mark FSEvents stuff
+
+
+static void FSEventCallback(ConstFSEventStreamRef streamRef,
+                            void *clientCallBackInfo,
+                            size_t numEvents,
+                            void *eventPaths,
+                            const FSEventStreamEventFlags eventFlags[],
+                            const FSEventStreamEventId eventIds[]) {
+    
 }
 
 @end
