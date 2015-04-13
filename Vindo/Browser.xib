@@ -134,23 +134,23 @@
                                             </tabViewItem>
                                             <tabViewItem label="List" identifier="1" id="qSn-hl-2zF">
                                                 <view key="view" id="O14-JK-nvb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="399" height="320"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="559" height="418"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="xzb-yY-BIf">
-                                                            <rect key="frame" x="-1" y="-1" width="401" height="322"/>
+                                                            <rect key="frame" x="-1" y="-1" width="561" height="420"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <clipView key="contentView" id="8Fh-Je-8AP">
                                                                 <rect key="frame" x="1" y="17" width="238" height="117"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
-                                                                    <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" autosaveColumns="NO" rowSizeStyle="automatic" headerView="bmC-We-wVo" viewBased="YES" indentationPerLevel="16" outlineTableColumn="H5l-Ty-50n" id="bzO-7b-h0e">
+                                                                    <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" autosaveColumns="NO" rowSizeStyle="automatic" headerView="bmC-We-wVo" viewBased="YES" indentationPerLevel="21" outlineTableColumn="H5l-Ty-50n" id="bzO-7b-h0e">
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                                         <tableColumns>
-                                                                            <tableColumn width="396" minWidth="40" maxWidth="1000" id="H5l-Ty-50n">
+                                                                            <tableColumn width="556" minWidth="40" maxWidth="1000" id="H5l-Ty-50n">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Name">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -164,7 +164,7 @@
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="OeU-P0-eLF">
-                                                                                        <rect key="frame" x="1" y="1" width="396" height="17"/>
+                                                                                        <rect key="frame" x="1" y="1" width="556" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
                                                                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="eUG-PW-myk">
@@ -176,7 +176,7 @@
                                                                                                 </connections>
                                                                                             </imageView>
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" id="szp-vu-Vui">
-                                                                                                <rect key="frame" x="29" y="1" width="371" height="16"/>
+                                                                                                <rect key="frame" x="29" y="1" width="531" height="16"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="tCf-yH-sMr">
                                                                                                     <font key="font" metaFont="cellTitle"/>

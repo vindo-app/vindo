@@ -9,9 +9,14 @@
 #import "FileItem.h"
 #import "DirectoryItem.h"
 
+static NSMapTable *fileItemCache;
+
 @implementation FileItem
 
 - (instancetype)initWithURL:(NSURL *)url {
+    if ([fileItemCache objectForKey:url] != nil)
+        return [fileItemCache objectForKey:url];
+    
     BOOL isDir;
     if ([[NSFileManager defaultManager] fileExistsAtPath:url.path isDirectory:&isDir])
         if (isDir && ![self isKindOfClass:[DirectoryItem class]])
@@ -20,6 +25,7 @@
     if (self = [super init]) {
         _url = url;
         [self refresh];
+        [fileItemCache setObject:self forKey:url];
     }
     return self;
 }
@@ -35,6 +41,10 @@
 
 - (BOOL)isLeaf {
     return YES;
+}
+
++ (void)initialize {
+    fileItemCache = [NSMapTable mapTableWithKeyOptions:NSMapTableStrongMemory valueOptions:NSMapTableWeakMemory];
 }
 
 @end
