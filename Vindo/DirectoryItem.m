@@ -21,11 +21,11 @@
     if (self = [super initWithURL:url]) {
         self.stream = FSEventStreamCreate(NULL,
                                           FSEventCallback,
-                                          self,
-                                          (CFArrayRef)@[self.url.path],
+                                          (__bridge void *)self,
+                                          (__bridge CFArrayRef)@[self.url.path],
                                           kFSEventStreamEventIdSinceNow,
                                           1,
-                                          kFSEventStreamCreateFlagUseCFTypes | kFSEventStreamCreateFlagNoDefer | )
+                                          kFSEventStreamCreateFlagUseCFTypes | kFSEventStreamCreateFlagNoDefer);
     }
     return self;
 }
@@ -54,6 +54,10 @@
     return _children;
 }
 
+- (void)handleFileSystemEventsWithPaths:(NSArray *)paths flags:(NSArray *)flags eventIds:(NSArray *)eventIds {
+    NSLog(<#NSString *format, ...#>)
+}
+
 - (BOOL)isLeaf {
     return NO;
 }
@@ -67,7 +71,10 @@ static void FSEventCallback(ConstFSEventStreamRef streamRef,
                             void *eventPaths,
                             const FSEventStreamEventFlags eventFlags[],
                             const FSEventStreamEventId eventIds[]) {
-    
+    DirectoryItem *dirItem = (__bridge DirectoryItem *)clientCallBackInfo;
+    [dirItem handleFileSystemEventsWithPaths:(__bridge NSArray *)eventPaths
+                                       flags:(__bridge NSArray *)(CFArrayRef)eventFlags
+                                    eventIds:(__bridge NSArray *)(CFArrayRef)eventIds];
 }
 
 @end

@@ -1,0 +1,13 @@
+PODS:
+  - CDEvents (1.2.2)
+  - RHPreferences (1.0.0)
+
+DEPENDENCIES:
+  - CDEvents
+  - RHPreferences
+
+SPEC CHECKSUMS:
+  CDEvents: f311f23de13414f4b3625f1a663b2e1d9a85d982
+  RHPreferences: 6871f9614347f4b45197c51f7c93c3cde2744ce8
+
+COCOAPODS: 0.36.3
