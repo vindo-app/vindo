@@ -55,7 +55,7 @@
 }
 
 - (void)handleFileSystemEventsWithPaths:(NSArray *)paths flags:(NSArray *)flags eventIds:(NSArray *)eventIds {
-    NSLog(<#NSString *format, ...#>)
+    NSLog(@"fsevent!");
 }
 
 - (BOOL)isLeaf {
