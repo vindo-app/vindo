@@ -6,12 +6,13 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
-#import <CoreServices/CoreServices.h>
+#import <CDEvents.h>
+#import <CDEventsDelegate.h>
 #import "DirectoryItem.h"
 
-@interface DirectoryItem ()
+@interface DirectoryItem () <CDEventsDelegate>
 
-@property FSEventStreamRef stream;
+@property CDEvents *stream;
 
 @end
 
@@ -19,13 +20,14 @@
 
 - (instancetype)initWithURL:(NSURL *)url {
     if (self = [super initWithURL:url]) {
-        self.stream = FSEventStreamCreate(NULL,
-                                          FSEventCallback,
-                                          (__bridge void *)self,
-                                          (__bridge CFArrayRef)@[self.url.path],
-                                          kFSEventStreamEventIdSinceNow,
-                                          1,
-                                          kFSEventStreamCreateFlagUseCFTypes | kFSEventStreamCreateFlagNoDefer);
+        self.stream = [[CDEvents alloc] initWithURLs:@[url]
+                                            delegate:self
+                                           onRunLoop:[NSRunLoop mainRunLoop]
+                                sinceEventIdentifier:kCDEventsSinceEventNow
+                                notificationLantency:CD_EVENTS_DEFAULT_NOTIFICATION_LATENCY
+                             ignoreEventsFromSubDirs:YES
+                                         excludeURLs:nil
+                                 streamCreationFlags:kCDEventsDefaultEventStreamFlags];
     }
     return self;
 }
@@ -54,8 +56,11 @@
     return _children;
 }
 
-- (void)handleFileSystemEventsWithPaths:(NSArray *)paths flags:(NSArray *)flags eventIds:(NSArray *)eventIds {
-    NSLog(@"fsevent!");
+- (void)URLWatcher:(CDEvents *)URLWatcher eventOccurred:(CDEvent *)event {
+    NSLog(@"%@", event);
+    [self willChangeValueForKey:@"children"];
+    _children = nil; // will refresh
+    [self didChangeValueForKey:@"children"];
 }
 
 - (BOOL)isLeaf {
@@ -63,18 +68,5 @@
 }
 
 #pragma mark FSEvents stuff
-
-
-static void FSEventCallback(ConstFSEventStreamRef streamRef,
-                            void *clientCallBackInfo,
-                            size_t numEvents,
-                            void *eventPaths,
-                            const FSEventStreamEventFlags eventFlags[],
-                            const FSEventStreamEventId eventIds[]) {
-    DirectoryItem *dirItem = (__bridge DirectoryItem *)clientCallBackInfo;
-    [dirItem handleFileSystemEventsWithPaths:(__bridge NSArray *)eventPaths
-                                       flags:(__bridge NSArray *)(CFArrayRef)eventFlags
-                                    eventIds:(__bridge NSArray *)(CFArrayRef)eventIds];
-}
 
 @end
