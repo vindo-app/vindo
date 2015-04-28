@@ -13,7 +13,6 @@
 		8A23F3BA1AA9141500F1467C /* WineCfgPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3B81AA9141500F1467C /* WineCfgPreferences.xib */; };
 		8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BE1AA91EF600F1467C /* MainMenu.xib */; };
 		8A23F3C31AA9237A00F1467C /* usr in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3C21AA9237900F1467C /* usr */; };
-		8A28BF501AD7260D007AB81C /* BrowserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A28BF4F1AD7260D007AB81C /* BrowserDelegate.m */; };
 		8A28BF521AD73EAD007AB81C /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A28BF511AD73EAD007AB81C /* Item.m */; };
 		8A28BF551AD740EE007AB81C /* DirectoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A28BF541AD740EE007AB81C /* DirectoryItem.m */; };
 		8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */; };
@@ -27,6 +26,7 @@
 		AC05807A1ABE13F300854813 /* WorldsPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC0580781ABE13F300854813 /* WorldsPreferences.xib */; };
 		AC05807D1ABE16F300854813 /* WineServerOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = AC05807C1ABE16F300854813 /* WineServerOperations.m */; };
 		AC05808C1ABF97F700854813 /* WorldsPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC05808B1ABF97F700854813 /* WorldsPreferencesViewController.m */; };
+		AC09A6FC1AEEF5C900F20E00 /* BrowserDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AC09A6FB1AEEF5C900F20E00 /* BrowserDataSource.m */; };
 		AC13F0A21ADB6A1000254D1F /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC13F0A11ADB6A1000254D1F /* CoreServices.framework */; };
 		AC3A4EE21AA12F9A00781626 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE11AA12F9A00781626 /* main.m */; };
 		AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE41AA12F9A00781626 /* ApplicationController.m */; };
@@ -69,8 +69,6 @@
 		8A23F3BD1AA91EF600F1467C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		8A23F3C21AA9237900F1467C /* usr */ = {isa = PBXFileReference; lastKnownFileType = folder; path = usr; sourceTree = "<group>"; };
-		8A28BF4E1AD7260D007AB81C /* BrowserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserDelegate.h; sourceTree = "<group>"; };
-		8A28BF4F1AD7260D007AB81C /* BrowserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserDelegate.m; sourceTree = "<group>"; };
 		8A28BF511AD73EAD007AB81C /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		8A28BF531AD740EE007AB81C /* DirectoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryItem.h; sourceTree = "<group>"; };
 		8A28BF541AD740EE007AB81C /* DirectoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectoryItem.m; sourceTree = "<group>"; };
@@ -93,6 +91,8 @@
 		AC05807C1ABE16F300854813 /* WineServerOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineServerOperations.m; sourceTree = "<group>"; };
 		AC05808A1ABF97F700854813 /* WorldsPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsPreferencesViewController.h; sourceTree = "<group>"; };
 		AC05808B1ABF97F700854813 /* WorldsPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsPreferencesViewController.m; sourceTree = "<group>"; };
+		AC09A6FA1AEEF5C900F20E00 /* BrowserDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserDataSource.h; sourceTree = "<group>"; };
+		AC09A6FB1AEEF5C900F20E00 /* BrowserDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserDataSource.m; sourceTree = "<group>"; };
 		AC13F0A11ADB6A1000254D1F /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		AC3A4EDC1AA12F9900781626 /* Vindo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vindo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3A4EE11AA12F9A00781626 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -236,12 +236,12 @@
 			children = (
 				AC64E48D1AC8C02A002C7E4D /* BrowserController.h */,
 				AC64E48E1AC8C02A002C7E4D /* BrowserController.m */,
-				8A28BF4E1AD7260D007AB81C /* BrowserDelegate.h */,
-				8A28BF4F1AD7260D007AB81C /* BrowserDelegate.m */,
 				8AC761631ACDE2B500D52B99 /* FileItem.h */,
 				8AC761641ACDE2B500D52B99 /* FileItem.m */,
 				8A28BF531AD740EE007AB81C /* DirectoryItem.h */,
 				8A28BF541AD740EE007AB81C /* DirectoryItem.m */,
+				AC09A6FA1AEEF5C900F20E00 /* BrowserDataSource.h */,
+				AC09A6FB1AEEF5C900F20E00 /* BrowserDataSource.m */,
 				AC3CC24C1ACCD238003ED7EC /* Item.h */,
 				8A28BF511AD73EAD007AB81C /* Item.m */,
 				ACC458D21ACF514A001838FC /* ItemBrowserCell.h */,
@@ -417,8 +417,8 @@
 				AC05807D1ABE16F300854813 /* WineServerOperations.m in Sources */,
 				8AC761651ACDE2B500D52B99 /* FileItem.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */,
+				AC09A6FC1AEEF5C900F20E00 /* BrowserDataSource.m in Sources */,
 				8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */,
-				8A28BF501AD7260D007AB81C /* BrowserDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

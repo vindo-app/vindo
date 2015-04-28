@@ -7,6 +7,7 @@
 //
 
 #import "BrowserController.h"
+#import "BrowserDataSource.h"
 #import "FileItem.h"
 #import "ItemBrowserCell.h"
 
@@ -14,6 +15,7 @@ static NSMutableArray *browsers;
 
 @interface BrowserController ()
 
+@property IBOutlet BrowserDataSource *dataSource;
 @property IBOutlet NSTabView *tabView;
 @property IBOutlet NSBrowser *browser;
 
@@ -25,7 +27,7 @@ static NSMutableArray *browsers;
     if (self = [super initWithWindowNibName:@"Browser"]) {
         [browsers addObject:self]; // to have a strong reference
         self.window.delegate = self;
-        self.rootItem = [[FileItem alloc] initWithURL:[NSURL fileURLWithPath:NSHomeDirectory()]];
+        self.dataSource.root = [[FileItem alloc] initWithURL:[NSURL fileURLWithPath:NSHomeDirectory()]];
     }
     return self;
 }
