@@ -33,6 +33,7 @@ static NSMutableArray *browsers;
 }
 
 - (void)awakeFromNib {
+    self.dataSource.root = [[FileItem alloc] initWithURL:[NSURL fileURLWithPath:NSHomeDirectory()]];
     self.browser.cellClass = [ItemBrowserCell class];
     self.browser.columnResizingType = NSBrowserUserColumnResizing;
 }

@@ -119,7 +119,8 @@
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         
         [center postNotificationName:WineServerWillStopNotification object:self.prefix];
-        [server interrupt];
+        NSTask *killServer = [_prefix taskWithProgram:@"wineserver" arguments:@[@"--kill"]];
+        [killServer launch];
         [server waitUntilExit];
         
         [center postNotificationName:WineServerDidStopNotification

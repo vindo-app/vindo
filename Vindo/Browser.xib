@@ -228,6 +228,9 @@
                                                         <browser verticalHuggingPriority="750" allowsExpansionToolTips="YES" enabled="YES" hasHorizontalScroller="YES" allowsMultipleSelection="YES" allowsEmptySelection="YES" allowsBranchSelection="YES" defaultColumnWidth="100" minColumnWidth="100" allowsTypeSelect="YES" columnResizingType="auto" id="h46-HN-CuM">
                                                             <rect key="frame" x="-1" y="-1" width="560" height="420"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="aFA-hh-fq7" id="Dl2-tB-Qmr"/>
+                                                            </connections>
                                                         </browser>
                                                     </subviews>
                                                 </view>
