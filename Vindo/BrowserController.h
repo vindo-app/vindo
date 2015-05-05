@@ -11,7 +11,7 @@
 
 @interface BrowserController : NSWindowController <NSWindowDelegate>
 
-//@property Item *rootItem;
+@property Item *rootItem;
 
 @end
 /*

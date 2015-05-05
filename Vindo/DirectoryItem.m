@@ -24,7 +24,7 @@
                                             delegate:self
                                            onRunLoop:[NSRunLoop mainRunLoop]
                                 sinceEventIdentifier:kCDEventsSinceEventNow
-                                notificationLantency:1
+                                notificationLantency:CD_EVENTS_DEFAULT_NOTIFICATION_LATENCY
                              ignoreEventsFromSubDirs:YES
                                          excludeURLs:nil
                                  streamCreationFlags:kCDEventsDefaultEventStreamFlags];

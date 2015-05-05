@@ -8,7 +8,6 @@
         <customObject id="-2" userLabel="File's Owner" customClass="BrowserController">
             <connections>
                 <outlet property="browser" destination="h46-HN-CuM" id="FP4-sT-qv1"/>
-                <outlet property="dataSource" destination="aFA-hh-fq7" id="Y2O-jU-gsd"/>
                 <outlet property="tabView" destination="ehi-Al-v5R" id="f9F-AP-lg1"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -17,7 +16,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" frameAutosaveName="Browser" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES"/>
             <rect key="contentRect" x="120" y="370" width="770" height="418"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1002"/>
             <view key="contentView" id="se5-gp-TjO">
@@ -195,10 +194,14 @@
                                                                                         </connections>
                                                                                     </tableCellView>
                                                                                 </prototypeCellViews>
+                                                                                <connections>
+                                                                                    <binding destination="2ZI-W6-tqx" name="value" keyPath="arrangedObjects.name" id="Ipi-FF-pVI"/>
+                                                                                </connections>
                                                                             </tableColumn>
                                                                         </tableColumns>
                                                                         <connections>
-                                                                            <outlet property="dataSource" destination="aFA-hh-fq7" id="NGH-ou-xLd"/>
+                                                                            <binding destination="2ZI-W6-tqx" name="content" keyPath="arrangedObjects" id="QXP-Vy-So3"/>
+                                                                            <binding destination="2ZI-W6-tqx" name="selectionIndexPaths" keyPath="selectionIndexPaths" previousBinding="QXP-Vy-So3" id="BJe-NR-T5j"/>
                                                                         </connections>
                                                                     </outlineView>
                                                                 </subviews>
@@ -229,7 +232,8 @@
                                                             <rect key="frame" x="-1" y="-1" width="560" height="420"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <connections>
-                                                                <outlet property="delegate" destination="aFA-hh-fq7" id="Dl2-tB-Qmr"/>
+                                                                <action selector="selectItem:" target="Nqn-tE-qvt" id="Hg6-4E-3dl"/>
+                                                                <outlet property="delegate" destination="Nqn-tE-qvt" id="KGl-ja-GKX"/>
                                                             </connections>
                                                         </browser>
                                                     </subviews>
@@ -341,9 +345,23 @@
                     <toolbarItem reference="Fzp-UB-KCh"/>
                 </defaultToolbarItems>
             </toolbar>
+            <connections>
+                <outlet property="delegate" destination="Nqn-tE-qvt" id="1fx-od-OnQ"/>
+            </connections>
             <point key="canvasLocation" x="691" y="80"/>
         </window>
-        <customObject id="aFA-hh-fq7" customClass="BrowserDataSource"/>
+        <treeController objectClassName="Item" childrenKeyPath="children" leafKeyPath="leaf" id="2ZI-W6-tqx">
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="rootItem.children" id="OST-Ow-BKl"/>
+            </connections>
+        </treeController>
+        <customObject id="Nqn-tE-qvt" customClass="BrowserDelegate">
+            <connections>
+                <outlet property="browser" destination="h46-HN-CuM" id="hdU-dv-O8P"/>
+                <outlet property="controller" destination="-2" id="CtB-bH-182"/>
+                <outlet property="tree" destination="2ZI-W6-tqx" id="8k2-Qi-jdr"/>
+            </connections>
+        </customObject>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>

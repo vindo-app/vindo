@@ -128,9 +128,7 @@ static NSURL *usrURL;
 
 - (NSDictionary *)wineEnvironment {
     return @{@"WINEPREFIX": [self.path path],
-                   @"PATH": [[usrURL URLByAppendingPathComponent:@"bin"] path],
-             @"DYLD_FALLBACK_LIBRARY_PATH": [[usrURL URLByAppendingPathComponent:@"lib"] path]
-             };
+                   @"PATH": [[usrURL URLByAppendingPathComponent:@"bin"] path]};
 }
 
 - (NSFileHandle *)logFileHandle {
