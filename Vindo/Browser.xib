@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1070" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="BrowserController">
@@ -69,6 +69,9 @@
                                                                                 <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
+                                                                            <connections>
+                                                                                <binding destination="5cm-jE-VTy" name="value" keyPath="objectValue" id="ryM-as-Rg7"/>
+                                                                            </connections>
                                                                         </textField>
                                                                     </subviews>
                                                                     <connections>
@@ -83,6 +86,9 @@
                                                                             <rect key="frame" x="3" y="0.0" width="17" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="0ln-DS-zBc"/>
+                                                                            <connections>
+                                                                                <binding destination="Umh-fv-hMz" name="value" keyPath="objectValue.image" id="jTz-7f-ucP"/>
+                                                                            </connections>
                                                                         </imageView>
                                                                         <textField verticalHuggingPriority="750" id="Yo4-pb-kzY">
                                                                             <rect key="frame" x="25" y="0.0" width="182" height="17"/>
@@ -92,6 +98,9 @@
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
+                                                                            <connections>
+                                                                                <binding destination="Umh-fv-hMz" name="value" keyPath="objectValue.name" id="wFs-7c-gfa"/>
+                                                                            </connections>
                                                                         </textField>
                                                                     </subviews>
                                                                     <connections>
@@ -100,8 +109,14 @@
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
+                                                            <connections>
+                                                                <binding destination="vb0-d8-Ysf" name="value" keyPath="arrangedObjects.name" id="xn3-xr-aCm"/>
+                                                            </connections>
                                                         </tableColumn>
                                                     </tableColumns>
+                                                    <connections>
+                                                        <binding destination="vb0-d8-Ysf" name="content" keyPath="arrangedObjects" id="lEk-aa-nnF"/>
+                                                    </connections>
                                                 </outlineView>
                                             </subviews>
                                             <nil key="backgroundColor"/>
@@ -362,6 +377,8 @@
                 <outlet property="tree" destination="2ZI-W6-tqx" id="8k2-Qi-jdr"/>
             </connections>
         </customObject>
+        <treeController objectClassName="SidebarGroup" childrenKeyPath="children" id="vb0-d8-Ysf" userLabel="Sidebar Tree Controller"/>
+        <customObject id="OdL-CY-bdT" customClass="SidebarController"/>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>

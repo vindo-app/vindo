@@ -17,6 +17,8 @@
 		8A28BF521AD73EAD007AB81C /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A28BF511AD73EAD007AB81C /* Item.m */; };
 		8A28BF551AD740EE007AB81C /* DirectoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A28BF541AD740EE007AB81C /* DirectoryItem.m */; };
 		8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */; };
+		8AA4D0F31AF9934700074096 /* SidebarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4D0F21AF9934700074096 /* SidebarController.m */; };
+		8AA4D0F61AF9966500074096 /* SidebarGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4D0F51AF9966500074096 /* SidebarGroup.m */; };
 		8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */; };
 		8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* Status.xib */; };
 		8AC01D5B1ABB72E200F8C066 /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01D5A1ABB72E200F8C066 /* World.m */; };
@@ -76,6 +78,10 @@
 		8A28BF541AD740EE007AB81C /* DirectoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectoryItem.m; sourceTree = "<group>"; };
 		8A525F071AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+DefaultQueue.h"; sourceTree = "<group>"; };
 		8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+DefaultQueue.m"; sourceTree = "<group>"; };
+		8AA4D0F11AF9934700074096 /* SidebarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarController.h; sourceTree = "<group>"; };
+		8AA4D0F21AF9934700074096 /* SidebarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarController.m; sourceTree = "<group>"; };
+		8AA4D0F41AF9966500074096 /* SidebarGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarGroup.h; sourceTree = "<group>"; };
+		8AA4D0F51AF9966500074096 /* SidebarGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarGroup.m; sourceTree = "<group>"; };
 		8ABB4AC21AB8DE7B00CDB93C /* StatusWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusWindowController.h; sourceTree = "<group>"; };
 		8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusWindowController.m; sourceTree = "<group>"; };
 		8ABB4AC41AB8DE7B00CDB93C /* Status.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Status.xib; sourceTree = "<group>"; };
@@ -238,6 +244,10 @@
 				AC64E48E1AC8C02A002C7E4D /* BrowserController.m */,
 				8A28BF4E1AD7260D007AB81C /* BrowserDelegate.h */,
 				8A28BF4F1AD7260D007AB81C /* BrowserDelegate.m */,
+				8AA4D0F11AF9934700074096 /* SidebarController.h */,
+				8AA4D0F21AF9934700074096 /* SidebarController.m */,
+				8AA4D0F41AF9966500074096 /* SidebarGroup.h */,
+				8AA4D0F51AF9966500074096 /* SidebarGroup.m */,
 				8AC761631ACDE2B500D52B99 /* FileItem.h */,
 				8AC761641ACDE2B500D52B99 /* FileItem.m */,
 				8A28BF531AD740EE007AB81C /* DirectoryItem.h */,
@@ -409,6 +419,7 @@
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				8A23F3B91AA9141500F1467C /* WineCfgViewController.m in Sources */,
 				AC05808C1ABF97F700854813 /* WorldsPreferencesViewController.m in Sources */,
+				8AA4D0F61AF9966500074096 /* SidebarGroup.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 				8A28BF551AD740EE007AB81C /* DirectoryItem.m in Sources */,
 				ACA9D61A1AA7E60A00194089 /* WinePrefix.m in Sources */,
@@ -416,6 +427,7 @@
 				AC64E4901AC8C02A002C7E4D /* BrowserController.m in Sources */,
 				AC05807D1ABE16F300854813 /* WineServerOperations.m in Sources */,
 				8AC761651ACDE2B500D52B99 /* FileItem.m in Sources */,
+				8AA4D0F31AF9934700074096 /* SidebarController.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */,
 				8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */,
 				8A28BF501AD7260D007AB81C /* BrowserDelegate.m in Sources */,
