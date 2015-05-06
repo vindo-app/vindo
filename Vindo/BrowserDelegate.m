@@ -84,7 +84,10 @@
         // OOB exception when it tries to access column 0 and there are no columns. So catch it and
         // ignore it. If it's not OOB, rethrow it.
         @try {
-            //[self.browser reloadColumn:0];
+            NSIndexPath *indexPath = self.tree.selectionIndexPaths[0];
+            for (int i = 0; i < indexPath.length; i++) {
+                [self.browser selectRow:[indexPath indexAtPosition:i] inColumn:i];
+            }
             self.browser.selectionIndexPaths = self.tree.selectionIndexPaths;
         }
         @catch (NSException *exception) {
