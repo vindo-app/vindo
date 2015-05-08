@@ -58,6 +58,10 @@ static NSURL *usrURL;
     }
 }
 
+- (void)reboot {
+    [self run:@"wineboot" withArguments:@[@"--restart"]];
+}
+
 - (void)stop {
     if (self.state == WineServerRunning || self.state == WineServerStarting) {
         [[NSOperationQueue defaultQueue] addOperation:

@@ -17,11 +17,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="-10" width="522" height="282"/>
+            <rect key="frame" x="0.0" y="6" width="522" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="cEs-YH-DQn">
-                    <rect key="frame" x="20" y="59" width="482" height="203"/>
+                    <rect key="frame" x="20" y="49" width="482" height="203"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <clipView key="contentView" id="Dob-Ic-vef">
                         <rect key="frame" x="1" y="17" width="238" height="117"/>
@@ -70,7 +70,7 @@
                     </scroller>
                 </scrollView>
                 <button verticalHuggingPriority="750" id="J0z-r9-mfJ">
-                    <rect key="frame" x="20" y="29" width="26" height="23"/>
+                    <rect key="frame" x="20" y="19" width="26" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8Sf-fe-DwC">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -81,7 +81,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="3rN-FQ-1qc">
-                    <rect key="frame" x="45" y="29" width="26" height="23"/>
+                    <rect key="frame" x="45" y="19" width="26" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4h0-Lf-irX">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -92,7 +92,7 @@
                     </connections>
                 </button>
             </subviews>
-            <point key="canvasLocation" x="-13" y="13"/>
+            <point key="canvasLocation" x="-13" y="8"/>
         </customView>
         <window title="Query Sheet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="oXA-Yo-anN" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" documentModal="YES"/>

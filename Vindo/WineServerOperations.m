@@ -48,10 +48,6 @@
             return;
         }
         
-        NSTask *killExistingServer = [_prefix taskWithProgram:@"wineserver" arguments:@[@"-k"]]; // kill any existing wineserver
-        [killExistingServer launch];
-        [killExistingServer waitUntilExit];
-        
         NSTask *server = [_prefix taskWithProgram:@"wineserver" arguments:@[@"--foreground", @"--persistent"]];
         
         if (self.isCancelled)
@@ -67,8 +63,8 @@
         
         _prefix.server = server;
         
-        // now that the server is launched, run wineboot to initialize the wine prefix (and kick the wineserver into action)
-        NSTask *wineboot = [_prefix taskWithWindowsProgram:@"wineboot" arguments:@[@"--init"]];
+        // now that the server is launched, run wineboot to fake boot the system
+        NSTask *wineboot = [_prefix taskWithWindowsProgram:@"wineboot" arguments:@[]];
         [wineboot launch];
         [wineboot waitUntilExit];
 
@@ -110,7 +106,7 @@
 - (void)main {
     @try {
         // first end the session with wineboot
-        NSTask *endSession = [_prefix taskWithWindowsProgram:@"wineboot" arguments:@[@"--end-session"]];
+        NSTask *endSession = [_prefix taskWithWindowsProgram:@"wineboot" arguments:@[@"--end-session --shutdown"]];
         [endSession launch];
         [endSession waitUntilExit];
         
