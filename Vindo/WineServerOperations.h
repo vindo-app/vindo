@@ -7,31 +7,31 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WinePrefix.h"
+#import "World.h"
 
 @interface StartWineServerOperation : NSOperation
 
-- (instancetype)initWithPrefix:(WinePrefix *)prefix;
+- (instancetype)initWithWorld:(World *)prefix;
 
-@property (readonly) WinePrefix *prefix;
+@property (readonly) World *world;
 
 @end
 
 
 @interface StopWineServerOperation : NSOperation
 
-- (instancetype)initWithPrefix:(WinePrefix *)prefix;
+- (instancetype)initWithWorld:(World *)prefix;
 
-@property (readonly) WinePrefix *prefix;
+@property (readonly) World *world;
 
 @end
 
 
 @interface RunOperation : NSOperation
 
-- (instancetype)initWithPrefix:(WinePrefix *)prefix program:(NSString *)program arguments:(NSArray *)arguments;
+- (instancetype)initWithWorld:(World *)prefix program:(NSString *)program arguments:(NSArray *)arguments;
 
-@property (readonly) WinePrefix *prefix;
+@property (readonly) World *world;
 @property (readonly) NSString *program;
 @property (readonly) NSArray *arguments;
 

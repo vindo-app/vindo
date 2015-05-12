@@ -7,17 +7,40 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "WinePrefix.h"
 
+extern NSString *const WineServerWillStartNotification;
+extern NSString *const WineServerDidStartNotification;
+extern NSString *const WineServerWillStopNotification;
+extern NSString *const WineServerDidStopNotification;
+extern NSString *const WineServerDidCrashNotification;
+
+typedef NS_ENUM(NSInteger, WineServerState) {
+    WineServerRunning,
+    WineServerStarting,
+    WineServerStopping,
+    WineServerStopped
+};
 extern NSString *const WorldPasteboardType;
 
-@interface World : WinePrefix <NSPasteboardReading, NSPasteboardWriting>
+@interface World : NSObject <NSPasteboardReading, NSPasteboardWriting>
 
 + (World *)worldNamed:(NSString *)name;
 + (World *)defaultWorld;
 
 + (void)deleteWorldNamed:(NSString *)name;
 
+- (void)start;
+- (void)stop;
+
+- (void)startAndWait;
+- (void)stopAndWait;
+
+- (void)run:(NSString *)program;
+- (void)run:(NSString *)program withArguments:(NSArray *)arguments;
+
 @property (readonly) NSString *name;
+
+@property (readonly) NSURL *path;
+@property (readonly) WineServerState state;
 
 @end

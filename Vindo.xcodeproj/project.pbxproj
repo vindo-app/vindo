@@ -37,7 +37,6 @@
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
 		AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */; };
 		ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA9D6161AA7E41A00194089 /* winecfg.png */; };
-		ACA9D61A1AA7E60A00194089 /* WinePrefix.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9D6191AA7E60A00194089 /* WinePrefix.m */; };
 		ACB107DA1AA3B8F900E031F5 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D71AA3B8F900E031F5 /* Icon.icns */; };
 		ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D81AA3B8F900E031F5 /* Icon16.png */; };
 		ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D91AA3B8F900E031F5 /* Icon32.png */; };
@@ -112,8 +111,6 @@
 		AC9681BD1ABCD59D00A9233B /* WorldsTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsTransformer.h; sourceTree = "<group>"; };
 		AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsTransformer.m; sourceTree = "<group>"; };
 		ACA9D6161AA7E41A00194089 /* winecfg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = winecfg.png; sourceTree = "<group>"; };
-		ACA9D6181AA7E60A00194089 /* WinePrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinePrefix.h; sourceTree = "<group>"; };
-		ACA9D6191AA7E60A00194089 /* WinePrefix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinePrefix.m; sourceTree = "<group>"; };
 		ACB107D71AA3B8F900E031F5 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		ACB107D81AA3B8F900E031F5 /* Icon16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon16.png; sourceTree = "<group>"; };
 		ACB107D91AA3B8F900E031F5 /* Icon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon32.png; sourceTree = "<group>"; };
@@ -267,8 +264,6 @@
 			children = (
 				AC3A4EE31AA12F9A00781626 /* ApplicationController.h */,
 				AC3A4EE41AA12F9A00781626 /* ApplicationController.m */,
-				ACA9D6181AA7E60A00194089 /* WinePrefix.h */,
-				ACA9D6191AA7E60A00194089 /* WinePrefix.m */,
 				AC05807B1ABE16F300854813 /* WineServerOperations.h */,
 				AC05807C1ABE16F300854813 /* WineServerOperations.m */,
 				8A525F071AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.h */,
@@ -422,7 +417,6 @@
 				8AA4D0F61AF9966500074096 /* SidebarGroup.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 				8A28BF551AD740EE007AB81C /* DirectoryItem.m in Sources */,
-				ACA9D61A1AA7E60A00194089 /* WinePrefix.m in Sources */,
 				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
 				AC64E4901AC8C02A002C7E4D /* BrowserController.m in Sources */,
 				AC05807D1ABE16F300854813 /* WineServerOperations.m in Sources */,

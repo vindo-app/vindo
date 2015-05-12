@@ -11,7 +11,6 @@
 #import "GeneralPreferencesViewController.h"
 #import "WineCfgViewController.h"
 #import "WorldsPreferencesViewController.h"
-#import "WinePrefix.h"
 #import "World.h"
 
 @interface ApplicationController ()
