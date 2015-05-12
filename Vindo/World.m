@@ -16,6 +16,7 @@ static NSURL *usrURL;
 @interface World ()
 
 @property WineServerState state;
+@property NSTask *server;
 
 @end
 
