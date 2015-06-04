@@ -49,8 +49,8 @@ static NSURL *usrURL;
 + (World *)defaultWorld {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSArray *worlds = [defaults arrayForKey:@"worlds"];
-    NSUInteger defaultWorldIndex = [defaults integerForKey:@"defaultWorldIndex"];
-    return [self worldNamed:worlds[defaultWorldIndex]];
+    NSUInteger selectedWorldIndex = [defaults integerForKey:@"selectedWorldIndex"];
+    return [self worldNamed:worlds[selectedWorldIndex]];
 }
 
 + (void)deleteWorldNamed:(NSString *)name {

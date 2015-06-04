@@ -126,7 +126,7 @@
         </menu>
         <arrayController objectClassName="World" editable="NO" selectsInsertedObjects="NO" clearsFilterPredicateOnInsertion="NO" id="Qox-EO-R5a">
             <connections>
-                <binding destination="OC0-WH-O9L" name="selectionIndexes" keyPath="values.defaultWorldIndex" id="HWi-0G-txu">
+                <binding destination="OC0-WH-O9L" name="selectionIndexes" keyPath="values.selectedWorldIndex" id="HWi-0G-txu">
                     <dictionary key="options">
                         <string key="NSValueTransformerName">IndexSetToIntTransformer</string>
                     </dictionary>

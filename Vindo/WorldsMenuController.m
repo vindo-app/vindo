@@ -25,7 +25,7 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults registerDefaults:@{
                                      @"worlds": @[@"Default World"],
-                                     @"defaultWorldIndex": @0
+                                     @"selectedWorldIndex": @0
                                      }];
     }
     return self;
