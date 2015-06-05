@@ -22,6 +22,8 @@
 @implementation ApplicationController
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
+
+    
     World *world = [World defaultWorld];
 #ifdef DEBUG
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];

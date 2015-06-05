@@ -20,17 +20,6 @@
 
 @implementation WorldsMenuController
 
-- (instancetype)init {
-    if (self = [super init]) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults registerDefaults:@{
-                                     @"worlds": @[@"Default World"],
-                                     @"selectedWorldIndex": @0
-                                     }];
-    }
-    return self;
-}
-
 - (void)awakeFromNib {
     template = [self.worldsMenu copy];
     
