@@ -1,0 +1,66 @@
+//
+//  WinePrefix.m
+//  Vindo
+//
+//  Created by Theodore Dubois on 6/6/15.
+//  Copyright (c) 2015 Theodore Dubois. All rights reserved.
+//
+
+#import "WinePrefix.h"
+#import "WineServer.h"
+
+static NSURL *usrURL;
+
+@interface WinePrefix ()
+
+@property (nonatomic) NSFileHandle *logFileHandle;
+
+@end
+
+@implementation WinePrefix
+
+- (NSTask *)wineTaskWithProgram:(NSString *)program
+                  arguments:(NSArray *)arguments {
+    NSTask *task = [NSTask new];
+    task.launchPath = [[[usrURL URLByAppendingPathComponent:@"bin"]
+                        URLByAppendingPathComponent:program]
+                       path];
+    task.arguments = arguments;
+    task.environment = self.wineEnvironment;
+    task.currentDirectoryPath = NSHomeDirectory();
+    task.standardInput = [NSFileHandle fileHandleWithNullDevice];
+    task.standardOutput = [self logFileHandle];
+    task.standardError = [self logFileHandle];
+
+    return task;
+}
+
+- (NSDictionary *)wineEnvironment {
+    return @{@"WINEPREFIX": [self.prefixURL path],
+             @"PATH": [[usrURL URLByAppendingPathComponent:@"bin"] path],
+             @"DYLD_FALLBACK_LIBRARY_PATH": [[usrURL URLByAppendingPathComponent:@"lib"] path]
+             };
+}
+
+- (NSFileHandle *)logFileHandle {
+    if (self.logFileHandle == nil) {
+        // we have to use the unix functions for opening files because NSFileHandle doesn't do appending
+        NSString *logFilePath = [[self.prefixURL URLByAppendingPathComponent:@"wine.log"] path];
+        int logFileDescriptor = open([logFilePath UTF8String],
+                                     O_WRONLY | O_CREAT | O_APPEND,
+                                     0644); // mode: -rw-r--r--
+
+        if (logFileDescriptor < 0)
+            [NSException raise:NSGenericException format:@"error opening file: %s", strerror(errno)];
+        self.logFileHandle = [[NSFileHandle alloc] initWithFileDescriptor:logFileDescriptor closeOnDealloc:YES];
+    }
+    return self.logFileHandle;
+}
+
++ (void)initialize {
+    if (self == [WinePrefix class]) {
+        usrURL = [[[NSBundle mainBundle] resourceURL] URLByAppendingPathComponent:@"usr"];
+    }
+}
+
+@end

@@ -27,12 +27,13 @@
 		8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01D6B1ABB930F00F8C066 /* IndexSetToIntTransformer.m */; };
 		8AC761651ACDE2B500D52B99 /* FileItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC761641ACDE2B500D52B99 /* FileItem.m */; };
 		AC05807A1ABE13F300854813 /* WorldsPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC0580781ABE13F300854813 /* WorldsPreferences.xib */; };
-		AC05807D1ABE16F300854813 /* WineServerOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = AC05807C1ABE16F300854813 /* WineServerOperations.m */; };
 		AC05808C1ABF97F700854813 /* WorldsPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC05808B1ABF97F700854813 /* WorldsPreferencesViewController.m */; };
 		AC13F0A21ADB6A1000254D1F /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC13F0A11ADB6A1000254D1F /* CoreServices.framework */; };
 		AC3A4EE21AA12F9A00781626 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE11AA12F9A00781626 /* main.m */; };
 		AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE41AA12F9A00781626 /* ApplicationController.m */; };
 		AC5219041B225BBC004A322E /* WorldsController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5219031B225BBC004A322E /* WorldsController.m */; };
+		AC5219071B23BBF2004A322E /* WinePrefix.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5219061B23BBF2004A322E /* WinePrefix.m */; };
+		AC52190A1B23BC85004A322E /* WineServer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5219091B23BC85004A322E /* WineServer.m */; };
 		AC64E4901AC8C02A002C7E4D /* BrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC64E48E1AC8C02A002C7E4D /* BrowserController.m */; };
 		AC64E4911AC8C02A002C7E4D /* Browser.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC64E48F1AC8C02A002C7E4D /* Browser.xib */; };
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
@@ -95,8 +96,6 @@
 		8AC761631ACDE2B500D52B99 /* FileItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileItem.h; sourceTree = "<group>"; };
 		8AC761641ACDE2B500D52B99 /* FileItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileItem.m; sourceTree = "<group>"; };
 		AC0580781ABE13F300854813 /* WorldsPreferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorldsPreferences.xib; sourceTree = "<group>"; };
-		AC05807B1ABE16F300854813 /* WineServerOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineServerOperations.h; sourceTree = "<group>"; };
-		AC05807C1ABE16F300854813 /* WineServerOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineServerOperations.m; sourceTree = "<group>"; };
 		AC05808A1ABF97F700854813 /* WorldsPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsPreferencesViewController.h; sourceTree = "<group>"; };
 		AC05808B1ABF97F700854813 /* WorldsPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsPreferencesViewController.m; sourceTree = "<group>"; };
 		AC13F0A11ADB6A1000254D1F /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
@@ -107,6 +106,12 @@
 		AC3CC24C1ACCD238003ED7EC /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		AC5219021B225BBC004A322E /* WorldsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsController.h; sourceTree = "<group>"; };
 		AC5219031B225BBC004A322E /* WorldsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsController.m; sourceTree = "<group>"; };
+		AC5219051B23BBF2004A322E /* WinePrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinePrefix.h; sourceTree = "<group>"; };
+		AC5219061B23BBF2004A322E /* WinePrefix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinePrefix.m; sourceTree = "<group>"; };
+		AC5219081B23BC85004A322E /* WineServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineServer.h; sourceTree = "<group>"; };
+		AC5219091B23BC85004A322E /* WineServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineServer.m; sourceTree = "<group>"; };
+		AC52190C1B23C010004A322E /* StartWineServerOperation.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartWineServerOperation.inl; sourceTree = "<group>"; };
+		AC52190E1B23C064004A322E /* StopWineServerOperation.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StopWineServerOperation.inl; sourceTree = "<group>"; };
 		AC64E48D1AC8C02A002C7E4D /* BrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserController.h; sourceTree = "<group>"; };
 		AC64E48E1AC8C02A002C7E4D /* BrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserController.m; sourceTree = "<group>"; };
 		AC64E48F1AC8C02A002C7E4D /* Browser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Browser.xib; sourceTree = "<group>"; };
@@ -237,6 +242,27 @@
 			path = Vindo;
 			sourceTree = "<group>";
 		};
+		AC5219101B23C0BC004A322E /* Wine Prefix */ = {
+			isa = PBXGroup;
+			children = (
+				AC5219051B23BBF2004A322E /* WinePrefix.h */,
+				AC5219061B23BBF2004A322E /* WinePrefix.m */,
+				AC5219111B23C0E9004A322E /* Wine Server */,
+			);
+			name = "Wine Prefix";
+			sourceTree = "<group>";
+		};
+		AC5219111B23C0E9004A322E /* Wine Server */ = {
+			isa = PBXGroup;
+			children = (
+				AC52190C1B23C010004A322E /* StartWineServerOperation.inl */,
+				AC52190E1B23C064004A322E /* StopWineServerOperation.inl */,
+				AC5219081B23BC85004A322E /* WineServer.h */,
+				AC5219091B23BC85004A322E /* WineServer.m */,
+			);
+			name = "Wine Server";
+			sourceTree = "<group>";
+		};
 		AC64E4921AC8C035002C7E4D /* Browser */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,17 +293,16 @@
 			children = (
 				AC3A4EE31AA12F9A00781626 /* ApplicationController.h */,
 				AC3A4EE41AA12F9A00781626 /* ApplicationController.m */,
-				AC05807B1ABE16F300854813 /* WineServerOperations.h */,
-				AC05807C1ABE16F300854813 /* WineServerOperations.m */,
 				8A525F071AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.h */,
 				8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */,
-				AC9681BC1ABCD57400A9233B /* Worlds */,
+				AC9681BC1ABCD57400A9233B /* World */,
+				AC5219101B23C0BC004A322E /* Wine Prefix */,
 			);
 			name = Code;
 			path = Vindo;
 			sourceTree = "<group>";
 		};
-		AC9681BC1ABCD57400A9233B /* Worlds */ = {
+		AC9681BC1ABCD57400A9233B /* World */ = {
 			isa = PBXGroup;
 			children = (
 				AC5219021B225BBC004A322E /* WorldsController.h */,
@@ -291,7 +316,7 @@
 				8AC01D6A1ABB930F00F8C066 /* IndexSetToIntTransformer.h */,
 				8AC01D6B1ABB930F00F8C066 /* IndexSetToIntTransformer.m */,
 			);
-			name = Worlds;
+			name = World;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,11 +450,12 @@
 				8A28BF551AD740EE007AB81C /* DirectoryItem.m in Sources */,
 				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
 				AC64E4901AC8C02A002C7E4D /* BrowserController.m in Sources */,
-				AC05807D1ABE16F300854813 /* WineServerOperations.m in Sources */,
+				AC5219071B23BBF2004A322E /* WinePrefix.m in Sources */,
 				8AC761651ACDE2B500D52B99 /* FileItem.m in Sources */,
 				8AA4D0F31AF9934700074096 /* SidebarController.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */,
 				8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */,
+				AC52190A1B23BC85004A322E /* WineServer.m in Sources */,
 				8A28BF501AD7260D007AB81C /* BrowserDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
