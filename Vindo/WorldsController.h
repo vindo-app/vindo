@@ -7,7 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "World.h"
 
 @interface WorldsController : NSArrayController
+
++ (WorldsController *)sharedController;
+
+- (World *)selectedWorld;
 
 @end

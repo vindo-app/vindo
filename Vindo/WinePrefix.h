@@ -14,6 +14,8 @@
 
 @property NSURL *prefixURL;
 
+- (instancetype)initWithPrefixURL:(NSURL *)prefixURL;
+
 @property WineServer *server;
 
 - (void)startServer;

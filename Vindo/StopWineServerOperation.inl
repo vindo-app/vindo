@@ -29,7 +29,6 @@
 
 - (void)main {
     @try {
-        self.prefix;
         // first end the session with wineboot
         NSTask *endSession = [_prefix wineTaskWithProgram:@"wine"
                                                 arguments:@[@"wineboot", @"--end-session", @"--shutdown"]];

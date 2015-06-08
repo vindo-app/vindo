@@ -67,7 +67,7 @@
 		8A23F3B21AA913FC00F1467C /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; };
 		8A23F3B31AA913FC00F1467C /* GeneralPreferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferences.xib; sourceTree = "<group>"; };
 		8A23F3B61AA9141500F1467C /* WineCfgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineCfgViewController.h; sourceTree = "<group>"; };
-		8A23F3B71AA9141500F1467C /* WineCfgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineCfgViewController.m; sourceTree = "<group>"; };
+		8A23F3B71AA9141500F1467C /* WineCfgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = WineCfgViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8A23F3B81AA9141500F1467C /* WineCfgPreferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WineCfgPreferences.xib; sourceTree = "<group>"; };
 		8A23F3BD1AA91EF600F1467C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
@@ -97,12 +97,12 @@
 		8AC761641ACDE2B500D52B99 /* FileItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileItem.m; sourceTree = "<group>"; };
 		AC0580781ABE13F300854813 /* WorldsPreferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorldsPreferences.xib; sourceTree = "<group>"; };
 		AC05808A1ABF97F700854813 /* WorldsPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsPreferencesViewController.h; sourceTree = "<group>"; };
-		AC05808B1ABF97F700854813 /* WorldsPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsPreferencesViewController.m; sourceTree = "<group>"; };
+		AC05808B1ABF97F700854813 /* WorldsPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = WorldsPreferencesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		AC13F0A11ADB6A1000254D1F /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		AC3A4EDC1AA12F9900781626 /* Vindo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vindo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3A4EE11AA12F9A00781626 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AC3A4EE31AA12F9A00781626 /* ApplicationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationController.h; sourceTree = "<group>"; };
-		AC3A4EE41AA12F9A00781626 /* ApplicationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationController.m; sourceTree = "<group>"; };
+		AC3A4EE41AA12F9A00781626 /* ApplicationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ApplicationController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		AC3CC24C1ACCD238003ED7EC /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		AC5219021B225BBC004A322E /* WorldsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsController.h; sourceTree = "<group>"; };
 		AC5219031B225BBC004A322E /* WorldsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsController.m; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		AC5219081B23BC85004A322E /* WineServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineServer.h; sourceTree = "<group>"; };
 		AC5219091B23BC85004A322E /* WineServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineServer.m; sourceTree = "<group>"; };
 		AC52190C1B23C010004A322E /* StartWineServerOperation.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartWineServerOperation.inl; sourceTree = "<group>"; };
-		AC52190E1B23C064004A322E /* StopWineServerOperation.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StopWineServerOperation.inl; sourceTree = "<group>"; };
+		AC52190E1B23C064004A322E /* StopWineServerOperation.inl */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = StopWineServerOperation.inl; sourceTree = "<group>"; };
 		AC64E48D1AC8C02A002C7E4D /* BrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserController.h; sourceTree = "<group>"; };
 		AC64E48E1AC8C02A002C7E4D /* BrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserController.m; sourceTree = "<group>"; };
 		AC64E48F1AC8C02A002C7E4D /* Browser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Browser.xib; sourceTree = "<group>"; };

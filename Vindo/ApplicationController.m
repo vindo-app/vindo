@@ -8,10 +8,14 @@
 
 #import "ApplicationController.h"
 #import "BrowserController.h"
+
 #import "GeneralPreferencesViewController.h"
 #import "WineCfgViewController.h"
 #import "WorldsPreferencesViewController.h"
+
 #import "World.h"
+#import "WinePrefix.h"
+#import "WorldsController.h"
 
 @interface ApplicationController ()
 
@@ -22,9 +26,7 @@
 @implementation ApplicationController
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
-
-    
-    World *world = [World defaultWorld];
+    World *world = [[WorldsController sharedController] selectedWorld];
 #ifdef DEBUG
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self
@@ -32,7 +34,7 @@
                    name:nil
                  object:world];
 #endif
-    [world start];
+    [world.prefix startServer];
 }
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification {
@@ -44,7 +46,7 @@
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
-    World *world = [World defaultWorld];
+    World *world = [[WorldsController sharedController] selectedWorld];
     [world run:filename];
     return YES;
 }
@@ -55,7 +57,7 @@
 }
 
 - (void)runCannedProgram:(id)sender {
-    World *world = [World defaultWorld];
+    World *world = [[WorldsController sharedController] selectedWorld];
     
     switch ([sender tag]) {
         case 0: // file manager
@@ -89,7 +91,7 @@
     panel.canChooseDirectories = NO;
     panel.allowsMultipleSelection = NO;
     [panel beginWithCompletionHandler:^(NSInteger result) {
-        World *world = [World defaultWorld];
+        World *world = [[WorldsController sharedController] selectedWorld];
         
         if (result == NSFileHandlingPanelOKButton) {
             [world run:[panel.URLs.firstObject path]];

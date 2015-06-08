@@ -7,14 +7,50 @@
 //
 
 #import "World.h"
+#import "WinePrefix.h"
+
+static NSMutableDictionary *worldsDictionary;
 
 @implementation World
+
++ (World *)worldNamed:(NSString *)name {
+    if (worldsDictionary[name] == nil)
+        worldsDictionary[name] = [[self alloc] initWithName:name];
+    return worldsDictionary[name];
+}
 
 - (instancetype)initWithName:(NSString *)name {
     if (self = [super init]) {
         _name = name;
+        _prefix = [[WinePrefix alloc] initWithPrefixURL:[self prefixPath:self.name]];
     }
     return self;
+}
+
++ (void)deleteWorldNamed:(NSString *)name {
+    [worldsDictionary removeObjectForKey:name];
+}
+
+- (void)run:(NSString *)program withArguments:(NSArray *)arguments {
+    NSTask *task = [self.prefix wineTaskWithProgram:@"wine"
+                                          arguments:[@[program] arrayByAddingObjectsFromArray:arguments]];
+    [task launch];
+}
+
+- (void)run:(NSString *)program {
+    [self run:program withArguments:@[]];
+}
+
+- (BOOL)isEqual:(id)object {
+    return [object isKindOfClass:World.class] && [[object name] isEqualToString:self.name];
+}
+
+- (NSUInteger)hash {
+    return self.name.hash;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<%@ %@>", self.class, self.name];
 }
 
 - (NSURL *)prefixPath:(NSString *)name {
@@ -42,85 +78,10 @@
 }
 
 - (id)initWithPasteboardPropertyList:(id)propertyList ofType:(NSString *)type {
-    return [[World alloc] initWithName:
+    return [World worldNamed:
             [[NSString alloc] initWithPasteboardPropertyList:propertyList ofType:NSPasteboardTypeString]];
 }
 
-
-//#pragma mark Task Creaters
-//
-//- (NSTask *)taskWithWindowsProgram:(NSString *)program arguments:(NSArray *)arguments {
-//    NSString *currentDirectory;
-//    if ([program rangeOfString:@"/"].location == NSNotFound) // quick and dirty
-//        currentDirectory = NSHomeDirectory();
-//    else
-//        currentDirectory = [program stringByDeletingLastPathComponent];
-//    
-//    return [self taskWithProgram:@"wine"
-//                       arguments:[@[program] arrayByAddingObjectsFromArray:arguments]
-//                currentDirectory:currentDirectory];
-//}
-//
-//- (NSTask *)taskWithProgram:(NSString *)program arguments:(NSArray *)arguments {
-//    return [self taskWithProgram:program
-//                       arguments:arguments
-//                currentDirectory:NSHomeDirectory()];
-//}
-//
-//- (NSTask *)taskWithProgram:(NSString *)program
-//                  arguments:(NSArray *)arguments
-//           currentDirectory:(NSString *)currentDirectory {
-//    NSTask *task = [NSTask new];
-//    task.launchPath = [[[usrURL URLByAppendingPathComponent:@"bin"]
-//                        URLByAppendingPathComponent:program]
-//                       path];
-//    task.arguments = arguments;
-//    task.environment = self.wineEnvironment;
-//    task.currentDirectoryPath = currentDirectory;
-//    task.standardInput = [NSFileHandle fileHandleWithNullDevice];
-//    task.standardOutput = [self logFileHandle];
-//    task.standardError = [self logFileHandle];
-//    
-//    return task;
-//}
-//
-//#pragma mark Utilities for Task Creaters
-//
-//- (NSDictionary *)wineEnvironment {
-//    return @{@"WINEPREFIX": [self.path path],
-//             @"PATH": [[usrURL URLByAppendingPathComponent:@"bin"] path],
-//             @"DYLD_FALLBACK_LIBRARY_PATH": [[usrURL URLByAppendingPathComponent:@"lib"] path]
-//             };
-//}
-//
-//- (NSFileHandle *)logFileHandle {
-//    // we have to use the unix functions for opening files because NSFileHandle doesn't do appending
-//    NSString *logFilePath = [[self.path URLByAppendingPathComponent:@"wine.log"] path];
-//    int logFileDescriptor = open([logFilePath UTF8String],
-//                                 O_WRONLY | O_CREAT | O_APPEND,
-//                                 0644); // mode: -rw-r--r--
-//    
-//    if (logFileDescriptor < 0)
-//        [NSException raise:NSGenericException format:@"error opening file: %s", strerror(errno)];
-//    
-//    return [[NSFileHandle alloc] initWithFileDescriptor:logFileDescriptor closeOnDealloc:YES];
-//}
-//
-//#pragma mark Messy stuff that has to exist
-//
-//- (void)dealloc {
-//    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-//    [center removeObserver:self];
-//}
-//
-//+ (void)initialize {
-//    if (self == [World self]) {
-//        worldsDictionary = [NSMutableDictionary new];
-//        usrURL = [NSBundle.mainBundle.resourceURL URLByAppendingPathComponent:@"usr"];
-//    }
-//}
-//
 @end
 
 NSString *const WorldPasteboardType = @"org.vindo.world";
-

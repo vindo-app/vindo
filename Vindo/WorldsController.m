@@ -50,6 +50,14 @@ static WorldsController *sharedController;
     return sharedController;
 }
 
+- (World *)selectedWorld {
+    return self.selection;
+}
+
++ (WorldsController *)sharedController {
+    return sharedController;
+}
+
 + (void)initialize {
     sharedController = [WorldsController new];
 }

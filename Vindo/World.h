@@ -7,18 +7,19 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
 @class WinePrefix;
 
 extern NSString *const WorldPasteboardType;
 
 @interface World : NSObject <NSPasteboardReading, NSPasteboardWriting>
 
-- (instancetype)initWithName:(NSString *)name;
++ (World *)worldNamed:(NSString *)name;
++ (void)deleteWorldNamed:(NSString *)name;
 
 @property (readonly) WinePrefix *prefix;
 
 - (void)run:(NSString *)program withArguments:(NSArray *)arguments;
+- (void)run:(NSString *)program;
 
 @property (readonly) NSString *name;
 

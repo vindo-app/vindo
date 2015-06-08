@@ -19,6 +19,14 @@ static NSURL *usrURL;
 
 @implementation WinePrefix
 
+- (instancetype)initWithPrefixURL:(NSURL *)prefixURL {
+    if (self = [super init]) {
+        _prefixURL = prefixURL;
+        _server = [[WineServer alloc] initWithPrefix:self];
+    }
+    return self;
+}
+
 - (NSTask *)wineTaskWithProgram:(NSString *)program
                   arguments:(NSArray *)arguments {
     NSTask *task = [NSTask new];
@@ -35,6 +43,22 @@ static NSURL *usrURL;
     return task;
 }
 
+- (void)startServer {
+    [self.server start];
+}
+
+- (void)stopServer {
+    [self.server stop];
+}
+
+- (void)startServerAndWait {
+    [self.server startAndWait];
+}
+
+- (void)stopServerAndWait {
+    [self.server stopAndWait];
+}
+
 - (NSDictionary *)wineEnvironment {
     return @{@"WINEPREFIX": [self.prefixURL path],
              @"PATH": [[usrURL URLByAppendingPathComponent:@"bin"] path],
@@ -43,7 +67,7 @@ static NSURL *usrURL;
 }
 
 - (NSFileHandle *)logFileHandle {
-    if (self.logFileHandle == nil) {
+    if (_logFileHandle == nil) {
         // we have to use the unix functions for opening files because NSFileHandle doesn't do appending
         NSString *logFilePath = [[self.prefixURL URLByAppendingPathComponent:@"wine.log"] path];
         int logFileDescriptor = open([logFilePath UTF8String],
@@ -52,9 +76,9 @@ static NSURL *usrURL;
 
         if (logFileDescriptor < 0)
             [NSException raise:NSGenericException format:@"error opening file: %s", strerror(errno)];
-        self.logFileHandle = [[NSFileHandle alloc] initWithFileDescriptor:logFileDescriptor closeOnDealloc:YES];
+        _logFileHandle = [[NSFileHandle alloc] initWithFileDescriptor:logFileDescriptor closeOnDealloc:YES];
     }
-    return self.logFileHandle;
+    return _logFileHandle;
 }
 
 + (void)initialize {

@@ -9,6 +9,12 @@
 #import "WineServer.h"
 #import "NSOperationQueue+DefaultQueue.h"
 
+@interface WineServer ()
+
+@property NSTask *serverTask;
+
+@end
+
 // the operations that start and stop a wine server
 #include "StartWineServerOperation.inl"
 #include "StopWineServerOperation.inl"
