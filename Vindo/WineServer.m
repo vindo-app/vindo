@@ -12,6 +12,7 @@
 @interface WineServer ()
 
 @property NSTask *serverTask;
+@property BOOL running;
 
 @end
 

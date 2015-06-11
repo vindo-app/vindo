@@ -45,6 +45,8 @@
         
         [center postNotificationName:WineServerDidStopNotification
                               object:self.prefix.server];
+
+        self.prefix.server.running = NO;
     } @catch (NSException *exception) {
         // Don't throw it, because it will go nowhere.
     }

@@ -66,6 +66,8 @@
         [wineboot waitUntilExit];
         
         [center postNotificationName:WineServerDidStartNotification object:self.prefix.server];
+        
+        self.prefix.server.running = YES;
     } @catch (NSException *exception) {
         // Don't throw it, because it will go nowhere.
     }
