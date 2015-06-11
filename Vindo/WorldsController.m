@@ -51,7 +51,7 @@ static WorldsController *sharedController;
 }
 
 - (World *)selectedWorld {
-    return self.selection;
+    return self.arrangedObjects[self.selectionIndex];
 }
 
 + (WorldsController *)sharedController {

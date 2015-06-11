@@ -100,16 +100,10 @@
 }
 
 - (void)disappear:(NSNotification *)notification {
-    // We need a timer here because we need to get the call across to the main thread
-    self.timer = [NSTimer timerWithTimeInterval:0
-                                         target:self
-                                       selector:@selector(actuallyDisappear:)
-                                       userInfo:nil
-                                        repeats:NO];
-    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    [self performSelectorOnMainThread:@selector(actuallyDisappear) withObject:nil waitUntilDone:NO];
 }
 
-- (void)actuallyDisappear:(NSTimer *)timer {
+- (void)actuallyDisappear {
     [self.timer invalidate];
     self.timer = nil;
     if (_sheetWindow != nil)

@@ -13,22 +13,12 @@ static NSMutableDictionary *worldsDictionary;
 
 @implementation World
 
-+ (World *)worldNamed:(NSString *)name {
-    if (worldsDictionary[name] == nil)
-        worldsDictionary[name] = [[self alloc] initWithName:name];
-    return worldsDictionary[name];
-}
-
 - (instancetype)initWithName:(NSString *)name {
     if (self = [super init]) {
         _name = name;
         _prefix = [[WinePrefix alloc] initWithPrefixURL:[self prefixPath:self.name]];
     }
     return self;
-}
-
-+ (void)deleteWorldNamed:(NSString *)name {
-    [worldsDictionary removeObjectForKey:name];
 }
 
 - (void)run:(NSString *)program withArguments:(NSArray *)arguments {
@@ -59,6 +49,10 @@ static NSMutableDictionary *worldsDictionary;
     return [applicationSupport URLByAppendingPathComponent:name];
 }
 
++ (void)initialize {
+    worldsDictionary = [NSMutableDictionary new];
+}
+
 #pragma mark Pasteboard Stuff
 
 - (NSArray *)writableTypesForPasteboard:(NSPasteboard *)pasteboard {
@@ -78,7 +72,7 @@ static NSMutableDictionary *worldsDictionary;
 }
 
 - (id)initWithPasteboardPropertyList:(id)propertyList ofType:(NSString *)type {
-    return [World worldNamed:
+    return [[World alloc] initWithName:
             [[NSString alloc] initWithPasteboardPropertyList:propertyList ofType:NSPasteboardTypeString]];
 }
 

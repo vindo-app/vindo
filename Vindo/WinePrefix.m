@@ -10,6 +10,7 @@
 #import "WineServer.h"
 
 static NSURL *usrURL;
+static NSMapTable *prefixes;
 
 @interface WinePrefix ()
 
@@ -20,10 +21,15 @@ static NSURL *usrURL;
 @implementation WinePrefix
 
 - (instancetype)initWithPrefixURL:(NSURL *)prefixURL {
+    if ([prefixes objectForKey:prefixURL] != nil)
+        return [prefixes objectForKey:prefixURL];
+
     if (self = [super init]) {
         _prefixURL = prefixURL;
         _server = [[WineServer alloc] initWithPrefix:self];
     }
+
+    [prefixes setObject:self forKey:prefixURL];
     return self;
 }
 
@@ -84,6 +90,7 @@ static NSURL *usrURL;
 + (void)initialize {
     if (self == [WinePrefix class]) {
         usrURL = [[[NSBundle mainBundle] resourceURL] URLByAppendingPathComponent:@"usr"];
+        prefixes = [NSMapTable strongToWeakObjectsMapTable];
     }
 }
 

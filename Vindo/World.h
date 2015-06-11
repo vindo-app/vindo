@@ -13,8 +13,7 @@ extern NSString *const WorldPasteboardType;
 
 @interface World : NSObject <NSPasteboardReading, NSPasteboardWriting>
 
-+ (World *)worldNamed:(NSString *)name;
-+ (void)deleteWorldNamed:(NSString *)name;
+- (instancetype)initWithName:(NSString *)name;
 
 @property (readonly) WinePrefix *prefix;
 

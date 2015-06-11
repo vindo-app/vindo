@@ -47,7 +47,7 @@
     if (returnCode == 0) {
         NSString *worldName = self.queryText.stringValue;
         [self runBlock:^{
-            World *world = [World worldNamed:worldName];
+            World *world = [[World alloc] initWithName:worldName];
             [world.prefix startServerAndWait];
             [self.arrayController addObject:world];
             self.arrayController.selectedObjects = @[world];
@@ -88,7 +88,6 @@
                 continue;
             }
             [self.arrayController removeObject:world]; // remove object from worlds
-            [World deleteWorldNamed:world.name];
         }
     } message:message];
 }
