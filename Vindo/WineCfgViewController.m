@@ -7,6 +7,7 @@
 //
 
 #import "WineCfgViewController.h"
+#import "WorldsController.h"
 #import "World.h"
 
 @implementation WineCfgViewController
@@ -16,7 +17,7 @@
 }
 
 - (IBAction)runWinecfg:(id)sender {
-    [[World defaultWorld] run:@"winecfg"];
+    [[[WorldsController sharedController] selectedWorld] run:@"winecfg"];
 }
 
 - (NSString *)identifier {

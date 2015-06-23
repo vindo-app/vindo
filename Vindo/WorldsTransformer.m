@@ -18,7 +18,7 @@
 - (NSArray *)transformedValue:(NSArray *)worldNames {
     NSMutableArray *worlds = [NSMutableArray arrayWithArray:worldNames];
     for (int i = 0; i < [worldNames count]; i++) {
-        worlds[i] = [World worldNamed:worldNames[i]];
+        worlds[i] = [[World alloc] initWithName:worldNames[i]];
     }
     return worlds;
 }

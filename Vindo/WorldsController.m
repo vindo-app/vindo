@@ -50,6 +50,14 @@ static WorldsController *sharedController;
     return sharedController;
 }
 
+- (World *)selectedWorld {
+    return self.arrangedObjects[self.selectionIndex];
+}
+
++ (WorldsController *)sharedController {
+    return sharedController;
+}
+
 + (void)initialize {
     sharedController = [WorldsController new];
 }

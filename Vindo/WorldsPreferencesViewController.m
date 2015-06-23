@@ -6,7 +6,9 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
+#import "WorldsController.h"
 #import "World.h"
+#import "WinePrefix.h"
 #import "WorldsPreferencesViewController.h"
 #import "StatusWindowController.h"
 #import "NSOperationQueue+DefaultQueue.h"
@@ -45,8 +47,8 @@
     if (returnCode == 0) {
         NSString *worldName = self.queryText.stringValue;
         [self runBlock:^{
-            World *world = [World worldNamed:worldName];
-            [world startAndWait];
+            World *world = [[World alloc] initWithName:worldName];
+            [world.prefix startServerAndWait];
             [self.arrayController addObject:world];
             self.arrayController.selectedObjects = @[world];
         } message:[NSString stringWithFormat:@"Creating world \"%@\"…", worldName]];
@@ -56,7 +58,7 @@
 }
 
 - (IBAction)removeWorld:(id)sender {
-    if ([_arrayController.selectedObjects indexOfObject:[World defaultWorld]] != NSNotFound) {
+    if ([_arrayController.selectedObjects indexOfObject:[[WorldsController sharedController] selectedWorld]] != NSNotFound) {
         NSBeginAlertSheet(@"The default world cannot be deleted.",
                           @"OK", nil, nil, self.view.window, nil, nil, nil, NULL,
                           @"Select another world in the \"Worlds\" menu before deleting this one.");
@@ -77,16 +79,15 @@
 
     [self runBlock:^{
         for (World *world in worldsToDelete) {
-            [world stopAndWait];
+            [world.prefix stopServerAndWait];
             NSError *error;
             [[NSFileManager defaultManager]
-                trashItemAtURL:world.path resultingItemURL:nil error:&error]; // move world to trash
+                trashItemAtURL:world.prefix.prefixURL resultingItemURL:nil error:&error]; // move world to trash
             if (error != nil) {
                 [NSApp presentError:error];
                 continue;
             }
             [self.arrayController removeObject:world]; // remove object from worlds
-            [World deleteWorldNamed:world.name];
         }
     } message:message];
 }
