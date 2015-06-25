@@ -1,0 +1,46 @@
+//
+//  BootCycleController.m
+//  Vindo
+//
+//  Created by Theodore Dubois on 6/23/15.
+//  Copyright (c) 2015 Theodore Dubois. All rights reserved.
+//
+
+#import "BootCycleController.h"
+#import "WorldsController.h"
+#import "WinePrefix.h"
+
+@interface BootCycleController ()
+
+// The array controller is stupid. It will only tell me that a change occurred, not the old value. Or even the new value. Whenever the value changes, I'll store it here, so I can get the old value next time.
+@property World *oldSelectedWorld;
+
+@end
+
+@implementation BootCycleController
+
+- (id)init {
+    if (self = [super init]) {
+        [[WorldsController sharedController] addObserver:self
+                                              forKeyPath:@"selectionIndex"
+                                                 options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
+                                                 context:NULL];
+    }
+    return self;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    World *newSelectedWorld = [[WorldsController sharedController] selectedWorld];
+
+    if (self.oldSelectedWorld == newSelectedWorld)
+        return;
+
+    if (self.oldSelectedWorld != nil)
+        [self.oldSelectedWorld.prefix stopServer];
+    if (newSelectedWorld != nil)
+        [newSelectedWorld.prefix startServer];
+
+    self.oldSelectedWorld = newSelectedWorld; // save for next time
+}
+
+@end

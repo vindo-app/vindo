@@ -25,18 +25,6 @@
 
 @implementation ApplicationController
 
-- (void)applicationWillFinishLaunching:(NSNotification *)notification {
-    World *world = [[WorldsController sharedController] selectedWorld];
-#ifdef DEBUG
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center addObserver:self
-               selector:@selector(notificationSpy:)
-                   name:nil
-                 object:world];
-#endif
-    [world.prefix startServer];
-}
-
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification {
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
     statusItem = [statusBar statusItemWithLength:NSSquareStatusItemLength];
@@ -133,11 +121,5 @@
     [[BrowserController new] showWindow:self];
     [NSApp activateIgnoringOtherApps:YES];
 }
-
-#ifdef DEBUG
-- (void)notificationSpy:(NSNotification *)notification {
-    NSLog(@"%@", notification);
-}
-#endif
 
 @end

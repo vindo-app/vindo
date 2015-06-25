@@ -29,6 +29,7 @@
 		AC05807A1ABE13F300854813 /* WorldsPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC0580781ABE13F300854813 /* WorldsPreferences.xib */; };
 		AC05808C1ABF97F700854813 /* WorldsPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC05808B1ABF97F700854813 /* WorldsPreferencesViewController.m */; };
 		AC13F0A21ADB6A1000254D1F /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC13F0A11ADB6A1000254D1F /* CoreServices.framework */; };
+		AC2D42B11B3A1F8100F3C2FA /* BootCycleController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2D42B01B3A1F8100F3C2FA /* BootCycleController.m */; };
 		AC3A4EE21AA12F9A00781626 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE11AA12F9A00781626 /* main.m */; };
 		AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4EE41AA12F9A00781626 /* ApplicationController.m */; };
 		AC5219041B225BBC004A322E /* WorldsController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5219031B225BBC004A322E /* WorldsController.m */; };
@@ -99,6 +100,8 @@
 		AC05808A1ABF97F700854813 /* WorldsPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsPreferencesViewController.h; sourceTree = "<group>"; };
 		AC05808B1ABF97F700854813 /* WorldsPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = WorldsPreferencesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		AC13F0A11ADB6A1000254D1F /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		AC2D42AF1B3A1F8100F3C2FA /* BootCycleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BootCycleController.h; sourceTree = "<group>"; };
+		AC2D42B01B3A1F8100F3C2FA /* BootCycleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BootCycleController.m; sourceTree = "<group>"; };
 		AC3A4EDC1AA12F9900781626 /* Vindo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vindo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3A4EE11AA12F9A00781626 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AC3A4EE31AA12F9A00781626 /* ApplicationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationController.h; sourceTree = "<group>"; };
@@ -209,6 +212,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AC2D42B21B3A1FA700F3C2FA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AC3A4EE31AA12F9A00781626 /* ApplicationController.h */,
+				AC3A4EE41AA12F9A00781626 /* ApplicationController.m */,
+				AC2D42AF1B3A1F8100F3C2FA /* BootCycleController.h */,
+				AC2D42B01B3A1F8100F3C2FA /* BootCycleController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		AC3A4ED31AA12F9900781626 = {
 			isa = PBXGroup;
 			children = (
@@ -291,8 +305,7 @@
 		AC8DB5AF1AA130A1000A6C51 /* Code */ = {
 			isa = PBXGroup;
 			children = (
-				AC3A4EE31AA12F9A00781626 /* ApplicationController.h */,
-				AC3A4EE41AA12F9A00781626 /* ApplicationController.m */,
+				AC2D42B21B3A1FA700F3C2FA /* Controllers */,
 				8A525F071AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.h */,
 				8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */,
 				AC9681BC1ABCD57400A9233B /* World */,
@@ -457,6 +470,7 @@
 				8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */,
 				AC52190A1B23BC85004A322E /* WineServer.m in Sources */,
 				8A28BF501AD7260D007AB81C /* BrowserDelegate.m in Sources */,
+				AC2D42B11B3A1F8100F3C2FA /* BootCycleController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -51,7 +51,10 @@ static WorldsController *sharedController;
 }
 
 - (World *)selectedWorld {
-    return self.arrangedObjects[self.selectionIndex];
+    if (self.selectionIndex == NSNotFound)
+        return nil;
+    else
+        return self.arrangedObjects[self.selectionIndex];
 }
 
 + (WorldsController *)sharedController {
