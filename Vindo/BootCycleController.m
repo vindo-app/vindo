@@ -25,6 +25,12 @@
                                               forKeyPath:@"selectionIndex"
                                                  options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
                                                  context:NULL];
+
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self
+                   selector:@selector(stopOnQuit:)
+                       name:NSApplicationWillTerminateNotification
+                     object:NSApp];
     }
     return self;
 }
@@ -41,6 +47,10 @@
         [newSelectedWorld.prefix startServer];
 
     self.oldSelectedWorld = newSelectedWorld; // save for next time
+}
+
+- (void)stopOnQuit:(NSNotification *)notification {
+    [[WorldsController sharedController].selectedWorld.prefix stopServerAndWait];
 }
 
 @end
