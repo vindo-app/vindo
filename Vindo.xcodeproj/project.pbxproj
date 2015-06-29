@@ -35,6 +35,7 @@
 		AC5219041B225BBC004A322E /* WorldsController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5219031B225BBC004A322E /* WorldsController.m */; };
 		AC5219071B23BBF2004A322E /* WinePrefix.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5219061B23BBF2004A322E /* WinePrefix.m */; };
 		AC52190A1B23BC85004A322E /* WineServer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5219091B23BC85004A322E /* WineServer.m */; };
+		AC5AC3511B3E1E5900538492 /* LaunchController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AC3501B3E1E5900538492 /* LaunchController.m */; };
 		AC64E4901AC8C02A002C7E4D /* BrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC64E48E1AC8C02A002C7E4D /* BrowserController.m */; };
 		AC64E4911AC8C02A002C7E4D /* Browser.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC64E48F1AC8C02A002C7E4D /* Browser.xib */; };
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
@@ -115,6 +116,8 @@
 		AC5219091B23BC85004A322E /* WineServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineServer.m; sourceTree = "<group>"; };
 		AC52190C1B23C010004A322E /* StartWineServerOperation.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartWineServerOperation.inl; sourceTree = "<group>"; };
 		AC52190E1B23C064004A322E /* StopWineServerOperation.inl */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = StopWineServerOperation.inl; sourceTree = "<group>"; };
+		AC5AC34F1B3E1E5900538492 /* LaunchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchController.h; sourceTree = "<group>"; };
+		AC5AC3501B3E1E5900538492 /* LaunchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchController.m; sourceTree = "<group>"; };
 		AC64E48D1AC8C02A002C7E4D /* BrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserController.h; sourceTree = "<group>"; };
 		AC64E48E1AC8C02A002C7E4D /* BrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserController.m; sourceTree = "<group>"; };
 		AC64E48F1AC8C02A002C7E4D /* Browser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Browser.xib; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 				AC3A4EE41AA12F9A00781626 /* ApplicationController.m */,
 				AC2D42AF1B3A1F8100F3C2FA /* BootCycleController.h */,
 				AC2D42B01B3A1F8100F3C2FA /* BootCycleController.m */,
+				AC5AC34F1B3E1E5900538492 /* LaunchController.h */,
+				AC5AC3501B3E1E5900538492 /* LaunchController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 				8AA4D0F31AF9934700074096 /* SidebarController.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */,
 				8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */,
+				AC5AC3511B3E1E5900538492 /* LaunchController.m in Sources */,
 				AC52190A1B23BC85004A322E /* WineServer.m in Sources */,
 				8A28BF501AD7260D007AB81C /* BrowserDelegate.m in Sources */,
 				AC2D42B11B3A1F8100F3C2FA /* BootCycleController.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "ApplicationController.h"
 #import "BrowserController.h"
+#import "LaunchController.h"
 
 #import "GeneralPreferencesViewController.h"
 #import "WineCfgViewController.h"
@@ -20,6 +21,7 @@
 @interface ApplicationController ()
 
 @property RHPreferencesWindowController *prefs;
+@property IBOutlet LaunchController *launcher;
 
 @end
 
@@ -34,8 +36,7 @@
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
-    World *world = [[WorldsController sharedController] selectedWorld];
-    [world run:filename];
+    [self.launcher launch:[NSURL fileURLWithPath:filename]];
     return YES;
 }
 
@@ -45,29 +46,27 @@
 }
 
 - (void)runCannedProgram:(id)sender {
-    World *world = [[WorldsController sharedController] selectedWorld];
-    
     switch ([sender tag]) {
         case 0: // file manager
-            [world run:@"winefile"];
+            [self.launcher run:@"winefile"];
             break;
         case 1: // internet explorer
-            [world run:@"iexplore"];
+            [self.launcher run:@"iexplore"];
             break;
         case 2: // minesweeper
-            [world run:@"winemine"];
+            [self.launcher run:@"winemine"];
             break;
         case 3: // notepad
-            [world run:@"notepad"];
+            [self.launcher run:@"notepad"];
             break;
         case 4: // console
-            [world run:@"wineconsole" withArguments:@[@"cmd"]];
+            [self.launcher run:@"wineconsole" withArguments:@[@"cmd"]];
             break;
         case 5: // winecfg
-            [world run:@"winecfg"];
+            [self.launcher run:@"winecfg"];
             break;
         case 6: // regedit
-            [world run:@"regedit"];
+            [self.launcher run:@"regedit"];
             break;
         default:
             break;
@@ -79,10 +78,8 @@
     panel.canChooseDirectories = NO;
     panel.allowsMultipleSelection = NO;
     [panel beginWithCompletionHandler:^(NSInteger result) {
-        World *world = [[WorldsController sharedController] selectedWorld];
-        
         if (result == NSFileHandlingPanelOKButton) {
-            [world run:[panel.URLs.firstObject path]];
+            [self.launcher launch:panel.URLs[0]];
         }
     }];
 }

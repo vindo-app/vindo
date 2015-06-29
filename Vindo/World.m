@@ -45,7 +45,8 @@ static NSMutableDictionary *worldsDictionary;
 
 - (NSURL *)prefixPath:(NSString *)name {
     NSFileManager *manager = [NSFileManager defaultManager];
-    NSURL *applicationSupport = [[[manager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] firstObject] URLByAppendingPathComponent:@"Vindo"];
+    NSURL *applicationSupport = [[manager URLsForDirectory:NSApplicationSupportDirectory
+                                                 inDomains:NSUserDomainMask][0] URLByAppendingPathComponent:@"Vindo"];
     return [applicationSupport URLByAppendingPathComponent:name];
 }
 

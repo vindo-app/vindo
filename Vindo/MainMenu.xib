@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1070" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
     </dependencies>
     <objects>
@@ -14,6 +13,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="ApplicationController">
             <connections>
+                <outlet property="launcher" destination="kM7-O8-uwl" id="pHe-f9-gzK"/>
                 <outlet property="statusBarMenu" destination="cpY-Is-ZQ8" id="d8A-G3-7GJ"/>
             </connections>
         </customObject>
@@ -127,5 +127,6 @@
         </menu>
         <arrayController objectClassName="World" editable="NO" selectsInsertedObjects="NO" clearsFilterPredicateOnInsertion="NO" id="Qox-EO-R5a" customClass="WorldsController"/>
         <customObject id="DnL-XL-Msx" customClass="BootCycleController"/>
+        <customObject id="kM7-O8-uwl" customClass="LaunchController"/>
     </objects>
 </document>

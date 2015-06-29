@@ -72,7 +72,7 @@
     NSString *message;
     if (worldsToDelete.count == 1)
         message = [NSString stringWithFormat:@"Deleting world \"%@\"…",
-                       [worldsToDelete.firstObject name]];
+                       [worldsToDelete[0] name]];
     else
         message = [NSString stringWithFormat:@"Deleting %lu worlds…",
                        (unsigned long) worldsToDelete.count];
