@@ -12,7 +12,6 @@
 		8A23F3B91AA9141500F1467C /* WineCfgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A23F3B71AA9141500F1467C /* WineCfgViewController.m */; };
 		8A23F3BA1AA9141500F1467C /* WineCfgPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3B81AA9141500F1467C /* WineCfgPreferences.xib */; };
 		8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BE1AA91EF600F1467C /* MainMenu.xib */; };
-		8A23F3C31AA9237A00F1467C /* usr in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3C21AA9237900F1467C /* usr */; };
 		8A28BF501AD7260D007AB81C /* BrowserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A28BF4F1AD7260D007AB81C /* BrowserDelegate.m */; };
 		8A28BF521AD73EAD007AB81C /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A28BF511AD73EAD007AB81C /* Item.m */; };
 		8A28BF551AD740EE007AB81C /* DirectoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A28BF541AD740EE007AB81C /* DirectoryItem.m */; };
@@ -45,6 +44,7 @@
 		ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D81AA3B8F900E031F5 /* Icon16.png */; };
 		ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D91AA3B8F900E031F5 /* Icon32.png */; };
 		ACC458D41ACF514A001838FC /* ItemBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC458D31ACF514A001838FC /* ItemBrowserCell.m */; };
+		ACD830041B8D346900D8F285 /* usr in Resources */ = {isa = PBXBuildFile; fileRef = ACD830031B8D346900D8F285 /* usr */; };
 		F6D3954A9DA48257AC7EF798 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 258CC4B79A56F9EFB6956C3A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +73,6 @@
 		8A23F3B81AA9141500F1467C /* WineCfgPreferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WineCfgPreferences.xib; sourceTree = "<group>"; };
 		8A23F3BD1AA91EF600F1467C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		8A23F3C21AA9237900F1467C /* usr */ = {isa = PBXFileReference; lastKnownFileType = folder; path = usr; sourceTree = "<group>"; };
 		8A28BF4E1AD7260D007AB81C /* BrowserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserDelegate.h; sourceTree = "<group>"; };
 		8A28BF4F1AD7260D007AB81C /* BrowserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserDelegate.m; sourceTree = "<group>"; };
 		8A28BF511AD73EAD007AB81C /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
@@ -130,6 +129,7 @@
 		ACB107D91AA3B8F900E031F5 /* Icon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon32.png; sourceTree = "<group>"; };
 		ACC458D21ACF514A001838FC /* ItemBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBrowserCell.h; sourceTree = "<group>"; };
 		ACC458D31ACF514A001838FC /* ItemBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemBrowserCell.m; sourceTree = "<group>"; };
+		ACD830031B8D346900D8F285 /* usr */ = {isa = PBXFileReference; lastKnownFileType = folder; name = usr; path = Wine/usr; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +148,7 @@
 		8A655B7C1AA6773E00FFCD0C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8A23F3C21AA9237900F1467C /* usr */,
+				ACD830031B8D346900D8F285 /* usr */,
 				ACB107D71AA3B8F900E031F5 /* Icon.icns */,
 				8AC01D5C1ABB84D100F8C066 /* Executable.icns */,
 				AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */,
@@ -345,6 +345,7 @@
 			buildConfigurationList = AC3A4EF91AA12F9B00781626 /* Build configuration list for PBXNativeTarget "Vindo" */;
 			buildPhases = (
 				B73ECF95665174C9AAD35B8D /* Check Pods Manifest.lock */,
+				ACD830021B8D2ED100D8F285 /* Unzip Wine */,
 				AC3A4ED81AA12F9900781626 /* Sources */,
 				AC3A4ED91AA12F9900781626 /* Frameworks */,
 				AC3A4EDA1AA12F9900781626 /* Resources */,
@@ -397,6 +398,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACD830041B8D346900D8F285 /* usr in Resources */,
 				8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */,
 				ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */,
 				AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */,
@@ -409,13 +411,28 @@
 				AC05807A1ABE13F300854813 /* WorldsPreferences.xib in Resources */,
 				ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */,
 				ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */,
-				8A23F3C31AA9237A00F1467C /* usr in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		ACD830021B8D2ED100D8F285 /* Unzip Wine */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Wine/wine.zip",
+			);
+			name = "Unzip Wine";
+			outputPaths = (
+				"$(SRCROOT)/Wine/usr",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "unzip $SRCROOT/Wine/wine.zip -d $SRCROOT/Wine";
+		};
 		B73ECF95665174C9AAD35B8D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
