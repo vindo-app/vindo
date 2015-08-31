@@ -423,15 +423,16 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Wine/wine.zip",
+				"$(SRCROOT)/Wine/wine.url",
 			);
 			name = "Unzip Wine";
 			outputPaths = (
 				"$(SRCROOT)/Wine/usr",
+				"$(SRCROOT)/Wine/wine.zip",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "unzip -o $SRCROOT/Wine/wine.zip -d $SRCROOT/Wine";
+			shellScript = "curl -Lo $SRCROOT/Wine/wine.zip `cat $SRCROOT/Wine/wine.url`\nunzip -o -d $SRCROOT/Wine $SRCROOT/Wine/wine.zip";
 		};
 		B73ECF95665174C9AAD35B8D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
