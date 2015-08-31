@@ -49,6 +49,9 @@
         [self runBlock:^{
             World *world = [[World alloc] initWithName:worldName];
             [world.prefix startServerAndWait];
+            NSTask *vpi = [world.prefix wineTaskWithProgram:@"vindo_prefix_init" arguments:@[]];
+            [vpi launch];
+            [vpi waitUntilExit];
             [self.arrayController addObject:world];
             self.arrayController.selectedObjects = @[world];
         } message:[NSString stringWithFormat:@"Creating world \"%@\"…", worldName]];
