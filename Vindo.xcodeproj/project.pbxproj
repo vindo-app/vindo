@@ -431,7 +431,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "unzip $SRCROOT/Wine/wine.zip -d $SRCROOT/Wine";
+			shellScript = "unzip -o $SRCROOT/Wine/wine.zip -d $SRCROOT/Wine";
 		};
 		B73ECF95665174C9AAD35B8D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
