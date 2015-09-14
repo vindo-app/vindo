@@ -346,6 +346,7 @@
 			buildPhases = (
 				B73ECF95665174C9AAD35B8D /* Check Pods Manifest.lock */,
 				ACD830021B8D2ED100D8F285 /* Download Latest Wine */,
+				ACCF37581BA66EAC0043FF40 /* Unzip Wine */,
 				AC3A4ED81AA12F9900781626 /* Sources */,
 				AC3A4ED91AA12F9900781626 /* Frameworks */,
 				AC3A4EDA1AA12F9900781626 /* Resources */,
@@ -417,6 +418,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		ACCF37581BA66EAC0043FF40 /* Unzip Wine */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Wine/wine.zip",
+			);
+			name = "Unzip Wine";
+			outputPaths = (
+				"$(SRCROOT)/Wine/usr",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "unzip -o -d $SRCROOT/Wine $SRCROOT/Wine/wine.zip";
+		};
 		ACD830021B8D2ED100D8F285 /* Download Latest Wine */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -427,12 +444,11 @@
 			);
 			name = "Download Latest Wine";
 			outputPaths = (
-				"$(SRCROOT)/Wine/usr",
 				"$(SRCROOT)/Wine/wine.zip",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "curl -Lo $SRCROOT/Wine/wine.zip `cat $SRCROOT/Wine/wine.url`\nunzip -o -d $SRCROOT/Wine $SRCROOT/Wine/wine.zip";
+			shellScript = "curl -Lo $SRCROOT/Wine/wine.zip `cat $SRCROOT/Wine/wine.url`\n";
 		};
 		B73ECF95665174C9AAD35B8D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
