@@ -15,7 +15,6 @@
 
 @property IBOutlet NSMenu *statusBarMenu;
 
-- (IBAction)showPreferences:(id)sender;
 - (IBAction)runCannedProgram:(id)sender;
 - (IBAction)runProgram:(id)sender;
 - (IBAction)manageWorlds:(id)sender;

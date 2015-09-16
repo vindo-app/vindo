@@ -9,11 +9,11 @@
 #import "WorldsController.h"
 #import "World.h"
 #import "WinePrefix.h"
-#import "WorldsPreferencesViewController.h"
+#import "ManageWorldsWindowController.h"
 #import "StatusWindowController.h"
 #import "NSOperationQueue+DefaultQueue.h"
 
-@interface WorldsPreferencesViewController ()
+@interface ManageWorldsWindowController ()
 
 @property IBOutlet NSWindow *querySheet;
 @property IBOutlet NSTextField *queryText;
@@ -25,15 +25,15 @@
 
 @end
 
-@implementation WorldsPreferencesViewController
+@implementation ManageWorldsWindowController
 
 - (instancetype)init {
-    return [super initWithNibName:@"WorldsPreferences" bundle:nil];
+    return [super initWithWindowNibName:@"ManageWorlds"];
 }
 
 - (IBAction)addWorld:(id)sender {
     [NSApp beginSheet:_querySheet
-       modalForWindow:self.view.window
+       modalForWindow:self.window
         modalDelegate:self
        didEndSelector:@selector(didEndSheet:returnCode:contextInfo:)
           contextInfo:NULL];
@@ -49,9 +49,6 @@
         [self runBlock:^{
             World *world = [[World alloc] initWithName:worldName];
             [world.prefix startServerAndWait];
-            NSTask *vpi = [world.prefix wineTaskWithProgram:@"vindo_prefix_init" arguments:@[]];
-            [vpi launch];
-            [vpi waitUntilExit];
             [self.arrayController addObject:world];
             self.arrayController.selectedObjects = @[world];
         } message:[NSString stringWithFormat:@"Creating world \"%@\"…", worldName]];
@@ -63,7 +60,7 @@
 - (IBAction)removeWorld:(id)sender {
     if ([_arrayController.selectedObjects indexOfObject:[[WorldsController sharedController] selectedWorld]] != NSNotFound) {
         NSBeginAlertSheet(@"The default world cannot be deleted.",
-                          @"OK", nil, nil, self.view.window, nil, nil, nil, NULL,
+                          @"OK", nil, nil, self.window, nil, nil, nil, NULL,
                           @"Select another world in the \"Worlds\" menu before deleting this one.");
         return;
     }
@@ -98,7 +95,7 @@
 - (void)runBlock:(void (^)(void))block message:(NSString *)message {
     NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:block];
     self.strongReference = [[StatusWindowController alloc] initWithMessage:message
-                                                               sheetWindow:self.view.window
+                                                               sheetWindow:self.window
                                                                  operation:op];
     [[NSOperationQueue defaultQueue] addOperation:op];
 }
@@ -153,18 +150,6 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
    forTableColumn:(NSTableColumn *)tableColumn
               row:(NSInteger)row {
     // not implemented yet
-}
-
-- (NSString *)toolbarItemLabel {
-    return @"Worlds";
-}
-
-- (NSImage *)toolbarItemImage {
-    return [NSImage imageNamed:NSImageNameNetwork];
-}
-
-- (NSString *)identifier {
-    return self.className;
 }
 
 @end

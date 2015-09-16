@@ -7,12 +7,9 @@
 //
 
 #import "ApplicationController.h"
-#import "BrowserController.h"
 #import "LaunchController.h"
 
-#import "GeneralPreferencesViewController.h"
-#import "WineCfgViewController.h"
-#import "WorldsPreferencesViewController.h"
+#import "ManageWorldsWindowController.h"
 
 #import "World.h"
 #import "WinePrefix.h"
@@ -20,7 +17,7 @@
 
 @interface ApplicationController ()
 
-@property RHPreferencesWindowController *prefs;
+@property ManageWorldsWindowController *manageWorlds;
 @property IBOutlet LaunchController *launcher;
 
 @end
@@ -85,8 +82,10 @@
 }
 
 - (IBAction)manageWorlds:(id)sender {
-    [self showPreferences:self];
-    _prefs.selectedIndex = 2;
+    if (self.manageWorlds == nil)
+        self.manageWorlds = [ManageWorldsWindowController new];
+    [self.manageWorlds showWindow:self];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
@@ -95,28 +94,6 @@
 
 - (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
     return NO;
-}
-
-- (IBAction)showPreferences: (id)sender {
-    if (_prefs == nil) {
-        _prefs = [[RHPreferencesWindowController alloc] initWithViewControllers:
-                                 @[
-                                   [GeneralPreferencesViewController new],
-                                   [WineCfgViewController new],
-                                   [WorldsPreferencesViewController new],
-                                  ]];
-        // workaround for missing behavior in RHPreferences
-        _prefs.window.collectionBehavior =
-            NSWindowCollectionBehaviorMoveToActiveSpace |
-            NSWindowCollectionBehaviorFullScreenAuxiliary;
-    }
-    [_prefs showWindow:self];
-    [NSApp activateIgnoringOtherApps:YES];
-}
-
-- (IBAction)showBrowser: (id)sender {
-    [[BrowserController new] showWindow:self];
-    [NSApp activateIgnoringOtherApps:YES];
 }
 
 @end

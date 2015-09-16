@@ -38,7 +38,7 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     World *newSelectedWorld = [[WorldsController sharedController] selectedWorld];
 
-    if (self.oldSelectedWorld == newSelectedWorld)
+    if ([self.oldSelectedWorld isEqualTo:newSelectedWorld])
         return;
 
     if (self.oldSelectedWorld != nil)
