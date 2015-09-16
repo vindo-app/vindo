@@ -38,7 +38,7 @@
 	<key>CFBundlePackageType</key>
 	<string>VNDO</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1 Beta</string>
+	<string>0.1.1</string>
 	<key>CFBundleSignature</key>
 	<string>VNDO</string>
 	<key>LSApplicationCategoryType</key>
