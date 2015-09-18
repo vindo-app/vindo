@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <RHPreferences/RHPreferences.h>
 
 @interface ApplicationController : NSObject <NSApplicationDelegate> {
     NSStatusItem *statusItem;

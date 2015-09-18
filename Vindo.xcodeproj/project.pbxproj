@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BE1AA91EF600F1467C /* MainMenu.xib */; };
 		8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */; };
+		8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */; settings = {ASSET_TAGS = (); }; };
+		8A66CCB81BACD35500D7E592 /* vindo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB71BACD35500D7E592 /* vindo.icns */; settings = {ASSET_TAGS = (); }; };
 		8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A70BF041BAA2BC500F58EBE /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */; };
 		8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* Status.xib */; };
@@ -29,9 +31,6 @@
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
 		AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */; };
 		ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA9D6161AA7E41A00194089 /* winecfg.png */; };
-		ACB107DA1AA3B8F900E031F5 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D71AA3B8F900E031F5 /* Icon.icns */; };
-		ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D81AA3B8F900E031F5 /* Icon16.png */; };
-		ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB107D91AA3B8F900E031F5 /* Icon32.png */; };
 		ACD830041B8D346900D8F285 /* usr in Resources */ = {isa = PBXBuildFile; fileRef = ACD830031B8D346900D8F285 /* usr */; };
 		F6D3954A9DA48257AC7EF798 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 258CC4B79A56F9EFB6956C3A /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -57,6 +56,8 @@
 		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		8A525F071AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+DefaultQueue.h"; sourceTree = "<group>"; };
 		8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+DefaultQueue.m"; sourceTree = "<group>"; };
+		8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = statusbar.tiff; path = ../statusbar.tiff; sourceTree = "<group>"; };
+		8A66CCB71BACD35500D7E592 /* vindo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = vindo.icns; sourceTree = "<group>"; };
 		8A70BF031BAA2BB800F58EBE /* PFMoveApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; };
 		8A70BF041BAA2BC500F58EBE /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; };
 		8ABB4AC21AB8DE7B00CDB93C /* StatusWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusWindowController.h; sourceTree = "<group>"; };
@@ -93,9 +94,6 @@
 		AC9681BD1ABCD59D00A9233B /* WorldsTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsTransformer.h; sourceTree = "<group>"; };
 		AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsTransformer.m; sourceTree = "<group>"; };
 		ACA9D6161AA7E41A00194089 /* winecfg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = winecfg.png; sourceTree = "<group>"; };
-		ACB107D71AA3B8F900E031F5 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
-		ACB107D81AA3B8F900E031F5 /* Icon16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon16.png; sourceTree = "<group>"; };
-		ACB107D91AA3B8F900E031F5 /* Icon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon32.png; sourceTree = "<group>"; };
 		ACD830031B8D346900D8F285 /* usr */ = {isa = PBXFileReference; lastKnownFileType = folder; name = usr; path = Wine/usr; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -116,11 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				ACD830031B8D346900D8F285 /* usr */,
-				ACB107D71AA3B8F900E031F5 /* Icon.icns */,
+				8A66CCB71BACD35500D7E592 /* vindo.icns */,
+				8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */,
 				8AC01D5C1ABB84D100F8C066 /* Executable.icns */,
 				AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */,
-				ACB107D81AA3B8F900E031F5 /* Icon16.png */,
-				ACB107D91AA3B8F900E031F5 /* Icon32.png */,
 				ACA9D6161AA7E41A00194089 /* winecfg.png */,
 			);
 			name = Resources;
@@ -339,13 +336,12 @@
 				ACD830041B8D346900D8F285 /* usr in Resources */,
 				8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */,
 				ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */,
+				8A66CCB81BACD35500D7E592 /* vindo.icns in Resources */,
 				AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */,
-				ACB107DA1AA3B8F900E031F5 /* Icon.icns in Resources */,
 				8AC01D5F1ABB84D100F8C066 /* Executable.icns in Resources */,
 				8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */,
 				AC05807A1ABE13F300854813 /* ManageWorlds.xib in Resources */,
-				ACB107DB1AA3B8F900E031F5 /* Icon16.png in Resources */,
-				ACB107DC1AA3B8F900E031F5 /* Icon32.png in Resources */,
+				8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +518,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 86910AAF59F070ED1ED06789 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -541,7 +536,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A16529B78CFC04B47D2FCD0 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (

@@ -16,7 +16,6 @@
 #import "WorldsController.h"
 
 @interface ApplicationController ()
-
 @property ManageWorldsWindowController *manageWorlds;
 @property IBOutlet LaunchController *launcher;
 
@@ -28,7 +27,7 @@
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
     statusItem = [statusBar statusItemWithLength:NSSquareStatusItemLength];
     statusItem.highlightMode = YES;
-    statusItem.image = [NSImage imageNamed:@"Icon16"];
+    statusItem.image = [NSImage imageNamed:@"statusbar"];
     statusItem.menu = _statusBarMenu;
 }
 

@@ -1,2 +1,1 @@
-pod "RHPreferences"
 pod "CDEvents"
