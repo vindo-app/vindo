@@ -41,11 +41,9 @@
     if ([self.oldSelectedWorld isEqualTo:newSelectedWorld])
         return;
 
-    NSLog(@"Stopping old world %@", self.oldSelectedWorld);
     if (self.oldSelectedWorld != nil) {
         [self.oldSelectedWorld.prefix stopServer];
     }
-    NSLog(@"Starting new world %@", newSelectedWorld);
     if (newSelectedWorld != nil) {
         [newSelectedWorld.prefix startServer];
     }

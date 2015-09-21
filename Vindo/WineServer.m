@@ -13,6 +13,7 @@
 
 @property NSTask *serverTask;
 @property BOOL running;
+@property NSOperation *pendingOp;
 
 @end
 
@@ -30,33 +31,59 @@
 }
 
 - (void)start {
-    if (!self.running) {
-        [[NSOperationQueue defaultQueue] addOperation:
-         [[StartWineServerOperation alloc] initWithWinePrefix:self.prefix]];
+    // Do this cleanup, because we can't trust the ops to do it themselves.
+    if (self.pendingOp.finished)
+        self.pendingOp = nil;
+
+    // This is the only way to correctly implement the twisted logic. Don't change it.
+    if (self.pendingOp) {
+        if ([self.pendingOp isKindOfClass:[StartWineServerOperation class]]) {
+            return;
+        }
+    } else if (self.running) {
+        return;
     }
+    
+    NSOperation *startOp = [[StartWineServerOperation alloc] initWithWinePrefix:self.prefix];;
+    if (self.pendingOp != nil) {
+        [self.pendingOp cancel];
+        [startOp addDependency:self.pendingOp];
+    }
+    self.pendingOp = startOp;
+    [startOp start];
 }
 
 - (void)startAndWait {
-    if (!self.running) {
-        NSOperation *startOp = [[StartWineServerOperation alloc] initWithWinePrefix:self.prefix];
-        [[NSOperationQueue defaultQueue] addOperation:startOp];
-        [startOp waitUntilFinished];
-    }
+    [self start];
+    [self.pendingOp waitUntilFinished];
 }
 
 - (void)stop {
-    if (self.running) {
-        [[NSOperationQueue defaultQueue] addOperation:
-         [[StopWineServerOperation alloc] initWithWinePrefix:self.prefix]];
+    // Do this cleanup, because we can't trust the ops to do it themselves.
+    if (self.pendingOp.finished)
+        self.pendingOp = nil;
+    
+    // This is the only way to correctly implement the twisted logic. Don't change it.
+    if (self.pendingOp) {
+        if ([self.pendingOp isKindOfClass:[StopWineServerOperation class]]) {
+            return;
+        }
+    } else if (!self.running) {
+        return;
     }
+    
+    NSOperation *stopOp = [[StopWineServerOperation alloc] initWithWinePrefix:self.prefix];
+    if (self.pendingOp != nil) {
+        [self.pendingOp cancel];
+        [stopOp addDependency:self.pendingOp];
+    }
+    _pendingOp = stopOp;
+    [stopOp start];
 }
 
 - (void)stopAndWait {
-    if (self.running) {
-        NSOperation *stopOp = [[StopWineServerOperation alloc] initWithWinePrefix:self.prefix];
-        [[NSOperationQueue defaultQueue] addOperation:stopOp];
-        [stopOp waitUntilFinished];
-    }
+    [self start];
+    [self.pendingOp waitUntilFinished];
 }
 
 @end

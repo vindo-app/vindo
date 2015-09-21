@@ -41,7 +41,6 @@
                withIntermediateDirectories:YES
                                 attributes:nil
                                      error:&error]) {
-            [NSApp presentError:error];
             return;
         }
         
@@ -70,6 +69,7 @@
         self.prefix.server.running = YES;
     } @catch (NSException *exception) {
         // Don't throw it, because it will go nowhere.
+        NSLog(@"%@", exception);
     }
 }
 

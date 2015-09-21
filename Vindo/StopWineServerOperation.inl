@@ -47,8 +47,10 @@
                               object:self.prefix.server];
 
         self.prefix.server.running = NO;
+        self.prefix.server.pendingOp = nil;
     } @catch (NSException *exception) {
         // Don't throw it, because it will go nowhere.
+        NSLog(@"%@", exception);
     }
 }
 
