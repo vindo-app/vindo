@@ -21,11 +21,6 @@ static WorldsController *sharedController;
     if (self = [super init]) {
         NSUserDefaultsController *defaults = [NSUserDefaultsController sharedUserDefaultsController];
         
-        [[defaults defaults] registerDefaults:@{
-                                               @"worlds": @[@"Default World"],
-                                               @"selectedWorldIndex": @0
-                                               }];
-        
         [self bind:@"contentArray"
           toObject:defaults
        withKeyPath:@"values.worlds"

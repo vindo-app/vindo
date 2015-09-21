@@ -15,6 +15,8 @@
 }
 
 - (NSIndexSet *)transformedValue:(NSNumber *)value {
+    if (value == nil)
+        return [NSIndexSet indexSet];
     return [NSIndexSet indexSetWithIndex:[value unsignedIntegerValue]];
 }
 
@@ -23,6 +25,8 @@
 }
 
 - (NSNumber *)reverseTransformedValue:(NSIndexSet *)indexes {
+    if (indexes.count == 0)
+        return nil;
     return @([indexes firstIndex]);
 }
 

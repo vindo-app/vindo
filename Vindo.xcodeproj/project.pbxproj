@@ -32,6 +32,7 @@
 		AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */; };
 		ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA9D6161AA7E41A00194089 /* winecfg.png */; };
 		ACD830041B8D346900D8F285 /* usr in Resources */ = {isa = PBXBuildFile; fileRef = ACD830031B8D346900D8F285 /* usr */; };
+		ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */; };
 		F6D3954A9DA48257AC7EF798 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 258CC4B79A56F9EFB6956C3A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,8 @@
 		AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsTransformer.m; sourceTree = "<group>"; };
 		ACA9D6161AA7E41A00194089 /* winecfg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = winecfg.png; sourceTree = "<group>"; };
 		ACD830031B8D346900D8F285 /* usr */ = {isa = PBXFileReference; lastKnownFileType = folder; name = usr; path = Wine/usr; sourceTree = SOURCE_ROOT; };
+		ACDE7B151BAB76E100A37DE2 /* FirstTimeSetupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTimeSetupController.h; sourceTree = "<group>"; };
+		ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTimeSetupController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,14 +157,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		AC1957C21AA52AB50077A25C /* WorldsManager */ = {
+		AC1957C21AA52AB50077A25C /* Worlds Manager */ = {
 			isa = PBXGroup;
 			children = (
 				AC05808A1ABF97F700854813 /* ManageWorldsWindowController.h */,
 				AC05808B1ABF97F700854813 /* ManageWorldsWindowController.m */,
 				AC0580781ABE13F300854813 /* ManageWorlds.xib */,
 			);
-			name = WorldsManager;
+			name = "Worlds Manager";
 			path = Vindo;
 			sourceTree = "<group>";
 		};
@@ -183,6 +186,8 @@
 				AC2D42B01B3A1F8100F3C2FA /* BootCycleController.m */,
 				AC5AC34F1B3E1E5900538492 /* LaunchController.h */,
 				AC5AC3501B3E1E5900538492 /* LaunchController.m */,
+				ACDE7B151BAB76E100A37DE2 /* FirstTimeSetupController.h */,
+				ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -192,7 +197,7 @@
 			children = (
 				AC8DB5AF1AA130A1000A6C51 /* Code */,
 				8ABB4AC11AB8D8FF00CDB93C /* UI */,
-				AC1957C21AA52AB50077A25C /* WorldsManager */,
+				AC1957C21AA52AB50077A25C /* Worlds Manager */,
 				8A655B7C1AA6773E00FFCD0C /* Resources */,
 				AC3A4EDF1AA12F9A00781626 /* Supporting Files */,
 				AC1957D01AA52BB10077A25C /* Frameworks */,
@@ -378,7 +383,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "curl -Lo $SRCROOT/Wine/wine.zip `cat $SRCROOT/Wine/wine.url`\n";
+			shellScript = "if [ $SRCROOT/Wine/wine.zip -ot $SRCROOT/Wine/wine.url ]; then\n    curl -Lo $SRCROOT/Wine/wine.zip `cat $SRCROOT/Wine/wine.url`\nfi\n";
 		};
 		B73ECF95665174C9AAD35B8D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -418,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */,
+				ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
 				8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,

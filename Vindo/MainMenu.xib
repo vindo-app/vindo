@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13F1096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -26,6 +25,26 @@
         </customObject>
         <menu id="cpY-Is-ZQ8">
             <items>
+                <menuItem title="Setting up Windows environment..." enabled="NO" id="8vs-bM-1Mp">
+                    <attributedString key="attributedTitle"/>
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <binding destination="Yoa-Bu-7fp" name="hidden" keyPath="happening" id="7Jq-rG-Ow1">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="04U-91-D5I">
+                    <connections>
+                        <binding destination="Yoa-Bu-7fp" name="hidden" keyPath="happening" id="8Ao-W6-I5f">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </menuItem>
                 <menuItem title="Run" id="Nzl-9r-3bJ">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Run" id="9xe-Uv-mhL">
@@ -115,5 +134,6 @@
         <arrayController objectClassName="World" editable="NO" selectsInsertedObjects="NO" clearsFilterPredicateOnInsertion="NO" id="Qox-EO-R5a" customClass="WorldsController"/>
         <customObject id="DnL-XL-Msx" customClass="BootCycleController"/>
         <customObject id="kM7-O8-uwl" customClass="LaunchController"/>
+        <customObject id="Yoa-Bu-7fp" customClass="FirstTimeSetupController"/>
     </objects>
 </document>
