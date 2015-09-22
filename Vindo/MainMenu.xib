@@ -15,7 +15,7 @@
         <customObject id="Voe-Tx-rLC" customClass="ApplicationController">
             <connections>
                 <outlet property="launcher" destination="kM7-O8-uwl" id="pHe-f9-gzK"/>
-                <outlet property="statusBarMenu" destination="cpY-Is-ZQ8" id="d8A-G3-7GJ"/>
+                <outlet property="statusBarMenu" destination="cpY-Is-ZQ8" id="dun-IX-eUa"/>
             </connections>
         </customObject>
         <customObject id="m6U-j8-RMv" customClass="WorldsMenuController">

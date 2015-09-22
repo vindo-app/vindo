@@ -82,7 +82,7 @@
 }
 
 - (void)stopAndWait {
-    [self start];
+    [self stop];
     [self.pendingOp waitUntilFinished];
 }
 
