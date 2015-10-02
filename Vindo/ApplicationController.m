@@ -27,7 +27,9 @@
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
     statusItem = [statusBar statusItemWithLength:NSSquareStatusItemLength];
     statusItem.highlightMode = YES;
-    statusItem.image = [NSImage imageNamed:@"statusbar"];
+    NSImage *statusBarImage = [NSImage imageNamed:@"statusbar"];
+    statusBarImage.template = YES;
+    statusItem.image = statusBarImage;
     statusItem.menu = _statusBarMenu;
 }
 
