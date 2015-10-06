@@ -10,6 +10,9 @@
 
 @interface StartMenuItem : NSObject
 
+@property NSString *name;
 @property NSString *path;
+@property NSString *args;
+@property NSString *workingDirectory;
 
 @end
