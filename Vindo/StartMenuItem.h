@@ -10,9 +10,11 @@
 
 @interface StartMenuItem : NSObject
 
-@property NSString *name;
-@property NSString *path;
-@property NSString *args;
-@property NSString *workingDirectory;
+@property (readonly) NSString *nativeIdentifier;
+@property (readonly) NSString *name;
+@property (readonly) NSString *path;
+@property (readonly) NSString *args;
+
+- (instancetype)initWithNativeIdentifier:(NSString *)nativeIdentifier;
 
 @end
