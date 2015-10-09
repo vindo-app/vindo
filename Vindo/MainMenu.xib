@@ -136,5 +136,6 @@
         <customObject id="DnL-XL-Msx" customClass="BootCycleController"/>
         <customObject id="kM7-O8-uwl" customClass="LaunchController"/>
         <customObject id="Yoa-Bu-7fp" customClass="FirstTimeSetupController"/>
+        <customObject id="Tgj-e0-ddB" customClass="StartMenuController"/>
     </objects>
 </document>

@@ -13,17 +13,10 @@
 
 @implementation StartMenuItem
 
-- (instancetype)initWithNativeIdentifier:(NSString *)nativeIdentifier {
+- (instancetype)initFromFile:(NSURL *)file {
     if (self = [super init]) {
-        _nativeIdentifier = nativeIdentifier;
-        
-        World *defaultWorld = [WorldsController sharedController].selectedWorld;
-        NSURL *defaultWorldURL = defaultWorld.prefix.prefixURL;
-        NSString *fileName = [NSString stringWithFormat:@"%@.plist", nativeIdentifier];
-        NSURL *filePath = [[defaultWorldURL URLByAppendingPathComponent:@"menu/programs"]
-                                            URLByAppendingPathComponent:fileName];
         NSError *error;
-        NSData *fileData = [NSData dataWithContentsOfURL:filePath options:0 error:&error];
+        NSData *fileData = [NSData dataWithContentsOfURL:file options:0 error:&error];
         NSDictionary *itemPlist;
         if (fileData) {
             itemPlist = [NSPropertyListSerialization propertyListWithData:fileData

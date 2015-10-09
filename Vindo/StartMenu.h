@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "World.h"
 
 @interface StartMenu : NSObject
 
 @property (readonly) NSArray *items;
+
+- (id)initWithWorld:(World *)world;
 
 @end

@@ -7,14 +7,27 @@
 //
 
 #import "StartMenuController.h"
+#import "WorldsController.h"
 
 @implementation StartMenuController
 
 - (instancetype)init {
     if (self = [super init]) {
-        _menu = [StartMenu new];
+        WorldsController *worldsController = [WorldsController sharedController];
+        [worldsController addObserver:self
+                           forKeyPath:@"selectionIndex"
+                              options:NSKeyValueObservingOptionInitial
+                              context:NULL];
     }
     return self;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    WorldsController *worldsController = [WorldsController sharedController];
+    if (worldsController.selectedWorld != nil) {
+        _menu = [[StartMenu alloc] initWithWorld:worldsController.selectedWorld];
+        // Set a breakpoint here to inspect the menu.
+    }
 }
 
 @end

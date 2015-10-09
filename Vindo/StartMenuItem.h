@@ -10,11 +10,10 @@
 
 @interface StartMenuItem : NSObject
 
-@property (readonly) NSString *nativeIdentifier;
 @property (readonly) NSString *name;
 @property (readonly) NSString *path;
 @property (readonly) NSString *args;
 
-- (instancetype)initWithNativeIdentifier:(NSString *)nativeIdentifier;
+- (instancetype)initFromFile:(NSURL *)file;
 
 @end

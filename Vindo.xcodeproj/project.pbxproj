@@ -276,7 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				AC2D42B21B3A1FA700F3C2FA /* Controllers */,
-				AC9681BC1ABCD57400A9233B /* World */,
+				AC9681BC1ABCD57400A9233B /* Worlds */,
 				AC5219101B23C0BC004A322E /* Wine Prefix */,
 				8A6880A61BC3330C0032352B /* Start */,
 				8A70BF061BAA2BCF00F58EBE /* LetsMove */,
@@ -287,7 +287,7 @@
 			path = Vindo;
 			sourceTree = "<group>";
 		};
-		AC9681BC1ABCD57400A9233B /* World */ = {
+		AC9681BC1ABCD57400A9233B /* Worlds */ = {
 			isa = PBXGroup;
 			children = (
 				AC5219021B225BBC004A322E /* WorldsController.h */,
@@ -301,7 +301,7 @@
 				8AC01D6A1ABB930F00F8C066 /* IndexSetToIntTransformer.h */,
 				8AC01D6B1ABB930F00F8C066 /* IndexSetToIntTransformer.m */,
 			);
-			name = World;
+			name = Worlds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
