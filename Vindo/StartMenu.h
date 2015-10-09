@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "World.h"
+#import <CDEvents/CDEventsDelegate.h>
 
-@interface StartMenu : NSObject
+@interface StartMenu : NSObject <CDEventsDelegate>
 
 @property (readonly) NSArray *items;
 
