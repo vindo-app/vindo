@@ -9,6 +9,12 @@
 #import "StartMenuController.h"
 #import "WorldsController.h"
 
+@interface StartMenuController ()
+
+@property StartMenu *menu;
+
+@end
+
 @implementation StartMenuController
 
 - (instancetype)init {
@@ -25,8 +31,10 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     WorldsController *worldsController = [WorldsController sharedController];
     if (worldsController.selectedWorld != nil) {
-        _menu = [[StartMenu alloc] initWithWorld:worldsController.selectedWorld];
+        self.menu = [[StartMenu alloc] initWithWorld:worldsController.selectedWorld];
         // Set a breakpoint here to inspect the menu.
+    } else {
+        self.menu = nil;
     }
 }
 

@@ -37,11 +37,11 @@
                            attributes:nil
                                 error:NULL];
 
-        //[self URLWatcher:nil eventOccurred:nil]; // trigger a refresh
+        [self URLWatcher:nil eventOccurred:nil]; // trigger a refresh
         
         self.events = [[CDEvents alloc] initWithURLs:@[self.programsFolder]
                                             delegate:self
-                                           onRunLoop:[NSRunLoop currentRunLoop]
+                                           onRunLoop:[NSRunLoop mainRunLoop]
                                 sinceEventIdentifier:kFSEventStreamEventIdSinceNow
                                 notificationLantency:2
                              ignoreEventsFromSubDirs:NO
@@ -52,7 +52,6 @@
 }
 
 - (void)URLWatcher:(CDEvents *)URLWatcher eventOccurred:(CDEvent *)event {
-    NSLog(@"event apparantly happened");
     // just redo everything for now
     NSFileManager *manager = [NSFileManager defaultManager];
     NSArray *startMenuFiles = [manager contentsOfDirectoryAtURL:_programsFolder
