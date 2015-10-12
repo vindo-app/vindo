@@ -2,9 +2,11 @@
  * Site header
  */
 .site-header {
-    margin-top: 20px;
+    background-color: lighten($brand-color, 50%);
+    
+    padding: $spacing-unit 0;
     .banner {
-        margin: 0 auto;
+        margin-bottom: 20px;
         height: 100px;
         img {
             display: inline-block;
@@ -35,9 +37,14 @@
     .page-link {
         -webkit-flex: 1;
                 flex: 1;
+        
         color: $text-color;
         line-height: $base-line-height;
-        padding: 10px;
+        text-align: center;
+        
+        display: inline-block;
+        border: 1px solid black;
+        padding: 5px;
     }
 }
 
