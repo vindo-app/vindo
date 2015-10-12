@@ -2,33 +2,42 @@
  * Site header
  */
 .site-header {
-    
+    margin-top: 20px;
+    .banner {
+        margin: 0 auto;
+        height: 100px;
+        img {
+            display: inline-block;
+            height: 100%;
+        }
+    }
 }
 
 .site-title {
-    font-size: 26px;
+    font-size: 64px;
     line-height: 56px;
-    letter-spacing: -1px;
-    margin-bottom: 0;
-    float: left;
 
-    &,
-    &:visited {
+    &:hover {
+        text-decoration: none
+    }
+    
+    &, &:visited {
         color: $grey-color-dark;
     }
 }
 
 .site-nav {
+    display: -webkit-flex;
+    display:         flex;
+    
     line-height: 56px;
 
     .page-link {
+        -webkit-flex: 1;
+                flex: 1;
         color: $text-color;
         line-height: $base-line-height;
-
-        // Gaps between nav items, but not on the first one
-        &:not(:first-child) {
-            margin-left: 20px;
-        }
+        padding: 10px;
     }
 }
 
@@ -81,29 +90,6 @@
     width:         calc(45% - (#{$spacing-unit} / 2));
 }
 
-@include media-query($on-laptop) {
-    .footer-col-1,
-    .footer-col-2 {
-        width: -webkit-calc(50% - (#{$spacing-unit} / 2));
-        width:         calc(50% - (#{$spacing-unit} / 2));
-    }
-
-    .footer-col-3 {
-        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-        width:         calc(100% - (#{$spacing-unit} / 2));
-    }
-}
-
-@include media-query($on-palm) {
-    .footer-col {
-        float: none;
-        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-        width:         calc(100% - (#{$spacing-unit} / 2));
-    }
-}
-
-
-
 /**
  * Page content
  */
@@ -147,10 +133,6 @@
     font-size: 42px;
     letter-spacing: -1px;
     line-height: 1;
-
-    @include media-query($on-laptop) {
-        font-size: 36px;
-    }
 }
 
 .post-content {
@@ -158,25 +140,13 @@
 
     h2 {
         font-size: 32px;
-
-        @include media-query($on-laptop) {
-            font-size: 28px;
-        }
     }
 
     h3 {
         font-size: 26px;
-
-        @include media-query($on-laptop) {
-            font-size: 22px;
-        }
     }
 
     h4 {
         font-size: 20px;
-
-        @include media-query($on-laptop) {
-            font-size: 18px;
-        }
     }
 }
