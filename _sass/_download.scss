@@ -1,0 +1,19 @@
+a.download-button {
+    display: block;
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    
+    background-color: $brand-color;
+    color: white;
+    border-radius: 25px;
+
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    
+    &:hover {
+        text-decoration: none;
+        background-color: lighten($brand-color, 5%);
+    }
+}
