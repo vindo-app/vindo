@@ -1,19 +1,21 @@
 <header class="site-header">
-    <div class="wrapper banner-wrapper">
-        <div class="banner">
-            <a class="site-title" href="{{ site.baseurl }}/">
-                <img src="/images/vindo_icon.png" alt="">
-                {{ site.title }}
-            </a>
+    <nav class="navbar navbar-fixed">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{ site.baseurl }}/">
+                    <img src="/images/vindo_icon.png" height="35" alt="">
+                    {{ site.title }}
+                </a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                {% for page in site.pages %}
+                    {% if page.title %}
+                        <li>
+                            <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         </div>
-    </div>
-    <div class="wrapper site-nav-wrapper">
-        <nav class="site-nav">
-            {% for page in site.pages %}
-                {% if page.title %}
-                    <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-                {% endif %}
-            {% endfor %}
-        </nav>
-    </div>
+    </nav>
 </header>
