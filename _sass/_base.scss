@@ -21,3 +21,16 @@ a {
         text-decoration: underline
     }
 }
+
+.container {
+    width: 900px;
+}
+
+p:not(:first-child) {
+    margin: 30px 0;
+}
+
+.nice-and-centered {
+    max-width: 400px;
+    margin: 0 auto;
+}

@@ -1,19 +1,13 @@
-a.download-button {
-    display: block;
-    width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    
-    background-color: $brand-color;
-    color: white;
-    border-radius: 25px;
+.btn-download {
+    background-color: #fe8afc;
+    color: black;
 
-    font-size: 30px;
-    line-height: 30px;
-    text-align: center;
-    
     &:hover {
         text-decoration: none;
-        background-color: lighten($brand-color, 5%);
+        color: black;
+        background-color: darken(#fe8afc, 5%);
+    }
+    &:visited {
+        color: black;
     }
 }

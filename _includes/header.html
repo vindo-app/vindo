@@ -1,4 +1,4 @@
-<header class="site-header">
+<header>
     <nav class="navbar navbar-fixed">
         <div class="container">
             <div class="navbar-header">
@@ -18,4 +18,8 @@
             </ul>
         </div>
     </nav>
+    
+    {% if page.index %}
+        {% include highlight.html %}
+    {% endif %}
 </header>

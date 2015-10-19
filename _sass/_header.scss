@@ -1,5 +1,6 @@
-.site-header {                                                                                                                                                                                                                                                                           
-    background-color: lighten($brand-color, 15%);                                                                                                                                                                                                                                        
+header {
+    background-color: lighten($brand-color, 10%);
+    margin-bottom: 20px;
 } 
 
 .navbar-brand > img {
@@ -13,31 +14,30 @@
 }
 
 .nav > li > a:hover {
-    background-color: lighten($brand-color, 7%);
+    background-color: $brand-color;
 }
 
-
-.site-nav {
-    display: -webkit-flex;
-    display:         flex;
-
-    background-color: white;
-    box-shadow: inset 0 0 7px 7px lighten($brand-color, 15%);
-
-    line-height: 56px;
-    margin-bottom: 20px;
-    .page-link {
-        -webkit-flex: 1;
-        flex: 1;
-
-        font-size: 18px;
-        text-align: center;
-
-        display: inline-block;
-
-        &:hover {
-            text-decoration: none;
-        }
+.highlight {
+    img {
+        width: 100%;
+        height: 100%;
     }
-}
+    
+    h3 {
+        font-weight: 200;
+        font-size: 24px;
+        //margin-bottom: 20px;
+    }
+    
+    h1 {
+        font-weight: 100;
+        font-size: 108px;
+        margin-top: -15px;
+    }
 
+    .btn-download {
+        margin-top: 65px;
+    }
+    
+    margin-bottom: 20px;
+}
