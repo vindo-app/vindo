@@ -6,6 +6,7 @@ header {
 .navbar-brand > img {
     display: inline-block;
     margin-top: -6px;
+    margin-right: 5px;
     padding: 2px;
 }
 
@@ -15,6 +16,17 @@ header {
 
 .nav > li > a:hover {
     background-color: $brand-color;
+}
+
+button.navbar-toggle {
+    border: 1px solid white;
+    
+    &:hover {
+        background-color: $brand-color;
+    }
+}
+.icon-bar {
+    background-color: white;
 }
 
 .highlight {

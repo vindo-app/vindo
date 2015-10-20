@@ -7,7 +7,7 @@ permalink: /faq/
 Q: How much does this cost?  
 A: It's free. It says that on the homepage!
 
-Q: Yeah, but can it run Crysis?
+Q: Yeah, but can it run Crysis?  
 A: Yes. <!-- insert screenshot here -->
 
 Q: What if the game/program I wanna use doesn't work?  
