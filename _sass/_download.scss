@@ -1,13 +1,12 @@
 .btn-download {
-    background-color: #fe8afc;
-    color: black;
+    background-color: rgba(128,128,128,1);
+    color: white;
+    transition: background-color 1s;
+    //-webkit-transition: background-color 1s;
 
     &:hover {
         text-decoration: none;
-        color: black;
-        background-color: darken(#fe8afc, 5%);
-    }
-    &:visited {
-        color: black;
+        background-color: rgba(128,128,128,0.5);
+        color: white;
     }
 }
