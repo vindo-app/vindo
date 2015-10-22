@@ -1,5 +1,5 @@
 header {
-    background-color: lighten($brand-color, 10%);
+    background-color: #c62828;
     margin-bottom: 20px;
 } 
 
@@ -14,8 +14,14 @@ header {
     color: white;
 }
 
+.nav > li > a {
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
+}
+
 .nav > li > a:hover {
-    background-color: $brand-color;
+    background-color: #c62828;
+    color: lightgray;
 }
 
 button.navbar-toggle {
