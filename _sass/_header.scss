@@ -15,12 +15,11 @@ header {
 }
 
 .nav > li > a {
-    -webkit-transition: color 0.5s;
-    transition: color 0.5s;
+    transition: background-color 1s, color 0.5s;
 }
 
 .nav > li > a:hover {
-    background-color: #c62828;
+    background-color: darken(#c62828, 10%);
     color: lightgray;
 }
 
@@ -55,6 +54,12 @@ button.navbar-toggle {
 
     .btn-download {
         margin-top: 65px;
+    }
+    
+    h1, h3 {
+        @media (max-width: 767px) {
+            text-align: center;
+        }
     }
     
     margin-bottom: 20px;

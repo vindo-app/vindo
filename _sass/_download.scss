@@ -1,8 +1,7 @@
 .btn-download {
     background-color: rgba(128,128,128,1);
     color: white;
-    transition: background-color 1s;
-    //-webkit-transition: background-color 1s;
+    transition: background-color 1.5s;
 
     &:hover {
         text-decoration: none;
