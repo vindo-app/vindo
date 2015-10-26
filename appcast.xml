@@ -6,10 +6,10 @@
         <description>Vindo Appcast</description>
         <language>en</language>
         <item>
-            <title>Vindo 1.9.1</title>
+            <title>Vindo 0.9.1</title>
             <description>
                 <![CDATA[
-                    <p>Vindo 1.9.1 is here!</p>
+                    <p>Vindo 0.9.1 is here!</p>
                     <p>Changelog:</p>
                     <ul>
                     <li>Updated Wine to 1.7.52.</li>
@@ -20,7 +20,7 @@
             </description>
             <pubDate>Wed, 29 Oct 2015 16:25:40 -0900</pubDate>
             <enclosure url="https://github.com/vindo-app/vindo/releases/download/v0.9.1/Vindo.zip"
-                sparkle:version="1.9.1" length="178109372" type="application/octet-stream" />
+                sparkle:version="0.9.1" length="178109372" type="application/octet-stream" />
         </item>
     </channel>
 </rss>
