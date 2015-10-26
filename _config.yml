@@ -5,7 +5,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://vindo-app.github.io" # the base hostname & protocol for your site
 
 title: "Vindo: Run Windows Programs. On Mac."
-slogan: "Run Windows Programs. On Mac."
+description: "Run Windows Programs. On Mac."
 
 # Build settings
 markdown: kramdown

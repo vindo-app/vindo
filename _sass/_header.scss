@@ -36,8 +36,8 @@ button.navbar-toggle {
 
 .highlight {
     img {
-        width: 100%;
         height: 100%;
+        width: 100%;
     }
     
     h3 {
@@ -48,19 +48,40 @@ button.navbar-toggle {
     
     h1 {
         font-weight: 100;
-        font-size: 108px;
-        margin-top: -15px;
+        font-size: 144px;
+        @media (max-width: 991px) {
+            font-size: 72px;
+        }
+        margin-top: -12px;
     }
 
     .btn-download {
-        margin-top: 65px;
-    }
-    
-    h1, h3 {
-        @media (max-width: 767px) {
-            text-align: center;
+        @media (min-width: 1200px) {
+            margin-top: 110px;
         }
+        @media (max-width: 1199px) {
+            margin-top: 40px;
+        }
+        @media (max-width: 991px) {
+            margin-top: 50px;
+        }
+        margin-top: 40px;
     }
     
     margin-bottom: 20px;
+    
+    @media (max-width: 767px) {
+        h1, h3 {
+            text-align: center;
+        }
+        
+        img {
+            display: block;
+            height: 200px;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+        }
+    }
 }

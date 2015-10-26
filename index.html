@@ -1,10 +1,6 @@
 ---
 layout: default
 index: true
-
-screenshots:
-    - "screenshot1.png"
-    - "screenshot2.png"
 ---
 
 <div class="row">
@@ -14,8 +10,20 @@ screenshots:
             performance penalty of a VM, while allowing you to run most Windows programs and games without restarting
             your computer. Vindo is also completely free.
         </p>
-        {% include screenshots.html %}
+        
+        <h2 class="page-header">Screenshots</h2>
+
+        <div class="row">
+            {% for screenshot in site.data.screenshots %}
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <a href="images/screenshots/{{ screenshot.file }}" class="thumbnail screenshot-link">
+                        <img src="images/screenshots/{{ screenshot.file }}" alt="{{ screenshot.description }}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
+    
     <div class="col-md-4">
         <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/VindoApp" data-widget-id="657644514790744064">Tweets by @VindoApp</a>
     </div>

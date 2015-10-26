@@ -9,20 +9,25 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ site.baseurl }}/">
-                        <img src="/images/vindo_icon.png" height="35" alt="">Vindo
+                    <a class="navbar-brand" href="/">
+                        <img src="/images/vindo_icon.png" height="35" alt="Vindo Icon">Vindo
                     </a>
                 </div>
             </div>
             
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    {% for page in site.pages %}
-                        {% if page.title %}
-                            <li>
-                                <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-                            </li>
-                        {% endif %}
+                    {% for page_data in site.data.pages %}
+                        {% assign page_url = page_data | prepend: "/" | append: "/" %}
+                    
+                        {% for page_obj in site.pages %}
+                            {% if page_obj.url == page_url %}
+                                <li>
+                                    <a href="{{ page_url }}">{{ page_obj.title }}</a>
+                                </li>
+                                {% break %}
+                            {% endif %}
+                        {% endfor %}
                     {% endfor %}
                 </ul>
             </div>
