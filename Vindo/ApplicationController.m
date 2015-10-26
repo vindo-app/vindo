@@ -15,6 +15,8 @@
 #import "WinePrefix.h"
 #import "WorldsController.h"
 
+#import "PFMoveApplication.h"
+
 @interface ApplicationController ()
 @property ManageWorldsWindowController *manageWorlds;
 @property IBOutlet LaunchController *launcher;
@@ -22,6 +24,10 @@
 @end
 
 @implementation ApplicationController
+
+- (void)applicationWillFinishLaunching:(NSNotification *)notification {
+    PFMoveToApplicationsFolderIfNecessary();
+}
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification {
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
