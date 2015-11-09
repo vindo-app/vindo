@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
@@ -5,22 +8,16 @@
         <link>https://vindo-app.github.io/appcast.xml</link>
         <description>Vindo Appcast</description>
         <language>en</language>
-        <item>
-            <title>Vindo 0.9.1</title>
-            <description>
-                <![CDATA[
-                    <p>Vindo 0.9.1 is here!</p>
-                    <p>Changelog:</p>
-                    <ul>
-                    <li>Updated Wine to 1.7.52.</li>
-                    <li>Added stuff that automatically moves Vindo to the Applications folder.</li>
-                    <li>Added the Sparkle autoupdater. The main reason you should upgrade.</li>
-                    </ul>
-                ]]>
-            </description>
-            <pubDate>Wed, 29 Oct 2015 16:25:40 -0900</pubDate>
-            <enclosure url="https://github.com/vindo-app/vindo/releases/download/v0.9.1/Vindo.zip"
-                sparkle:version="0.9.1" length="178109372" type="application/octet-stream" />
-        </item>
+        {% for version in site.versions %}
+            <item>
+                <title>Vindo {{ version.version }}</title>
+                <description>
+                    <![CDATA[
+                        {{ version.content }}
+                    ]]>
+                </description>
+                <enclosure url="{{ version.file_url }}" sparkle:version="{{ version.version }}" length="{{ version.file_size }}" type="application/octet-stream" />
+            </item>
+        {% endfor %}
     </channel>
 </rss>

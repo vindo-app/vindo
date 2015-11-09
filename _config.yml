@@ -7,5 +7,8 @@ url: "http://vindo-app.github.io" # the base hostname & protocol for your site
 title: "Vindo: Run Windows Programs. On Mac."
 description: "Run Windows Programs. On Mac."
 
+collections:
+    - versions
+
 # Build settings
 markdown: kramdown
