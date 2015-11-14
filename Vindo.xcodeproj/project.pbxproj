@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A1D00C81BF6AAFD00D5FC1C /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D00C61BF6AAFD00D5FC1C /* PreferencesWindowController.m */; };
+		8A1D00C91BF6AAFD00D5FC1C /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */; };
 		8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BE1AA91EF600F1467C /* MainMenu.xib */; };
 		8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */; };
 		8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */; };
@@ -53,6 +55,9 @@
 		258CC4B79A56F9EFB6956C3A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A16529B78CFC04B47D2FCD0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		86910AAF59F070ED1ED06789 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8A1D00C51BF6AAFD00D5FC1C /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
+		8A1D00C61BF6AAFD00D5FC1C /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
+		8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		8A23F3BD1AA91EF600F1467C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		8A525F071AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+DefaultQueue.h"; sourceTree = "<group>"; };
@@ -139,6 +144,9 @@
 		8ABB4AC11AB8D8FF00CDB93C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8A1D00C51BF6AAFD00D5FC1C /* PreferencesWindowController.h */,
+				8A1D00C61BF6AAFD00D5FC1C /* PreferencesWindowController.m */,
+				8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */,
 				8ABB4AC21AB8DE7B00CDB93C /* StatusWindowController.h */,
 				8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */,
 				8ABB4AC41AB8DE7B00CDB93C /* Status.xib */,
@@ -348,6 +356,7 @@
 				8AC01D5F1ABB84D100F8C066 /* Executable.icns in Resources */,
 				8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */,
 				AC05807A1ABE13F300854813 /* ManageWorlds.xib in Resources */,
+				8A1D00C91BF6AAFD00D5FC1C /* Preferences.xib in Resources */,
 				8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +457,7 @@
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
 				AC05808C1ABF97F700854813 /* ManageWorldsWindowController.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
+				8A1D00C81BF6AAFD00D5FC1C /* PreferencesWindowController.m in Sources */,
 				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
 				AC5219071B23BBF2004A322E /* WinePrefix.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */,
