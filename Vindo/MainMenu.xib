@@ -15,6 +15,7 @@
         <customObject id="Voe-Tx-rLC" customClass="ApplicationController">
             <connections>
                 <outlet property="launcher" destination="kM7-O8-uwl" id="pHe-f9-gzK"/>
+                <outlet property="popupController" destination="gYO-gS-fC3" id="Lt3-UI-yUz"/>
                 <outlet property="statusBarMenu" destination="cpY-Is-ZQ8" id="dun-IX-eUa"/>
             </connections>
         </customObject>
@@ -143,6 +144,12 @@
         <customObject id="kM7-O8-uwl" customClass="LaunchController"/>
         <customObject id="Yoa-Bu-7fp" customClass="FirstTimeSetupController"/>
         <customObject id="Tgj-e0-ddB" customClass="StartMenuController"/>
+        <customObject id="gYO-gS-fC3" customClass="PopupController">
+            <connections>
+                <outlet property="popupViewController" destination="vYC-1v-H8q" id="Nef-bN-tHA"/>
+            </connections>
+        </customObject>
         <customObject id="kjr-LO-PqR" customClass="SUUpdater"/>
+        <viewController nibName="Popup" id="vYC-1v-H8q" customClass="PopupViewController"/>
     </objects>
 </document>

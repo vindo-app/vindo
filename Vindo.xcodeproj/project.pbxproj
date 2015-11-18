@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A041E9A1BFBFD4100D60E08 /* PopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A041E981BFBFD4100D60E08 /* PopupViewController.m */; };
+		8A041E9B1BFBFD4100D60E08 /* Popup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A041E991BFBFD4100D60E08 /* Popup.xib */; };
+		8A041E9F1BFBFF0400D60E08 /* PopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A041E9E1BFBFF0400D60E08 /* PopupController.m */; };
 		8A1D00C81BF6AAFD00D5FC1C /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D00C61BF6AAFD00D5FC1C /* PreferencesWindowController.m */; };
 		8A1D00C91BF6AAFD00D5FC1C /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */; };
 		8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BE1AA91EF600F1467C /* MainMenu.xib */; };
 		8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */; };
-		8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */; settings = {ASSET_TAGS = (); }; };
-		8A66CCB81BACD35500D7E592 /* vindo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB71BACD35500D7E592 /* vindo.icns */; settings = {ASSET_TAGS = (); }; };
-		8A6880A91BC333620032352B /* StartMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6880A81BC333620032352B /* StartMenu.m */; settings = {ASSET_TAGS = (); }; };
-		8A6880AC1BC3336E0032352B /* StartMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6880AB1BC3336E0032352B /* StartMenuController.m */; settings = {ASSET_TAGS = (); }; };
-		8A6880AF1BC333E10032352B /* StartMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6880AE1BC333E10032352B /* StartMenuItem.m */; settings = {ASSET_TAGS = (); }; };
+		8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */; };
+		8A66CCB81BACD35500D7E592 /* vindo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB71BACD35500D7E592 /* vindo.icns */; };
+		8A6880A91BC333620032352B /* StartMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6880A81BC333620032352B /* StartMenu.m */; };
+		8A6880AC1BC3336E0032352B /* StartMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6880AB1BC3336E0032352B /* StartMenuController.m */; };
+		8A6880AF1BC333E10032352B /* StartMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6880AE1BC333E10032352B /* StartMenuItem.m */; };
 		8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A70BF041BAA2BC500F58EBE /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */; };
 		8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* Status.xib */; };
@@ -57,6 +60,11 @@
 		258CC4B79A56F9EFB6956C3A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A16529B78CFC04B47D2FCD0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		86910AAF59F070ED1ED06789 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8A041E971BFBFD4100D60E08 /* PopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewController.h; sourceTree = "<group>"; };
+		8A041E981BFBFD4100D60E08 /* PopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewController.m; sourceTree = "<group>"; };
+		8A041E991BFBFD4100D60E08 /* Popup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Popup.xib; sourceTree = "<group>"; };
+		8A041E9D1BFBFF0400D60E08 /* PopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupController.h; sourceTree = "<group>"; };
+		8A041E9E1BFBFF0400D60E08 /* PopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupController.m; sourceTree = "<group>"; };
 		8A1D00C51BF6AAFD00D5FC1C /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		8A1D00C61BF6AAFD00D5FC1C /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
@@ -125,6 +133,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A041E9C1BFBFD4500D60E08 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				8A041E971BFBFD4100D60E08 /* PopupViewController.h */,
+				8A041E981BFBFD4100D60E08 /* PopupViewController.m */,
+				8A041E991BFBFD4100D60E08 /* Popup.xib */,
+			);
+			name = Popup;
+			sourceTree = "<group>";
+		};
 		8A655B7C1AA6773E00FFCD0C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +161,7 @@
 			children = (
 				8ABB4AC11AB8D8FF00CDB93C /* Status */,
 				AC1957C21AA52AB50077A25C /* Worlds Manager */,
+				8A041E9C1BFBFD4500D60E08 /* Popup */,
 			);
 			name = Windows;
 			sourceTree = "<group>";
@@ -217,6 +236,8 @@
 			children = (
 				AC3A4EE31AA12F9A00781626 /* ApplicationController.h */,
 				AC3A4EE41AA12F9A00781626 /* ApplicationController.m */,
+				8A041E9D1BFBFF0400D60E08 /* PopupController.h */,
+				8A041E9E1BFBFF0400D60E08 /* PopupController.m */,
 				AC2D42AF1B3A1F8100F3C2FA /* BootCycleController.h */,
 				AC2D42B01B3A1F8100F3C2FA /* BootCycleController.m */,
 				AC5AC34F1B3E1E5900538492 /* LaunchController.h */,
@@ -384,6 +405,7 @@
 				8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */,
 				AC05807A1ABE13F300854813 /* ManageWorlds.xib in Resources */,
 				8A1D00C91BF6AAFD00D5FC1C /* Preferences.xib in Resources */,
+				8A041E9B1BFBFD4100D60E08 /* Popup.xib in Resources */,
 				8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +505,7 @@
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
 				AC05808C1ABF97F700854813 /* ManageWorldsWindowController.m in Sources */,
+				8A041E9F1BFBFF0400D60E08 /* PopupController.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 				8A6880AC1BC3336E0032352B /* StartMenuController.m in Sources */,
 				8A1D00C81BF6AAFD00D5FC1C /* PreferencesWindowController.m in Sources */,
@@ -490,6 +513,7 @@
 				8A6880AF1BC333E10032352B /* StartMenuItem.m in Sources */,
 				AC5219071B23BBF2004A322E /* WinePrefix.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */,
+				8A041E9A1BFBFD4100D60E08 /* PopupViewController.m in Sources */,
 				8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */,
 				8A6880A91BC333620032352B /* StartMenu.m in Sources */,
 				AC5AC3511B3E1E5900538492 /* LaunchController.m in Sources */,

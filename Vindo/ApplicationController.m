@@ -6,8 +6,12 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
+#import <Rebel/Rebel.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
+
 #import "ApplicationController.h"
 #import "LaunchController.h"
+#import "PopupController.h"
 #import "PreferencesWindowController.h"
 
 #import "ManageWorldsWindowController.h"
@@ -19,9 +23,12 @@
 #import "PFMoveApplication.h"
 
 @interface ApplicationController ()
+
 @property ManageWorldsWindowController *manageWorlds;
 @property PreferencesWindowController *preferences;
+
 @property IBOutlet LaunchController *launcher;
+@property IBOutlet PopupController *popupController;
 
 @end
 
@@ -32,13 +39,7 @@
 }
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification {
-    NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
-    statusItem = [statusBar statusItemWithLength:NSSquareStatusItemLength];
-    statusItem.highlightMode = YES;
-    NSImage *statusBarImage = [NSImage imageNamed:@"statusbar"];
-    statusBarImage.template = YES;
-    statusItem.image = statusBarImage;
-    statusItem.menu = _statusBarMenu;
+
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {

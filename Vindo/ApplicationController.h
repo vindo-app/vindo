@@ -7,12 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "PopupViewController.h"
 
 @interface ApplicationController : NSObject <NSApplicationDelegate> {
     NSStatusItem *statusItem;
 }
-
-@property IBOutlet NSMenu *statusBarMenu;
 
 - (IBAction)runCannedProgram:(id)sender;
 - (IBAction)runProgram:(id)sender;
