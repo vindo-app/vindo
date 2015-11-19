@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
@@ -143,5 +143,6 @@
         <customObject id="kM7-O8-uwl" customClass="LaunchController"/>
         <customObject id="Yoa-Bu-7fp" customClass="FirstTimeSetupController"/>
         <customObject id="kjr-LO-PqR" customClass="SUUpdater"/>
+        <customObject id="2iM-kO-TUX" customClass="AnalyticsController"/>
     </objects>
 </document>

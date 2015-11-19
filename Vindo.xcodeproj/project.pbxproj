@@ -10,6 +10,9 @@
 		8A1D00C81BF6AAFD00D5FC1C /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D00C61BF6AAFD00D5FC1C /* PreferencesWindowController.m */; };
 		8A1D00C91BF6AAFD00D5FC1C /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */; };
 		8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BE1AA91EF600F1467C /* MainMenu.xib */; };
+		8A341B681BFD490800207E6C /* AnalyticsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A341B671BFD490800207E6C /* AnalyticsController.m */; };
+		8A341B6B1BFD4C4500207E6C /* uuid.c in Sources */ = {isa = PBXBuildFile; fileRef = 8A341B691BFD4C4500207E6C /* uuid.c */; };
+		8A341B6D1BFD50D200207E6C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A341B6C1BFD50D200207E6C /* IOKit.framework */; };
 		8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */; };
 		8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */; };
 		8A66CCB81BACD35500D7E592 /* vindo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB71BACD35500D7E592 /* vindo.icns */; };
@@ -60,6 +63,11 @@
 		8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		8A23F3BD1AA91EF600F1467C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		8A341B661BFD490800207E6C /* AnalyticsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsController.h; sourceTree = "<group>"; };
+		8A341B671BFD490800207E6C /* AnalyticsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsController.m; sourceTree = "<group>"; };
+		8A341B691BFD4C4500207E6C /* uuid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uuid.c; sourceTree = "<group>"; };
+		8A341B6A1BFD4C4500207E6C /* uuid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uuid.h; sourceTree = "<group>"; };
+		8A341B6C1BFD50D200207E6C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		8A525F071AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+DefaultQueue.h"; sourceTree = "<group>"; };
 		8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+DefaultQueue.m"; sourceTree = "<group>"; };
 		8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = statusbar.tiff; path = ../statusbar.tiff; sourceTree = "<group>"; };
@@ -110,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A341B6D1BFD50D200207E6C /* IOKit.framework in Frameworks */,
 				AC13F0A21ADB6A1000254D1F /* CoreServices.framework in Frameworks */,
 				F6D3954A9DA48257AC7EF798 /* libPods.a in Frameworks */,
 			);
@@ -179,6 +188,7 @@
 		AC1957D01AA52BB10077A25C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A341B6C1BFD50D200207E6C /* IOKit.framework */,
 				AC13F0A11ADB6A1000254D1F /* CoreServices.framework */,
 				258CC4B79A56F9EFB6956C3A /* libPods.a */,
 			);
@@ -196,6 +206,10 @@
 				AC5AC3501B3E1E5900538492 /* LaunchController.m */,
 				ACDE7B151BAB76E100A37DE2 /* FirstTimeSetupController.h */,
 				ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */,
+				8A341B661BFD490800207E6C /* AnalyticsController.h */,
+				8A341B671BFD490800207E6C /* AnalyticsController.m */,
+				8A341B691BFD4C4500207E6C /* uuid.c */,
+				8A341B6A1BFD4C4500207E6C /* uuid.h */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -454,11 +468,13 @@
 				8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
+				8A341B6B1BFD4C4500207E6C /* uuid.c in Sources */,
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
 				AC05808C1ABF97F700854813 /* ManageWorldsWindowController.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 				8A1D00C81BF6AAFD00D5FC1C /* PreferencesWindowController.m in Sources */,
 				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
+				8A341B681BFD490800207E6C /* AnalyticsController.m in Sources */,
 				AC5219071B23BBF2004A322E /* WinePrefix.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */,
 				8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */,
