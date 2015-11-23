@@ -58,9 +58,11 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "RHPreferences/RHPreferences/RHPreferencesWindow.xib"
   install_resource "Sparkle/Sparkle.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "RHPreferences/RHPreferences/RHPreferencesWindow.xib"
   install_resource "Sparkle/Sparkle.framework"
 fi
 

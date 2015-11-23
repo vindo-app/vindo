@@ -8,7 +8,7 @@
 
 #import "ApplicationController.h"
 #import "LaunchController.h"
-#import "PreferencesWindowController.h"
+#import "UpdatePreferencesViewController.h"
 
 #import "ManageWorldsWindowController.h"
 
@@ -17,10 +17,11 @@
 #import "WorldsController.h"
 
 #import "PFMoveApplication.h"
+#import "RHPreferences/RHPreferences.h"
 
 @interface ApplicationController ()
 @property ManageWorldsWindowController *manageWorlds;
-@property PreferencesWindowController *preferences;
+@property RHPreferencesWindowController *preferences;
 @property IBOutlet LaunchController *launcher;
 
 @end
@@ -99,7 +100,10 @@
 
 - (IBAction)showPreferences:(id)sender {
     if (self.preferences == nil)
-        self.preferences = [PreferencesWindowController new];
+        self.preferences = [[RHPreferencesWindowController alloc]
+                            initWithViewControllers:@[
+                                                      [UpdatePreferencesViewController new]
+                                                      ]];
     [self.preferences showWindow:self];
     [NSApp activateIgnoringOtherApps:YES];
 }

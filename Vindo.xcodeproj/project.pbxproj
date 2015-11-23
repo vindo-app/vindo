@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A1D00C81BF6AAFD00D5FC1C /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D00C61BF6AAFD00D5FC1C /* PreferencesWindowController.m */; };
-		8A1D00C91BF6AAFD00D5FC1C /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */; };
 		8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BE1AA91EF600F1467C /* MainMenu.xib */; };
 		8A341B681BFD490800207E6C /* AnalyticsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A341B671BFD490800207E6C /* AnalyticsController.m */; };
 		8A341B6B1BFD4C4500207E6C /* uuid.c in Sources */ = {isa = PBXBuildFile; fileRef = 8A341B691BFD4C4500207E6C /* uuid.c */; };
@@ -16,6 +14,9 @@
 		8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */; };
 		8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */; };
 		8A66CCB81BACD35500D7E592 /* vindo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB71BACD35500D7E592 /* vindo.icns */; };
+		8A6E189A1C03B5BF003E9F58 /* UpdatePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E18981C03B5BF003E9F58 /* UpdatePreferencesViewController.m */; };
+		8A6E189B1C03B5BF003E9F58 /* UpdatePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E18991C03B5BF003E9F58 /* UpdatePreferencesViewController.xib */; };
+		8A6E189F1C03B963003E9F58 /* SoftwareUpdate.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E189E1C03B963003E9F58 /* SoftwareUpdate.icns */; };
 		8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A70BF041BAA2BC500F58EBE /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */; };
 		8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* Status.xib */; };
@@ -58,9 +59,6 @@
 		258CC4B79A56F9EFB6956C3A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A16529B78CFC04B47D2FCD0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		86910AAF59F070ED1ED06789 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		8A1D00C51BF6AAFD00D5FC1C /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
-		8A1D00C61BF6AAFD00D5FC1C /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
-		8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		8A23F3BD1AA91EF600F1467C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		8A341B661BFD490800207E6C /* AnalyticsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsController.h; sourceTree = "<group>"; };
@@ -72,6 +70,10 @@
 		8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+DefaultQueue.m"; sourceTree = "<group>"; };
 		8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = statusbar.tiff; path = ../statusbar.tiff; sourceTree = "<group>"; };
 		8A66CCB71BACD35500D7E592 /* vindo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = vindo.icns; sourceTree = "<group>"; };
+		8A6E18971C03B5BF003E9F58 /* UpdatePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatePreferencesViewController.h; sourceTree = "<group>"; };
+		8A6E18981C03B5BF003E9F58 /* UpdatePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatePreferencesViewController.m; sourceTree = "<group>"; };
+		8A6E18991C03B5BF003E9F58 /* UpdatePreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdatePreferencesViewController.xib; sourceTree = "<group>"; };
+		8A6E189E1C03B963003E9F58 /* SoftwareUpdate.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = SoftwareUpdate.icns; sourceTree = "<group>"; };
 		8A70BF031BAA2BB800F58EBE /* PFMoveApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; };
 		8A70BF041BAA2BC500F58EBE /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; };
 		8ABB4AC21AB8DE7B00CDB93C /* StatusWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusWindowController.h; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		8A655B7C1AA6773E00FFCD0C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8A6E189E1C03B963003E9F58 /* SoftwareUpdate.icns */,
 				ACD830031B8D346900D8F285 /* usr */,
 				8A66CCB71BACD35500D7E592 /* vindo.icns */,
 				8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */,
@@ -139,6 +142,26 @@
 			);
 			name = Resources;
 			path = Vindo;
+			sourceTree = "<group>";
+		};
+		8A6E189C1C03B5C2003E9F58 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				8A6E18971C03B5BF003E9F58 /* UpdatePreferencesViewController.h */,
+				8A6E18981C03B5BF003E9F58 /* UpdatePreferencesViewController.m */,
+				8A6E18991C03B5BF003E9F58 /* UpdatePreferencesViewController.xib */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		8A6E189D1C03B5D9003E9F58 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB4AC21AB8DE7B00CDB93C /* StatusWindowController.h */,
+				8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */,
+				8ABB4AC41AB8DE7B00CDB93C /* Status.xib */,
+			);
+			name = Status;
 			sourceTree = "<group>";
 		};
 		8A70BF061BAA2BCF00F58EBE /* LetsMove */ = {
@@ -153,12 +176,9 @@
 		8ABB4AC11AB8D8FF00CDB93C /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				8A1D00C51BF6AAFD00D5FC1C /* PreferencesWindowController.h */,
-				8A1D00C61BF6AAFD00D5FC1C /* PreferencesWindowController.m */,
-				8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */,
-				8ABB4AC21AB8DE7B00CDB93C /* StatusWindowController.h */,
-				8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */,
-				8ABB4AC41AB8DE7B00CDB93C /* Status.xib */,
+				AC1957C21AA52AB50077A25C /* Worlds Manager */,
+				8A6E189C1C03B5C2003E9F58 /* Preferences */,
+				8A6E189D1C03B5D9003E9F58 /* Status */,
 				8A23F3BE1AA91EF600F1467C /* MainMenu.xib */,
 			);
 			name = UI;
@@ -182,7 +202,6 @@
 				AC0580781ABE13F300854813 /* ManageWorlds.xib */,
 			);
 			name = "Worlds Manager";
-			path = Vindo;
 			sourceTree = "<group>";
 		};
 		AC1957D01AA52BB10077A25C /* Frameworks */ = {
@@ -219,7 +238,6 @@
 			children = (
 				AC8DB5AF1AA130A1000A6C51 /* Code */,
 				8ABB4AC11AB8D8FF00CDB93C /* UI */,
-				AC1957C21AA52AB50077A25C /* Worlds Manager */,
 				8A655B7C1AA6773E00FFCD0C /* Resources */,
 				AC3A4EDF1AA12F9A00781626 /* Supporting Files */,
 				AC1957D01AA52BB10077A25C /* Frameworks */,
@@ -366,11 +384,12 @@
 				8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */,
 				ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */,
 				8A66CCB81BACD35500D7E592 /* vindo.icns in Resources */,
+				8A6E189F1C03B963003E9F58 /* SoftwareUpdate.icns in Resources */,
 				AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */,
 				8AC01D5F1ABB84D100F8C066 /* Executable.icns in Resources */,
+				8A6E189B1C03B5BF003E9F58 /* UpdatePreferencesViewController.xib in Resources */,
 				8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */,
 				AC05807A1ABE13F300854813 /* ManageWorlds.xib in Resources */,
-				8A1D00C91BF6AAFD00D5FC1C /* Preferences.xib in Resources */,
 				8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,13 +485,13 @@
 				ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
 				8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */,
+				8A6E189A1C03B5BF003E9F58 /* UpdatePreferencesViewController.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				8A341B6B1BFD4C4500207E6C /* uuid.c in Sources */,
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
 				AC05808C1ABF97F700854813 /* ManageWorldsWindowController.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
-				8A1D00C81BF6AAFD00D5FC1C /* PreferencesWindowController.m in Sources */,
 				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
 				8A341B681BFD490800207E6C /* AnalyticsController.m in Sources */,
 				AC5219071B23BBF2004A322E /* WinePrefix.m in Sources */,

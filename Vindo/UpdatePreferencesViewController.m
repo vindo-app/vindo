@@ -1,24 +1,22 @@
 //
-//  PreferencesWindowController.m
+//  UpdatePreferencesViewController.m
 //  Vindo
 //
-//  Created by Dubois, Theodore Alexander on 11/13/15.
+//  Created by Dubois, Theodore Alexander on 11/23/15.
 //  Copyright © 2015 Theodore Dubois. All rights reserved.
 //
 
-#import "PreferencesWindowController.h"
+#import "UpdatePreferencesViewController.h"
 
-@interface PreferencesWindowController ()
+@interface UpdatePreferencesViewController ()
 
 @end
 
-@implementation PreferencesWindowController
+@implementation UpdatePreferencesViewController
 
-- (instancetype)init {
-    if (self = [super initWithWindowNibName:@"Preferences"]) {
-        // Nothing yet.
-    }
-    return self;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do view setup here.
 }
 
 - (IBAction)setUpdateInterval:(id)sender {
@@ -30,8 +28,20 @@
                              informativeTextWithFormat:@"That's going to devour your bandwidth."];
         alert.alertStyle = NSCriticalAlertStyle;
         
-        [alert beginSheetModalForWindow:self.window completionHandler:nil];
+        [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
     }
+}
+
+- (NSString *)identifier {
+    return [self className];
+}
+
+- (NSImage *)toolbarItemImage {
+    return [NSImage imageNamed:@"SoftwareUpdate"];
+}
+
+- (NSString *)toolbarItemLabel {
+    return @"Updates";
 }
 
 @end
