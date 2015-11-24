@@ -35,7 +35,7 @@
 - (void)showPopover {
     [self.popover showRelativeToRect:self.statusItem.button.bounds
                               ofView:self.statusItem.button
-                       preferredEdge:NSMinYEdge];
+                       preferredEdge:NSMaxYEdge];
 }
 
 - (void)hidePopover {
