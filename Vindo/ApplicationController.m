@@ -9,6 +9,7 @@
 #import "ApplicationController.h"
 #import "LaunchController.h"
 #import "UpdatePreferencesViewController.h"
+#import "GeneralPreferencesViewController.h"
 
 #import "ManageWorldsWindowController.h"
 
@@ -18,6 +19,7 @@
 
 #import "PFMoveApplication.h"
 #import "RHPreferences/RHPreferences.h"
+#import "LaunchAtLoginController.h"
 
 @interface ApplicationController ()
 @property ManageWorldsWindowController *manageWorlds;
@@ -29,7 +31,11 @@
 @implementation ApplicationController
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
+#ifdef DEBUG
     PFMoveToApplicationsFolderIfNecessary();
+    
+#endif
+    [LaunchAtLoginController new].launchAtLogin = YES;
 }
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification {
@@ -102,6 +108,7 @@
     if (self.preferences == nil)
         self.preferences = [[RHPreferencesWindowController alloc]
                             initWithViewControllers:@[
+                                                      [GeneralPreferencesViewController new],
                                                       [UpdatePreferencesViewController new]
                                                       ]];
     [self.preferences showWindow:self];

@@ -20,6 +20,9 @@
 		8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A70BF041BAA2BC500F58EBE /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */; };
 		8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* Status.xib */; };
+		8AC01C2E1C03DA63004FEF69 /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01C2C1C03DA63004FEF69 /* GeneralPreferencesViewController.m */; };
+		8AC01C2F1C03DA63004FEF69 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AC01C2D1C03DA63004FEF69 /* GeneralPreferencesViewController.xib */; };
+		8AC01C321C03E0A0004FEF69 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01C311C03E0A0004FEF69 /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8AC01D5B1ABB72E200F8C066 /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01D5A1ABB72E200F8C066 /* World.m */; };
 		8AC01D5F1ABB84D100F8C066 /* Executable.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8AC01D5C1ABB84D100F8C066 /* Executable.icns */; };
 		8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */; };
@@ -79,6 +82,11 @@
 		8ABB4AC21AB8DE7B00CDB93C /* StatusWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusWindowController.h; sourceTree = "<group>"; };
 		8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusWindowController.m; sourceTree = "<group>"; };
 		8ABB4AC41AB8DE7B00CDB93C /* Status.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Status.xib; sourceTree = "<group>"; };
+		8AC01C2B1C03DA63004FEF69 /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
+		8AC01C2C1C03DA63004FEF69 /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; };
+		8AC01C2D1C03DA63004FEF69 /* GeneralPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
+		8AC01C301C03E0A0004FEF69 /* LaunchAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAtLoginController.h; sourceTree = "<group>"; };
+		8AC01C311C03E0A0004FEF69 /* LaunchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAtLoginController.m; sourceTree = "<group>"; };
 		8AC01D591ABB72E200F8C066 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		8AC01D5A1ABB72E200F8C066 /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
 		8AC01D5C1ABB84D100F8C066 /* Executable.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Executable.icns; sourceTree = "<group>"; };
@@ -150,6 +158,9 @@
 				8A6E18971C03B5BF003E9F58 /* UpdatePreferencesViewController.h */,
 				8A6E18981C03B5BF003E9F58 /* UpdatePreferencesViewController.m */,
 				8A6E18991C03B5BF003E9F58 /* UpdatePreferencesViewController.xib */,
+				8AC01C2B1C03DA63004FEF69 /* GeneralPreferencesViewController.h */,
+				8AC01C2C1C03DA63004FEF69 /* GeneralPreferencesViewController.m */,
+				8AC01C2D1C03DA63004FEF69 /* GeneralPreferencesViewController.xib */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -183,6 +194,15 @@
 			);
 			name = UI;
 			path = Vindo;
+			sourceTree = "<group>";
+		};
+		8AC01C331C03E0A5004FEF69 /* LaunchAtLogin */ = {
+			isa = PBXGroup;
+			children = (
+				8AC01C301C03E0A0004FEF69 /* LaunchAtLoginController.h */,
+				8AC01C311C03E0A0004FEF69 /* LaunchAtLoginController.m */,
+			);
+			name = LaunchAtLogin;
 			sourceTree = "<group>";
 		};
 		9FFB8ECE6E30A2F5D4C08FBB /* Pods */ = {
@@ -294,6 +314,7 @@
 				AC9681BC1ABCD57400A9233B /* World */,
 				AC5219101B23C0BC004A322E /* Wine Prefix */,
 				8A70BF061BAA2BCF00F58EBE /* LetsMove */,
+				8AC01C331C03E0A5004FEF69 /* LaunchAtLogin */,
 			);
 			name = Code;
 			path = Vindo;
@@ -380,6 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AC01C2F1C03DA63004FEF69 /* GeneralPreferencesViewController.xib in Resources */,
 				ACD830041B8D346900D8F285 /* usr in Resources */,
 				8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */,
 				ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */,
@@ -481,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AC01C2E1C03DA63004FEF69 /* GeneralPreferencesViewController.m in Sources */,
 				8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */,
 				ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
@@ -492,6 +515,7 @@
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
 				AC05808C1ABF97F700854813 /* ManageWorldsWindowController.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
+				8AC01C321C03E0A0004FEF69 /* LaunchAtLoginController.m in Sources */,
 				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
 				8A341B681BFD490800207E6C /* AnalyticsController.m in Sources */,
 				AC5219071B23BBF2004A322E /* WinePrefix.m in Sources */,
