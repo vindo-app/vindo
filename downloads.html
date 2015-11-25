@@ -1,0 +1,10 @@
+---
+layout: default
+permalink: "/downloads/"
+---
+
+{% assign versions = site.versions | sort 'version' | reverse %}
+{% for version in versions %}
+    <h1><a href="{{version.file_url}}" title="Download Now!">{{ version.version }}</a></h1>
+    {{ version.content }}
+{% endfor %}
