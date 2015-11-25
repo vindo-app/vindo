@@ -7,6 +7,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PopupViewController">
             <connections>
+                <outlet property="actionButton" destination="A1p-5i-oTs" id="E3k-AT-Jho"/>
+                <outlet property="imageView" destination="FVs-ZC-zIP" id="Ofi-xv-wm5"/>
+                <outlet property="importantView" destination="6pp-wv-anu" id="eob-cO-9Gq"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -16,49 +19,6 @@
             <rect key="frame" x="0.0" y="0.0" width="192" height="162"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <matrix verticalHuggingPriority="750" mode="track" allowsEmptySelection="NO" id="ANs-Ao-TPe" userLabel="MatrixView">
-                    <rect key="frame" x="0.0" y="40" width="202" height="112"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    <size key="cellSize" width="64" height="55"/>
-                    <size key="intercellSpacing" width="0.0" height="2"/>
-                    <buttonCell key="prototype" type="bevel" title="Color" image="NSColorPanel" imagePosition="above" alignment="center" inset="2" id="6Sd-rz-tRm">
-                        <behavior key="behavior" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <cells>
-                        <column>
-                            <buttonCell type="bevel" title="Color" alternateTitle="Color" bezelStyle="regularSquare" image="NSColorPanel" imagePosition="above" alignment="center" controlSize="small" inset="2" id="c35-TV-DOQ">
-                                <behavior key="behavior" lightByContents="YES"/>
-                                <font key="font" metaFont="smallSystem"/>
-                            </buttonCell>
-                            <buttonCell type="bevel" title=".Mac" alternateTitle=".Mac" bezelStyle="regularSquare" image="NSDotMac" imagePosition="above" alignment="center" controlSize="small" tag="2" inset="2" id="9kO-hP-MP1">
-                                <behavior key="behavior" lightByContents="YES"/>
-                                <font key="font" metaFont="smallSystem"/>
-                            </buttonCell>
-                        </column>
-                        <column>
-                            <buttonCell type="bevel" title="Computer" alternateTitle="Computer" bezelStyle="regularSquare" image="NSComputer" imagePosition="above" alignment="center" controlSize="small" tag="1" inset="2" id="Zzw-xR-XrH">
-                                <behavior key="behavior" lightByContents="YES"/>
-                                <font key="font" metaFont="smallSystem"/>
-                            </buttonCell>
-                            <buttonCell type="bevel" title="Smart" alternateTitle="Smart" bezelStyle="regularSquare" image="NSFolderSmart" imagePosition="above" alignment="center" controlSize="small" tag="3" inset="2" id="GbN-Rb-RW1">
-                                <behavior key="behavior" lightByContents="YES"/>
-                                <font key="font" metaFont="smallSystem"/>
-                            </buttonCell>
-                        </column>
-                        <column>
-                            <buttonCell type="bevel" title="Color" image="NSColorPanel" imagePosition="above" alignment="center" inset="2" id="OON-Yq-qL3">
-                                <behavior key="behavior" lightByContents="YES"/>
-                                <font key="font" metaFont="smallSystem"/>
-                            </buttonCell>
-                            <buttonCell type="bevel" title="Color" image="NSColorPanel" imagePosition="above" alignment="center" inset="2" id="Mir-5N-9sf">
-                                <behavior key="behavior" lightByContents="YES"/>
-                                <font key="font" metaFont="smallSystem"/>
-                            </buttonCell>
-                        </column>
-                    </cells>
-                </matrix>
                 <popUpButton id="A1p-5i-oTs">
                     <rect key="frame" x="136" y="11" width="39" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -75,9 +35,76 @@
                         </menu>
                     </popUpButtonCell>
                 </popUpButton>
+                <customView id="6pp-wv-anu">
+                    <rect key="frame" x="0.0" y="40" width="192" height="122"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <button verticalHuggingPriority="750" id="K5Y-Qj-fow">
+                            <rect key="frame" x="18" y="68" width="75" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="push" title="Click!" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="geb-Q8-hWV">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="button:" target="-2" id="1hn-BO-wQb"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </customView>
             </subviews>
             <point key="canvasLocation" x="255" y="355"/>
         </customView>
+        <matrix verticalHuggingPriority="750" mode="track" allowsEmptySelection="NO" id="ANs-Ao-TPe" userLabel="MatrixView">
+            <rect key="frame" x="0.0" y="0.0" width="192" height="112"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+            <size key="cellSize" width="64" height="55"/>
+            <size key="intercellSpacing" width="0.0" height="2"/>
+            <buttonCell key="prototype" type="bevel" title="Color" image="NSColorPanel" imagePosition="above" alignment="center" inset="2" id="6Sd-rz-tRm">
+                <behavior key="behavior" lightByContents="YES"/>
+                <font key="font" metaFont="system"/>
+            </buttonCell>
+            <cells>
+                <column>
+                    <buttonCell type="bevel" title="Color" alternateTitle="Color" bezelStyle="regularSquare" image="NSColorPanel" imagePosition="above" alignment="center" controlSize="small" inset="2" id="c35-TV-DOQ">
+                        <behavior key="behavior" lightByContents="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                    </buttonCell>
+                    <buttonCell type="bevel" title=".Mac" alternateTitle=".Mac" bezelStyle="regularSquare" image="NSDotMac" imagePosition="above" alignment="center" controlSize="small" tag="2" inset="2" id="9kO-hP-MP1">
+                        <behavior key="behavior" lightByContents="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                    </buttonCell>
+                </column>
+                <column>
+                    <buttonCell type="bevel" title="Computer" alternateTitle="Computer" bezelStyle="regularSquare" image="NSComputer" imagePosition="above" alignment="center" controlSize="small" tag="1" inset="2" id="Zzw-xR-XrH">
+                        <behavior key="behavior" lightByContents="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                    </buttonCell>
+                    <buttonCell type="bevel" title="Smart" alternateTitle="Smart" bezelStyle="regularSquare" image="NSFolderSmart" imagePosition="above" alignment="center" controlSize="small" tag="3" inset="2" id="GbN-Rb-RW1">
+                        <behavior key="behavior" lightByContents="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                    </buttonCell>
+                </column>
+                <column>
+                    <buttonCell type="bevel" title="Color" image="NSColorPanel" imagePosition="above" alignment="center" inset="2" id="OON-Yq-qL3">
+                        <behavior key="behavior" lightByContents="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                    </buttonCell>
+                    <buttonCell type="bevel" title="Color" image="NSColorPanel" imagePosition="above" alignment="center" inset="2" id="Mir-5N-9sf">
+                        <behavior key="behavior" lightByContents="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                    </buttonCell>
+                </column>
+            </cells>
+            <point key="canvasLocation" x="735" y="286"/>
+        </matrix>
+        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="FVs-ZC-zIP">
+            <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="vindo" id="Ibn-12-4bi"/>
+            <point key="canvasLocation" x="303" y="631"/>
+        </imageView>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
@@ -85,5 +112,6 @@
         <image name="NSComputer" width="32" height="32"/>
         <image name="NSDotMac" width="32" height="32"/>
         <image name="NSFolderSmart" width="32" height="32"/>
+        <image name="vindo" width="512" height="512"/>
     </resources>
 </document>

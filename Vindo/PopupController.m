@@ -23,6 +23,11 @@
     
     self.popover = [[RBLPopover alloc] initWithContentViewController:self.popupViewController];
     self.popover.behavior = RBLPopoverBehaviorTransient;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changePopupSize:)
+                                                 name:@"SetPopupSize"
+                                               object:nil];
 }
 
 - (void)togglePopover:(id)sender {
@@ -36,10 +41,16 @@
     [self.popover showRelativeToRect:self.statusItem.button.bounds
                               ofView:self.statusItem.button
                        preferredEdge:NSMaxYEdge];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (void)hidePopover {
     [self.popover performClose:self];
+}
+
+- (void)changePopupSize:(NSNotification *)notification {
+    self.popover.contentSize = [notification.userInfo[@"size"] sizeValue];
+    [self showPopover];
 }
 
 @end
