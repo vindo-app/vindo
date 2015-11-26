@@ -28,6 +28,13 @@
 - (void)makeImportant:(NSView *)view {
     CGFloat bottomPadding = self.importantView.frame.origin.y;
     
+    NSSize popupSize;
+    popupSize.width = view.frame.size.width;
+    popupSize.height = view.frame.size.height + bottomPadding;
+    NSRect popupFrame = self.view.frame;
+    popupFrame.size = popupSize;
+    self.view.frame = popupFrame;
+    
     [self.view replaceSubview:self.importantView with:view];
     self.importantView = view;
     
@@ -37,10 +44,7 @@
     importantRect.origin.y = bottomPadding;
     self.importantView.frame = importantRect;
     
-    NSSize popupSize;
-    popupSize.width = self.importantView.frame.size.width;
-    popupSize.height = self.importantView.frame.size.height + bottomPadding;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SetPopupSize" object:self userInfo:@{@"size": [NSValue valueWithSize:popupSize]}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReshowPopup" object:self];
 }
 - (IBAction)button:(id)sender {
     [self makeImportant:self.imageView];

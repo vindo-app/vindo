@@ -25,8 +25,8 @@
     self.popover.behavior = RBLPopoverBehaviorTransient;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(changePopupSize:)
-                                                 name:@"SetPopupSize"
+                                             selector:@selector(reshowPopup:)
+                                                 name:@"ReshowPopup"
                                                object:nil];
 }
 
@@ -48,9 +48,15 @@
     [self.popover performClose:self];
 }
 
-- (void)changePopupSize:(NSNotification *)notification {
-    self.popover.contentSize = [notification.userInfo[@"size"] sizeValue];
+- (void)reshowPopup:(NSNotification *)notification {
+    self.popover.contentSize = self.popupViewController.view.frame.size;
+    
+    NSDisableScreenUpdates();
+    self.popover.animates = NO;
+    [self hidePopover];
     [self showPopover];
+    self.popover.animates = YES;
+    NSEnableScreenUpdates();
 }
 
 @end
