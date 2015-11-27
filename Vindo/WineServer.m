@@ -32,7 +32,7 @@
 
 - (void)start {
     // Do this cleanup, because we can't trust the ops to do it themselves.
-    if (self.pendingOp.finished)
+    if (self.pendingOp.isFinished)
         self.pendingOp = nil;
 
     // This is the only way to correctly implement the twisted logic. Don't change it.
@@ -60,7 +60,7 @@
 
 - (void)stop {
     // Do this cleanup, because we can't trust the ops to do it themselves.
-    if (self.pendingOp.finished)
+    if (self.pendingOp.isFinished)
         self.pendingOp = nil;
     
     // This is the only way to correctly implement the twisted logic. Don't change it.

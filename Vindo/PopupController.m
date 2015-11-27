@@ -14,12 +14,18 @@
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
     self.statusItem = [statusBar statusItemWithLength:NSSquareStatusItemLength];
     self.statusItem.highlightMode = YES;
+
+    NSButton *statusBarButton = [NSButton new];
+    statusBarButton.bordered = NO;
+
     NSImage *statusBarImage = [NSImage imageNamed:@"statusbar"];
     statusBarImage.template = YES;
-    self.statusItem.image = statusBarImage;
+    statusBarButton.image = statusBarImage;
     
-    self.statusItem.target = self;
-    self.statusItem.action = @selector(togglePopover:);
+    statusBarButton.target = self;
+    statusBarButton.action = @selector(togglePopover:);
+
+    self.statusItem.view = statusBarButton;
     
     self.popover = [[RBLPopover alloc] initWithContentViewController:self.popupViewController];
     self.popover.behavior = RBLPopoverBehaviorTransient;
@@ -38,8 +44,8 @@
 }
 
 - (void)showPopover {
-    [self.popover showRelativeToRect:self.statusItem.button.bounds
-                              ofView:self.statusItem.button
+    [self.popover showRelativeToRect:self.statusItem.view.bounds
+                              ofView:self.statusItem.view
                        preferredEdge:NSMaxYEdge];
     [NSApp activateIgnoringOtherApps:YES];
 }

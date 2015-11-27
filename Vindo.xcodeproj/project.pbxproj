@@ -606,8 +606,8 @@
 			baseConfigurationReference = 86910AAF59F070ED1ED06789 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application: Beth Dubois (W2NF7BNM62)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application: Beth Dubois (W2NF7BNM62)";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -627,8 +627,8 @@
 			baseConfigurationReference = 3A16529B78CFC04B47D2FCD0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application: Beth Dubois (W2NF7BNM62)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application: Beth Dubois (W2NF7BNM62)";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
