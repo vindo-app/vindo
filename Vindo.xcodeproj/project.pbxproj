@@ -40,6 +40,7 @@
 		AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */; };
 		ACD830041B8D346900D8F285 /* usr in Resources */ = {isa = PBXBuildFile; fileRef = ACD830031B8D346900D8F285 /* usr */; };
 		ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */; };
+		ACE47E981C0923C70001808C /* StatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE47E971C0923C70001808C /* StatusBarView.m */; };
 		F6D3954A9DA48257AC7EF798 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 258CC4B79A56F9EFB6956C3A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +119,8 @@
 		ACD830031B8D346900D8F285 /* usr */ = {isa = PBXFileReference; lastKnownFileType = folder; name = usr; path = Wine/usr; sourceTree = SOURCE_ROOT; };
 		ACDE7B151BAB76E100A37DE2 /* FirstTimeSetupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTimeSetupController.h; sourceTree = "<group>"; };
 		ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTimeSetupController.m; sourceTree = "<group>"; };
+		ACE47E961C0923C70001808C /* StatusBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarView.h; sourceTree = "<group>"; };
+		ACE47E971C0923C70001808C /* StatusBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +307,8 @@
 		AC8DB5AF1AA130A1000A6C51 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				ACE47E961C0923C70001808C /* StatusBarView.h */,
+				ACE47E971C0923C70001808C /* StatusBarView.m */,
 				AC2D42B21B3A1FA700F3C2FA /* Controllers */,
 				AC9681BC1ABCD57400A9233B /* Worlds */,
 				AC5219101B23C0BC004A322E /* Wine Prefix */,
@@ -516,6 +521,7 @@
 				8A041E9A1BFBFD4100D60E08 /* PopupViewController.m in Sources */,
 				8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */,
 				8A6880A91BC333620032352B /* StartMenu.m in Sources */,
+				ACE47E981C0923C70001808C /* StatusBarView.m in Sources */,
 				AC5AC3511B3E1E5900538492 /* LaunchController.m in Sources */,
 				AC52190A1B23BC85004A322E /* WineServer.m in Sources */,
 				AC2D42B11B3A1F8100F3C2FA /* BootCycleController.m in Sources */,

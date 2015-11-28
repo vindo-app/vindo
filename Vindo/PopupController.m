@@ -7,6 +7,7 @@
 //
 
 #import "PopupController.h"
+#import "StatusBarView.h"
 
 @implementation PopupController
 
@@ -15,17 +16,16 @@
     self.statusItem = [statusBar statusItemWithLength:NSSquareStatusItemLength];
     self.statusItem.highlightMode = YES;
 
-    NSButton *statusBarButton = [NSButton new];
-    statusBarButton.bordered = NO;
+    StatusBarView *statusBarView = [StatusBarView new];
 
     NSImage *statusBarImage = [NSImage imageNamed:@"statusbar"];
     statusBarImage.template = YES;
-    statusBarButton.image = statusBarImage;
+    statusBarView.image = statusBarImage;
     
-    statusBarButton.target = self;
-    statusBarButton.action = @selector(togglePopover:);
+    statusBarView.target = self;
+    statusBarView.action = @selector(togglePopover:);
 
-    self.statusItem.view = statusBarButton;
+    self.statusItem.view = statusBarView;
     
     self.popover = [[RBLPopover alloc] initWithContentViewController:self.popupViewController];
     self.popover.behavior = RBLPopoverBehaviorTransient;
