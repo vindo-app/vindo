@@ -27,7 +27,6 @@
     self.statusItem.view = statusBarView;
     
     self.popover = [[RBLPopover alloc] initWithContentViewController:self.popupViewController];
-    self.popover.animates = NO;
     self.popover.behavior = RBLPopoverBehaviorSemiTransient;
     
     self.popover.willShowBlock = ^(RBLPopover *_) {
@@ -66,8 +65,11 @@
     self.popover.contentSize = self.popupViewController.view.frame.size;
     
     NSDisableScreenUpdates();
+    self.popover.animates = NO;
     [self hidePopover];
     [self showPopover];
+    self.popover.animates = YES;
+    
     NSEnableScreenUpdates();
 }
 
