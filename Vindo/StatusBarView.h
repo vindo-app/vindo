@@ -14,9 +14,11 @@
 
 @property NSImage *image;
 
-@property (getter=isHighlighted) BOOL highlighted;
+@property (getter=isHighlighted, nonatomic) BOOL highlighted;
 
 @property id target;
 @property SEL action;
+
+- (id)initWithImage:(NSImage *)image statusItem:(NSStatusItem *)statusItem;
 
 @end

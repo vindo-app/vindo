@@ -16,11 +16,10 @@
     self.statusItem = [statusBar statusItemWithLength:NSSquareStatusItemLength];
     self.statusItem.highlightMode = YES;
 
-    StatusBarView *statusBarView = [StatusBarView new];
-
     NSImage *statusBarImage = [NSImage imageNamed:@"statusbar"];
     statusBarImage.template = YES;
-    statusBarView.image = statusBarImage;
+    
+    StatusBarView *statusBarView = [[StatusBarView alloc] initWithImage:statusBarImage statusItem:self.statusItem];
     
     statusBarView.target = self;
     statusBarView.action = @selector(togglePopover:);
@@ -28,7 +27,15 @@
     self.statusItem.view = statusBarView;
     
     self.popover = [[RBLPopover alloc] initWithContentViewController:self.popupViewController];
-    self.popover.behavior = RBLPopoverBehaviorTransient;
+    self.popover.animates = NO;
+    self.popover.behavior = RBLPopoverBehaviorSemiTransient;
+    
+    self.popover.willShowBlock = ^(RBLPopover *_) {
+        statusBarView.highlighted = YES;
+    };
+    self.popover.didCloseBlock = ^(RBLPopover *_) {
+        statusBarView.highlighted = NO;
+    };
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reshowPopup:)
@@ -47,6 +54,7 @@
     [self.popover showRelativeToRect:self.statusItem.view.bounds
                               ofView:self.statusItem.view
                        preferredEdge:NSMaxYEdge];
+    self.popover.behavior = RBLPopoverBehaviorTransient;
     [NSApp activateIgnoringOtherApps:YES];
 }
 
@@ -58,10 +66,8 @@
     self.popover.contentSize = self.popupViewController.view.frame.size;
     
     NSDisableScreenUpdates();
-    self.popover.animates = NO;
     [self hidePopover];
     [self showPopover];
-    self.popover.animates = YES;
     NSEnableScreenUpdates();
 }
 
