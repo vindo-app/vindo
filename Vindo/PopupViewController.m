@@ -27,6 +27,8 @@
 
 - (void)makeImportant:(NSView *)view {
     CGFloat bottomPadding = self.importantView.frame.origin.y;
+    CGFloat actionY = self.actionButton.frame.origin.y;
+    CGFloat actionRightPadding = self.view.frame.size.width - self.actionButton.frame.origin.x;
     
     NSSize popupSize;
     popupSize.width = view.frame.size.width;
@@ -37,7 +39,13 @@
     
     [self.view replaceSubview:self.importantView with:view];
     self.importantView = view;
-    
+
+    NSRect actionFrame;
+    actionFrame.size = self.actionButton.frame.size;
+    actionFrame.origin.y = actionY;
+    actionFrame.origin.x = self.view.frame.size.width - actionRightPadding;
+    self.actionButton.frame = actionFrame;
+
     NSRect importantRect;
     importantRect.size = self.importantView.frame.size;
     importantRect.origin.x = 0;

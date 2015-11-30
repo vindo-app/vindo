@@ -144,6 +144,7 @@
 				8A041E991BFBFD4100D60E08 /* Popup.xib */,
 			);
 			name = Popup;
+			path = Vindo;
 			sourceTree = "<group>";
 		};
 		8A655B7C1AA6773E00FFCD0C /* Resources */ = {

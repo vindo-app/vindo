@@ -28,11 +28,12 @@
     
     self.popover = [[RBLPopover alloc] initWithContentViewController:self.popupViewController];
     self.popover.behavior = RBLPopoverBehaviorSemiTransient;
+    self.popover.fadeDuration = 0.1;
     
     self.popover.willShowBlock = ^(RBLPopover *_) {
         statusBarView.highlighted = YES;
     };
-    self.popover.didCloseBlock = ^(RBLPopover *_) {
+    self.popover.willCloseBlock = ^(RBLPopover *_) {
         statusBarView.highlighted = NO;
     };
     
