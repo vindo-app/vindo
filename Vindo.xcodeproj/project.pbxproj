@@ -73,7 +73,7 @@
 		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = Vindo/MainMenu.xib; sourceTree = "<group>"; };
 		8A525F071AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+DefaultQueue.h"; sourceTree = "<group>"; };
 		8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+DefaultQueue.m"; sourceTree = "<group>"; };
-		8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = statusbar.tiff; path = ../statusbar.tiff; sourceTree = "<group>"; };
+		8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = statusbar.tiff; sourceTree = "<group>"; };
 		8A66CCB71BACD35500D7E592 /* vindo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = vindo.icns; sourceTree = "<group>"; };
 		8A6880A71BC333620032352B /* StartMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenu.h; sourceTree = "<group>"; };
 		8A6880A81BC333620032352B /* StartMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenu.m; sourceTree = "<group>"; };
