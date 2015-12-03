@@ -18,9 +18,14 @@
 
 @end
 
+SINGLETON_IMPL(FirstTimeSetupController)
+
 @implementation FirstTimeSetupController
 
 - (id)init {
+    if (sharedInstance)
+        return sharedInstance;
+
     if (self = [super init]) {
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
@@ -36,8 +41,8 @@
 
     if ([worlds.arrangedObjects count] == 0) {
         [[NSOperationQueue defaultQueue] addOperationWithBlock:^{
-            self.happening = YES;
-
+            [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidStartNotification object:self];
+            
             World *defaultWorld = [[World alloc] initWithName:@"Default World"];
 
             [worlds addObject:defaultWorld];
@@ -45,9 +50,12 @@
 
             [defaultWorld.prefix startServerAndWait];
             
-            self.happening = NO;
+            [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidCompleteNotification object:self];
         }];
     }
 }
 
 @end
+
+NSString *const FirstTimeSetupDidStartNotification = @"FirstTimeSetupDidStartNotification";
+NSString *const FirstTimeSetupDidCompleteNotification = @"FirstTimeSetupDidStartNotification";

@@ -7,22 +7,50 @@
 //
 
 #import "PopupViewController.h"
+#import "FirstTimeSetupController.h"
 
 @interface PopupViewController ()
 
-@property IBOutlet NSView *importantView;
-@property (strong) IBOutlet NSImageView *imageView;
+@property BOOL firstTimeSetupHappening;
+
+@property IBOutlet NSView *defaultView;
 @property (weak) IBOutlet NSPopUpButton *actionButton;
+@property IBOutlet NSView *setupView;
+
+@property NSView *importantView;
 
 @end
 
 @implementation PopupViewController
 
 - (instancetype)init {
-    if (self = [super initWithNibName:@"Popup" bundle:nil]) {
-        
-    }
-    return self;
+    return [super initWithNibName:@"Popup" bundle:nil];
+}
+
+- (void)awakeFromNib {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self
+               selector:@selector(firstTimeSetupStarted:)
+                   name:FirstTimeSetupDidStartNotification
+                 object:nil];
+    [center addObserver:self
+               selector:@selector(firstTimeSetupEnded:)
+                   name:FirstTimeSetupDidCompleteNotification
+                 object:nil];
+    
+    self.importantView = self.defaultView;
+}
+
+- (void)firstTimeSetupStarted:(NSNotification *)notification {
+    [self performSelectorOnMainThread:@selector(makeImportant:)
+                           withObject:self.setupView
+                        waitUntilDone:NO];
+}
+
+- (void)firstTimeSetupEnded:(NSNotification *)notification {
+    [self performSelectorOnMainThread:@selector(makeImportant:)
+                           withObject:self.defaultView
+                        waitUntilDone:NO];
 }
 
 - (void)makeImportant:(NSView *)view {
@@ -53,9 +81,6 @@
     self.importantView.frame = importantRect;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReshowPopup" object:self];
-}
-- (IBAction)button:(id)sender {
-    [self makeImportant:self.imageView];
 }
 
 @end

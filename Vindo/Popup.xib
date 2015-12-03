@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
@@ -8,8 +8,8 @@
         <customObject id="-2" userLabel="File's Owner" customClass="PopupViewController">
             <connections>
                 <outlet property="actionButton" destination="A1p-5i-oTs" id="E3k-AT-Jho"/>
-                <outlet property="imageView" destination="FVs-ZC-zIP" id="Ofi-xv-wm5"/>
-                <outlet property="importantView" destination="6pp-wv-anu" id="eob-cO-9Gq"/>
+                <outlet property="defaultView" destination="6pp-wv-anu" id="sul-Fa-Lf3"/>
+                <outlet property="setupView" destination="Z7x-eD-j6T" id="Kba-4O-ytc"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -22,6 +22,7 @@
                 <popUpButton id="A1p-5i-oTs">
                     <rect key="frame" x="136" y="11" width="39" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <animations/>
                     <popUpButtonCell key="cell" type="bevel" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="hGG-hV-5jo">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
@@ -38,26 +39,16 @@
                 <customView id="6pp-wv-anu">
                     <rect key="frame" x="0.0" y="40" width="192" height="122"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <button verticalHuggingPriority="750" id="K5Y-Qj-fow">
-                            <rect key="frame" x="18" y="68" width="75" height="32"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="push" title="Click!" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="geb-Q8-hWV">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="button:" target="-2" id="1hn-BO-wQb"/>
-                            </connections>
-                        </button>
-                    </subviews>
+                    <animations/>
                 </customView>
             </subviews>
+            <animations/>
             <point key="canvasLocation" x="255" y="355"/>
         </customView>
         <matrix verticalHuggingPriority="750" mode="track" allowsEmptySelection="NO" id="ANs-Ao-TPe" userLabel="MatrixView">
             <rect key="frame" x="0.0" y="0.0" width="192" height="112"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <animations/>
             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
             <size key="cellSize" width="64" height="55"/>
             <size key="intercellSpacing" width="0.0" height="2"/>
@@ -97,14 +88,41 @@
                     </buttonCell>
                 </column>
             </cells>
-            <point key="canvasLocation" x="735" y="286"/>
+            <point key="canvasLocation" x="855" y="192"/>
         </matrix>
-        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="FVs-ZC-zIP">
-            <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+        <customView id="Z7x-eD-j6T">
+            <rect key="frame" x="0.0" y="0.0" width="251" height="119"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="vindo" id="Ibn-12-4bi"/>
-            <point key="canvasLocation" x="303" y="631"/>
-        </imageView>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="DQP-wz-bpy">
+                    <rect key="frame" x="18" y="42" width="215" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <animations/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Setting up Windows environment..." id="R2V-YQ-RWZ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="cPh-yW-TWX">
+                    <rect key="frame" x="18" y="20" width="160" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <animations/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="This takes about 1-2 minutes." id="2Jy-Qw-MMc">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" id="hfc-FM-90f">
+                    <rect key="frame" x="109" y="67" width="32" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <animations/>
+                </progressIndicator>
+            </subviews>
+            <animations/>
+            <point key="canvasLocation" x="428.5" y="166.5"/>
+        </customView>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
@@ -112,6 +130,5 @@
         <image name="NSComputer" width="32" height="32"/>
         <image name="NSDotMac" width="32" height="32"/>
         <image name="NSFolderSmart" width="32" height="32"/>
-        <image name="vindo" width="512" height="512"/>
     </resources>
 </document>

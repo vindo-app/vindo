@@ -1,0 +1,27 @@
+//
+//  Vindo.pch
+//  Vindo
+//
+//  Created by Dubois, Theodore Alexander on 12/2/15.
+//  Copyright © 2015 Theodore Dubois. All rights reserved.
+//
+
+#define SINGLETON(class) \
+@interface class (class##Singleton) \
++ (class *)sharedInstance; \
+@end
+
+#define SINGLETON_IMPL(class) \
+static class *sharedInstance; \
+\
+@implementation class (class##Singleton) \
++ (id)alloc { \
+    if (!sharedInstance) \
+        sharedInstance = [[super alloc] init]; \
+    return sharedInstance; \
+} \
+\
++ (class *)sharedInstance { \
+    return [self alloc]; \
+} \
+@end

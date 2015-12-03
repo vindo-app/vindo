@@ -93,6 +93,7 @@
 		8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsMenuController.m; sourceTree = "<group>"; };
 		8AC01D6A1ABB930F00F8C066 /* IndexSetToIntTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexSetToIntTransformer.h; sourceTree = "<group>"; };
 		8AC01D6B1ABB930F00F8C066 /* IndexSetToIntTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexSetToIntTransformer.m; sourceTree = "<group>"; };
+		8AEB83061C0FB74C00144FF6 /* Vindo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vindo.pch; sourceTree = "<group>"; };
 		AC0580781ABE13F300854813 /* ManageWorlds.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageWorlds.xib; sourceTree = "<group>"; };
 		AC05808A1ABF97F700854813 /* ManageWorldsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageWorldsWindowController.h; sourceTree = "<group>"; };
 		AC05808B1ABF97F700854813 /* ManageWorldsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ManageWorldsWindowController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -279,6 +280,7 @@
 			children = (
 				8A23F3BD1AA91EF600F1467C /* Info.plist */,
 				AC3A4EE11AA12F9A00781626 /* main.m */,
+				8AEB83061C0FB74C00144FF6 /* Vindo.pch */,
 			);
 			name = "Supporting Files";
 			path = Vindo;
@@ -621,6 +623,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/RHPreferences-cosvbmytbofgiedgafmaepmnrzzq/Build/Products/Debug",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREFIX_HEADER = $SRCROOT/Vindo/Vindo.pch;
 				INFOPLIST_FILE = Vindo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
@@ -642,6 +645,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/RHPreferences-cosvbmytbofgiedgafmaepmnrzzq/Build/Products/Debug",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREFIX_HEADER = $SRCROOT/Vindo/Vindo.pch;
 				INFOPLIST_FILE = Vindo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;

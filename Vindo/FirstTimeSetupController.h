@@ -13,3 +13,8 @@
 @property (readonly, getter=isHappening) BOOL happening;
 
 @end
+
+SINGLETON(FirstTimeSetupController)
+
+extern NSString *const FirstTimeSetupDidStartNotification;
+extern NSString *const FirstTimeSetupDidCompleteNotification;

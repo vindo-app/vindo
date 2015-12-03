@@ -50,7 +50,7 @@
         [startOp addDependency:self.pendingOp];
     }
     self.pendingOp = startOp;
-    [startOp start];
+    [[NSOperationQueue defaultQueue] addOperation:startOp];
 }
 
 - (void)startAndWait {
@@ -78,7 +78,7 @@
         [stopOp addDependency:self.pendingOp];
     }
     _pendingOp = stopOp;
-    [stopOp start];
+    [[NSOperationQueue defaultQueue] addOperation:stopOp];
 }
 
 - (void)stopAndWait {
