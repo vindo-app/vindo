@@ -7,18 +7,17 @@
 //
 
 #import "WineServer.h"
-#import "NSOperationQueue+DefaultQueue.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface WineServer ()
 
 @property NSTask *serverTask;
 @property BOOL running;
-@property NSOperation *pendingOp;
+@property BOOL pending;
 
 @end
 
 // the operations that start and stop a wine server
-#include "StartWineServerOperation.inl"
 #include "StopWineServerOperation.inl"
 
 @implementation WineServer
@@ -31,59 +30,95 @@
 }
 
 - (void)start {
-    // Do this cleanup, because we can't trust the ops to do it themselves.
-    if (self.pendingOp.isFinished)
-        self.pendingOp = nil;
-
-    // This is the only way to correctly implement the twisted logic. Don't change it.
-    if (self.pendingOp) {
-        if ([self.pendingOp isKindOfClass:[StartWineServerOperation class]]) {
-            return;
-        }
-    } else if (self.running) {
+    if ((self.running && !self.pending) ||
+        (!self.running && self.pending)) {
         return;
     }
-    
-    NSOperation *startOp = [[StartWineServerOperation alloc] initWithWinePrefix:self.prefix];;
-    if (self.pendingOp != nil) {
-        [self.pendingOp cancel];
-        [startOp addDependency:self.pendingOp];
+    if (self.running && self.pending) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(startAfterStop:)
+                                                     name:WineServerDidStopNotification
+                                                   object:self];
     }
-    self.pendingOp = startOp;
-    [[NSOperationQueue defaultQueue] addOperation:startOp];
+
+    [self actuallyStart];
 }
 
-- (void)startAndWait {
-    [self start];
-    [self.pendingOp waitUntilFinished];
+- (void)startAfterStop:(NSNotification *)notification {
+    [self actuallyStart];
+}
+
+- (void)actuallyStart {
+    self.pending = YES;
+
+    // make sure prefix directory exists
+    NSFileManager *manager = [NSFileManager defaultManager];
+    if (![manager createDirectoryAtURL:_prefix.prefixURL
+           withIntermediateDirectories:YES
+                            attributes:nil
+                                 error:nil]) {
+        return;
+    }
+
+    self.serverTask = [_prefix wineTaskWithProgram:@"wineserver" arguments:@[@"--foreground", @"--persistent"]];
+    [self.serverTask launch];
+
+    // now that the server is launched, run wineboot to fake boot the system
+    NSTask *wineboot = [_prefix wineTaskWithProgram:@"wine" arguments:@[@"wineboot"]];
+
+    wineboot.terminationHandler = ^(NSTask *_) {
+        self.running = YES;
+        self.pending = NO;
+
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center postNotificationName:WineServerDidStartNotification object:self];
+    };
+
+    [wineboot launch];
 }
 
 - (void)stop {
-    // Do this cleanup, because we can't trust the ops to do it themselves.
-    if (self.pendingOp.isFinished)
-        self.pendingOp = nil;
-    
-    // This is the only way to correctly implement the twisted logic. Don't change it.
-    if (self.pendingOp) {
-        if ([self.pendingOp isKindOfClass:[StopWineServerOperation class]]) {
-            return;
-        }
-    } else if (!self.running) {
+    if ((!self.running && !self.pending) ||
+        (self.running && self.pending)) {
         return;
     }
-    
-    NSOperation *stopOp = [[StopWineServerOperation alloc] initWithWinePrefix:self.prefix];
-    if (self.pendingOp != nil) {
-        [self.pendingOp cancel];
-        [stopOp addDependency:self.pendingOp];
+    if (!self.running && self.pending) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(stopAfterStart:)
+                                                     name:WineServerDidStartNotification
+                                                   object:self];
     }
-    _pendingOp = stopOp;
-    [[NSOperationQueue defaultQueue] addOperation:stopOp];
+
+    [self actuallyStop];
 }
 
-- (void)stopAndWait {
-    [self stop];
-    [self.pendingOp waitUntilFinished];
+- (void)stopAfterStart:(NSNotification *)notification {
+    [self actuallyStop];
+}
+
+- (void)actuallyStop {
+    self.running = NO;
+    self.pending = YES;
+    // first end the session with wineboot
+    NSTask *endSession = [_prefix wineTaskWithProgram:@"wine"
+                                            arguments:@[@"wineboot", @"--end-session", @"--shutdown"]];
+    endSession.terminationHandler = ^(NSTask *_) {
+        NSTask *killServer = [_prefix wineTaskWithProgram:@"wineserver" arguments:@[@"--kill"]];
+        [killServer launch];
+        [self.serverTask waitUntilExit];
+
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center postNotificationName:WineServerDidStopNotification
+                              object:self.prefix.server];
+        self.running = NO;
+    };
+    [endSession launch];
+
+    [center postNotificationName:WineServerDidStopNotification
+                          object:self.prefix.server];
+
+    self.prefix.server.running = NO;
+    self.prefix.server.pendingOp = nil;
 }
 
 @end

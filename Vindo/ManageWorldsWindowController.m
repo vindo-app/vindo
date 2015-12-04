@@ -11,7 +11,6 @@
 #import "WinePrefix.h"
 #import "ManageWorldsWindowController.h"
 #import "StatusWindowController.h"
-#import "NSOperationQueue+DefaultQueue.h"
 
 @interface ManageWorldsWindowController ()
 

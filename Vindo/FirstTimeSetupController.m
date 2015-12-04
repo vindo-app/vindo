@@ -10,7 +10,6 @@
 #import "World.h"
 #import "WinePrefix.h"
 #import "WorldsController.h"
-#import "NSOperationQueue+DefaultQueue.h"
 
 @interface FirstTimeSetupController ()
 
