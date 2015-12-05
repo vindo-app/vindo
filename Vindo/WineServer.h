@@ -21,12 +21,9 @@ extern NSString *const WineServerDidStopNotification;
 
 - (instancetype)initWithPrefix:(WinePrefix *)prefix;
 
-@property (readonly) BOOL running;
+@property (readonly, getter=isRunning) BOOL running;
 
 - (void)start;
 - (void)stop;
-
-- (void)startAndWait;
-- (void)stopAndWait;
 
 @end

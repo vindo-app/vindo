@@ -7,41 +7,46 @@
 //
 
 #import "WineServer.h"
+#import "WinePrefix.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+
+typedef enum {
+    WineServerStopped,
+    WineServerStarting,
+    WineServerRunning,
+    WineServerStopping
+} WineServerState;
 
 @interface WineServer ()
 
 @property NSTask *serverTask;
-@property BOOL running;
-@property BOOL pending;
+@property WineServerState state;
 
 @end
-
-// the operations that start and stop a wine server
-#include "StopWineServerOperation.inl"
 
 @implementation WineServer
 
 - (instancetype)initWithPrefix:(WinePrefix *)prefix {
     if (self = [super init]) {
         _prefix = prefix;
+        self.state = WineServerStopped;
     }
     return self;
 }
 
 - (void)start {
-    if ((self.running && !self.pending) ||
-        (!self.running && self.pending)) {
+    if (self.state == WineServerRunning ||
+        self.state == WineServerStarting) {
         return;
     }
-    if (self.running && self.pending) {
+    if (self.state == WineServerStopping) {
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(startAfterStop:)
                                                      name:WineServerDidStopNotification
                                                    object:self];
+    } else {
+        [self actuallyStart];
     }
-
-    [self actuallyStart];
 }
 
 - (void)startAfterStop:(NSNotification *)notification {
@@ -49,7 +54,7 @@
 }
 
 - (void)actuallyStart {
-    self.pending = YES;
+    self.state = WineServerStarting;
 
     // make sure prefix directory exists
     NSFileManager *manager = [NSFileManager defaultManager];
@@ -67,8 +72,7 @@
     NSTask *wineboot = [_prefix wineTaskWithProgram:@"wine" arguments:@[@"wineboot"]];
 
     wineboot.terminationHandler = ^(NSTask *_) {
-        self.running = YES;
-        self.pending = NO;
+        self.state = WineServerRunning;
 
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center postNotificationName:WineServerDidStartNotification object:self];
@@ -78,18 +82,18 @@
 }
 
 - (void)stop {
-    if ((!self.running && !self.pending) ||
-        (self.running && self.pending)) {
+    if (self.state == WineServerStopped ||
+        self.state == WineServerStopping) {
         return;
     }
-    if (!self.running && self.pending) {
+    if (self.state == WineServerStarting) {
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(stopAfterStart:)
                                                      name:WineServerDidStartNotification
                                                    object:self];
+    } else {
+        [self actuallyStop];
     }
-
-    [self actuallyStop];
 }
 
 - (void)stopAfterStart:(NSNotification *)notification {
@@ -97,8 +101,7 @@
 }
 
 - (void)actuallyStop {
-    self.running = NO;
-    self.pending = YES;
+    self.state = WineServerStopping;
     // first end the session with wineboot
     NSTask *endSession = [_prefix wineTaskWithProgram:@"wine"
                                             arguments:@[@"wineboot", @"--end-session", @"--shutdown"]];
@@ -110,15 +113,13 @@
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center postNotificationName:WineServerDidStopNotification
                               object:self.prefix.server];
-        self.running = NO;
+        self.state = WineServerStopped;
     };
     [endSession launch];
+}
 
-    [center postNotificationName:WineServerDidStopNotification
-                          object:self.prefix.server];
-
-    self.prefix.server.running = NO;
-    self.prefix.server.pendingOp = nil;
+- (BOOL)isRunning {
+    return self.state == WineServerRunning;
 }
 
 @end

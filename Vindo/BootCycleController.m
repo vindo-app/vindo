@@ -52,7 +52,7 @@
 }
 
 - (void)stopOnQuit:(NSNotification *)notification {
-    [[WorldsController sharedController].selectedWorld.prefix stopServerAndWait];
+    [[WorldsController sharedController].selectedWorld.prefix stopServer];
 }
 
 @end

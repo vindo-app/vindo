@@ -16,129 +16,13 @@
             <connections>
                 <outlet property="launcher" destination="kM7-O8-uwl" id="pHe-f9-gzK"/>
                 <outlet property="popupController" destination="gYO-gS-fC3" id="Lt3-UI-yUz"/>
-                <outlet property="statusBarMenu" destination="cpY-Is-ZQ8" id="dun-IX-eUa"/>
             </connections>
         </customObject>
         <customObject id="m6U-j8-RMv" customClass="WorldsMenuController">
             <connections>
                 <outlet property="worldsArrayController" destination="Qox-EO-R5a" id="Aw6-ai-Wqv"/>
-                <outlet property="worldsMenu" destination="CXr-IV-7TW" id="o7C-Tl-Qb1"/>
             </connections>
         </customObject>
-        <menu autoenablesItems="NO" id="cpY-Is-ZQ8">
-            <items>
-                <menuItem title="Setting up Windows environment..." enabled="NO" id="8vs-bM-1Mp">
-                    <attributedString key="attributedTitle"/>
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <binding destination="Yoa-Bu-7fp" name="hidden" keyPath="happening" id="7Jq-rG-Ow1">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">NSNegateBoolean</string>
-                            </dictionary>
-                        </binding>
-                    </connections>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="04U-91-D5I">
-                    <connections>
-                        <binding destination="Yoa-Bu-7fp" name="hidden" keyPath="happening" id="8Ao-W6-I5f">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">NSNegateBoolean</string>
-                            </dictionary>
-                        </binding>
-                    </connections>
-                </menuItem>
-                <menuItem title="Run" id="Nzl-9r-3bJ">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Run" id="9xe-Uv-mhL">
-                        <items>
-                            <menuItem title="File Manager" id="3GW-fg-DaD">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="runCannedProgram:" target="Voe-Tx-rLC" id="PxM-Xt-4rA"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Internet Explorer" tag="1" id="kfW-VG-7Jy">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="runCannedProgram:" target="Voe-Tx-rLC" id="RZQ-Qc-T48"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Minesweeper" tag="2" id="sz2-fP-fcd">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="runCannedProgram:" target="Voe-Tx-rLC" id="wOe-uV-JmV"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Notepad" tag="3" id="blf-aG-A51">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="runCannedProgram:" target="Voe-Tx-rLC" id="I2J-2m-MYl"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Console" tag="4" id="vce-K3-SEv">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="runCannedProgram:" target="Voe-Tx-rLC" id="2Bw-MH-SnX"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Wine Configuration" tag="5" id="ziQ-6u-X5a">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="runCannedProgram:" target="Voe-Tx-rLC" id="nOb-80-WMM"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Registry Editor" tag="6" id="puT-oK-UIc">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="runCannedProgram:" target="Voe-Tx-rLC" id="6nn-1q-pdd"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="iI8-vx-iZ5"/>
-                            <menuItem title="Other…" id="uWc-UV-hsk">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="runProgram:" target="Voe-Tx-rLC" id="mSf-Ce-bOs"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
-                <menuItem title="World" id="wH6-nO-AEf">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="World" id="CXr-IV-7TW">
-                        <items>
-                            <menuItem isSeparatorItem="YES" id="wpz-SG-hC0"/>
-                            <menuItem title="Manage Worlds…" id="pjx-dL-hd4">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="manageWorlds:" target="Voe-Tx-rLC" id="azA-qw-jQc"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="4t1-oX-18y"/>
-                <menuItem title="Preferences..." id="Wll-WK-VHE">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="showPreferences:" target="Voe-Tx-rLC" id="yEC-Tv-auU"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="About Vindo" id="rCB-7T-uLH">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="orderFrontStandardAboutPanel:" target="-1" id="01R-2Y-Cl5"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="Quit" id="GXz-h4-ilO">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="terminate:" target="-1" id="Dzf-Nb-q5A"/>
-                    </connections>
-                </menuItem>
-            </items>
-            <point key="canvasLocation" x="391" y="213.5"/>
-        </menu>
         <arrayController objectClassName="World" editable="NO" selectsInsertedObjects="NO" clearsFilterPredicateOnInsertion="NO" id="Qox-EO-R5a" customClass="WorldsController"/>
         <customObject id="DnL-XL-Msx" customClass="BootCycleController"/>
         <customObject id="kM7-O8-uwl" customClass="LaunchController"/>

@@ -54,6 +54,8 @@
 }
 
 - (void)makeImportant:(NSView *)view {
+    if (view == nil)
+        return;
     CGFloat bottomPadding = self.importantView.frame.origin.y;
     CGFloat actionY = self.actionButton.frame.origin.y;
     CGFloat actionRightPadding = self.view.frame.size.width - self.actionButton.frame.origin.x;

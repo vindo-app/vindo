@@ -107,8 +107,6 @@
 		AC5219061B23BBF2004A322E /* WinePrefix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinePrefix.m; sourceTree = "<group>"; };
 		AC5219081B23BC85004A322E /* WineServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineServer.h; sourceTree = "<group>"; };
 		AC5219091B23BC85004A322E /* WineServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineServer.m; sourceTree = "<group>"; };
-		AC52190C1B23C010004A322E /* StartWineServerOperation.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartWineServerOperation.inl; sourceTree = "<group>"; };
-		AC52190E1B23C064004A322E /* StopWineServerOperation.inl */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = StopWineServerOperation.inl; sourceTree = "<group>"; };
 		AC5AC34F1B3E1E5900538492 /* LaunchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchController.h; sourceTree = "<group>"; };
 		AC5AC3501B3E1E5900538492 /* LaunchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchController.m; sourceTree = "<group>"; };
 		AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
@@ -296,8 +294,6 @@
 		AC5219111B23C0E9004A322E /* Wine Server */ = {
 			isa = PBXGroup;
 			children = (
-				AC52190C1B23C010004A322E /* StartWineServerOperation.inl */,
-				AC52190E1B23C064004A322E /* StopWineServerOperation.inl */,
 				AC5219081B23BC85004A322E /* WineServer.h */,
 				AC5219091B23BC85004A322E /* WineServer.m */,
 			);

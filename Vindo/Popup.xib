@@ -23,14 +23,75 @@
                     <rect key="frame" x="136" y="11" width="39" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <animations/>
-                    <popUpButtonCell key="cell" type="bevel" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="hGG-hV-5jo">
+                    <popUpButtonCell key="cell" type="bevel" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="RFg-dw-mMS" id="hGG-hV-5jo">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
                         <menu key="menu" id="wdU-3y-svf">
                             <items>
                                 <menuItem state="on" image="NSActionTemplate" hidden="YES" id="RFg-dw-mMS"/>
-                                <menuItem title="Stuff will be here eventually..." id="3dB-B5-cBA">
+                                <menuItem title="Setting up Windows environment..." enabled="NO" id="Wcv-r6-w7i">
+                                    <attributedString key="attributedTitle"/>
                                     <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="rhc-Dm-mMX"/>
+                                <menuItem title="Run" id="8B3-h6-LPH">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <menu key="submenu" title="Run" id="2dF-qH-EXV">
+                                        <items>
+                                            <menuItem title="File Manager" id="QcS-nD-0RK">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Internet Explorer" tag="1" id="h60-TO-7M2">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Minesweeper" tag="2" id="0ju-jF-vMs">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Notepad" tag="3" id="WDw-dx-Kuy">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Console" tag="4" id="Hk4-z1-DVi">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Wine Configuration" tag="5" id="n3v-zG-pTN">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Registry Editor" tag="6" id="Now-fu-b9T">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem isSeparatorItem="YES" id="4mg-WJ-Fuf"/>
+                                            <menuItem title="Other…" id="Cgd-hc-b0t">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                        </items>
+                                    </menu>
+                                </menuItem>
+                                <menuItem title="World" id="GgM-Sg-iaT">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <menu key="submenu" title="World" id="96w-7W-w55">
+                                        <items>
+                                            <menuItem isSeparatorItem="YES" id="7Vh-UT-kuC"/>
+                                            <menuItem title="Manage Worlds…" id="tjX-bh-qe2">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                        </items>
+                                    </menu>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="1pr-QQ-beT"/>
+                                <menuItem title="Preferences..." id="kko-nB-iyX">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="About Vindo" id="qEb-SM-Tgb">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="orderFrontStandardAboutPanel:" target="-1" id="aLM-x8-EqK"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="Quit" id="rX4-MS-N6q">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="terminate:" target="-1" id="JbM-E0-WK5"/>
+                                    </connections>
                                 </menuItem>
                             </items>
                         </menu>
@@ -123,6 +184,9 @@
             <animations/>
             <point key="canvasLocation" x="428.5" y="166.5"/>
         </customView>
+        <menu autoenablesItems="NO" id="bZB-vi-3Du">
+            <point key="canvasLocation" x="911.5" y="400.5"/>
+        </menu>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>

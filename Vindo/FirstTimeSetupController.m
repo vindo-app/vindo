@@ -9,6 +9,7 @@
 #import "FirstTimeSetupController.h"
 #import "World.h"
 #import "WinePrefix.h"
+#import "WineServer.h"
 #import "WorldsController.h"
 
 @interface FirstTimeSetupController ()
@@ -24,7 +25,7 @@ SINGLETON_IMPL(FirstTimeSetupController)
 - (id)init {
     if (sharedInstance)
         return sharedInstance;
-
+    
     if (self = [super init]) {
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
@@ -37,21 +38,26 @@ SINGLETON_IMPL(FirstTimeSetupController)
 
 - (void)checkForFirstTimeSetup:(NSNotification *)notification {
     WorldsController *worlds = [WorldsController sharedController];
-
+    
     if ([worlds.arrangedObjects count] == 0) {
-        [[NSOperationQueue defaultQueue] addOperationWithBlock:^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidStartNotification object:self];
-            
-            World *defaultWorld = [[World alloc] initWithName:@"Default World"];
-
-            [worlds addObject:defaultWorld];
-            worlds.selectedObjects = @[defaultWorld];
-
-            [defaultWorld.prefix startServerAndWait];
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidCompleteNotification object:self];
-        }];
+        [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidStartNotification object:self];
+        
+        World *defaultWorld = [[World alloc] initWithName:@"Default World"];
+        
+        [worlds addObject:defaultWorld];
+        worlds.selectedObjects = @[defaultWorld];
+        
+        [defaultWorld.prefix startServer];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(serverDidStart:)
+                                                     name:WineServerDidStartNotification
+                                                   object:defaultWorld.prefix.server];
     }
+}
+
+- (void)serverDidStart:(NSNotification *)notification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidCompleteNotification object:self];
 }
 
 @end

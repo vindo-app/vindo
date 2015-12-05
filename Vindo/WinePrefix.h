@@ -21,9 +21,6 @@
 - (void)startServer;
 - (void)stopServer;
 
-- (void)startServerAndWait;
-- (void)stopServerAndWait;
-
 - (NSTask *)wineTaskWithProgram:(NSString *)program arguments:(NSArray *)arguments;
 
 @end

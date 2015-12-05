@@ -11,15 +11,11 @@
 @interface StatusWindowController : NSWindowController
 
 - (instancetype)initWithMessage:(NSString *)message
-                    sheetWindow:(NSWindow *)window
-              startNotification:(NSString *)startNotification
-               stopNotification:(NSString *)stopNotification
-                         object:(id)object;
-
-- (instancetype)initWithMessage:(NSString *)message
-                    sheetWindow:(NSWindow *)window
-                      operation:(NSOperation *)operation;
+                    sheetWindow:(NSWindow *)window;
 
 @property (readonly) NSString *message;
+
+- (void)appear;
+- (void)disappear;
 
 @end

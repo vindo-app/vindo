@@ -57,14 +57,6 @@ static NSMapTable *prefixes;
     [self.server stop];
 }
 
-- (void)startServerAndWait {
-    [self.server startAndWait];
-}
-
-- (void)stopServerAndWait {
-    [self.server stopAndWait];
-}
-
 - (NSDictionary *)wineEnvironment {
     return @{@"WINEPREFIX": [self.prefixURL path],
              @"PATH": [[usrURL URLByAppendingPathComponent:@"bin"] path],
