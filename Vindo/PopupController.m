@@ -8,6 +8,7 @@
 
 #import "PopupController.h"
 #import "StatusBarView.h"
+#import "PopupViewController.h"
 
 @implementation PopupController
 
@@ -26,7 +27,7 @@
 
     self.statusItem.view = statusBarView;
     
-    self.popover = [[RBLPopover alloc] initWithContentViewController:self.popupViewController];
+    self.popover = [[RBLPopover alloc] initWithContentViewController:[PopupViewController new]];
     self.popover.behavior = RBLPopoverBehaviorSemiTransient;
     self.popover.fadeDuration = 0.1;
     

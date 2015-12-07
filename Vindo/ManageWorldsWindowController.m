@@ -49,25 +49,29 @@
 - (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
     if (returnCode == 0) {
         NSString *worldName = self.queryText.stringValue;
-        
-        
+
+
         World *world = [[World alloc] initWithName:worldName];
-        
+
         self.statusWindow = [[StatusWindowController alloc] initWithMessage:[NSString stringWithFormat:@"Creating world \"%@\"…", worldName]
                                                                 sheetWindow:self.window];
         [self.statusWindow appear];
-        
+
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                   forName:WineServerDidStartNotification
                                                    object:world.prefix.server
                                                     queue:nil
-                                               usingBlock:^(NSNotification *notification, ManageWorldsWindowController *ourSelf) {
-                                                   [self.arrayController addObject:world];
-                                                   self.arrayController.selectedObjects = @[world];
-                                                   [self.statusWindow disappear];
-                                               }];
+                                               usingBlock:
+         ^(NSNotification *notification, ManageWorldsWindowController *ourSelf) {
+             [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                             name:WineServerDidStartNotification
+                                                           object:world.prefix.server];
+             [self.arrayController addObject:world];
+             self.arrayController.selectedObjects = @[world];
+             [self.statusWindow disappear];
+         }];
         [world.prefix startServer];
-        
+
     }
     [NSApp endSheet:_querySheet];
     [_querySheet orderOut:self];
@@ -85,9 +89,9 @@
     }
     if (_arrayController.selectedObjects.count < 1)
         return; // don't bother deleting nothing
-    
+
     NSArray *worldsToDelete = self.arrayController.selectedObjects;
-    
+
     NSString *message;
     if (worldsToDelete.count == 1)
         message = [NSString stringWithFormat:@"Deleting world \"%@\"…",
@@ -95,7 +99,7 @@
     else
         message = [NSString stringWithFormat:@"Deleting %lu worlds…",
                    (unsigned long) worldsToDelete.count];
-    
+
     for (World *world in worldsToDelete) {
         [[NSNotificationCenter defaultCenter]
          addObserver:self
@@ -103,12 +107,15 @@
          object:world.prefix.server
          queue:nil
          usingBlock:^(id n, id s) {
+             [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                             name:WineServerDidStopNotification
+                                                           object:world.prefix.server];
              [[NSFileManager defaultManager] trashItemAtURL:world.prefix.prefixURL
                                            resultingItemURL:nil
                                                       error:nil]; // move world to trash
              [self.arrayController removeObject:world]; // remove object from worlds
          }];
-        
+
         [world.prefix stopServer];
     }
 }
@@ -138,7 +145,7 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
        proposedDropOperation:(NSTableViewDropOperation)dropOperation {
     if (dropOperation == NSTableViewDropOn)
         return NSDragOperationNone;
-    
+
     if ([[info draggingPasteboard] canReadItemWithDataConformingToTypes:@[WorldPasteboardType]])
         return NSDragOperationMove;
     else
