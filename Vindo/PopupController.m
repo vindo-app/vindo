@@ -64,11 +64,9 @@
 }
 
 - (void)reshowPopup:(NSNotification *)notification {
-    self.popover.contentSize = self.popupViewController.view.frame.size;
-    
     NSDisableScreenUpdates();
     self.popover.animates = NO;
-    [self hidePopover];
+    //[self hidePopover];
     [self showPopover];
     self.popover.animates = YES;
     

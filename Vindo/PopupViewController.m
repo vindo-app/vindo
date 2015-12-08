@@ -19,6 +19,8 @@
 
 @property NSView *importantView;
 
+@property (weak) IBOutlet NSProgressIndicator *spinningThing;
+
 @end
 
 @implementation PopupViewController
@@ -29,6 +31,11 @@
 
 - (void)awakeFromNib {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    NSLog(@"PVC: initializing");
+    if ([FirstTimeSetupController sharedInstance].happening) {
+        NSLog(@"PVC: first time setup is happening");
+        [self firstTimeSetupStarted:nil];
+    }
     [center addObserver:self
                selector:@selector(firstTimeSetupStarted:)
                    name:FirstTimeSetupDidStartNotification
@@ -39,15 +46,19 @@
                  object:nil];
     
     self.importantView = self.defaultView;
+    
+    [self.spinningThing startAnimation:self];
 }
 
 - (void)firstTimeSetupStarted:(NSNotification *)notification {
+    NSLog(@"PVC: setup started, showing setup view");
     [self performSelectorOnMainThread:@selector(makeImportant:)
                            withObject:self.setupView
                         waitUntilDone:NO];
 }
 
 - (void)firstTimeSetupEnded:(NSNotification *)notification {
+    NSLog(@"PVC: setup done, returning to normal view");
     [self performSelectorOnMainThread:@selector(makeImportant:)
                            withObject:self.defaultView
                         waitUntilDone:NO];
@@ -60,12 +71,11 @@
     CGFloat actionY = self.actionButton.frame.origin.y;
     CGFloat actionRightPadding = self.view.frame.size.width - self.actionButton.frame.origin.x;
     
-    NSSize popupSize;
-    popupSize.width = view.frame.size.width;
-    popupSize.height = view.frame.size.height + bottomPadding;
-    NSRect popupFrame = self.view.frame;
-    popupFrame.size = popupSize;
-    self.view.frame = popupFrame;
+    NSRect popupBounds;
+    popupBounds.origin = NSZeroPoint;
+    popupBounds.size.width = view.frame.size.width;
+    popupBounds.size.height = view.frame.size.height + bottomPadding;
+    self.view.bounds = popupBounds;
     
     [self.view replaceSubview:self.importantView with:view];
     self.importantView = view;

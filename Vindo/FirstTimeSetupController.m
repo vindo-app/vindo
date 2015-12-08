@@ -18,7 +18,7 @@
 
 @end
 
-SINGLETON_IMPL(FirstTimeSetupController)
+static FirstTimeSetupController *sharedInstance;
 
 @implementation FirstTimeSetupController
 
@@ -33,6 +33,7 @@ SINGLETON_IMPL(FirstTimeSetupController)
                        name:NSApplicationDidFinishLaunchingNotification
                      object:nil];
     }
+    sharedInstance = self;
     return self;
 }
 
@@ -40,6 +41,8 @@ SINGLETON_IMPL(FirstTimeSetupController)
     WorldsController *worlds = [WorldsController sharedController];
     
     if ([worlds.arrangedObjects count] == 0) {
+        self.happening = YES;
+        NSLog(@"First time setup started");
         [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidStartNotification object:self];
         
         World *defaultWorld = [[World alloc] initWithName:@"Default World"];
@@ -57,7 +60,13 @@ SINGLETON_IMPL(FirstTimeSetupController)
 }
 
 - (void)serverDidStart:(NSNotification *)notification {
+    NSLog(@"First time setup finished");
     [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidCompleteNotification object:self];
+    self.happening = NO;
+}
+
++ (FirstTimeSetupController *)sharedInstance {
+    return [self new];
 }
 
 @end

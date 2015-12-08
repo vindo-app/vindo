@@ -10,6 +10,7 @@
                 <outlet property="actionButton" destination="A1p-5i-oTs" id="E3k-AT-Jho"/>
                 <outlet property="defaultView" destination="6pp-wv-anu" id="sul-Fa-Lf3"/>
                 <outlet property="setupView" destination="Z7x-eD-j6T" id="Kba-4O-ytc"/>
+                <outlet property="spinningThing" destination="hfc-FM-90f" id="zoF-cb-5Be"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -182,7 +183,7 @@
                 </progressIndicator>
             </subviews>
             <animations/>
-            <point key="canvasLocation" x="428.5" y="166.5"/>
+            <point key="canvasLocation" x="485.5" y="145.5"/>
         </customView>
         <menu autoenablesItems="NO" id="bZB-vi-3Du">
             <point key="canvasLocation" x="911.5" y="400.5"/>
