@@ -9,6 +9,7 @@
 #import "WineServer.h"
 #import "WinePrefix.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import "NSObject+Notifications.h"
 
 typedef enum {
     WineServerStopped,
@@ -40,17 +41,13 @@ typedef enum {
         return;
     }
     if (self.state == WineServerStopping) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(startAfterStop:)
-                                                     name:WineServerDidStopNotification
-                                                   object:self];
+        [self onNext:WineServerDidStopNotification
+                  do:^(id n) {
+                      [self actuallyStart];
+                  }];
     } else {
         [self actuallyStart];
     }
-}
-
-- (void)startAfterStop:(NSNotification *)notification {
-    [self actuallyStart];
 }
 
 - (void)actuallyStart {
@@ -87,17 +84,13 @@ typedef enum {
         return;
     }
     if (self.state == WineServerStarting) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(stopAfterStart:)
-                                                     name:WineServerDidStartNotification
-                                                   object:self];
+        [self onNext:WineServerDidStartNotification
+                  do:^(id n) {
+                      [self actuallyStart];
+                  }];
     } else {
         [self actuallyStop];
     }
-}
-
-- (void)stopAfterStart:(NSNotification *)notification {
-    [self actuallyStop];
 }
 
 - (void)actuallyStop {

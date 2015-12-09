@@ -25,5 +25,3 @@ static class *sharedInstance; \
     return [self alloc]; \
 } \
 @end
-
-#import <FXNotifications/FXNotifications.h>

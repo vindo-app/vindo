@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PopupViewController">
@@ -23,7 +23,6 @@
                 <popUpButton id="A1p-5i-oTs">
                     <rect key="frame" x="136" y="11" width="39" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <animations/>
                     <popUpButtonCell key="cell" type="bevel" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="RFg-dw-mMS" id="hGG-hV-5jo">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
@@ -101,16 +100,13 @@
                 <customView id="6pp-wv-anu">
                     <rect key="frame" x="0.0" y="40" width="192" height="122"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <animations/>
                 </customView>
             </subviews>
-            <animations/>
             <point key="canvasLocation" x="255" y="355"/>
         </customView>
         <matrix verticalHuggingPriority="750" mode="track" allowsEmptySelection="NO" id="ANs-Ao-TPe" userLabel="MatrixView">
             <rect key="frame" x="0.0" y="0.0" width="192" height="112"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <animations/>
             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
             <size key="cellSize" width="64" height="55"/>
             <size key="intercellSpacing" width="0.0" height="2"/>
@@ -153,13 +149,12 @@
             <point key="canvasLocation" x="855" y="192"/>
         </matrix>
         <customView id="Z7x-eD-j6T">
-            <rect key="frame" x="0.0" y="0.0" width="251" height="119"/>
+            <rect key="frame" x="0.0" y="0.0" width="251" height="99"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="DQP-wz-bpy">
-                    <rect key="frame" x="18" y="42" width="215" height="17"/>
+                    <rect key="frame" x="18" y="22" width="215" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Setting up Windows environment..." id="R2V-YQ-RWZ">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -167,9 +162,8 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="cPh-yW-TWX">
-                    <rect key="frame" x="18" y="20" width="160" height="14"/>
+                    <rect key="frame" x="18" y="0.0" width="160" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <animations/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="This takes about 1-2 minutes." id="2Jy-Qw-MMc">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -177,13 +171,11 @@
                     </textFieldCell>
                 </textField>
                 <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" id="hfc-FM-90f">
-                    <rect key="frame" x="109" y="67" width="32" height="32"/>
+                    <rect key="frame" x="109" y="47" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <animations/>
                 </progressIndicator>
             </subviews>
-            <animations/>
-            <point key="canvasLocation" x="485.5" y="145.5"/>
+            <point key="canvasLocation" x="485.5" y="135.5"/>
         </customView>
         <menu autoenablesItems="NO" id="bZB-vi-3Du">
             <point key="canvasLocation" x="911.5" y="400.5"/>

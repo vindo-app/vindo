@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
-#import <Rebel/Rebel.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 #import "ApplicationController.h"

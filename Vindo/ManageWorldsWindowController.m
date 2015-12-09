@@ -12,6 +12,7 @@
 #import "WineServer.h"
 #import "ManageWorldsWindowController.h"
 #import "StatusWindowController.h"
+#import "NSObject+Notifications.h"
 
 @interface ManageWorldsWindowController ()
 
@@ -57,19 +58,12 @@
                                                                 sheetWindow:self.window];
         [self.statusWindow appear];
 
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                  forName:WineServerDidStartNotification
-                                                   object:world.prefix.server
-                                                    queue:nil
-                                               usingBlock:
-         ^(NSNotification *notification, ManageWorldsWindowController *ourSelf) {
-             [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                             name:WineServerDidStartNotification
-                                                           object:world.prefix.server];
-             [self.arrayController addObject:world];
-             self.arrayController.selectedObjects = @[world];
-             [self.statusWindow disappear];
-         }];
+        [world.prefix.server onNext:WineServerDidStartNotification
+                                 do:^(id n) {
+                                     [self.arrayController addObject:world];
+                                     self.arrayController.selectedObjects = @[world];
+                                     [self.statusWindow disappear];
+                                 }];
         [world.prefix startServer];
 
     }
@@ -101,21 +95,13 @@
                    (unsigned long) worldsToDelete.count];
 
     for (World *world in worldsToDelete) {
-        [[NSNotificationCenter defaultCenter]
-         addObserver:self
-         forName:WineServerDidStopNotification
-         object:world.prefix.server
-         queue:nil
-         usingBlock:^(id n, id s) {
-             [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                             name:WineServerDidStopNotification
-                                                           object:world.prefix.server];
-             [[NSFileManager defaultManager] trashItemAtURL:world.prefix.prefixURL
-                                           resultingItemURL:nil
-                                                      error:nil]; // move world to trash
-             [self.arrayController removeObject:world]; // remove object from worlds
-         }];
-
+        [world.prefix.server onNext:WineServerDidStopNotification
+                                 do:^(id n) {
+                                     [[NSFileManager defaultManager] trashItemAtURL:world.prefix.prefixURL
+                                                                   resultingItemURL:nil
+                                                                              error:nil]; // move world to trash
+                                     [self.arrayController removeObject:world]; // remove object from worlds
+                                 }];
         [world.prefix stopServer];
     }
 }

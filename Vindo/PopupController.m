@@ -9,6 +9,7 @@
 #import "PopupController.h"
 #import "StatusBarView.h"
 #import "PopupViewController.h"
+#import "NSObject+Notifications.h"
 
 @implementation PopupController
 
@@ -16,7 +17,7 @@
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
     self.statusItem = [statusBar statusItemWithLength:NSSquareStatusItemLength];
     self.statusItem.highlightMode = YES;
-
+    
     NSImage *statusBarImage = [NSImage imageNamed:@"statusbar"];
     statusBarImage.template = YES;
     
@@ -24,20 +25,23 @@
     
     statusBarView.target = self;
     statusBarView.action = @selector(togglePopover:);
-
+    
     self.statusItem.view = statusBarView;
     
-    self.popover = [[RBLPopover alloc] initWithContentViewController:[PopupViewController new]];
-    self.popover.behavior = RBLPopoverBehaviorSemiTransient;
-    self.popover.fadeDuration = 0.1;
+    self.pvc = [PopupViewController new];
     
-    self.popover.willShowBlock = ^(RBLPopover *_) {
-        statusBarView.highlighted = YES;
-    };
-    self.popover.willCloseBlock = ^(RBLPopover *_) {
-        statusBarView.highlighted = NO;
-    };
+    self.popover = [NSPopover new];
+    self.popover.contentViewController = self.pvc;
+    self.popover.behavior = NSPopoverBehaviorTransient;
     
+    [self.popover on:NSPopoverWillShowNotification
+                  do:^(id n) {
+                      statusBarView.highlighted = YES;
+                  }];
+    [self.popover on:NSPopoverWillCloseNotification
+                  do:^(id n) {
+                      statusBarView.highlighted = NO;
+                  }];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reshowPopup:)
                                                  name:@"ReshowPopup"
@@ -55,7 +59,6 @@
     [self.popover showRelativeToRect:self.statusItem.view.bounds
                               ofView:self.statusItem.view
                        preferredEdge:NSMaxYEdge];
-    self.popover.behavior = RBLPopoverBehaviorTransient;
     [NSApp activateIgnoringOtherApps:YES];
 }
 
@@ -64,13 +67,7 @@
 }
 
 - (void)reshowPopup:(NSNotification *)notification {
-    NSDisableScreenUpdates();
-    self.popover.animates = NO;
-    //[self hidePopover];
-    [self showPopover];
-    self.popover.animates = YES;
-    
-    NSEnableScreenUpdates();
+    self.popover.contentSize = self.pvc.view.bounds.size;
 }
 
 @end

@@ -1,6 +1,5 @@
 PODS:
   - CDEvents (1.2.2)
-  - FXNotifications (1.1)
   - ReactiveCocoa (2.3.1):
     - ReactiveCocoa/UI (= 2.3.1)
   - ReactiveCocoa/Core (2.3.1):
@@ -8,23 +7,16 @@ PODS:
   - ReactiveCocoa/no-arc (2.3.1)
   - ReactiveCocoa/UI (2.3.1):
     - ReactiveCocoa/Core
-  - Rebel (0.4):
-    - Rebel/NSColorExtensions (= 0.4)
-  - Rebel/NSColorExtensions (0.4)
   - Sparkle (1.11.0)
 
 DEPENDENCIES:
   - CDEvents
-  - FXNotifications
   - ReactiveCocoa
-  - Rebel
   - Sparkle (~> 1.10)
 
 SPEC CHECKSUMS:
   CDEvents: f311f23de13414f4b3625f1a663b2e1d9a85d982
-  FXNotifications: 97e1ef1f4608dea5078a851846e8d47a379678b0
   ReactiveCocoa: 334468a83b2c5f669f7cfb9a084415ee23219b4f
-  Rebel: 0bcc935386cf2528eb8f4c338166cac497929faa
   Sparkle: cf10103ef35fd89caa35373bfd772c5d6f9c7d73
 
 COCOAPODS: 0.39.0

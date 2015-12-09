@@ -12,6 +12,7 @@
 		8A041E9F1BFBFF0400D60E08 /* PopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A041E9E1BFBFF0400D60E08 /* PopupController.m */; };
 		8A1D00C81BF6AAFD00D5FC1C /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D00C61BF6AAFD00D5FC1C /* PreferencesWindowController.m */; };
 		8A1D00C91BF6AAFD00D5FC1C /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */; };
+		8A22BA5D1C18C165002B4351 /* NSObject+Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A22BA5C1C18C165002B4351 /* NSObject+Notifications.m */; };
 		8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BE1AA91EF600F1467C /* MainMenu.xib */; };
 		8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */; };
 		8A66CCB81BACD35500D7E592 /* vindo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB71BACD35500D7E592 /* vindo.icns */; };
@@ -68,6 +69,8 @@
 		8A1D00C51BF6AAFD00D5FC1C /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		8A1D00C61BF6AAFD00D5FC1C /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		8A22BA5B1C18C165002B4351 /* NSObject+Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Notifications.h"; sourceTree = "<group>"; };
+		8A22BA5C1C18C165002B4351 /* NSObject+Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Notifications.m"; sourceTree = "<group>"; };
 		8A23F3BD1AA91EF600F1467C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = Vindo/MainMenu.xib; sourceTree = "<group>"; };
 		8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = statusbar.tiff; sourceTree = "<group>"; };
@@ -310,6 +313,8 @@
 				AC5219101B23C0BC004A322E /* Wine Prefix */,
 				8A6880A61BC3330C0032352B /* Start */,
 				8A70BF061BAA2BCF00F58EBE /* LetsMove */,
+				8A22BA5B1C18C165002B4351 /* NSObject+Notifications.h */,
+				8A22BA5C1C18C165002B4351 /* NSObject+Notifications.m */,
 			);
 			name = Code;
 			path = Vindo;
@@ -510,6 +515,7 @@
 				8A1D00C81BF6AAFD00D5FC1C /* PreferencesWindowController.m in Sources */,
 				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
 				8A6880AF1BC333E10032352B /* StartMenuItem.m in Sources */,
+				8A22BA5D1C18C165002B4351 /* NSObject+Notifications.m in Sources */,
 				AC5219071B23BBF2004A322E /* WinePrefix.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */,
 				8A041E9A1BFBFD4100D60E08 /* PopupViewController.m in Sources */,

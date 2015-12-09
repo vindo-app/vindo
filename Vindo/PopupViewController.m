@@ -71,11 +71,12 @@
     CGFloat actionY = self.actionButton.frame.origin.y;
     CGFloat actionRightPadding = self.view.frame.size.width - self.actionButton.frame.origin.x;
     
-    NSRect popupBounds;
-    popupBounds.origin = NSZeroPoint;
-    popupBounds.size.width = view.frame.size.width;
-    popupBounds.size.height = view.frame.size.height + bottomPadding;
-    self.view.bounds = popupBounds;
+    NSSize popupSize;
+    popupSize.width = view.frame.size.width;
+    popupSize.height = view.frame.size.height + bottomPadding;
+    NSRect popupFrame = self.view.frame;
+    popupFrame.size = popupSize;
+    self.view.frame = popupFrame;
     
     [self.view replaceSubview:self.importantView with:view];
     self.importantView = view;
