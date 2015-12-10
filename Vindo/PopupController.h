@@ -11,8 +11,4 @@
 
 @interface PopupController : NSObject
 
-@property PopupViewController *pvc;
-@property NSPopover *popover;
-@property NSStatusItem *statusItem;
-
 @end

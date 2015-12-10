@@ -27,4 +27,11 @@
                                                   usingBlock:block];
 }
 
+- (void)on:(NSString *)notification doAction:(SEL)action onTarget:(id)target{
+    [[NSNotificationCenter defaultCenter] addObserver:target
+                                             selector:action
+                                                 name:notification
+                                               object:self];
+}
+
 @end

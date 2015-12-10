@@ -11,6 +11,7 @@
 #import "WinePrefix.h"
 #import "WineServer.h"
 #import "WorldsController.h"
+#import "NSObject+Notifications.h"
 
 @interface FirstTimeSetupController ()
 
@@ -42,7 +43,6 @@ static FirstTimeSetupController *sharedInstance;
     
     if ([worlds.arrangedObjects count] == 0) {
         self.happening = YES;
-        NSLog(@"First time setup started");
         [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidStartNotification object:self];
         
         World *defaultWorld = [[World alloc] initWithName:@"Default World"];
@@ -52,17 +52,12 @@ static FirstTimeSetupController *sharedInstance;
         
         [defaultWorld.prefix startServer];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(serverDidStart:)
-                                                     name:WineServerDidStartNotification
-                                                   object:defaultWorld.prefix.server];
+        [defaultWorld.prefix.server onNext:WineServerDidStartNotification
+                                        do:^(id n) {
+                                            [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidCompleteNotification object:self];
+                                            self.happening = NO;
+                                        }];
     }
-}
-
-- (void)serverDidStart:(NSNotification *)notification {
-    NSLog(@"First time setup finished");
-    [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidCompleteNotification object:self];
-    self.happening = NO;
 }
 
 + (FirstTimeSetupController *)sharedInstance {

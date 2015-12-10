@@ -31,9 +31,7 @@
 
 - (void)awakeFromNib {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    NSLog(@"PVC: initializing");
     if ([FirstTimeSetupController sharedInstance].happening) {
-        NSLog(@"PVC: first time setup is happening");
         [self firstTimeSetupStarted:nil];
     }
     [center addObserver:self
@@ -51,14 +49,12 @@
 }
 
 - (void)firstTimeSetupStarted:(NSNotification *)notification {
-    NSLog(@"PVC: setup started, showing setup view");
     [self performSelectorOnMainThread:@selector(makeImportant:)
                            withObject:self.setupView
                         waitUntilDone:NO];
 }
 
 - (void)firstTimeSetupEnded:(NSNotification *)notification {
-    NSLog(@"PVC: setup done, returning to normal view");
     [self performSelectorOnMainThread:@selector(makeImportant:)
                            withObject:self.defaultView
                         waitUntilDone:NO];

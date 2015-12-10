@@ -15,4 +15,6 @@ typedef void (^NotificationObserverBlock)(NSNotification *notification);
 - (void)onNext:(NSString *)notification do:(NotificationObserverBlock)block;
 - (void)on:(NSString *)notification do:(NotificationObserverBlock)block;
 
+- (void)on:(NSString *)notification doAction:(SEL)action onTarget:(id)target;
+
 @end
