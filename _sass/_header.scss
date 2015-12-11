@@ -40,19 +40,26 @@ button.navbar-toggle {
         width: 100%;
     }
     
-    h3 {
-        font-weight: 200;
-        font-size: 24px;
-        //margin-bottom: 20px;
-    }
-    
-    h1 {
+    h1.very-important {
         font-weight: 100;
         font-size: 144px;
         @media (max-width: 991px) {
             font-size: 72px;
         }
         margin-top: -12px;
+    }
+    
+    h1.page-title {
+        text-align: center;
+        font-size: 48px;
+        color: white;
+        margin-top: 0;
+    }
+    
+    h1.post-title {
+        font-size: 48px;
+        color: white;
+        margin-top: 0;
     }
 
     .btn-download {
@@ -68,7 +75,7 @@ button.navbar-toggle {
         margin-top: 40px;
     }
     
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     
     @media (max-width: 767px) {
         h1, h3 {

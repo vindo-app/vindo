@@ -9,6 +9,12 @@ description: "Run Windows Programs. On Mac."
 
 collections:
     - versions
+    
+defaults:
+    - scope: 
+        path: ""
+      values:
+        layout: default
 
 # Build settings
 markdown: kramdown
