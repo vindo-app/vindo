@@ -7,6 +7,7 @@
         {% elsif page.type == 'post' %}
             <div class="col-sm-12">
                 <h1 class="post-title">{{ page.title }}</h1>
+                <h5 class="date">{{ page.date | date: '%B %d, %Y' }}</h5>
             </div>
         {% elsif page.type == 'index' %}
             <div class="col-sm-4">
