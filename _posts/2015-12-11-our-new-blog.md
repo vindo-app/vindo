@@ -1,5 +1,6 @@
 ---
 type: post
+author: theodore
 ---
 
 If you're one of about 2 people in the world who regularly visit this website, you'll notice a few new things, primarily this blog. The purpose of this blog is to let everyone who might look at this website know that we are still here, live and kicking, and working on Vindo hard as ever. Ling, from [LingsCars.com][ling], does this with a Live And Kicking Twitter Feed, complete with an animated chicken browsing the feed.

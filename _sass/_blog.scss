@@ -1,0 +1,20 @@
+.author, .date {
+    color: #777;
+}
+
+.author {
+    &:before {
+        content: "~";
+    }
+    
+    margin-top: 15px;
+}
+
+.date {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.blog-post:not(:last-child) {
+    margin-bottom: 40px;
+}
