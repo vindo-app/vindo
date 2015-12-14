@@ -43,7 +43,7 @@
                                             delegate:self
                                            onRunLoop:[NSRunLoop mainRunLoop]
                                 sinceEventIdentifier:kFSEventStreamEventIdSinceNow
-                                notificationLantency:2
+                                notificationLantency:1
                              ignoreEventsFromSubDirs:NO
                                          excludeURLs:nil
                                  streamCreationFlags:kFSEventStreamCreateFlagFileEvents | kFSEventStreamCreateFlagUseCFTypes | kFSEventStreamCreateFlagWatchRoot];
@@ -66,7 +66,9 @@
         
         [newItems addObject:[[StartMenuItem alloc] initFromFile:startMenuFile]];
     }
+    [self willChangeValueForKey:@"items"];
     self.mutableItems = newItems;
+    [self didChangeValueForKey:@"items"];
 }
 
 - (NSArray *)items {

@@ -13,13 +13,12 @@
 
 @property BOOL firstTimeSetupHappening;
 
-@property IBOutlet NSView *defaultView;
-@property (weak) IBOutlet NSPopUpButton *actionButton;
-@property IBOutlet NSView *setupView;
+@property IBOutlet NSViewController *defaultViewController;
+@property IBOutlet NSViewController *setupViewController;
 
-@property NSView *importantView;
-
-@property (weak) IBOutlet NSProgressIndicator *spinningThing;
+@property (nonatomic) NSViewController *importantViewController;
+@property IBOutlet NSView *placeholderView;
+@property IBOutlet NSPopUpButton *actionButton;
 
 @end
 
@@ -29,11 +28,16 @@
     return [super initWithNibName:@"Popup" bundle:nil];
 }
 
-- (void)awakeFromNib {
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+- (void)viewDidLoad {
+    [self findMathConstants];
+    
     if ([FirstTimeSetupController sharedInstance].happening) {
-        [self firstTimeSetupStarted:nil];
+        self.importantViewController = self.setupViewController;
+    } else {
+        self.importantViewController = self.defaultViewController;
     }
+
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self
                selector:@selector(firstTimeSetupStarted:)
                    name:FirstTimeSetupDidStartNotification
@@ -42,40 +46,48 @@
                selector:@selector(firstTimeSetupEnded:)
                    name:FirstTimeSetupDidCompleteNotification
                  object:nil];
-    
-    self.importantView = self.defaultView;
-    
-    [self.spinningThing startAnimation:self];
 }
 
 - (void)firstTimeSetupStarted:(NSNotification *)notification {
-    [self performSelectorOnMainThread:@selector(makeImportant:)
-                           withObject:self.setupView
+    [self performSelectorOnMainThread:@selector(setImportantViewController:)
+                           withObject:self.setupViewController
                         waitUntilDone:NO];
 }
 
 - (void)firstTimeSetupEnded:(NSNotification *)notification {
-    [self performSelectorOnMainThread:@selector(makeImportant:)
-                           withObject:self.defaultView
+    [self performSelectorOnMainThread:@selector(setImportantViewController:)
+                           withObject:self.defaultViewController
                         waitUntilDone:NO];
 }
 
-- (void)makeImportant:(NSView *)view {
-    if (view == nil)
-        return;
-    CGFloat bottomPadding = self.importantView.frame.origin.y;
-    CGFloat actionY = self.actionButton.frame.origin.y;
-    CGFloat actionRightPadding = self.view.frame.size.width - self.actionButton.frame.origin.x;
-    
+- (void)setImportantViewController:(NSViewController *)importantViewController {
+    NSView *oldView;
+    if (!_importantViewController)
+        oldView = self.placeholderView;
+    else
+        oldView = _importantViewController.view;
+    [self.view replaceSubview:oldView with:importantViewController.view];
+    _importantViewController = importantViewController;
+    [self doTheMath];
+}
+
+static CGFloat bottomPadding;
+static CGFloat actionY;
+static CGFloat actionRightPadding;
+
+- (void)findMathConstants {
+    bottomPadding = self.placeholderView.frame.origin.y;
+    actionY = self.actionButton.frame.origin.y;
+    actionRightPadding = self.view.frame.size.width - self.actionButton.frame.origin.x;
+}
+
+- (void)doTheMath {
     NSSize popupSize;
-    popupSize.width = view.frame.size.width;
-    popupSize.height = view.frame.size.height + bottomPadding;
+    popupSize.width = self.importantViewController.view.frame.size.width;
+    popupSize.height = self.importantViewController.view.frame.size.height + bottomPadding;
     NSRect popupFrame = self.view.frame;
     popupFrame.size = popupSize;
     self.view.frame = popupFrame;
-    
-    [self.view replaceSubview:self.importantView with:view];
-    self.importantView = view;
 
     NSRect actionFrame;
     actionFrame.size = self.actionButton.frame.size;
@@ -84,10 +96,10 @@
     self.actionButton.frame = actionFrame;
 
     NSRect importantRect;
-    importantRect.size = self.importantView.frame.size;
+    importantRect.size = self.importantViewController.view.frame.size;
     importantRect.origin.x = 0;
     importantRect.origin.y = bottomPadding;
-    self.importantView.frame = importantRect;
+    self.importantViewController.view.frame = importantRect;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReshowPopup" object:self];
 }

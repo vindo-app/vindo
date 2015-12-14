@@ -14,6 +14,10 @@
 		8A1D00C91BF6AAFD00D5FC1C /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */; };
 		8A22BA5D1C18C165002B4351 /* NSObject+Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A22BA5C1C18C165002B4351 /* NSObject+Notifications.m */; };
 		8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BE1AA91EF600F1467C /* MainMenu.xib */; };
+		8A36AF541C1F4D1B0012D115 /* StartMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A36AF521C1F4D1B0012D115 /* StartMenuViewController.m */; };
+		8A36AF551C1F4D1B0012D115 /* StartMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A36AF531C1F4D1B0012D115 /* StartMenuViewController.xib */; };
+		8A36AF591C1F530D0012D115 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A36AF571C1F530D0012D115 /* SetupViewController.m */; };
+		8A36AF5A1C1F530D0012D115 /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A36AF581C1F530D0012D115 /* SetupViewController.xib */; };
 		8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */; };
 		8A66CCB81BACD35500D7E592 /* vindo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB71BACD35500D7E592 /* vindo.icns */; };
 		8A6880A91BC333620032352B /* StartMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6880A81BC333620032352B /* StartMenu.m */; };
@@ -73,6 +77,12 @@
 		8A22BA5C1C18C165002B4351 /* NSObject+Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Notifications.m"; sourceTree = "<group>"; };
 		8A23F3BD1AA91EF600F1467C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = Vindo/MainMenu.xib; sourceTree = "<group>"; };
+		8A36AF511C1F4D1B0012D115 /* StartMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuViewController.h; sourceTree = "<group>"; };
+		8A36AF521C1F4D1B0012D115 /* StartMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuViewController.m; sourceTree = "<group>"; };
+		8A36AF531C1F4D1B0012D115 /* StartMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartMenuViewController.xib; sourceTree = "<group>"; };
+		8A36AF561C1F530D0012D115 /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
+		8A36AF571C1F530D0012D115 /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
+		8A36AF581C1F530D0012D115 /* SetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupViewController.xib; sourceTree = "<group>"; };
 		8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = statusbar.tiff; sourceTree = "<group>"; };
 		8A66CCB71BACD35500D7E592 /* vindo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = vindo.icns; sourceTree = "<group>"; };
 		8A6880A71BC333620032352B /* StartMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenu.h; sourceTree = "<group>"; };
@@ -141,6 +151,12 @@
 				8A041E971BFBFD4100D60E08 /* PopupViewController.h */,
 				8A041E981BFBFD4100D60E08 /* PopupViewController.m */,
 				8A041E991BFBFD4100D60E08 /* Popup.xib */,
+				8A36AF561C1F530D0012D115 /* SetupViewController.h */,
+				8A36AF571C1F530D0012D115 /* SetupViewController.m */,
+				8A36AF581C1F530D0012D115 /* SetupViewController.xib */,
+				8A36AF511C1F4D1B0012D115 /* StartMenuViewController.h */,
+				8A36AF521C1F4D1B0012D115 /* StartMenuViewController.m */,
+				8A36AF531C1F4D1B0012D115 /* StartMenuViewController.xib */,
 			);
 			name = Popup;
 			path = Vindo;
@@ -405,7 +421,9 @@
 				8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */,
 				8A66CCB81BACD35500D7E592 /* vindo.icns in Resources */,
 				AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */,
+				8A36AF5A1C1F530D0012D115 /* SetupViewController.xib in Resources */,
 				8AC01D5F1ABB84D100F8C066 /* Executable.icns in Resources */,
+				8A36AF551C1F4D1B0012D115 /* StartMenuViewController.xib in Resources */,
 				8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */,
 				AC05807A1ABE13F300854813 /* ManageWorlds.xib in Resources */,
 				8A1D00C91BF6AAFD00D5FC1C /* Preferences.xib in Resources */,
@@ -507,12 +525,14 @@
 				8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
+				8A36AF541C1F4D1B0012D115 /* StartMenuViewController.m in Sources */,
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
 				AC05808C1ABF97F700854813 /* ManageWorldsWindowController.m in Sources */,
 				8A041E9F1BFBFF0400D60E08 /* PopupController.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 				8A6880AC1BC3336E0032352B /* StartMenuController.m in Sources */,
 				8A1D00C81BF6AAFD00D5FC1C /* PreferencesWindowController.m in Sources */,
+				8A36AF591C1F530D0012D115 /* SetupViewController.m in Sources */,
 				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
 				8A6880AF1BC333E10032352B /* StartMenuItem.m in Sources */,
 				8A22BA5D1C18C165002B4351 /* NSObject+Notifications.m in Sources */,

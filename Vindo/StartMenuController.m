@@ -15,9 +15,14 @@
 
 @end
 
+static StartMenuController *sharedInstance;
+
 @implementation StartMenuController
 
 - (instancetype)init {
+    if (sharedInstance)
+        return sharedInstance;
+    
     if (self = [super init]) {
         WorldsController *worldsController = [WorldsController sharedController];
         [worldsController addObserver:self
@@ -25,6 +30,8 @@
                               options:NSKeyValueObservingOptionInitial
                               context:NULL];
     }
+    
+    sharedInstance = self;
     return self;
 }
 
@@ -36,6 +43,10 @@
     } else {
         self.menu = nil;
     }
+}
+
++ (StartMenuController *)sharedInstance {
+    return [self new];
 }
 
 @end
