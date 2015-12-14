@@ -13,19 +13,20 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="CgY-nL-ODH">
-            <rect key="frame" x="0.0" y="0.0" width="250" height="160"/>
+            <rect key="frame" x="0.0" y="0.0" width="256" height="160"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <collectionView id="f1p-v1-osb">
-                    <rect key="frame" x="0.0" y="0.0" width="250" height="160"/>
+                    <rect key="frame" x="20" y="20" width="216" height="120"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="primaryBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                     <connections>
+                        <binding destination="tXh-Hy-JhN" name="content" keyPath="arrangedObjects" id="8np-oj-7xz"/>
                         <outlet property="itemPrototype" destination="i9d-L3-toA" id="cj8-wG-5Rs"/>
                     </connections>
                 </collectionView>
             </subviews>
-            <point key="canvasLocation" x="629" y="517"/>
+            <point key="canvasLocation" x="620" y="517"/>
         </customView>
         <collectionViewItem id="i9d-L3-toA">
             <connections>
@@ -33,13 +34,13 @@
             </connections>
         </collectionViewItem>
         <view id="hT9-Nt-Kmv">
-            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+            <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <button verticalHuggingPriority="750" id="Bat-fR-7as">
-                    <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                    <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="bevel" title="Button" bezelStyle="rounded" image="NSNetwork" imagePosition="above" alignment="center" imageScaling="proportionallyDown" inset="2" id="WrU-Df-CQe">
+                    <buttonCell key="cell" type="bevel" title="Button" bezelStyle="rounded" image="NSNetwork" imagePosition="above" alignment="center" lineBreakMode="truncatingTail" imageScaling="proportionallyDown" inset="2" id="WrU-Df-CQe">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -48,7 +49,7 @@
                     </connections>
                 </button>
             </subviews>
-            <point key="canvasLocation" x="657" y="340"/>
+            <point key="canvasLocation" x="661" y="344"/>
         </view>
         <arrayController id="tXh-Hy-JhN">
             <connections>
