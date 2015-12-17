@@ -16,8 +16,8 @@
 
 @implementation SetupViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)loadView {
+    [super loadView];
     
     [self.spinningThing startAnimation:self];
 }

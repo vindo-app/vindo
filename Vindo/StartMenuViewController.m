@@ -14,9 +14,10 @@
 
 @implementation StartMenuViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do view setup here.
+- (void)loadView {
+    [super loadView];
+
+    
 }
 
 @end
