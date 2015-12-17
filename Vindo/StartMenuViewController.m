@@ -14,10 +14,14 @@
 
 @implementation StartMenuViewController
 
-- (void)loadView {
-    [super loadView];
-
-    
+- (instancetype)init {
+    return [super initWithNibName:@"StartMenuViewController" bundle:nil];
 }
+
+//- (void)loadView {
+//    [super loadView];
+//
+//    // do stuff
+//}
 
 @end

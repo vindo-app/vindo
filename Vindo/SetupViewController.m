@@ -16,9 +16,11 @@
 
 @implementation SetupViewController
 
-- (void)loadView {
-    [super loadView];
-    
+- (instancetype)init {
+    return [super initWithNibName:@"SetupViewController" bundle:nil];
+}
+
+- (void)awakeFromNib {
     [self.spinningThing startAnimation:self];
 }
 

@@ -8,13 +8,15 @@
 
 #import "PopupViewController.h"
 #import "FirstTimeSetupController.h"
+#import "SetupViewController.h"
+#import "StartMenuViewController.h"
 
 @interface PopupViewController ()
 
 @property BOOL firstTimeSetupHappening;
 
-@property IBOutlet NSViewController *defaultViewController;
-@property IBOutlet NSViewController *setupViewController;
+@property StartMenuViewController *defaultViewController;
+@property SetupViewController *setupViewController;
 
 @property (nonatomic) NSViewController *importantViewController;
 @property IBOutlet NSView *placeholderView;
@@ -28,7 +30,10 @@
     return [super initWithNibName:@"Popup" bundle:nil];
 }
 
-- (void)viewDidLoad {
+- (void)awakeFromNib {
+    self.defaultViewController = [StartMenuViewController new];
+    self.setupViewController = [SetupViewController new];
+
     [self findMathConstants];
     
     if ([FirstTimeSetupController sharedInstance].happening) {
