@@ -50,6 +50,10 @@ static NSMutableDictionary *worldsDictionary;
     return [applicationSupport URLByAppendingPathComponent:name];
 }
 
+- (NSURL *)programsFolder {
+    return [self.prefix.prefixURL URLByAppendingPathComponent:@"menu/programs"];
+}
+
 + (void)initialize {
     worldsDictionary = [NSMutableDictionary new];
 }

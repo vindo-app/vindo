@@ -13,10 +13,17 @@
 
 @implementation StartMenuItem
 
-- (instancetype)initFromFile:(NSURL *)file {
+- (instancetype)initWithNativeIdentifier:(NSString *)nativeIdentifier inWorld:(World *)world {
     if (self = [super init]) {
+        _nativeIdentifier = nativeIdentifier;
+        _world = world;
+
+        NSURL *programsFolder = world.programsFolder;
+        NSURL *plistFile = [[programsFolder URLByAppendingPathComponent:nativeIdentifier]
+                            URLByAppendingPathExtension:@"plist"];
+
         NSError *error;
-        NSData *fileData = [NSData dataWithContentsOfURL:file options:0 error:&error];
+        NSData *fileData = [NSData dataWithContentsOfURL:plistFile options:0 error:&error];
         NSDictionary *itemPlist;
         if (fileData) {
             itemPlist = [NSPropertyListSerialization propertyListWithData:fileData
@@ -28,10 +35,15 @@
             NSLog(@"%@", error);
             return nil;
         }
+
         
         _name = itemPlist[@"Name"];
         _path = itemPlist[@"Path"];
         _args = itemPlist[@"Arguments"];
+
+        NSURL *imageFile = [[programsFolder URLByAppendingPathComponent:nativeIdentifier]
+                            URLByAppendingPathExtension:@"icns"];
+        _image = [[NSImage alloc] initWithContentsOfURL:imageFile];
     }
     return self;
 }

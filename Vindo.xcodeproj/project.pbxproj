@@ -40,6 +40,8 @@
 		AC5219071B23BBF2004A322E /* WinePrefix.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5219061B23BBF2004A322E /* WinePrefix.m */; };
 		AC52190A1B23BC85004A322E /* WineServer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5219091B23BC85004A322E /* WineServer.m */; };
 		AC5AC3511B3E1E5900538492 /* LaunchController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AC3501B3E1E5900538492 /* LaunchController.m */; };
+		AC5E86151C2363C40027FB80 /* ImageResizingValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E86141C2363C40027FB80 /* ImageResizingValueTransformer.m */; };
+		AC5E86191C2370300027FB80 /* NSButtonCell+MultilineButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E86181C2370300027FB80 /* NSButtonCell+MultilineButtons.m */; };
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
 		AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */; };
 		ACD830041B8D346900D8F285 /* usr in Resources */ = {isa = PBXBuildFile; fileRef = ACD830031B8D346900D8F285 /* usr */; };
@@ -122,6 +124,10 @@
 		AC5219091B23BC85004A322E /* WineServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineServer.m; sourceTree = "<group>"; };
 		AC5AC34F1B3E1E5900538492 /* LaunchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchController.h; sourceTree = "<group>"; };
 		AC5AC3501B3E1E5900538492 /* LaunchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchController.m; sourceTree = "<group>"; };
+		AC5E86131C2363C40027FB80 /* ImageResizingValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageResizingValueTransformer.h; sourceTree = "<group>"; };
+		AC5E86141C2363C40027FB80 /* ImageResizingValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResizingValueTransformer.m; sourceTree = "<group>"; };
+		AC5E86171C2370300027FB80 /* NSButtonCell+MultilineButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSButtonCell+MultilineButtons.h"; sourceTree = "<group>"; };
+		AC5E86181C2370300027FB80 /* NSButtonCell+MultilineButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSButtonCell+MultilineButtons.m"; sourceTree = "<group>"; };
 		AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		AC9681BD1ABCD59D00A9233B /* WorldsTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsTransformer.h; sourceTree = "<group>"; };
 		AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsTransformer.m; sourceTree = "<group>"; };
@@ -154,9 +160,7 @@
 				8A36AF561C1F530D0012D115 /* SetupViewController.h */,
 				8A36AF571C1F530D0012D115 /* SetupViewController.m */,
 				8A36AF581C1F530D0012D115 /* SetupViewController.xib */,
-				8A36AF511C1F4D1B0012D115 /* StartMenuViewController.h */,
-				8A36AF521C1F4D1B0012D115 /* StartMenuViewController.m */,
-				8A36AF531C1F4D1B0012D115 /* StartMenuViewController.xib */,
+				AC5E86161C2363E40027FB80 /* Start Menu */,
 			);
 			name = Popup;
 			path = Vindo;
@@ -319,6 +323,18 @@
 			name = "Wine Server";
 			sourceTree = "<group>";
 		};
+		AC5E86161C2363E40027FB80 /* Start Menu */ = {
+			isa = PBXGroup;
+			children = (
+				8A36AF511C1F4D1B0012D115 /* StartMenuViewController.h */,
+				8A36AF521C1F4D1B0012D115 /* StartMenuViewController.m */,
+				8A36AF531C1F4D1B0012D115 /* StartMenuViewController.xib */,
+				AC5E86131C2363C40027FB80 /* ImageResizingValueTransformer.h */,
+				AC5E86141C2363C40027FB80 /* ImageResizingValueTransformer.m */,
+			);
+			name = "Start Menu";
+			sourceTree = "<group>";
+		};
 		AC8DB5AF1AA130A1000A6C51 /* Code */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +347,8 @@
 				8A70BF061BAA2BCF00F58EBE /* LetsMove */,
 				8A22BA5B1C18C165002B4351 /* NSObject+Notifications.h */,
 				8A22BA5C1C18C165002B4351 /* NSObject+Notifications.m */,
+				AC5E86171C2370300027FB80 /* NSButtonCell+MultilineButtons.h */,
+				AC5E86181C2370300027FB80 /* NSButtonCell+MultilineButtons.m */,
 			);
 			name = Code;
 			path = Vindo;
@@ -525,10 +543,12 @@
 				8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
+				AC5E86191C2370300027FB80 /* NSButtonCell+MultilineButtons.m in Sources */,
 				8A36AF541C1F4D1B0012D115 /* StartMenuViewController.m in Sources */,
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
 				AC05808C1ABF97F700854813 /* ManageWorldsWindowController.m in Sources */,
 				8A041E9F1BFBFF0400D60E08 /* PopupController.m in Sources */,
+				AC5E86151C2363C40027FB80 /* ImageResizingValueTransformer.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 				8A6880AC1BC3336E0032352B /* StartMenuController.m in Sources */,
 				8A1D00C81BF6AAFD00D5FC1C /* PreferencesWindowController.m in Sources */,

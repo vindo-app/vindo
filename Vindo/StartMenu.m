@@ -20,18 +20,21 @@
 @property NSURL *programsFolder;
 @property CDEvents *events;
 
+@property World *world;
+
 @end
 
 @implementation StartMenu
 
 - (instancetype)initWithWorld:(World *)world {
     if (self = [super init]) {
+        self.world = world;
+        
         NSFileManager *manager = [NSFileManager defaultManager];
         
         self.mutableItems = [NSMutableArray new];
         
-        NSURL *worldFolder = world.prefix.prefixURL;
-        self.programsFolder = [worldFolder URLByAppendingPathComponent:@"menu/programs"];
+        self.programsFolder = self.world.programsFolder;
         [manager createDirectoryAtURL:self.programsFolder
           withIntermediateDirectories:YES
                            attributes:nil
@@ -63,8 +66,10 @@
     for (NSURL *startMenuFile in startMenuFiles) {
         if (![[startMenuFile path] hasSuffix:@".plist"])
             continue;
+
+        NSString *nativeIdentifier = startMenuFile.path.stringByDeletingPathExtension.lastPathComponent;
         
-        [newItems addObject:[[StartMenuItem alloc] initFromFile:startMenuFile]];
+        [newItems addObject:[[StartMenuItem alloc] initWithNativeIdentifier:nativeIdentifier inWorld:self.world]];
     }
     [self willChangeValueForKey:@"items"];
     self.mutableItems = newItems;

@@ -22,4 +22,6 @@ extern NSString *const WorldPasteboardType;
 
 @property (readonly) NSString *name;
 
+@property (readonly) NSURL *programsFolder;
+
 @end

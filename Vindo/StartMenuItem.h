@@ -7,13 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "World.h"
 
 @interface StartMenuItem : NSObject
+
+@property (readonly) NSString *nativeIdentifier;
+@property (readonly) World *world;
 
 @property (readonly) NSString *name;
 @property (readonly) NSString *path;
 @property (readonly) NSString *args;
 
-- (instancetype)initFromFile:(NSURL *)file;
+@property (readonly) NSImage *image;
+
+- (instancetype)initWithNativeIdentifier:(NSString *)nativeIdentifier inWorld:(World *)world;
 
 @end
