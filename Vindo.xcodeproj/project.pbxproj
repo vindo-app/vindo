@@ -43,7 +43,7 @@
 		AC52190A1B23BC85004A322E /* WineServer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5219091B23BC85004A322E /* WineServer.m */; };
 		AC5AC3511B3E1E5900538492 /* LaunchController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AC3501B3E1E5900538492 /* LaunchController.m */; };
 		AC5E86151C2363C40027FB80 /* ImageResizingValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E86141C2363C40027FB80 /* ImageResizingValueTransformer.m */; };
-		AC5E86191C2370300027FB80 /* NSButtonCell+MultilineButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E86181C2370300027FB80 /* NSButtonCell+MultilineButtons.m */; };
+		AC5E86191C2370300027FB80 /* StartMenuButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E86181C2370300027FB80 /* StartMenuButtonCell.m */; };
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
 		AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */; };
 		ACD830041B8D346900D8F285 /* usr in Resources */ = {isa = PBXBuildFile; fileRef = ACD830031B8D346900D8F285 /* usr */; };
@@ -129,8 +129,8 @@
 		AC5AC3501B3E1E5900538492 /* LaunchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchController.m; sourceTree = "<group>"; };
 		AC5E86131C2363C40027FB80 /* ImageResizingValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageResizingValueTransformer.h; sourceTree = "<group>"; };
 		AC5E86141C2363C40027FB80 /* ImageResizingValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResizingValueTransformer.m; sourceTree = "<group>"; };
-		AC5E86171C2370300027FB80 /* NSButtonCell+MultilineButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSButtonCell+MultilineButtons.h"; sourceTree = "<group>"; };
-		AC5E86181C2370300027FB80 /* NSButtonCell+MultilineButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSButtonCell+MultilineButtons.m"; sourceTree = "<group>"; };
+		AC5E86171C2370300027FB80 /* StartMenuButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuButtonCell.h; sourceTree = "<group>"; };
+		AC5E86181C2370300027FB80 /* StartMenuButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuButtonCell.m; sourceTree = "<group>"; };
 		AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		AC9681BD1ABCD59D00A9233B /* WorldsTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsTransformer.h; sourceTree = "<group>"; };
 		AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsTransformer.m; sourceTree = "<group>"; };
@@ -160,10 +160,10 @@
 				8A041E971BFBFD4100D60E08 /* PopupViewController.h */,
 				8A041E981BFBFD4100D60E08 /* PopupViewController.m */,
 				8A041E991BFBFD4100D60E08 /* Popup.xib */,
+				AC5E86161C2363E40027FB80 /* Start Menu */,
 				8A36AF561C1F530D0012D115 /* SetupViewController.h */,
 				8A36AF571C1F530D0012D115 /* SetupViewController.m */,
 				8A36AF581C1F530D0012D115 /* SetupViewController.xib */,
-				AC5E86161C2363E40027FB80 /* Start Menu */,
 			);
 			name = Popup;
 			path = Vindo;
@@ -302,8 +302,8 @@
 			isa = PBXGroup;
 			children = (
 				8A713E071C2492D200918B1A /* Models */,
-				AC2D42B21B3A1FA700F3C2FA /* Controllers */,
 				8A6880A51BC332D80032352B /* Windows */,
+				AC2D42B21B3A1FA700F3C2FA /* Controllers */,
 				AC8DB5AF1AA130A1000A6C51 /* Other Stuff */,
 				8A655B7C1AA6773E00FFCD0C /* Resources */,
 				AC3A4EDF1AA12F9A00781626 /* Supporting Files */,
@@ -349,6 +349,8 @@
 				8A36AF531C1F4D1B0012D115 /* StartMenuViewController.xib */,
 				AC5E86131C2363C40027FB80 /* ImageResizingValueTransformer.h */,
 				AC5E86141C2363C40027FB80 /* ImageResizingValueTransformer.m */,
+				AC5E86171C2370300027FB80 /* StartMenuButtonCell.h */,
+				AC5E86181C2370300027FB80 /* StartMenuButtonCell.m */,
 			);
 			name = "Start Menu";
 			sourceTree = "<group>";
@@ -361,8 +363,6 @@
 				8A70BF061BAA2BCF00F58EBE /* LetsMove */,
 				8A22BA5B1C18C165002B4351 /* NSObject+Notifications.h */,
 				8A22BA5C1C18C165002B4351 /* NSObject+Notifications.m */,
-				AC5E86171C2370300027FB80 /* NSButtonCell+MultilineButtons.h */,
-				AC5E86181C2370300027FB80 /* NSButtonCell+MultilineButtons.m */,
 			);
 			name = "Other Stuff";
 			path = Vindo;
@@ -558,7 +558,7 @@
 				8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
-				AC5E86191C2370300027FB80 /* NSButtonCell+MultilineButtons.m in Sources */,
+				AC5E86191C2370300027FB80 /* StartMenuButtonCell.m in Sources */,
 				8A36AF541C1F4D1B0012D115 /* StartMenuViewController.m in Sources */,
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
 				8A713E0C1C249AB400918B1A /* World+PasteboardSupport.m in Sources */,

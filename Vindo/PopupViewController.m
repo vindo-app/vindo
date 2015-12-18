@@ -74,6 +74,18 @@
     [self.view replaceSubview:oldView with:importantViewController.view];
     _importantViewController = importantViewController;
     [self doTheMath];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NSViewBoundsDidChangeNotification
+                                                  object:oldView];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(importantViewResized:)
+                                                 name:NSViewBoundsDidChangeNotification
+                                               object:importantViewController.view];
+}
+
+- (void)importantViewResized:(NSNotification *)notification {
+    [self doTheMath];
 }
 
 static CGFloat bottomPadding;

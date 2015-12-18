@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface NSButtonCell (MultilineButtons)
+@interface StartMenuButtonCell : NSButtonCell
 
 @end

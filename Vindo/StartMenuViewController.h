@@ -10,4 +10,9 @@
 
 @interface StartMenuViewController : NSViewController
 
+@property (nonatomic, readonly) NSUInteger rows;
+@property (nonatomic, readonly) NSUInteger columns;
+
+- (void)setRows:(NSUInteger)rows columns:(NSUInteger)columns;
+
 @end
