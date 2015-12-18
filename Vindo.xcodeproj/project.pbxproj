@@ -24,6 +24,8 @@
 		8A6880AC1BC3336E0032352B /* StartMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6880AB1BC3336E0032352B /* StartMenuController.m */; };
 		8A6880AF1BC333E10032352B /* StartMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6880AE1BC333E10032352B /* StartMenuItem.m */; };
 		8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A70BF041BAA2BC500F58EBE /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8A713E0C1C249AB400918B1A /* World+PasteboardSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A713E0B1C249AB400918B1A /* World+PasteboardSupport.m */; };
+		8A713E0F1C249BB800918B1A /* World+StartMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A713E0E1C249BB800918B1A /* World+StartMenu.m */; };
 		8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */; };
 		8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* Status.xib */; };
 		8AC01D5B1ABB72E200F8C066 /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01D5A1ABB72E200F8C066 /* World.m */; };
@@ -78,7 +80,7 @@
 		8A22BA5B1C18C165002B4351 /* NSObject+Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Notifications.h"; sourceTree = "<group>"; };
 		8A22BA5C1C18C165002B4351 /* NSObject+Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Notifications.m"; sourceTree = "<group>"; };
 		8A23F3BD1AA91EF600F1467C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = Vindo/MainMenu.xib; sourceTree = "<group>"; };
+		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		8A36AF511C1F4D1B0012D115 /* StartMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuViewController.h; sourceTree = "<group>"; };
 		8A36AF521C1F4D1B0012D115 /* StartMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuViewController.m; sourceTree = "<group>"; };
 		8A36AF531C1F4D1B0012D115 /* StartMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartMenuViewController.xib; sourceTree = "<group>"; };
@@ -95,6 +97,9 @@
 		8A6880AE1BC333E10032352B /* StartMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuItem.m; sourceTree = "<group>"; };
 		8A70BF031BAA2BB800F58EBE /* PFMoveApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; };
 		8A70BF041BAA2BC500F58EBE /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; };
+		8A713E0B1C249AB400918B1A /* World+PasteboardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "World+PasteboardSupport.m"; sourceTree = "<group>"; };
+		8A713E0D1C249BB800918B1A /* World+StartMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "World+StartMenu.h"; sourceTree = "<group>"; };
+		8A713E0E1C249BB800918B1A /* World+StartMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "World+StartMenu.m"; sourceTree = "<group>"; };
 		8ABB4AC21AB8DE7B00CDB93C /* StatusWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusWindowController.h; sourceTree = "<group>"; };
 		8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusWindowController.m; sourceTree = "<group>"; };
 		8ABB4AC41AB8DE7B00CDB93C /* Status.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Status.xib; sourceTree = "<group>"; };
@@ -118,9 +123,7 @@
 		AC3A4EE41AA12F9A00781626 /* ApplicationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ApplicationController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		AC5219021B225BBC004A322E /* WorldsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsController.h; sourceTree = "<group>"; };
 		AC5219031B225BBC004A322E /* WorldsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsController.m; sourceTree = "<group>"; };
-		AC5219051B23BBF2004A322E /* WinePrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinePrefix.h; sourceTree = "<group>"; };
 		AC5219061B23BBF2004A322E /* WinePrefix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinePrefix.m; sourceTree = "<group>"; };
-		AC5219081B23BC85004A322E /* WineServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineServer.h; sourceTree = "<group>"; };
 		AC5219091B23BC85004A322E /* WineServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineServer.m; sourceTree = "<group>"; };
 		AC5AC34F1B3E1E5900538492 /* LaunchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchController.h; sourceTree = "<group>"; };
 		AC5AC3501B3E1E5900538492 /* LaunchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchController.m; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 		8A655B7C1AA6773E00FFCD0C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8A713E081C2492E800918B1A /* Nibs */,
 				ACD830031B8D346900D8F285 /* usr */,
 				8A66CCB71BACD35500D7E592 /* vindo.icns */,
 				8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */,
@@ -182,9 +186,9 @@
 		8A6880A51BC332D80032352B /* Windows */ = {
 			isa = PBXGroup;
 			children = (
+				8A041E9C1BFBFD4500D60E08 /* Popup */,
 				8ABB4AC11AB8D8FF00CDB93C /* Status */,
 				AC1957C21AA52AB50077A25C /* Worlds Manager */,
-				8A041E9C1BFBFD4500D60E08 /* Popup */,
 			);
 			name = Windows;
 			sourceTree = "<group>";
@@ -198,6 +202,8 @@
 				8A6880A81BC333620032352B /* StartMenu.m */,
 				8A6880AD1BC333E10032352B /* StartMenuItem.h */,
 				8A6880AE1BC333E10032352B /* StartMenuItem.m */,
+				8A713E0D1C249BB800918B1A /* World+StartMenu.h */,
+				8A713E0E1C249BB800918B1A /* World+StartMenu.m */,
 			);
 			name = Start;
 			sourceTree = "<group>";
@@ -209,6 +215,24 @@
 				8A70BF041BAA2BC500F58EBE /* PFMoveApplication.m */,
 			);
 			name = LetsMove;
+			sourceTree = "<group>";
+		};
+		8A713E071C2492D200918B1A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC9681BC1ABCD57400A9233B /* Worlds */,
+				8A6880A61BC3330C0032352B /* Start */,
+			);
+			name = Models;
+			path = Vindo;
+			sourceTree = "<group>";
+		};
+		8A713E081C2492E800918B1A /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				8A23F3BE1AA91EF600F1467C /* MainMenu.xib */,
+			);
+			name = Nibs;
 			sourceTree = "<group>";
 		};
 		8ABB4AC11AB8D8FF00CDB93C /* Status */ = {
@@ -267,16 +291,20 @@
 				AC5AC3501B3E1E5900538492 /* LaunchController.m */,
 				ACDE7B151BAB76E100A37DE2 /* FirstTimeSetupController.h */,
 				ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */,
+				8AC01D611ABB879D00F8C066 /* WorldsMenuController.h */,
+				8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */,
 			);
 			name = Controllers;
+			path = Vindo;
 			sourceTree = "<group>";
 		};
 		AC3A4ED31AA12F9900781626 = {
 			isa = PBXGroup;
 			children = (
-				AC8DB5AF1AA130A1000A6C51 /* Code */,
+				8A713E071C2492D200918B1A /* Models */,
+				AC2D42B21B3A1FA700F3C2FA /* Controllers */,
 				8A6880A51BC332D80032352B /* Windows */,
-				8A23F3BE1AA91EF600F1467C /* MainMenu.xib */,
+				AC8DB5AF1AA130A1000A6C51 /* Other Stuff */,
 				8A655B7C1AA6773E00FFCD0C /* Resources */,
 				AC3A4EDF1AA12F9A00781626 /* Supporting Files */,
 				AC1957D01AA52BB10077A25C /* Frameworks */,
@@ -307,20 +335,10 @@
 		AC5219101B23C0BC004A322E /* Wine Prefix */ = {
 			isa = PBXGroup;
 			children = (
-				AC5219051B23BBF2004A322E /* WinePrefix.h */,
 				AC5219061B23BBF2004A322E /* WinePrefix.m */,
-				AC5219111B23C0E9004A322E /* Wine Server */,
-			);
-			name = "Wine Prefix";
-			sourceTree = "<group>";
-		};
-		AC5219111B23C0E9004A322E /* Wine Server */ = {
-			isa = PBXGroup;
-			children = (
-				AC5219081B23BC85004A322E /* WineServer.h */,
 				AC5219091B23BC85004A322E /* WineServer.m */,
 			);
-			name = "Wine Server";
+			name = "Wine Prefix";
 			sourceTree = "<group>";
 		};
 		AC5E86161C2363E40027FB80 /* Start Menu */ = {
@@ -335,34 +353,30 @@
 			name = "Start Menu";
 			sourceTree = "<group>";
 		};
-		AC8DB5AF1AA130A1000A6C51 /* Code */ = {
+		AC8DB5AF1AA130A1000A6C51 /* Other Stuff */ = {
 			isa = PBXGroup;
 			children = (
 				ACE47E961C0923C70001808C /* StatusBarView.h */,
 				ACE47E971C0923C70001808C /* StatusBarView.m */,
-				AC2D42B21B3A1FA700F3C2FA /* Controllers */,
-				AC9681BC1ABCD57400A9233B /* Worlds */,
-				AC5219101B23C0BC004A322E /* Wine Prefix */,
-				8A6880A61BC3330C0032352B /* Start */,
 				8A70BF061BAA2BCF00F58EBE /* LetsMove */,
 				8A22BA5B1C18C165002B4351 /* NSObject+Notifications.h */,
 				8A22BA5C1C18C165002B4351 /* NSObject+Notifications.m */,
 				AC5E86171C2370300027FB80 /* NSButtonCell+MultilineButtons.h */,
 				AC5E86181C2370300027FB80 /* NSButtonCell+MultilineButtons.m */,
 			);
-			name = Code;
+			name = "Other Stuff";
 			path = Vindo;
 			sourceTree = "<group>";
 		};
 		AC9681BC1ABCD57400A9233B /* Worlds */ = {
 			isa = PBXGroup;
 			children = (
-				AC5219021B225BBC004A322E /* WorldsController.h */,
-				AC5219031B225BBC004A322E /* WorldsController.m */,
+				AC5219101B23C0BC004A322E /* Wine Prefix */,
 				8AC01D591ABB72E200F8C066 /* World.h */,
 				8AC01D5A1ABB72E200F8C066 /* World.m */,
-				8AC01D611ABB879D00F8C066 /* WorldsMenuController.h */,
-				8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */,
+				8A713E0B1C249AB400918B1A /* World+PasteboardSupport.m */,
+				AC5219021B225BBC004A322E /* WorldsController.h */,
+				AC5219031B225BBC004A322E /* WorldsController.m */,
 				AC9681BD1ABCD59D00A9233B /* WorldsTransformer.h */,
 				AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */,
 				8AC01D6A1ABB930F00F8C066 /* IndexSetToIntTransformer.h */,
@@ -537,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A713E0F1C249BB800918B1A /* World+StartMenu.m in Sources */,
 				8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */,
 				ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
@@ -546,6 +561,7 @@
 				AC5E86191C2370300027FB80 /* NSButtonCell+MultilineButtons.m in Sources */,
 				8A36AF541C1F4D1B0012D115 /* StartMenuViewController.m in Sources */,
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
+				8A713E0C1C249AB400918B1A /* World+PasteboardSupport.m in Sources */,
 				AC05808C1ABF97F700854813 /* ManageWorldsWindowController.m in Sources */,
 				8A041E9F1BFBFF0400D60E08 /* PopupController.m in Sources */,
 				AC5E86151C2363C40027FB80 /* ImageResizingValueTransformer.m in Sources */,

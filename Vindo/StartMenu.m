@@ -10,7 +10,7 @@
 #import "StartMenuItem.h"
 #import "WorldsController.h"
 #import "World.h"
-#import "WinePrefix.h"
+#import "World+StartMenu.h"
 #import <CDEvents/CDEvents.h>
 #import <CoreServices/CoreServices.h>
 

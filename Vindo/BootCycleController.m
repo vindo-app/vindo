@@ -8,7 +8,6 @@
 
 #import "BootCycleController.h"
 #import "WorldsController.h"
-#import "WinePrefix.h"
 
 @interface BootCycleController ()
 
@@ -42,17 +41,17 @@
         return;
 
     if (self.oldSelectedWorld != nil) {
-        [self.oldSelectedWorld.prefix stopServer];
+        [self.oldSelectedWorld stop];
     }
     if (newSelectedWorld != nil) {
-        [newSelectedWorld.prefix startServer];
+        [newSelectedWorld start];
     }
 
     self.oldSelectedWorld = newSelectedWorld; // save for next time
 }
 
 - (void)stopOnQuit:(NSNotification *)notification {
-    [[WorldsController sharedController].selectedWorld.prefix stopServer];
+    [[WorldsController sharedController].selectedWorld stop];
 }
 
 @end
