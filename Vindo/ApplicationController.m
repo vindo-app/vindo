@@ -16,7 +16,6 @@
 #import "ManageWorldsWindowController.h"
 
 #import "World.h"
-#import "WinePrefix.h"
 #import "WorldsController.h"
 
 #import "PFMoveApplication.h"

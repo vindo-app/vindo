@@ -8,8 +8,6 @@
 
 #import "FirstTimeSetupController.h"
 #import "World.h"
-#import "WinePrefix.h"
-#import "WineServer.h"
 #import "WorldsController.h"
 #import "NSObject+Notifications.h"
 
@@ -50,13 +48,13 @@ static FirstTimeSetupController *sharedInstance;
         [worlds addObject:defaultWorld];
         worlds.selectedObjects = @[defaultWorld];
         
-        [defaultWorld.prefix startServer];
+        [defaultWorld start];
         
-        [defaultWorld.prefix.server onNext:WineServerDidStartNotification
-                                        do:^(id n) {
-                                            [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidCompleteNotification object:self];
-                                            self.happening = NO;
-                                        }];
+        [defaultWorld onNext:WorldDidStartNotification
+                          do:^(id n) {
+                              [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidCompleteNotification object:self];
+                              self.happening = NO;
+                          }];
     }
 }
 

@@ -6,32 +6,13 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
-#import "WinePrefix.h"
-#import "WineServer.h"
+#import <Cocoa/Cocoa.h>
+#import "World.h"
 
 static NSURL *usrURL;
 static NSMapTable *prefixes;
 
-@interface WinePrefix ()
-
-@property (nonatomic) NSFileHandle *logFileHandle;
-
-@end
-
-@implementation WinePrefix
-
-- (instancetype)initWithPrefixURL:(NSURL *)prefixURL {
-    if ([prefixes objectForKey:prefixURL] != nil)
-        return [prefixes objectForKey:prefixURL];
-
-    if (self = [super init]) {
-        _prefixURL = prefixURL;
-        _server = [[WineServer alloc] initWithPrefix:self];
-    }
-
-    [prefixes setObject:self forKey:prefixURL];
-    return self;
-}
+@implementation World (WinePrefix)
 
 - (NSTask *)wineTaskWithProgram:(NSString *)program
                   arguments:(NSArray *)arguments {
@@ -49,16 +30,8 @@ static NSMapTable *prefixes;
     return task;
 }
 
-- (void)startServer {
-    [self.server start];
-}
-
-- (void)stopServer {
-    [self.server stop];
-}
-
 - (NSDictionary *)wineEnvironment {
-    return @{@"WINEPREFIX": [self.prefixURL path],
+    return @{@"WINEPREFIX": [self.url path],
              @"PATH": [[usrURL URLByAppendingPathComponent:@"bin"] path],
              @"DYLD_FALLBACK_LIBRARY_PATH": [[usrURL URLByAppendingPathComponent:@"lib"] path]
              };
@@ -67,7 +40,7 @@ static NSMapTable *prefixes;
 - (NSFileHandle *)logFileHandle {
     if (_logFileHandle == nil) {
         // we have to use the unix functions for opening files because NSFileHandle doesn't do appending
-        NSString *logFilePath = [[self.prefixURL URLByAppendingPathComponent:@"wine.log"] path];
+        NSString *logFilePath = [[self.url URLByAppendingPathComponent:@"wine.log"] path];
         int logFileDescriptor = open([logFilePath UTF8String],
                                      O_WRONLY | O_CREAT | O_APPEND,
                                      0644); // mode: -rw-r--r--
@@ -80,10 +53,7 @@ static NSMapTable *prefixes;
 }
 
 + (void)initialize {
-    if (self == [WinePrefix class]) {
-        usrURL = [[[NSBundle mainBundle] resourceURL] URLByAppendingPathComponent:@"usr"];
-        prefixes = [NSMapTable strongToWeakObjectsMapTable];
-    }
+    usrURL = [[[NSBundle mainBundle] resourceURL] URLByAppendingPathComponent:@"usr"];
 }
 
 @end

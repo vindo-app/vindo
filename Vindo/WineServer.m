@@ -6,34 +6,11 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
-#import "WineServer.h"
-#import "WinePrefix.h"
+#import "World.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "NSObject+Notifications.h"
 
-typedef enum {
-    WineServerStopped,
-    WineServerStarting,
-    WineServerRunning,
-    WineServerStopping
-} WineServerState;
-
-@interface WineServer ()
-
-@property NSTask *serverTask;
-@property WineServerState state;
-
-@end
-
-@implementation WineServer
-
-- (instancetype)initWithPrefix:(WinePrefix *)prefix {
-    if (self = [super init]) {
-        _prefix = prefix;
-        self.state = WineServerStopped;
-    }
-    return self;
-}
+@implementation World (WineServer);
 
 - (void)start {
     if (self.state == WineServerRunning ||
@@ -41,7 +18,7 @@ typedef enum {
         return;
     }
     if (self.state == WineServerStopping) {
-        [self onNext:WineServerDidStopNotification
+        [self onNext:WorldDidStopNotification
                   do:^(id n) {
                       [self actuallyStart];
                   }];
@@ -55,24 +32,24 @@ typedef enum {
 
     // make sure prefix directory exists
     NSFileManager *manager = [NSFileManager defaultManager];
-    if (![manager createDirectoryAtURL:_prefix.prefixURL
+    if (![manager createDirectoryAtURL:self.url
            withIntermediateDirectories:YES
                             attributes:nil
                                  error:nil]) {
         return;
     }
 
-    self.serverTask = [_prefix wineTaskWithProgram:@"wineserver" arguments:@[@"--foreground", @"--persistent"]];
+    self.serverTask = [self wineTaskWithProgram:@"wineserver" arguments:@[@"--foreground", @"--persistent"]];
     [self.serverTask launch];
 
     // now that the server is launched, run wineboot to fake boot the system
-    NSTask *wineboot = [_prefix wineTaskWithProgram:@"wine" arguments:@[@"wineboot"]];
+    NSTask *wineboot = [self wineTaskWithProgram:@"wine" arguments:@[@"wineboot"]];
 
     wineboot.terminationHandler = ^(NSTask *_) {
         self.state = WineServerRunning;
 
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center postNotificationName:WineServerDidStartNotification object:self];
+        [center postNotificationName:WorldDidStartNotification object:self];
     };
 
     [wineboot launch];
@@ -84,7 +61,7 @@ typedef enum {
         return;
     }
     if (self.state == WineServerStarting) {
-        [self onNext:WineServerDidStartNotification
+        [self onNext:WorldDidStartNotification
                   do:^(id n) {
                       [self actuallyStart];
                   }];
@@ -96,16 +73,15 @@ typedef enum {
 - (void)actuallyStop {
     self.state = WineServerStopping;
     // first end the session with wineboot
-    NSTask *endSession = [_prefix wineTaskWithProgram:@"wine"
-                                            arguments:@[@"wineboot", @"--end-session", @"--shutdown"]];
+    NSTask *endSession = [self wineTaskWithProgram:@"wine"
+                                         arguments:@[@"wineboot", @"--end-session", @"--shutdown"]];
     endSession.terminationHandler = ^(NSTask *_) {
-        NSTask *killServer = [_prefix wineTaskWithProgram:@"wineserver" arguments:@[@"--kill"]];
+        NSTask *killServer = [self wineTaskWithProgram:@"wineserver" arguments:@[@"--kill"]];
         [killServer launch];
         [self.serverTask waitUntilExit];
 
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center postNotificationName:WineServerDidStopNotification
-                              object:self.prefix.server];
+        [center postNotificationName:WorldDidStopNotification object:self];
         self.state = WineServerStopped;
     };
     [endSession launch];
@@ -117,8 +93,5 @@ typedef enum {
 
 @end
 
-NSString *const WineServerWillStartNotification = @"WineServerWillStartNotification";
-NSString *const WineServerDidStartNotification = @"WineServerDidStartNotification";
-NSString *const WineServerWillStopNotification = @"WineServerWillStopNotification";
-NSString *const WineServerDidStopNotification = @"WineServerDidStopNotification";
-NSString *const WineServerDidCrashNotification = @"WineServerDidCrashNotification";
+NSString *const WorldDidStartNotification = @"WorldDidStartNotification";
+NSString *const WorldDidStopNotification = @"WorldDidStopNotification";

@@ -8,7 +8,7 @@
 
 #import "StartMenuItem.h"
 #import "World.h"
-#import "WinePrefix.h"
+#import "World+StartMenu.h"
 #import "WorldsController.h"
 
 @implementation StartMenuItem
