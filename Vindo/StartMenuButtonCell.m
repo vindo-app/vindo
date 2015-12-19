@@ -19,9 +19,9 @@
 - (NSRect)drawTitle:(NSAttributedString *)title withFrame:(NSRect)frame inView:(NSView *)controlView {
     NSColor *textColor;
     if (NSAppKitVersionNumber >= NSAppKitVersionNumber10_10) {
-        textColor = [NSColor controlTextColor];
-    } else {
         textColor = [NSColor labelColor];
+    } else {
+        textColor = [NSColor controlTextColor];
     }
     
     NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
