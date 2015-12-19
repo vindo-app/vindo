@@ -59,6 +59,10 @@
                                              selector:@selector(reshowPopup:)
                                                  name:@"ReshowPopup"
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(eliminatePopup:)
+                                                 name:@"EliminatePopup"
+                                               object:nil];
     
     [self.popover on:NSPopoverWillShowNotification
             doAction:@selector(createEventMonitors:)
@@ -123,6 +127,10 @@
 
 - (void)reshowPopup:(NSNotification *)notification {
     self.popover.contentSize = self.pvc.view.bounds.size;
+}
+
+- (void)eliminatePopup:(NSNotification *)notification {
+    [self hidePopover];
 }
 
 @end

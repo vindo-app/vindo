@@ -82,7 +82,7 @@
     if (_arrayController.selectedObjects.count < 1)
         return; // don't bother deleting nothing
     
-    NSArray *worldsToDelete = self.arrayController.selectedObjects;
+    NSMutableArray *worldsToDelete = [self.arrayController.selectedObjects mutableCopy];
     
     NSString *message;
     if (worldsToDelete.count == 1)
@@ -92,14 +92,20 @@
         message = [NSString stringWithFormat:@"Deleting %lu worlds…",
                    (unsigned long) worldsToDelete.count];
     
+    self.statusWindow = [[StatusWindowController alloc] initWithMessage:message sheetWindow:self.window];
+    [self.statusWindow appear];
+    
     for (World *world in worldsToDelete) {
-        // FIXME: there's no progress indicator
         [world onNext:WorldDidStopNotification
                    do:^(id n) {
                        [[NSFileManager defaultManager] trashItemAtURL:world.url
                                                      resultingItemURL:nil
                                                                 error:nil]; // move world to trash
                        [self.arrayController removeObject:world]; // remove object from worlds
+                       [worldsToDelete removeObject:world];
+                       if (worldsToDelete.count == 0) {
+                           [self.statusWindow disappear];
+                       }
                    }];
         [world stop];
     }

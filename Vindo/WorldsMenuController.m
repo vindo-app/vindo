@@ -8,13 +8,14 @@
 
 #import "WorldsMenuController.h"
 #import "World.h"
+#import "WorldsController.h"
 
 @interface WorldsMenuController () {
     NSMenu *template;
 }
 
 @property IBOutlet NSMenu *worldsMenu;
-@property IBOutlet NSArrayController *worldsArrayController;
+@property NSArrayController *worldsArrayController;
 
 @end
 
@@ -22,6 +23,7 @@
 
 - (void)awakeFromNib {
     template = [self.worldsMenu copy];
+    self.worldsArrayController = [WorldsController sharedController];
     
     [self.worldsArrayController addObserver:self
                                  forKeyPath:@"selectedObjects"

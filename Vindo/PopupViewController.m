@@ -22,6 +22,10 @@
 @property IBOutlet NSView *placeholderView;
 @property IBOutlet NSPopUpButton *actionButton;
 
+@property (weak) IBOutlet NSMenu *popupMenu;
+@property (weak) IBOutlet NSMenu *runMenu;
+@property (weak) IBOutlet NSMenu *worldsMenu;
+
 @end
 
 @implementation PopupViewController
@@ -51,6 +55,19 @@
                selector:@selector(firstTimeSetupEnded:)
                    name:FirstTimeSetupDidCompleteNotification
                  object:nil];
+    
+    [center addObserver:self
+               selector:@selector(menuItemWasClicked:)
+                   name:NSMenuDidSendActionNotification
+                 object:self.popupMenu];
+    [center addObserver:self
+               selector:@selector(menuItemWasClicked:)
+                   name:NSMenuDidSendActionNotification
+                 object:self.runMenu];
+    [center addObserver:self
+               selector:@selector(menuItemWasClicked:)
+                   name:NSMenuDidSendActionNotification
+                 object:self.worldsMenu];
 }
 
 - (void)firstTimeSetupStarted:(NSNotification *)notification {
@@ -63,6 +80,10 @@
     [self performSelectorOnMainThread:@selector(setImportantViewController:)
                            withObject:self.defaultViewController
                         waitUntilDone:NO];
+}
+
+- (void)menuItemWasClicked:(NSNotification *)notification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EliminatePopup" object:self];
 }
 
 - (void)setImportantViewController:(NSViewController *)importantViewController {

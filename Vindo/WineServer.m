@@ -56,14 +56,18 @@
 }
 
 - (void)stop {
-    if (self.state == WineServerStopped ||
-        self.state == WineServerStopping) {
+    if (self.state == WineServerStopped) {
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center postNotificationName:WorldDidStopNotification object:self];
+        return;
+    }
+    if (self.state == WineServerStopping) {
         return;
     }
     if (self.state == WineServerStarting) {
         [self onNext:WorldDidStartNotification
                   do:^(id n) {
-                      [self actuallyStart];
+                      [self actuallyStop];
                   }];
     } else {
         [self actuallyStop];
@@ -80,8 +84,7 @@
         [killServer launch];
         [self.serverTask waitUntilExit];
 
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center postNotificationName:WorldDidStopNotification object:self];
+
         self.state = WineServerStopped;
     };
     [endSession launch];
