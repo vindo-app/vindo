@@ -8,6 +8,13 @@
 
 #import "StartMenuButtonCell.h"
 
+// kludge so I can compile this on mavericks
+@interface NSColor (CompilingOnMavericks)
++ (NSColor *)labelColor;
+@end
+#define NSAppKitVersionNumber10_9 1265
+#define NSCenterTextAlignment 2
+
 @implementation StartMenuButtonCell : NSButtonCell
 
 - (id)awakeAfterUsingCoder:(NSCoder *)aDecoder {
@@ -18,14 +25,14 @@
 
 - (NSRect)drawTitle:(NSAttributedString *)title withFrame:(NSRect)frame inView:(NSView *)controlView {
     NSColor *textColor;
-    if (NSAppKitVersionNumber >= NSAppKitVersionNumber10_10) {
-        textColor = [NSColor labelColor];
-    } else {
+    if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9) { // mavericks or before
         textColor = [NSColor controlTextColor];
+    } else {
+        textColor = [NSColor labelColor];
     }
     
     NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    paragraphStyle.alignment = NSTextAlignmentCenter;
+    paragraphStyle.alignment = NSCenterTextAlignment;
     
     title = [[NSAttributedString alloc] initWithString:title.string
                                             attributes:@{

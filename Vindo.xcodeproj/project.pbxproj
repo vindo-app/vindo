@@ -20,7 +20,6 @@
 		8A36AF5A1C1F530D0012D115 /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A36AF581C1F530D0012D115 /* SetupViewController.xib */; };
 		8A5B97581C24DF24001FF0EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B97571C24DF24001FF0EF /* AppDelegate.m */; };
 		8A5B975B1C24DF24001FF0EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B975A1C24DF24001FF0EF /* main.m */; };
-		8A5B975D1C24DF24001FF0EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B975C1C24DF24001FF0EF /* Assets.xcassets */; };
 		8A5B97601C24DF24001FF0EF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B975E1C24DF24001FF0EF /* MainMenu.xib */; };
 		8A5B97671C24DF61001FF0EF /* Windows Program.app in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B97541C24DF24001FF0EF /* Windows Program.app */; };
 		8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */; };
@@ -49,6 +48,7 @@
 		AC5AC3511B3E1E5900538492 /* LaunchController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AC3501B3E1E5900538492 /* LaunchController.m */; };
 		AC5E86151C2363C40027FB80 /* ImageResizingValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E86141C2363C40027FB80 /* ImageResizingValueTransformer.m */; };
 		AC5E86191C2370300027FB80 /* StartMenuButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E86181C2370300027FB80 /* StartMenuButtonCell.m */; };
+		AC5E861C1C263F7E0027FB80 /* AppBundleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E861B1C263F7E0027FB80 /* AppBundleGenerator.m */; };
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
 		AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */; };
 		ACD830041B8D346900D8F285 /* usr in Resources */ = {isa = PBXBuildFile; fileRef = ACD830031B8D346900D8F285 /* usr */; };
@@ -106,7 +106,6 @@
 		8A5B97561C24DF24001FF0EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8A5B97571C24DF24001FF0EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8A5B975A1C24DF24001FF0EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8A5B975C1C24DF24001FF0EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A5B975F1C24DF24001FF0EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8A5B97611C24DF24001FF0EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = statusbar.tiff; sourceTree = "<group>"; };
@@ -153,6 +152,8 @@
 		AC5E86141C2363C40027FB80 /* ImageResizingValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResizingValueTransformer.m; sourceTree = "<group>"; };
 		AC5E86171C2370300027FB80 /* StartMenuButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuButtonCell.h; sourceTree = "<group>"; };
 		AC5E86181C2370300027FB80 /* StartMenuButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuButtonCell.m; sourceTree = "<group>"; };
+		AC5E861A1C263F7D0027FB80 /* AppBundleGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBundleGenerator.h; sourceTree = "<group>"; };
+		AC5E861B1C263F7E0027FB80 /* AppBundleGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBundleGenerator.m; sourceTree = "<group>"; };
 		AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		AC9681BD1ABCD59D00A9233B /* WorldsTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsTransformer.h; sourceTree = "<group>"; };
 		AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsTransformer.m; sourceTree = "<group>"; };
@@ -203,7 +204,6 @@
 			children = (
 				8A5B97561C24DF24001FF0EF /* AppDelegate.h */,
 				8A5B97571C24DF24001FF0EF /* AppDelegate.m */,
-				8A5B975C1C24DF24001FF0EF /* Assets.xcassets */,
 				8A5B975E1C24DF24001FF0EF /* MainMenu.xib */,
 				8A5B97611C24DF24001FF0EF /* Info.plist */,
 				8A5B97591C24DF24001FF0EF /* Supporting Files */,
@@ -222,7 +222,7 @@
 		8A655B7C1AA6773E00FFCD0C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8A713E081C2492E800918B1A /* Nibs */,
+				8A23F3BE1AA91EF600F1467C /* MainMenu.xib */,
 				ACD830031B8D346900D8F285 /* usr */,
 				8A66CCB71BACD35500D7E592 /* vindo.icns */,
 				8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */,
@@ -254,6 +254,8 @@
 				8A6880AE1BC333E10032352B /* StartMenuItem.m */,
 				8A713E0D1C249BB800918B1A /* World+StartMenu.h */,
 				8A713E0E1C249BB800918B1A /* World+StartMenu.m */,
+				AC5E861A1C263F7D0027FB80 /* AppBundleGenerator.h */,
+				AC5E861B1C263F7E0027FB80 /* AppBundleGenerator.m */,
 			);
 			name = Start;
 			sourceTree = "<group>";
@@ -275,14 +277,6 @@
 			);
 			name = Models;
 			path = Vindo;
-			sourceTree = "<group>";
-		};
-		8A713E081C2492E800918B1A /* Nibs */ = {
-			isa = PBXGroup;
-			children = (
-				8A23F3BE1AA91EF600F1467C /* MainMenu.xib */,
-			);
-			name = Nibs;
 			sourceTree = "<group>";
 		};
 		8ABB4AC11AB8D8FF00CDB93C /* Status */ = {
@@ -523,7 +517,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A5B975D1C24DF24001FF0EF /* Assets.xcassets in Resources */,
 				8A5B97601C24DF24001FF0EF /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -649,6 +642,7 @@
 				ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
 				8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */,
+				AC5E861C1C263F7E0027FB80 /* AppBundleGenerator.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				AC5E86191C2370300027FB80 /* StartMenuButtonCell.m in Sources */,
@@ -709,7 +703,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Windows Program/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tbodt.Windows-Program";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -725,7 +719,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Windows Program/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tbodt.Windows-Program";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -861,6 +855,7 @@
 				8A5B97631C24DF24001FF0EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC3A4ED71AA12F9900781626 /* Build configuration list for PBXProject "Vindo" */ = {
 			isa = XCConfigurationList;

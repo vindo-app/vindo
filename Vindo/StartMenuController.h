@@ -13,4 +13,6 @@
 
 @property (readonly) StartMenu *menu;
 
++ (StartMenuController *)sharedInstance;
+
 @end
