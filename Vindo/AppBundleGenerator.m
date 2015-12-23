@@ -24,7 +24,7 @@
         StartMenuController *smc = [StartMenuController sharedInstance];
         [smc addObserver:self
               forKeyPath:@"menu"
-                 options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld | NSKeyValueObservingOptionInitial
+                 options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial
                  context:NULL];
     }
     return self;
@@ -42,28 +42,23 @@
         return;
     }
 
-    NSArray *old = change[NSKeyValueChangeOldKey];
-    NSArray *new = change[NSKeyValueChangeNewKey];
-
-    NSMutableArray *addedItems = [new mutableCopy];
-    [addedItems removeObjectsInArray:old];
-    for (StartMenuItem *addedItem in addedItems) {
-        [self generateBundleForItem:addedItem];
-    }
-
-    NSMutableArray *removedItems = [old mutableCopy];
-    [removedItems removeObjectsInArray:new];
-    for (StartMenuItem *removedItem in removedItems) {
-        [self removeBundleForItem:removedItem];
+    StartMenuItem *changedItem = change[NSKeyValueChangeNewKey][0];
+    switch ([change[NSKeyValueChangeKindKey] intValue]) {
+        case NSKeyValueChangeInsertion:
+            [self generateBundleForItem:changedItem];
+            break;
+        case NSKeyValueChangeRemoval:
+            [self removeBundleForItem:changedItem];
+            break;
     }
 }
 
 - (void)generateBundleForItem:(StartMenuItem *)addedItem {
-    
+    NSLog(@"generating bundle %@", addedItem);
 }
 
 - (void)removeBundleForItem:(StartMenuItem *)removedItem {
-    
+    NSLog(@"removing bundle %@", removedItem);
 }
 
 @end

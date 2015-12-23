@@ -40,7 +40,7 @@
                            attributes:nil
                                 error:NULL];
 
-        [self URLWatcher:nil eventOccurred:nil]; // trigger a refresh
+        [self rescanPrograms];
         
         self.events = [[CDEvents alloc] initWithURLs:@[self.programsFolder]
                                             delegate:self
@@ -55,7 +55,69 @@
 }
 
 - (void)URLWatcher:(CDEvents *)URLWatcher eventOccurred:(CDEvent *)event {
-    // just redo everything for now
+    [self performSelectorOnMainThread:@selector(dealWithEvent:)
+                           withObject:event
+                        waitUntilDone:NO];
+}
+
+- (void)dealWithEvent:(CDEvent *)event {
+    FSEventStreamEventFlags flags = event.flags;
+    
+    if (flags & (kFSEventStreamEventFlagUserDropped |
+                 kFSEventStreamEventFlagKernelDropped)) {
+        [self rescanPrograms];
+    } else if (flags & kFSEventStreamEventFlagItemCreated) {
+        [self addItemAtURL:event.URL];
+    } else if (flags & kFSEventStreamEventFlagItemRemoved) {
+        [self removeItemAtURL:event.URL];
+    }
+}
+
+- (void)addItemAtURL:(NSURL *)url {
+    if (![url.path hasSuffix:@".plist"])
+        return;
+    
+    NSString *nativeIdentifier = [self nativeIdentifierForURL:url];
+    
+    [self willChange:NSKeyValueChangeInsertion
+     valuesAtIndexes:[NSIndexSet indexSetWithIndex:self.mutableItems.count]
+              forKey:@"items"];
+    [self.mutableItems addObject:[[StartMenuItem alloc] initWithNativeIdentifier:nativeIdentifier inWorld:self.world]];
+    [self didChange:NSKeyValueChangeInsertion
+    valuesAtIndexes:[NSIndexSet indexSetWithIndex:self.mutableItems.count]
+             forKey:@"items"];
+    NSLog(@"adding item at URL: %@", url);
+    NSLog(@"adding :resulting items: %@", self.mutableItems);
+}
+
+- (void)removeItemAtURL:(NSURL *)url {
+    if (![url.path hasSuffix:@".plist"])
+        return;
+    
+    NSString *nativeIdentifier = [self nativeIdentifierForURL:url];
+    
+    StartMenuItem *itemToRemove;
+    for (StartMenuItem *item in self.mutableItems) {
+        if ([item.nativeIdentifier isEqualToString:nativeIdentifier]) {
+            itemToRemove = item;
+            break;
+        }
+    }
+    
+    if (itemToRemove) {
+        [self willChange:NSKeyValueChangeRemoval
+         valuesAtIndexes:[NSIndexSet indexSetWithIndex:[self.mutableItems indexOfObject:itemToRemove]]
+                  forKey:@"items"];
+        [self.mutableItems removeObject:itemToRemove];
+        [self didChange:NSKeyValueChangeRemoval
+        valuesAtIndexes:[NSIndexSet indexSetWithIndex:[self.mutableItems indexOfObject:itemToRemove]]
+                 forKey:@"items"];
+    }
+    NSLog(@"removing item at URL: %@", url);
+    NSLog(@"removing :resulting items: %@", self.mutableItems);
+}
+
+- (void)rescanPrograms {
     NSFileManager *manager = [NSFileManager defaultManager];
     NSArray *startMenuFiles = [manager contentsOfDirectoryAtURL:_programsFolder
                                      includingPropertiesForKeys:@[NSURLNameKey]
@@ -66,14 +128,20 @@
     for (NSURL *startMenuFile in startMenuFiles) {
         if (![[startMenuFile path] hasSuffix:@".plist"])
             continue;
-
-        NSString *nativeIdentifier = startMenuFile.path.stringByDeletingPathExtension.lastPathComponent;
+        
+        NSString *nativeIdentifier = [self nativeIdentifierForURL:startMenuFile];
         
         [newItems addObject:[[StartMenuItem alloc] initWithNativeIdentifier:nativeIdentifier inWorld:self.world]];
     }
+    
     [self willChangeValueForKey:@"items"];
     self.mutableItems = newItems;
     [self didChangeValueForKey:@"items"];
+    NSLog(@"rescan happened: %@", self.mutableItems);
+}
+
+- (NSString *)nativeIdentifierForURL:(NSURL *)url {
+    return url.path.stringByDeletingPathExtension.lastPathComponent;
 }
 
 - (NSArray *)items {

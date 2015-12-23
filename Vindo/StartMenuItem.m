@@ -48,4 +48,16 @@
     return self;
 }
 
+- (BOOL)isEqual:(StartMenuItem *)item {
+    return [self.nativeIdentifier isEqualToString:item.nativeIdentifier];
+}
+
+- (NSUInteger)hash {
+    return [self.nativeIdentifier hash];
+}
+
+- (NSString *)description {
+    return self.nativeIdentifier;
+}
+
 @end
