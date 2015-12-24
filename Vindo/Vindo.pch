@@ -25,3 +25,7 @@ static class *sharedInstance; \
     return [self alloc]; \
 } \
 @end
+
+#ifndef DEBUG
+#define NSLog
+#endif

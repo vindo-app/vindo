@@ -43,7 +43,7 @@
 
         NSURL *imageFile = [[programsFolder URLByAppendingPathComponent:nativeIdentifier]
                             URLByAppendingPathExtension:@"icns"];
-        _image = [[NSImage alloc] initWithContentsOfURL:imageFile];
+        _image = [[NSImage alloc] initByReferencingURL:imageFile];
     }
     return self;
 }

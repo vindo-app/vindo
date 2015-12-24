@@ -16,4 +16,6 @@
 
 - (id)initWithWorld:(World *)world;
 
+@property World *world;
+
 @end

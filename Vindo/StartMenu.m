@@ -20,8 +20,6 @@
 @property NSURL *programsFolder;
 @property CDEvents *events;
 
-@property World *world;
-
 @end
 
 @implementation StartMenu
@@ -40,7 +38,7 @@
                            attributes:nil
                                 error:NULL];
 
-        [self rescanPrograms];
+        [self initializeItems];
         
         self.events = [[CDEvents alloc] initWithURLs:@[self.programsFolder]
                                             delegate:self
@@ -63,10 +61,7 @@
 - (void)dealWithEvent:(CDEvent *)event {
     FSEventStreamEventFlags flags = event.flags;
     
-    if (flags & (kFSEventStreamEventFlagUserDropped |
-                 kFSEventStreamEventFlagKernelDropped)) {
-        [self rescanPrograms];
-    } else if (flags & kFSEventStreamEventFlagItemCreated) {
+    if (flags & kFSEventStreamEventFlagItemCreated) {
         [self addItemAtURL:event.URL];
     } else if (flags & kFSEventStreamEventFlagItemRemoved) {
         [self removeItemAtURL:event.URL];
@@ -117,7 +112,7 @@
     NSLog(@"removing :resulting items: %@", self.mutableItems);
 }
 
-- (void)rescanPrograms {
+- (void)initializeItems {
     NSFileManager *manager = [NSFileManager defaultManager];
     NSArray *startMenuFiles = [manager contentsOfDirectoryAtURL:_programsFolder
                                      includingPropertiesForKeys:@[NSURLNameKey]
@@ -134,10 +129,8 @@
         [newItems addObject:[[StartMenuItem alloc] initWithNativeIdentifier:nativeIdentifier inWorld:self.world]];
     }
     
-    [self willChangeValueForKey:@"items"];
     self.mutableItems = newItems;
-    [self didChangeValueForKey:@"items"];
-    NSLog(@"rescan happened: %@", self.mutableItems);
+    NSLog(@"initial items: %@", self.mutableItems);
 }
 
 - (NSString *)nativeIdentifierForURL:(NSURL *)url {
