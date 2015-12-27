@@ -1,6 +1,7 @@
 ---
 type: post
-author: joseph
+author: "Joseph"
+published: true
 ---
 
 You might think making an icon is easy. You’d be wrong.

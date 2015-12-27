@@ -18,3 +18,45 @@ defaults:
 
 # Build settings
 markdown: kramdown
+
+prose:
+    date: CURRENT_DATETIME
+    siteurl: "https://vindo.co/"
+    media: images
+    ignore:
+        - /_data
+        - /_includes
+        - /_sass
+        - /_versions
+        - /css
+        - /vanillabox
+        - .codio
+        - CNAME
+        - bak
+        - sitemap.xml
+        - appcast.xml
+    metadata:
+        _posts:
+            - name: title
+              field:
+                  element: text
+                  label: "Title"
+            - name: "published"
+              field:
+                  element: "checkbox"
+                  label: "Published"
+                  value: false
+            - name: type
+              field:
+                  element: hidden
+                  value: post
+            - name: author
+              field:
+                  element: select
+                  label: "Author"
+                  options: 
+                      - name: "Theodore"
+                        value: "Theodore"
+                      - name: "Joseph"
+                        value: "Joseph"
+                  

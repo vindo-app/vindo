@@ -5,14 +5,16 @@ permalink: "/blog/"
 ---
 
 {% for post in site.posts %}
-    <div class="blog-post">
-        <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-        <div class="date">{{ post.date | date: '%B %d, %Y' }}</div>
+    {% if post.published %}
+        <div class="blog-post">
+            <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+            <div class="date">{{ post.date | date: '%B %d, %Y' }}</div>
 
-        <div class="blog-content">
-            {{ post.content }}
+            <div class="blog-content">
+                {{ post.content }}
+            </div>
+
+            <div class="author">{{ post.author }}</div>
         </div>
-        
-        <div class="author">{{ site.data.authors[post.author] }}</div>
-    </div>
+    {% endif %}
 {% endfor %}

@@ -1,6 +1,7 @@
 ---
 type: post
-author: theodore
+author: "Theodore"
+published: true
 ---
 
 I'm working on a UI redesign that will significantly improve the usability of Vindo. It'll do this primarily by putting the Start menu in the UI, in the form of a popup on the status bar icon. I'll also add some tooltips/explanatory text to make the UI self-explanatory.
