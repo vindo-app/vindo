@@ -90,21 +90,21 @@
     
     NSString *nativeIdentifier = [self nativeIdentifierForURL:url];
     
-    StartMenuItem *itemToRemove;
-    for (StartMenuItem *item in self.mutableItems) {
-        if ([item.nativeIdentifier isEqualToString:nativeIdentifier]) {
-            itemToRemove = item;
+    int i;
+    for (i = 0; i < self.mutableItems.count; i++) {
+        if ([[self.mutableItems[i] nativeIdentifier] isEqualToString:nativeIdentifier]) {
             break;
         }
     }
+    StartMenuItem *itemToRemove = self.mutableItems[i];
     
     if (itemToRemove) {
         [self willChange:NSKeyValueChangeRemoval
-         valuesAtIndexes:[NSIndexSet indexSetWithIndex:[self.mutableItems indexOfObject:itemToRemove]]
+         valuesAtIndexes:[NSIndexSet indexSetWithIndex:i]
                   forKey:@"items"];
         [self.mutableItems removeObject:itemToRemove];
         [self didChange:NSKeyValueChangeRemoval
-        valuesAtIndexes:[NSIndexSet indexSetWithIndex:[self.mutableItems indexOfObject:itemToRemove]]
+        valuesAtIndexes:[NSIndexSet indexSetWithIndex:i]
                  forKey:@"items"];
     }
     NSLog(@"removing item at URL: %@", url);

@@ -32,14 +32,10 @@ static NSFileManager *fm;
                  options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld | NSKeyValueObservingOptionInitial
                  context:NULL];
         
-        self.appBundleFolder = [[[NSFileManager defaultManager] URLForDirectory:NSApplicationDirectory
-                                                                       inDomain:NSUserDomainMask
-                                                              appropriateForURL:nil create:YES error:nil]
+        self.appBundleFolder = [[[NSFileManager defaultManager] URLsForDirectory:NSApplicationDirectory
+                                                                       inDomains:NSUserDomainMask][0]
                                 URLByAppendingPathComponent:@"Vindo"];
-        [fm createDirectoryAtURL:self.appBundleFolder
-     withIntermediateDirectories:YES
-                      attributes:nil
-                           error:nil];
+
         
         self.windowsProgramBundle = [[NSBundle mainBundle] URLForResource:@"Windows Program"
                                                             withExtension:@"app"];
@@ -84,34 +80,33 @@ static NSFileManager *fm;
     
     NSError *error;
     
+    if (![fm createDirectoryAtURL:self.appBundleFolder
+      withIntermediateDirectories:YES
+                       attributes:nil
+                            error:&error]) {
+        [NSApp presentError:error];
+        return;
+    }
+    
     if (![fm copyItemAtURL:self.windowsProgramBundle
                      toURL:[self bundleURLForItem:addedItem]
                      error:&error]) {
-        NSLog(@"%@", error);
-        [NSApp presentError:error];
-        return;
-    }
-    
-    NSData *bookmarkData = [[self bundleURLForItem:addedItem]
-                            bookmarkDataWithOptions:0 includingResourceValuesForKeys:@[] relativeToURL:nil
-                            error:&error];
-    if (!bookmarkData) {
-        [NSApp presentError:error];
-        return;
-    }
-    
-    
-    if (![NSURL writeBookmarkData:bookmarkData
-                            toURL:[self bookmarkURLForItem:addedItem]
-                          options:0
-                            error:&error]) {
         [NSApp presentError:error];
         return;
     }
 }
 
 - (void)removeBundleForItem:(StartMenuItem *)removedItem {
-    NSLog(@"removing bundle %@", removedItem);
+    if (![self bundleExistsForItem:removedItem])
+        return;
+    
+    NSError *error;
+    
+    if (![fm removeItemAtURL:[self bundleURLForItem:removedItem]
+                       error:&error]) {
+        [NSApp presentError:error];
+        return;
+    }
 }
 
 - (BOOL)bundleExistsForItem:(StartMenuItem *)item {
