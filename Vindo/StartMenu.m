@@ -60,6 +60,8 @@
 
 - (void)dealWithEvent:(CDEvent *)event {
     FSEventStreamEventFlags flags = event.flags;
+    if (![event.URL.path hasSuffix:@".plist"])
+        return;
     
     if (flags & kFSEventStreamEventFlagItemCreated) {
         [self addItemAtURL:event.URL];
@@ -69,9 +71,6 @@
 }
 
 - (void)addItemAtURL:(NSURL *)url {
-    if (![url.path hasSuffix:@".plist"])
-        return;
-    
     NSString *nativeIdentifier = [self nativeIdentifierForURL:url];
     
     [self willChange:NSKeyValueChangeInsertion

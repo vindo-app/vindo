@@ -36,6 +36,11 @@ static NSFileManager *fm;
                                                                        inDomain:NSUserDomainMask
                                                               appropriateForURL:nil create:YES error:nil]
                                 URLByAppendingPathComponent:@"Vindo"];
+        [fm createDirectoryAtURL:self.appBundleFolder
+     withIntermediateDirectories:YES
+                      attributes:nil
+                           error:nil];
+        
         self.windowsProgramBundle = [[NSBundle mainBundle] URLForResource:@"Windows Program"
                                                             withExtension:@"app"];
         
@@ -79,10 +84,10 @@ static NSFileManager *fm;
     
     NSError *error;
     
-    [fm copyItemAtURL:self.windowsProgramBundle
-                toURL:[self bundleURLForItem:addedItem]
-                error:&error];
-    if (error) {
+    if (![fm copyItemAtURL:self.windowsProgramBundle
+                     toURL:[self bundleURLForItem:addedItem]
+                     error:&error]) {
+        NSLog(@"%@", error);
         [NSApp presentError:error];
         return;
     }
@@ -90,16 +95,16 @@ static NSFileManager *fm;
     NSData *bookmarkData = [[self bundleURLForItem:addedItem]
                             bookmarkDataWithOptions:0 includingResourceValuesForKeys:@[] relativeToURL:nil
                             error:&error];
-    if (error) {
+    if (!bookmarkData) {
         [NSApp presentError:error];
         return;
     }
     
-    [NSURL writeBookmarkData:bookmarkData
-                       toURL:[self bookmarkURLForItem:addedItem]
-                     options:0
-                       error:&error];
-    if (error) {
+    
+    if (![NSURL writeBookmarkData:bookmarkData
+                            toURL:[self bookmarkURLForItem:addedItem]
+                          options:0
+                            error:&error]) {
         [NSApp presentError:error];
         return;
     }
