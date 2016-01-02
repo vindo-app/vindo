@@ -41,9 +41,12 @@
         _path = itemPlist[@"Path"];
         _args = itemPlist[@"Arguments"];
 
-        NSURL *imageFile = [[programsFolder URLByAppendingPathComponent:nativeIdentifier]
-                            URLByAppendingPathExtension:@"icns"];
-        _image = [[NSImage alloc] initByReferencingURL:imageFile];
+        _iconURL = [[programsFolder URLByAppendingPathComponent:nativeIdentifier]
+                                    URLByAppendingPathExtension:@"icns"];
+        _icon = [[NSImage alloc] initByReferencingURL:_iconURL];
+        
+        _bundle = [[AppBundle alloc] initWithStartMenuItem:self];
+        [_bundle generate];
     }
     return self;
 }

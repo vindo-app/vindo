@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "World.h"
+#import "AppBundle.h"
 
 @interface StartMenuItem : NSObject
 
@@ -18,7 +19,10 @@
 @property (readonly) NSString *path;
 @property (readonly) NSString *args;
 
-@property (readonly) NSImage *image;
+@property (readonly) NSURL *iconURL;
+@property (readonly) NSImage *icon;
+
+@property (readonly) AppBundle *bundle;
 
 - (instancetype)initWithNativeIdentifier:(NSString *)nativeIdentifier inWorld:(World *)world;
 

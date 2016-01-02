@@ -49,12 +49,12 @@
 		AC5AC3511B3E1E5900538492 /* LaunchController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AC3501B3E1E5900538492 /* LaunchController.m */; };
 		AC5E86151C2363C40027FB80 /* ImageResizingValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E86141C2363C40027FB80 /* ImageResizingValueTransformer.m */; };
 		AC5E86191C2370300027FB80 /* StartMenuButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E86181C2370300027FB80 /* StartMenuButtonCell.m */; };
-		AC5E861C1C263F7E0027FB80 /* AppBundleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E861B1C263F7E0027FB80 /* AppBundleGenerator.m */; };
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
 		AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */; };
 		ACD830041B8D346900D8F285 /* usr in Resources */ = {isa = PBXBuildFile; fileRef = ACD830031B8D346900D8F285 /* usr */; };
 		ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */; };
 		ACE47E981C0923C70001808C /* StatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE47E971C0923C70001808C /* StatusBarView.m */; };
+		BB7303521C388784004B4375 /* AppBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7303511C388784004B4375 /* AppBundle.m */; };
 		F6D3954A9DA48257AC7EF798 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 258CC4B79A56F9EFB6956C3A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -154,8 +154,6 @@
 		AC5E86141C2363C40027FB80 /* ImageResizingValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResizingValueTransformer.m; sourceTree = "<group>"; };
 		AC5E86171C2370300027FB80 /* StartMenuButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuButtonCell.h; sourceTree = "<group>"; };
 		AC5E86181C2370300027FB80 /* StartMenuButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuButtonCell.m; sourceTree = "<group>"; };
-		AC5E861A1C263F7D0027FB80 /* AppBundleGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBundleGenerator.h; sourceTree = "<group>"; };
-		AC5E861B1C263F7E0027FB80 /* AppBundleGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBundleGenerator.m; sourceTree = "<group>"; };
 		AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		AC9681BD1ABCD59D00A9233B /* WorldsTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsTransformer.h; sourceTree = "<group>"; };
 		AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsTransformer.m; sourceTree = "<group>"; };
@@ -164,6 +162,8 @@
 		ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTimeSetupController.m; sourceTree = "<group>"; };
 		ACE47E961C0923C70001808C /* StatusBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarView.h; sourceTree = "<group>"; };
 		ACE47E971C0923C70001808C /* StatusBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarView.m; sourceTree = "<group>"; };
+		BB7303501C388784004B4375 /* AppBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBundle.h; sourceTree = "<group>"; };
+		BB7303511C388784004B4375 /* AppBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBundle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,10 +255,10 @@
 				8A6880A81BC333620032352B /* StartMenu.m */,
 				8A6880AD1BC333E10032352B /* StartMenuItem.h */,
 				8A6880AE1BC333E10032352B /* StartMenuItem.m */,
+				BB7303501C388784004B4375 /* AppBundle.h */,
+				BB7303511C388784004B4375 /* AppBundle.m */,
 				8A713E0D1C249BB800918B1A /* World+StartMenu.h */,
 				8A713E0E1C249BB800918B1A /* World+StartMenu.m */,
-				AC5E861A1C263F7D0027FB80 /* AppBundleGenerator.h */,
-				AC5E861B1C263F7E0027FB80 /* AppBundleGenerator.m */,
 			);
 			name = Start;
 			sourceTree = "<group>";
@@ -646,10 +646,10 @@
 				ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
 				8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */,
-				AC5E861C1C263F7E0027FB80 /* AppBundleGenerator.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				AC5E86191C2370300027FB80 /* StartMenuButtonCell.m in Sources */,
+				BB7303521C388784004B4375 /* AppBundle.m in Sources */,
 				8A36AF541C1F4D1B0012D115 /* StartMenuViewController.m in Sources */,
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
 				8A713E0C1C249AB400918B1A /* World+PasteboardSupport.m in Sources */,
@@ -859,6 +859,7 @@
 				8A5B97631C24DF24001FF0EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC3A4ED71AA12F9900781626 /* Build configuration list for PBXProject "Vindo" */ = {
 			isa = XCConfigurationList;
