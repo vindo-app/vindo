@@ -27,7 +27,7 @@ static NSURL *windowsProgramBundle;
         return;
     
     NSError *error;
-    
+        
     if (![fm createDirectoryAtURL:appBundleFolder
       withIntermediateDirectories:YES
                        attributes:nil
@@ -42,6 +42,25 @@ static NSURL *windowsProgramBundle;
         [NSApp presentError:error];
         return;
     }
+    
+    // copy the icon
+    if (![fm copyItemAtURL:self.item.iconURL
+                     toURL:[self.bundleURL URLByAppendingPathComponent:@"Contents/Resources/PrettyPixels.icns"]
+                     error:&error]) {
+        [NSApp presentError:error];
+        return;
+    }
+    
+    // figure out the plist
+    NSMutableDictionary *infoPlist = [NSPropertyListSerialization propertyListWithData:
+                                      [NSData dataWithContentsOfURL:[self.bundleURL URLByAppendingPathComponent:@"Contents/Info.plist"]]
+                                                                               options:NSPropertyListMutableContainers
+                                                                                format:NULL error:&error];
+    if (!infoPlist) {
+        [NSApp presentError:error];
+        return;
+    }
+    
 }
 
 - (void)remove {

@@ -20,7 +20,6 @@
 		8A36AF5A1C1F530D0012D115 /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A36AF581C1F530D0012D115 /* SetupViewController.xib */; };
 		8A5B97581C24DF24001FF0EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B97571C24DF24001FF0EF /* AppDelegate.m */; };
 		8A5B975B1C24DF24001FF0EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B975A1C24DF24001FF0EF /* main.m */; };
-		8A5B975D1C24DF24001FF0EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B975C1C24DF24001FF0EF /* Assets.xcassets */; };
 		8A5B97601C24DF24001FF0EF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B975E1C24DF24001FF0EF /* MainMenu.xib */; };
 		8A5B97671C24DF61001FF0EF /* Windows Program.app in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B97541C24DF24001FF0EF /* Windows Program.app */; };
 		8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */; };
@@ -107,7 +106,6 @@
 		8A5B97561C24DF24001FF0EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8A5B97571C24DF24001FF0EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8A5B975A1C24DF24001FF0EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8A5B975C1C24DF24001FF0EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A5B975F1C24DF24001FF0EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8A5B97611C24DF24001FF0EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = statusbar.tiff; sourceTree = "<group>"; };
@@ -206,7 +204,6 @@
 			children = (
 				8A5B97561C24DF24001FF0EF /* AppDelegate.h */,
 				8A5B97571C24DF24001FF0EF /* AppDelegate.m */,
-				8A5B975C1C24DF24001FF0EF /* Assets.xcassets */,
 				8A5B975E1C24DF24001FF0EF /* MainMenu.xib */,
 				8A5B97611C24DF24001FF0EF /* Info.plist */,
 				8A5B97591C24DF24001FF0EF /* Supporting Files */,
@@ -520,7 +517,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A5B975D1C24DF24001FF0EF /* Assets.xcassets in Resources */,
 				8A5B97601C24DF24001FF0EF /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -699,15 +695,14 @@
 		8A5B97621C24DF24001FF0EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Windows Program/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tbodt.Windows-Program";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -716,14 +711,13 @@
 		8A5B97631C24DF24001FF0EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Windows Program/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tbodt.Windows-Program";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
