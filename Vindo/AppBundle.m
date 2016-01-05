@@ -52,8 +52,9 @@ static NSURL *windowsProgramBundle;
     }
     
     // figure out the plist
-    NSMutableDictionary *infoPlist = [NSPropertyListSerialization propertyListWithData:
-                                      [NSData dataWithContentsOfURL:[self.bundleURL URLByAppendingPathComponent:@"Contents/Info.plist"]]
+    NSURL *infoPlistURL = [self.bundleURL URLByAppendingPathComponent:@"Contents/Info.plist"];
+    
+    NSMutableDictionary *infoPlist = [NSPropertyListSerialization propertyListWithData:[NSData dataWithContentsOfURL:infoPlistURL]
                                                                                options:NSPropertyListMutableContainers
                                                                                 format:NULL error:&error];
     if (!infoPlist) {
@@ -61,6 +62,28 @@ static NSURL *windowsProgramBundle;
         return;
     }
     
+    // It's fine to cast kCF* from CFString because of toll free bridging.
+    [infoPlist setValue:self.item.name forKey:(NSString *)kCFBundleNameKey];
+    [infoPlist setValue:[NSString stringWithFormat:@"co.vindo.windows-program.%@", self.item.nativeIdentifier]
+                 forKey:(NSString *)kCFBundleIdentifierKey];
+    
+    [infoPlist setValue:self.item.nativeIdentifier forKey:@"NativeIdentifier"];
+    [infoPlist setValue:self.item.world.name forKey:@"World"];
+    
+    NSData *infoPlistData = [NSPropertyListSerialization dataWithPropertyList:infoPlist
+                                                                       format:NSPropertyListXMLFormat_v1_0
+                                                                      options:0
+                                                                        error:&error];
+    if (!infoPlistData) {
+        [NSApp presentError:error];
+        return;
+    }
+    
+    if (![infoPlistData writeToURL:infoPlistURL atomically:YES]) {
+        NSLog(@"Stuff failed!");
+        NSAssert(NO, @"Could not write info plist");
+        return;
+    }
 }
 
 - (void)remove {
