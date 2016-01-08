@@ -46,7 +46,6 @@
         _icon = [[NSImage alloc] initByReferencingURL:_iconURL];
         
         _bundle = [[AppBundle alloc] initWithStartMenuItem:self];
-        NSLog(@"_bundle is %@", _bundle);
         [_bundle generate];
     }
     return self;

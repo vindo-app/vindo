@@ -18,7 +18,7 @@
 		8A36AF551C1F4D1B0012D115 /* StartMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A36AF531C1F4D1B0012D115 /* StartMenuViewController.xib */; };
 		8A36AF591C1F530D0012D115 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A36AF571C1F530D0012D115 /* SetupViewController.m */; };
 		8A36AF5A1C1F530D0012D115 /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A36AF581C1F530D0012D115 /* SetupViewController.xib */; };
-		8A5B97581C24DF24001FF0EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B97571C24DF24001FF0EF /* AppDelegate.m */; };
+		8A5B97581C24DF24001FF0EF /* WindowsProgramAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B97571C24DF24001FF0EF /* WindowsProgramAppDelegate.m */; };
 		8A5B975B1C24DF24001FF0EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B975A1C24DF24001FF0EF /* main.m */; };
 		8A5B97601C24DF24001FF0EF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B975E1C24DF24001FF0EF /* MainMenu.xib */; };
 		8A5B97671C24DF61001FF0EF /* Windows Program.app in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B97541C24DF24001FF0EF /* Windows Program.app */; };
@@ -55,6 +55,8 @@
 		ACE47E981C0923C70001808C /* StatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE47E971C0923C70001808C /* StatusBarView.m */; };
 		BB7303521C388784004B4375 /* AppBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7303511C388784004B4375 /* AppBundle.m */; };
 		BBBCEAA81C3C8E8D00E5E175 /* WindowsProgramApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAA71C3C8E8D00E5E175 /* WindowsProgramApplication.m */; };
+		BBBCEAAD1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */; };
+		BBBCEAB01C3DE15200E5E175 /* ABCTController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */; };
 		F6D3954A9DA48257AC7EF798 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 258CC4B79A56F9EFB6956C3A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -104,8 +106,8 @@
 		8A36AF571C1F530D0012D115 /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
 		8A36AF581C1F530D0012D115 /* SetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupViewController.xib; sourceTree = "<group>"; };
 		8A5B97541C24DF24001FF0EF /* Windows Program.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Windows Program.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A5B97561C24DF24001FF0EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		8A5B97571C24DF24001FF0EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8A5B97561C24DF24001FF0EF /* WindowsProgramAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowsProgramAppDelegate.h; sourceTree = "<group>"; };
+		8A5B97571C24DF24001FF0EF /* WindowsProgramAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowsProgramAppDelegate.m; sourceTree = "<group>"; };
 		8A5B975A1C24DF24001FF0EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8A5B975F1C24DF24001FF0EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8A5B97611C24DF24001FF0EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -165,6 +167,11 @@
 		BB7303511C388784004B4375 /* AppBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBundle.m; sourceTree = "<group>"; };
 		BBBCEAA61C3C8E8D00E5E175 /* WindowsProgramApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowsProgramApplication.h; sourceTree = "<group>"; };
 		BBBCEAA71C3C8E8D00E5E175 /* WindowsProgramApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowsProgramApplication.m; sourceTree = "<group>"; };
+		BBBCEAAA1C3DD8C600E5E175 /* AppBundleCommunicationThing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBundleCommunicationThing.h; sourceTree = "<group>"; };
+		BBBCEAAB1C3DE10700E5E175 /* AppBundleConnectionThingImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppBundleConnectionThingImpl.h; path = Vindo/AppBundleConnectionThingImpl.h; sourceTree = "<group>"; };
+		BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppBundleConnectionThingImpl.m; path = Vindo/AppBundleConnectionThingImpl.m; sourceTree = "<group>"; };
+		BBBCEAAE1C3DE15200E5E175 /* ABCTController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCTController.h; sourceTree = "<group>"; };
+		BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCTController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,8 +212,8 @@
 		8A5B97551C24DF24001FF0EF /* Windows Program */ = {
 			isa = PBXGroup;
 			children = (
-				8A5B97561C24DF24001FF0EF /* AppDelegate.h */,
-				8A5B97571C24DF24001FF0EF /* AppDelegate.m */,
+				8A5B97561C24DF24001FF0EF /* WindowsProgramAppDelegate.h */,
+				8A5B97571C24DF24001FF0EF /* WindowsProgramAppDelegate.m */,
 				8A5B975E1C24DF24001FF0EF /* MainMenu.xib */,
 				8A5B97611C24DF24001FF0EF /* Info.plist */,
 				BBBCEAA61C3C8E8D00E5E175 /* WindowsProgramApplication.h */,
@@ -342,6 +349,8 @@
 				ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */,
 				8AC01D611ABB879D00F8C066 /* WorldsMenuController.h */,
 				8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */,
+				BBBCEAAE1C3DE15200E5E175 /* ABCTController.h */,
+				BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */,
 			);
 			name = Controllers;
 			path = Vindo;
@@ -353,13 +362,14 @@
 				8A713E071C2492D200918B1A /* Models */,
 				8A6880A51BC332D80032352B /* Windows */,
 				AC2D42B21B3A1FA700F3C2FA /* Controllers */,
+				8A5B97551C24DF24001FF0EF /* Windows Program */,
+				BBBCEAA91C3DD66F00E5E175 /* DO */,
 				AC8DB5AF1AA130A1000A6C51 /* Other Stuff */,
 				8A655B7C1AA6773E00FFCD0C /* Resources */,
 				AC3A4EDF1AA12F9A00781626 /* Supporting Files */,
 				AC1957D01AA52BB10077A25C /* Frameworks */,
 				AC3A4EDD1AA12F9900781626 /* Products */,
 				9FFB8ECE6E30A2F5D4C08FBB /* Pods */,
-				8A5B97551C24DF24001FF0EF /* Windows Program */,
 			);
 			sourceTree = "<group>";
 		};
@@ -434,6 +444,16 @@
 				8AC01D6B1ABB930F00F8C066 /* IndexSetToIntTransformer.m */,
 			);
 			name = Worlds;
+			sourceTree = "<group>";
+		};
+		BBBCEAA91C3DD66F00E5E175 /* DO */ = {
+			isa = PBXGroup;
+			children = (
+				BBBCEAAA1C3DD8C600E5E175 /* AppBundleCommunicationThing.h */,
+				BBBCEAAB1C3DE10700E5E175 /* AppBundleConnectionThingImpl.h */,
+				BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */,
+			);
+			name = DO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -634,7 +654,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A5B975B1C24DF24001FF0EF /* main.m in Sources */,
-				8A5B97581C24DF24001FF0EF /* AppDelegate.m in Sources */,
+				8A5B97581C24DF24001FF0EF /* WindowsProgramAppDelegate.m in Sources */,
 				BBBCEAA81C3C8E8D00E5E175 /* WindowsProgramApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,10 +672,12 @@
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				AC5E86191C2370300027FB80 /* StartMenuButtonCell.m in Sources */,
 				BB7303521C388784004B4375 /* AppBundle.m in Sources */,
+				BBBCEAB01C3DE15200E5E175 /* ABCTController.m in Sources */,
 				8A36AF541C1F4D1B0012D115 /* StartMenuViewController.m in Sources */,
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
 				8A713E0C1C249AB400918B1A /* World+PasteboardSupport.m in Sources */,
 				AC05808C1ABF97F700854813 /* ManageWorldsWindowController.m in Sources */,
+				BBBCEAAD1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m in Sources */,
 				8A041E9F1BFBFF0400D60E08 /* PopupController.m in Sources */,
 				AC5E86151C2363C40027FB80 /* ImageResizingValueTransformer.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
@@ -701,6 +723,8 @@
 		8A5B97621C24DF24001FF0EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -711,12 +735,15 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tbodt.Windows-Program";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = i386;
 			};
 			name = Debug;
 		};
 		8A5B97631C24DF24001FF0EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -726,6 +753,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tbodt.Windows-Program";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = i386;
 			};
 			name = Release;
 		};
@@ -824,6 +852,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -846,6 +875,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};

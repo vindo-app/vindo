@@ -16,7 +16,9 @@
 
 @end
 
-@interface WindowsProgramApplication : NSApplication
+@interface WindowsProgramApplication : NSApplication {
+    WineApplicationController *wineController;
+}
 
 // We need this.
 @property (readwrite, assign, nonatomic) WineApplicationController *wineController;

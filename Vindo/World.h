@@ -44,6 +44,7 @@ typedef enum {
 @interface World (WinePrefix)
 
 - (NSTask *)wineTaskWithProgram:(NSString *)program arguments:(NSArray *)arguments;
+- (NSDictionary *)wineEnvironment;
 
 @end
 

@@ -25,5 +25,6 @@
         <customObject id="Tgj-e0-ddB" customClass="StartMenuController"/>
         <customObject id="gYO-gS-fC3" customClass="PopupController"/>
         <customObject id="kjr-LO-PqR" customClass="SUUpdater"/>
+        <customObject id="laL-ZB-drS" customClass="ABCTController"/>
     </objects>
 </document>

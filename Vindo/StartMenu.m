@@ -80,8 +80,6 @@
     [self didChange:NSKeyValueChangeInsertion
     valuesAtIndexes:[NSIndexSet indexSetWithIndex:self.mutableItems.count]
              forKey:@"items"];
-    NSLog(@"adding item at URL: %@", url);
-    NSLog(@"adding :resulting items: %@", self.mutableItems);
 }
 
 - (void)removeItemAtURL:(NSURL *)url {
@@ -107,8 +105,6 @@
         valuesAtIndexes:[NSIndexSet indexSetWithIndex:i]
                  forKey:@"items"];
     }
-    NSLog(@"removing item at URL: %@", url);
-    NSLog(@"removing :resulting items: %@", self.mutableItems);
 }
 
 - (void)initializeItems {
@@ -129,7 +125,6 @@
     }
     
     self.mutableItems = newItems;
-    NSLog(@"initial items: %@", self.mutableItems);
 }
 
 - (NSString *)nativeIdentifierForURL:(NSURL *)url {

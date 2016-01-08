@@ -40,12 +40,13 @@
     if ([self.oldSelectedWorld isEqualTo:newSelectedWorld])
         return;
 
-    if (self.oldSelectedWorld != nil) {
-        [self.oldSelectedWorld stop];
+    // Deal with the stupidities of the array controller.
+    if (self.oldSelectedWorld == nil || newSelectedWorld == nil) {
+        return;
     }
-    if (newSelectedWorld != nil) {
-        [newSelectedWorld start];
-    }
+    
+    [self.oldSelectedWorld stop];
+    [newSelectedWorld start];
 
     self.oldSelectedWorld = newSelectedWorld; // save for next time
 }

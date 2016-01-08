@@ -84,7 +84,6 @@
         [killServer launch];
         [self.serverTask waitUntilExit];
 
-
         self.state = WineServerStopped;
     };
     [endSession launch];

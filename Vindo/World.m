@@ -8,12 +8,22 @@
 
 #import "World.h"
 
+static NSMapTable *worlds;
+
 @implementation World
 
 - (instancetype)initWithName:(NSString *)name {
+    if (worlds == nil)
+        worlds = [NSMapTable mapTableWithStrongToWeakObjects];
+    
+    if ([worlds objectForKey:name])
+        return [worlds objectForKey:name];
+    
     if (self = [super init]) {
         _name = name;
         _url = [self prefixPath:self.name];
+        
+        [worlds setObject:self forKey:name];
     }
     return self;
 }
@@ -34,8 +44,6 @@
 - (void)run:(NSString *)program {
     [self run:program withArguments:@[]];
 }
-
-
 
 #pragma mark -
 #pragma mark Random crap

@@ -19,9 +19,4 @@
     }
 }
 
-- (void)setWineController:(WineApplicationController *)newController {
-    wineController = newController;
-    [self setDelegate:wineController];
-}
-
 @end
