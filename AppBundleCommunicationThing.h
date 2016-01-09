@@ -21,6 +21,7 @@ typedef NS_ENUM(NSInteger, WorldStatus) {
 - (bycopy NSURL *)usrURL;
 - (WorldStatus)statusOfWorldNamed:(NSString *)world;
 - (bycopy NSDictionary *)environmentForWorld:(NSString *)world;
-- (NSString *)commandLineForStartMenuItem:(NSString *)nativeIdentifier inWorld:(NSString *)world;
+- (NSString *)programForStartMenuItem:(NSString *)nativeIdentifier inWorld:(NSString *)world;
+- (NSString *)argumentsForStartMenuItem:(NSString *)nativeIdentifier inWorld:(NSString *)world;
 
 @end

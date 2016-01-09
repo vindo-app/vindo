@@ -41,7 +41,7 @@
     return [self worldForName:world].wineEnvironment;
 }
 
-- (NSString *)commandLineForStartMenuItem:(NSString *)nativeIdentifier inWorld:(NSString *)worldName {
+- (NSString *)programForStartMenuItem:(NSString *)nativeIdentifier inWorld:(NSString *)worldName {
     World *world = [self worldForName:worldName];
     if (world == nil)
         return nil;
@@ -51,7 +51,20 @@
     if (item == nil)
         return nil;
     
-    return [NSString stringWithFormat:@"%@ %@", item.path, item.args];
+    return item.path;
+}
+
+- (NSString *)argumentsForStartMenuItem:(NSString *)nativeIdentifier inWorld:(NSString *)worldName {
+    World *world = [self worldForName:worldName];
+    if (world == nil)
+        return nil;
+    
+    StartMenuItem *item = [self startMenuItemForNativeIdentifier:nativeIdentifier
+                                                         inWorld:world];
+    if (item == nil)
+        return nil;
+    
+    return item.args;
 }
 
 - (StartMenuItem *)startMenuItemForNativeIdentifier:(NSString *)nativeIdentifier inWorld:(World *)world {

@@ -41,9 +41,12 @@
         return;
 
     // Deal with the stupidities of the array controller.
-    if (self.oldSelectedWorld == nil || newSelectedWorld == nil) {
+    if (newSelectedWorld == nil) {
+        NSLog(@"not going from %@ to %@", self.oldSelectedWorld, newSelectedWorld);
         return;
     }
+    
+    NSLog(@"    going from %@ to %@", self.oldSelectedWorld, newSelectedWorld);
     
     [self.oldSelectedWorld stop];
     [newSelectedWorld start];

@@ -53,8 +53,7 @@
       allowLocationSimulation = "YES">
       <PathRunnable
          runnableDebuggingMode = "0"
-         BundleIdentifier = "co.vindo.windows-program.5D0B_7-zip"
-         FilePath = "/Users/tbodt/Applications/Vindo/7-Zip Help.app">
+         FilePath = "/Users/tbodt/Applications/Vindo/7-Zip File Manager.app">
       </PathRunnable>
       <MacroExpansion>
          <BuildableReference

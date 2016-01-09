@@ -29,6 +29,7 @@
 
 - (void)actuallyStart {
     self.state = WineServerStarting;
+    NSLog(@"%@ state is now starting", self);
 
     // make sure prefix directory exists
     NSFileManager *manager = [NSFileManager defaultManager];
@@ -41,18 +42,12 @@
 
     self.serverTask = [self wineTaskWithProgram:@"wineserver" arguments:@[@"--foreground", @"--persistent"]];
     [self.serverTask launch];
-
-    // now that the server is launched, run wineboot to fake boot the system
-    NSTask *wineboot = [self wineTaskWithProgram:@"wine" arguments:@[@"wineboot"]];
-
-    wineboot.terminationHandler = ^(NSTask *_) {
-        self.state = WineServerRunning;
-
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center postNotificationName:WorldDidStartNotification object:self];
-    };
-
-    [wineboot launch];
+    
+    self.state = WineServerRunning;
+    NSLog(@"%@ state is now running");
+    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName:WorldDidStartNotification object:self];
 }
 
 - (void)stop {
@@ -76,6 +71,7 @@
 
 - (void)actuallyStop {
     self.state = WineServerStopping;
+    NSLog(@"state is now stopping");
     // first end the session with wineboot
     NSTask *endSession = [self wineTaskWithProgram:@"wine"
                                          arguments:@[@"wineboot", @"--end-session", @"--shutdown"]];
@@ -85,6 +81,7 @@
         [self.serverTask waitUntilExit];
 
         self.state = WineServerStopped;
+        NSLog(@"state is now stopped");
     };
     [endSession launch];
 }

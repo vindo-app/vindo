@@ -28,11 +28,14 @@ static WindowsProgramApplication *app;
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
     // Make a DO connection to Vindo.
-    if (![[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:@"com.tbodt.Vindo"
-                                                              options:NSWorkspaceLaunchWithoutActivation
-                                       additionalEventParamDescriptor:nil
-                                                     launchIdentifier:NULL]) {
-        [self failBecause:@"Vindo isn't installed. This app bundle requires Vindo. Therefore, this app bundle won't work."];
+    NSArray *vindos = [NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.tbodt.Vindo"];
+    if ([vindos count] == 0) {
+        if (![[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:@"com.tbodt.Vindo"
+                                                                  options:NSWorkspaceLaunchWithoutActivation
+                                           additionalEventParamDescriptor:nil
+                                                         launchIdentifier:NULL]) {
+            [self failBecause:@"Vindo isn't installed. This app bundle requires Vindo. Therefore, this app bundle won't work."];
+        }
     }
     
     // We have to wait until it starts.
@@ -47,6 +50,20 @@ static WindowsProgramApplication *app;
     
     self.usr = [self.communicationThing usrURL];
     NSLog(@"connection established");
+    
+    // wait for the world to become available
+    NSString *world = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"World"];
+    while (YES) {
+        WorldStatus status = [self.communicationThing statusOfWorldNamed:world];
+        if (status == WorldStatusNonexistent) {
+            [self failBecause:@"This app bundle appears to be corrupted or something. It won't work."];
+        } else if (status == WorldStatusStarting) {
+            NSLog(@"waiting...");
+            sleep(1);
+        } else {
+            break;
+        }
+    }
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -76,19 +93,7 @@ static char __wine_dos[0x40000000] __attribute__((section("WINE_DOS, WINE_DOS"))
 static char __wine_shared_heap[0x03000000] __attribute__((section("WINE_SHAREDHEAP, WINE_SHAREDHEAP")));
 
 - (void)becomeWineTask {
-    // wait for the world to become available
     NSString *world = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"World"];
-    while (YES) {
-        WorldStatus status = [self.communicationThing statusOfWorldNamed:world];
-        if (status == WorldStatusNonexistent) {
-            [self failBecause:@"This app bundle appears to be corrupted or something. It won't work."];
-        } else if (status == WorldStatusStarting) {
-            sleep(1);
-        } else {
-            break;
-        }
-    }
-    
     NSString *nativeIdentifier = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"NativeIdentifier"];
     
     // set necessary environment keys
@@ -116,8 +121,9 @@ static char __wine_shared_heap[0x03000000] __attribute__((section("WINE_SHAREDHE
     char error[1024];
     int argc = 2;
     const char *argv0 = [self.usr URLByAppendingPathComponent:@"bin/wine"].path.UTF8String;
-    const char *argv1 = [self.communicationThing commandLineForStartMenuItem:nativeIdentifier inWorld:world].UTF8String;
-    const char *argv[] = {argv0, argv1};
+    const char *argv1 = [self.communicationThing programForStartMenuItem:nativeIdentifier inWorld:world].UTF8String;
+    const char *argv2 = [self.communicationThing argumentsForStartMenuItem:nativeIdentifier inWorld:world].UTF8String;
+    const char *argv[] = {argv0, argv1, argv2, NULL};
     wine_init(argc, argv, error, sizeof(error));
     
     //[self failBecause:[NSString stringWithUTF8String:error]];
