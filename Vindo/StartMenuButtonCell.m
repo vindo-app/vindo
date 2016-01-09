@@ -22,7 +22,6 @@
     return self;
 }
 
-
 - (NSRect)drawTitle:(NSAttributedString *)title withFrame:(NSRect)frame inView:(NSView *)controlView {
     NSColor *textColor;
     if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9) { // mavericks or before
@@ -30,6 +29,9 @@
     } else {
         textColor = [NSColor labelColor];
     }
+    
+    // push frame down a few pixels
+    frame.origin.y += 5;
     
     NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     paragraphStyle.alignment = NSCenterTextAlignment;

@@ -35,11 +35,11 @@
             </connections>
         </collectionViewItem>
         <view id="hT9-Nt-Kmv">
-            <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+            <rect key="frame" x="0.0" y="0.0" width="72" height="78"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <button verticalHuggingPriority="750" id="Bat-fR-7as">
-                    <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+                    <rect key="frame" x="0.0" y="0.0" width="72" height="78"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="bevel" title="Button" bezelStyle="rounded" imagePosition="above" alignment="center" truncatesLastVisibleLine="YES" inset="2" id="WrU-Df-CQe" customClass="StartMenuButtonCell">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -55,7 +55,7 @@
                     </connections>
                 </button>
             </subviews>
-            <point key="canvasLocation" x="661" y="336"/>
+            <point key="canvasLocation" x="661" y="339"/>
         </view>
         <arrayController id="tXh-Hy-JhN">
             <connections>
