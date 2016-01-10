@@ -57,6 +57,7 @@
 		BBBCEAA81C3C8E8D00E5E175 /* WindowsProgramApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAA71C3C8E8D00E5E175 /* WindowsProgramApplication.m */; };
 		BBBCEAAD1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */; };
 		BBBCEAB01C3DE15200E5E175 /* ABCTController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */; };
+		BBF18B791C41FE050060092B /* StartMenuDefaultsSync.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */; };
 		F6D3954A9DA48257AC7EF798 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 258CC4B79A56F9EFB6956C3A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -172,6 +173,8 @@
 		BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppBundleConnectionThingImpl.m; path = Vindo/AppBundleConnectionThingImpl.m; sourceTree = "<group>"; };
 		BBBCEAAE1C3DE15200E5E175 /* ABCTController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCTController.h; sourceTree = "<group>"; };
 		BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCTController.m; sourceTree = "<group>"; };
+		BBF18B771C41FE050060092B /* StartMenuDefaultsSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuDefaultsSync.h; sourceTree = "<group>"; };
+		BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuDefaultsSync.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +263,8 @@
 			children = (
 				8A6880AA1BC3336E0032352B /* StartMenuController.h */,
 				8A6880AB1BC3336E0032352B /* StartMenuController.m */,
+				BBF18B771C41FE050060092B /* StartMenuDefaultsSync.h */,
+				BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */,
 				8A6880A71BC333620032352B /* StartMenu.h */,
 				8A6880A81BC333620032352B /* StartMenu.m */,
 				8A6880AD1BC333E10032352B /* StartMenuItem.h */,
@@ -669,6 +674,7 @@
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
 				8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
+				BBF18B791C41FE050060092B /* StartMenuDefaultsSync.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				AC5E86191C2370300027FB80 /* StartMenuButtonCell.m in Sources */,
 				BB7303521C388784004B4375 /* AppBundle.m in Sources */,

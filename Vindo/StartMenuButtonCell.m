@@ -8,13 +8,6 @@
 
 #import "StartMenuButtonCell.h"
 
-// kludge so I can compile this on mavericks
-@interface NSColor (CompilingOnMavericks)
-+ (NSColor *)labelColor;
-@end
-#define NSAppKitVersionNumber10_9 1265
-#define NSCenterTextAlignment 2
-
 @implementation StartMenuButtonCell : NSButtonCell
 
 - (id)awakeAfterUsingCoder:(NSCoder *)aDecoder {

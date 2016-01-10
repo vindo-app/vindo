@@ -108,19 +108,12 @@
 }
 
 - (void)initializeItems {
-    NSFileManager *manager = [NSFileManager defaultManager];
-    NSArray *startMenuFiles = [manager contentsOfDirectoryAtURL:_programsFolder
-                                     includingPropertiesForKeys:@[NSURLNameKey]
-                                                        options:0
-                                                          error:NULL];
+    NSString *defaultsKey = [NSString stringWithFormat:@"startMenuItems_%@", self.world.name];
+    NSArray *startMenuNativeIdentifiers = [[NSUserDefaults standardUserDefaults] arrayForKey:defaultsKey];
     
+    NSLog(@"sm: loading items %@", startMenuNativeIdentifiers);
     NSMutableArray *newItems = [NSMutableArray new];
-    for (NSURL *startMenuFile in startMenuFiles) {
-        if (![[startMenuFile path] hasSuffix:@".plist"])
-            continue;
-        
-        NSString *nativeIdentifier = [self nativeIdentifierForURL:startMenuFile];
-        
+    for (NSString *nativeIdentifier in startMenuNativeIdentifiers) {
         [newItems addObject:[[StartMenuItem alloc] initWithNativeIdentifier:nativeIdentifier inWorld:self.world]];
     }
     

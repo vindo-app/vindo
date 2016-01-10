@@ -8,10 +8,12 @@
 
 #import "StartMenuController.h"
 #import "WorldsController.h"
+#import "StartMenuDefaultsSync.h"
 
 @interface StartMenuController ()
 
 @property StartMenu *menu;
+@property StartMenuDefaultsSync *syncer;
 
 @end
 
@@ -29,9 +31,10 @@ static StartMenuController *sharedInstance;
                            forKeyPath:@"selectionIndex"
                               options:NSKeyValueObservingOptionInitial
                               context:NULL];
+        sharedInstance = self;
+        self.syncer = [StartMenuDefaultsSync new];
     }
     
-    sharedInstance = self;
     return self;
 }
 
