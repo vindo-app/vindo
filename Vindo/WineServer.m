@@ -42,12 +42,19 @@
 
     self.serverTask = [self wineTaskWithProgram:@"wineserver" arguments:@[@"--foreground", @"--persistent"]];
     [self.serverTask launch];
-    
-    self.state = WineServerRunning;
-    NSLog(@"%@ state is now running");
-    
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center postNotificationName:WorldDidStartNotification object:self];
+
+    // now that the server is launched, run wineboot to fake boot the system
+    NSTask *wineboot = [self wineTaskWithProgram:@"wine" arguments:@[@"wineboot", @"--init"]];
+
+    wineboot.terminationHandler = ^(NSTask *_) {
+        self.state = WineServerRunning;
+        NSLog(@"%@ state is now running", self);
+
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center postNotificationName:WorldDidStartNotification object:self];
+    };
+
+    [wineboot launch];
 }
 
 - (void)stop {

@@ -40,10 +40,19 @@ static StartMenuController *sharedInstance;
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     WorldsController *worldsController = [WorldsController sharedController];
+
+    // Deal with stupidities.
+    if (worldsController.selectedWorld == nil) {
+        NSLog(@"smc: not going to %@", worldsController.selectedWorld);
+        return;
+    }
+    
     if (worldsController.selectedWorld != nil) {
+        NSLog(@"smc: menu created from world %@", worldsController.selectedWorld);
         self.menu = [[StartMenu alloc] initWithWorld:worldsController.selectedWorld];
         // Set a breakpoint here to inspect the menu.
     } else {
+        NSLog(@"smc: menu being set to nil");
         self.menu = nil;
     }
 }

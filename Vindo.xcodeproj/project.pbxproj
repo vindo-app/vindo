@@ -58,6 +58,7 @@
 		BBBCEAAD1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */; };
 		BBBCEAB01C3DE15200E5E175 /* ABCTController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */; };
 		BBF18B791C41FE050060092B /* StartMenuDefaultsSync.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */; };
+		BBF18B7C1C433F150060092B /* NSUserDefaults+KeyPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */; };
 		F6D3954A9DA48257AC7EF798 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 258CC4B79A56F9EFB6956C3A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +176,8 @@
 		BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCTController.m; sourceTree = "<group>"; };
 		BBF18B771C41FE050060092B /* StartMenuDefaultsSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuDefaultsSync.h; sourceTree = "<group>"; };
 		BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuDefaultsSync.m; sourceTree = "<group>"; };
+		BBF18B7A1C433F150060092B /* NSUserDefaults+KeyPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+KeyPaths.h"; sourceTree = "<group>"; };
+		BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+KeyPaths.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +396,8 @@
 				8A23F3BD1AA91EF600F1467C /* Info.plist */,
 				AC3A4EE11AA12F9A00781626 /* main.m */,
 				8AEB83061C0FB74C00144FF6 /* Vindo.pch */,
+				BBF18B7A1C433F150060092B /* NSUserDefaults+KeyPaths.h */,
+				BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */,
 			);
 			name = "Supporting Files";
 			path = Vindo;
@@ -672,6 +677,7 @@
 				8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */,
 				ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
+				BBF18B7C1C433F150060092B /* NSUserDefaults+KeyPaths.m in Sources */,
 				8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
 				BBF18B791C41FE050060092B /* StartMenuDefaultsSync.m in Sources */,

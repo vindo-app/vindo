@@ -102,6 +102,8 @@
                                                      resultingItemURL:nil
                                                                 error:nil]; // move world to trash
                        [self.arrayController removeObject:world]; // remove object from worlds
+                       [[NSUserDefaults standardUserDefaults] removeObjectForKey:[NSString stringWithFormat:@"startMenuItems_%@", world.name]];
+                       
                        [worldsToDelete removeObject:world];
                        if (worldsToDelete.count == 0) {
                            [self.statusWindow disappear];

@@ -9,6 +9,7 @@
 #import "StartMenuDefaultsSync.h"
 #import "StartMenuController.h"
 #import "StartMenuItem.h"
+#import "NSUserDefaults+KeyPaths.h"
 
 @interface StartMenuDefaultsSync ()
 
@@ -44,7 +45,7 @@
     }
     
     World *world = self.menu.world;
-    NSString *defaultsKey = [NSString stringWithFormat:@"startMenuItems_%@", world.name];
+    NSString *defaultsKey = [NSString stringWithFormat:@"startMenuItems.%@", world.name];
     
     NSMutableArray *items = self.menu.items.mutableCopy;
     for (int i = 0; i < items.count; i++) {
@@ -53,7 +54,7 @@
     }
     
     NSLog(@"smdc: writing out items %@", items);
-    [[NSUserDefaults standardUserDefaults] setObject:items forKey:defaultsKey];
+    [[NSUserDefaults standardUserDefaults] setObject:items forKeyPath:defaultsKey];
 }
 
 @end

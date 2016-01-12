@@ -13,6 +13,7 @@
 #import "World+StartMenu.h"
 #import <CDEvents/CDEvents.h>
 #import <CoreServices/CoreServices.h>
+#import "NSUserDefaults+KeyPaths.h"
 
 @interface StartMenu ()
 
@@ -108,13 +109,25 @@
 }
 
 - (void)initializeItems {
-    NSString *defaultsKey = [NSString stringWithFormat:@"startMenuItems_%@", self.world.name];
-    NSArray *startMenuNativeIdentifiers = [[NSUserDefaults standardUserDefaults] arrayForKey:defaultsKey];
-    
-    NSLog(@"sm: loading items %@", startMenuNativeIdentifiers);
     NSMutableArray *newItems = [NSMutableArray new];
-    for (NSString *nativeIdentifier in startMenuNativeIdentifiers) {
-        [newItems addObject:[[StartMenuItem alloc] initWithNativeIdentifier:nativeIdentifier inWorld:self.world]];
+
+    NSString *defaultsKey = [NSString stringWithFormat:@"startMenuItems.%@", self.world.name];
+    NSArray *defaultsItems = [[NSUserDefaults standardUserDefaults] objectForKeyPath:defaultsKey];
+    
+    NSMutableArray *filesystemItems = [NSMutableArray new];
+    for (NSString *filesystemItem in [[NSFileManager defaultManager] enumeratorAtPath:self.programsFolder.path]) {
+        if ([filesystemItem hasSuffix:@".plist"])
+            [filesystemItems addObject:filesystemItem.stringByDeletingPathExtension];
+    }
+    
+    NSMutableArray *addedItems = [filesystemItems mutableCopy];
+    [addedItems removeObjectsInArray:defaultsItems];
+    for (NSString *addedItem in addedItems) {
+        [newItems addObject:[[StartMenuItem alloc] initWithNativeIdentifier:addedItem inWorld:self.world]];
+    }
+    for (NSString *item in defaultsItems) {
+        if ([filesystemItems containsObject:item])
+            [newItems addObject:[[StartMenuItem alloc] initWithNativeIdentifier:item inWorld:self.world]];
     }
     
     self.mutableItems = newItems;
