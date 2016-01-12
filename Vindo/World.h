@@ -7,19 +7,57 @@
 //
 
 #import <Cocoa/Cocoa.h>
-@class WinePrefix;
 
 extern NSString *const WorldPasteboardType;
 
-@interface World : NSObject <NSPasteboardReading, NSPasteboardWriting>
+typedef enum {
+    WineServerStopped = 0,
+    WineServerStarting,
+    WineServerRunning,
+    WineServerStopping
+} WineServerState;
+
+@interface World : NSObject <NSPasteboardReading, NSPasteboardWriting> {
+    NSFileHandle *_logFileHandle;
+}
+
+#pragma mark -
+#pragma mark World
 
 - (instancetype)initWithName:(NSString *)name;
 
-@property (readonly) WinePrefix *prefix;
+@property (readonly) NSString *name;
+@property (readonly) NSURL *url;
 
 - (void)run:(NSString *)program withArguments:(NSArray *)arguments;
 - (void)run:(NSString *)program;
 
-@property (readonly) NSString *name;
+#pragma mark -
+#pragma mark Server variables
+
+@property NSTask *serverTask;
+@property WineServerState state;
 
 @end
+
+
+@interface World (WinePrefix)
+
+- (NSTask *)wineTaskWithProgram:(NSString *)program arguments:(NSArray *)arguments;
+- (NSDictionary *)wineEnvironment;
+
+@end
+
+@interface World (WineServer)
+
+@property (readonly, getter=isRunning) BOOL running;
+
+- (void)start;
+- (void)stop;
+
+@end
+
+extern NSString *const WorldDidStartNotification;
+extern NSString *const WorldDidStopNotification;
+
+

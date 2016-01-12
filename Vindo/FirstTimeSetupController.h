@@ -12,4 +12,9 @@
 
 @property (readonly, getter=isHappening) BOOL happening;
 
++ (FirstTimeSetupController *)sharedInstance;
+
 @end
+
+extern NSString *const FirstTimeSetupDidStartNotification;
+extern NSString *const FirstTimeSetupDidCompleteNotification;

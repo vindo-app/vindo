@@ -22,62 +22,15 @@
 @implementation StatusWindowController
 
 - (instancetype)initWithMessage:(NSString *)message
-                    sheetWindow:(NSWindow *)window
-              startNotification:(NSString *)startNotification
-               stopNotification:(NSString *)stopNotification
-                         object:(id)object {
+                    sheetWindow:(NSWindow *)window {
     if (self = [super initWithWindowNibName:@"Status"]) {
         _message = message;
         _sheetWindow = window;
-        
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center addObserver:self
-                   selector:@selector(appear:)
-                       name:startNotification
-                     object:object];
-        [center addObserver:self
-                   selector:@selector(disappear:)
-                       name:stopNotification
-                     object:object];
     }
     return self;
 }
 
-- (instancetype)initWithMessage:(NSString *)message
-                    sheetWindow:(NSWindow *)window
-                      operation:(NSOperation *)operation {
-    if (self = [super initWithWindowNibName:@"Status"]) {
-        _message = message;
-        _sheetWindow = window;
-        
-        [operation addObserver:self
-                    forKeyPath:@"isExecuting"
-                       options:NSKeyValueObservingOptionNew
-                       context:NULL];
-        [operation addObserver:self
-                    forKeyPath:@"isFinished"
-                       options:NSKeyValueObservingOptionNew
-                       context:NULL];
-    }
-    return self;
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context {
-    if ([keyPath isEqualToString:@"isExecuting"]) {
-        if ([change[NSKeyValueChangeNewKey] boolValue] == YES) {
-            [self appear:nil];
-        }
-    } else if ([keyPath isEqualToString:@"isFinished"]) {
-        if ([change[NSKeyValueChangeNewKey] boolValue] == YES) {
-            [self disappear:nil];
-        }
-    }
-}
-
-- (void)appear:(NSNotification *)notification {
+- (void)appear {
     // Since this might not be called from the main thread, we have to
     // add the timer to the main run loop instead of the current thread's run loop.
     self.timer = [NSTimer timerWithTimeInterval:0.5
@@ -99,7 +52,7 @@
               contextInfo:NULL];
 }
 
-- (void)disappear:(NSNotification *)notification {
+- (void)disappear {
     [self performSelectorOnMainThread:@selector(actuallyDisappear) withObject:nil waitUntilDone:NO];
 }
 

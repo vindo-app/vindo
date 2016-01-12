@@ -8,7 +8,6 @@
 
 #import "BootCycleController.h"
 #import "WorldsController.h"
-#import "WinePrefix.h"
 
 @interface BootCycleController ()
 
@@ -41,18 +40,22 @@
     if ([self.oldSelectedWorld isEqualTo:newSelectedWorld])
         return;
 
-    if (self.oldSelectedWorld != nil) {
-        [self.oldSelectedWorld.prefix stopServer];
+    // Deal with the stupidities of the array controller.
+    if (newSelectedWorld == nil) {
+        NSLog(@"not going from %@ to %@", self.oldSelectedWorld, newSelectedWorld);
+        return;
     }
-    if (newSelectedWorld != nil) {
-        [newSelectedWorld.prefix startServer];
-    }
+    
+    NSLog(@"    going from %@ to %@", self.oldSelectedWorld, newSelectedWorld);
+    
+    [self.oldSelectedWorld stop];
+    [newSelectedWorld start];
 
     self.oldSelectedWorld = newSelectedWorld; // save for next time
 }
 
 - (void)stopOnQuit:(NSNotification *)notification {
-    [[WorldsController sharedController].selectedWorld.prefix stopServerAndWait];
+    [[WorldsController sharedController].selectedWorld stop];
 }
 
 @end

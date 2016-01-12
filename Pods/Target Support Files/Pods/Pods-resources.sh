@@ -59,11 +59,9 @@ install_resource()
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "RHPreferences/RHPreferences/RHPreferencesWindow.xib"
-  install_resource "Sparkle/Sparkle.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "RHPreferences/RHPreferences/RHPreferencesWindow.xib"
-  install_resource "Sparkle/Sparkle.framework"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

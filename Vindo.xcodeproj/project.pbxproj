@@ -17,7 +17,29 @@
 		8A6E189A1C03B5BF003E9F58 /* UpdatePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E18981C03B5BF003E9F58 /* UpdatePreferencesViewController.m */; };
 		8A6E189B1C03B5BF003E9F58 /* UpdatePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E18991C03B5BF003E9F58 /* UpdatePreferencesViewController.xib */; };
 		8A6E189F1C03B963003E9F58 /* SoftwareUpdate.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E189E1C03B963003E9F58 /* SoftwareUpdate.icns */; };
+		8A041E9A1BFBFD4100D60E08 /* PopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A041E981BFBFD4100D60E08 /* PopupViewController.m */; };
+		8A041E9B1BFBFD4100D60E08 /* Popup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A041E991BFBFD4100D60E08 /* Popup.xib */; };
+		8A041E9F1BFBFF0400D60E08 /* PopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A041E9E1BFBFF0400D60E08 /* PopupController.m */; };
+		8A1D00C81BF6AAFD00D5FC1C /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D00C61BF6AAFD00D5FC1C /* PreferencesWindowController.m */; };
+		8A1D00C91BF6AAFD00D5FC1C /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */; };
+		8A22BA5D1C18C165002B4351 /* NSObject+Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A22BA5C1C18C165002B4351 /* NSObject+Notifications.m */; };
+		8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BE1AA91EF600F1467C /* MainMenu.xib */; };
+		8A36AF541C1F4D1B0012D115 /* StartMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A36AF521C1F4D1B0012D115 /* StartMenuViewController.m */; };
+		8A36AF551C1F4D1B0012D115 /* StartMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A36AF531C1F4D1B0012D115 /* StartMenuViewController.xib */; };
+		8A36AF591C1F530D0012D115 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A36AF571C1F530D0012D115 /* SetupViewController.m */; };
+		8A36AF5A1C1F530D0012D115 /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A36AF581C1F530D0012D115 /* SetupViewController.xib */; };
+		8A5B97581C24DF24001FF0EF /* WindowsProgramAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B97571C24DF24001FF0EF /* WindowsProgramAppDelegate.m */; };
+		8A5B975B1C24DF24001FF0EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B975A1C24DF24001FF0EF /* main.m */; };
+		8A5B97601C24DF24001FF0EF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B975E1C24DF24001FF0EF /* MainMenu.xib */; };
+		8A5B97671C24DF61001FF0EF /* Windows Program.app in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B97541C24DF24001FF0EF /* Windows Program.app */; };
+		8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */; };
+		8A66CCB81BACD35500D7E592 /* vindo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8A66CCB71BACD35500D7E592 /* vindo.icns */; };
+		8A6880A91BC333620032352B /* StartMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6880A81BC333620032352B /* StartMenu.m */; };
+		8A6880AC1BC3336E0032352B /* StartMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6880AB1BC3336E0032352B /* StartMenuController.m */; };
+		8A6880AF1BC333E10032352B /* StartMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6880AE1BC333E10032352B /* StartMenuItem.m */; };
 		8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A70BF041BAA2BC500F58EBE /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8A713E0C1C249AB400918B1A /* World+PasteboardSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A713E0B1C249AB400918B1A /* World+PasteboardSupport.m */; };
+		8A713E0F1C249BB800918B1A /* World+StartMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A713E0E1C249BB800918B1A /* World+StartMenu.m */; };
 		8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */; };
 		8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* Status.xib */; };
 		8AC01C2E1C03DA63004FEF69 /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01C2C1C03DA63004FEF69 /* GeneralPreferencesViewController.m */; };
@@ -37,13 +59,31 @@
 		AC5219071B23BBF2004A322E /* WinePrefix.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5219061B23BBF2004A322E /* WinePrefix.m */; };
 		AC52190A1B23BC85004A322E /* WineServer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5219091B23BC85004A322E /* WineServer.m */; };
 		AC5AC3511B3E1E5900538492 /* LaunchController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AC3501B3E1E5900538492 /* LaunchController.m */; };
+		AC5E86151C2363C40027FB80 /* ImageResizingValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E86141C2363C40027FB80 /* ImageResizingValueTransformer.m */; };
+		AC5E86191C2370300027FB80 /* StartMenuButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E86181C2370300027FB80 /* StartMenuButtonCell.m */; };
 		AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */; };
 		AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */; };
-		ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA9D6161AA7E41A00194089 /* winecfg.png */; };
 		ACD830041B8D346900D8F285 /* usr in Resources */ = {isa = PBXBuildFile; fileRef = ACD830031B8D346900D8F285 /* usr */; };
 		ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */; };
+		ACE47E981C0923C70001808C /* StatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE47E971C0923C70001808C /* StatusBarView.m */; };
+		BB7303521C388784004B4375 /* AppBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7303511C388784004B4375 /* AppBundle.m */; };
+		BBBCEAA81C3C8E8D00E5E175 /* WindowsProgramApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAA71C3C8E8D00E5E175 /* WindowsProgramApplication.m */; };
+		BBBCEAAD1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */; };
+		BBBCEAB01C3DE15200E5E175 /* ABCTController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */; };
+		BBF18B791C41FE050060092B /* StartMenuDefaultsSync.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */; };
+		BBF18B7C1C433F150060092B /* NSUserDefaults+KeyPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */; };
 		F6D3954A9DA48257AC7EF798 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 258CC4B79A56F9EFB6956C3A /* libPods.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8A5B97651C24DF53001FF0EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC3A4ED41AA12F9900781626 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A5B97531C24DF24001FF0EF;
+			remoteInfo = "Windows Program";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		AC1957DF1AA52D920077A25C /* Embed Frameworks */ = {
@@ -77,8 +117,43 @@
 		8A6E18981C03B5BF003E9F58 /* UpdatePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatePreferencesViewController.m; sourceTree = "<group>"; };
 		8A6E18991C03B5BF003E9F58 /* UpdatePreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdatePreferencesViewController.xib; sourceTree = "<group>"; };
 		8A6E189E1C03B963003E9F58 /* SoftwareUpdate.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = SoftwareUpdate.icns; sourceTree = "<group>"; };
+		8A041E971BFBFD4100D60E08 /* PopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewController.h; sourceTree = "<group>"; };
+		8A041E981BFBFD4100D60E08 /* PopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewController.m; sourceTree = "<group>"; };
+		8A041E991BFBFD4100D60E08 /* Popup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Popup.xib; sourceTree = "<group>"; };
+		8A041E9D1BFBFF0400D60E08 /* PopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupController.h; sourceTree = "<group>"; };
+		8A041E9E1BFBFF0400D60E08 /* PopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupController.m; sourceTree = "<group>"; };
+		8A1D00C51BF6AAFD00D5FC1C /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
+		8A1D00C61BF6AAFD00D5FC1C /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
+		8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		8A22BA5B1C18C165002B4351 /* NSObject+Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Notifications.h"; sourceTree = "<group>"; };
+		8A22BA5C1C18C165002B4351 /* NSObject+Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Notifications.m"; sourceTree = "<group>"; };
+		8A23F3BD1AA91EF600F1467C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		8A36AF511C1F4D1B0012D115 /* StartMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuViewController.h; sourceTree = "<group>"; };
+		8A36AF521C1F4D1B0012D115 /* StartMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuViewController.m; sourceTree = "<group>"; };
+		8A36AF531C1F4D1B0012D115 /* StartMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartMenuViewController.xib; sourceTree = "<group>"; };
+		8A36AF561C1F530D0012D115 /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
+		8A36AF571C1F530D0012D115 /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
+		8A36AF581C1F530D0012D115 /* SetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupViewController.xib; sourceTree = "<group>"; };
+		8A5B97541C24DF24001FF0EF /* Windows Program.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Windows Program.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A5B97561C24DF24001FF0EF /* WindowsProgramAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowsProgramAppDelegate.h; sourceTree = "<group>"; };
+		8A5B97571C24DF24001FF0EF /* WindowsProgramAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowsProgramAppDelegate.m; sourceTree = "<group>"; };
+		8A5B975A1C24DF24001FF0EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8A5B975F1C24DF24001FF0EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		8A5B97611C24DF24001FF0EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = statusbar.tiff; sourceTree = "<group>"; };
+		8A66CCB71BACD35500D7E592 /* vindo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = vindo.icns; sourceTree = "<group>"; };
+		8A6880A71BC333620032352B /* StartMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenu.h; sourceTree = "<group>"; };
+		8A6880A81BC333620032352B /* StartMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenu.m; sourceTree = "<group>"; };
+		8A6880AA1BC3336E0032352B /* StartMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuController.h; sourceTree = "<group>"; };
+		8A6880AB1BC3336E0032352B /* StartMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuController.m; sourceTree = "<group>"; };
+		8A6880AD1BC333E10032352B /* StartMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuItem.h; sourceTree = "<group>"; };
+		8A6880AE1BC333E10032352B /* StartMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuItem.m; sourceTree = "<group>"; };
 		8A70BF031BAA2BB800F58EBE /* PFMoveApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; };
 		8A70BF041BAA2BC500F58EBE /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; };
+		8A713E0B1C249AB400918B1A /* World+PasteboardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "World+PasteboardSupport.m"; sourceTree = "<group>"; };
+		8A713E0D1C249BB800918B1A /* World+StartMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "World+StartMenu.h"; sourceTree = "<group>"; };
+		8A713E0E1C249BB800918B1A /* World+StartMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "World+StartMenu.m"; sourceTree = "<group>"; };
 		8ABB4AC21AB8DE7B00CDB93C /* StatusWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusWindowController.h; sourceTree = "<group>"; };
 		8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusWindowController.m; sourceTree = "<group>"; };
 		8ABB4AC41AB8DE7B00CDB93C /* Status.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Status.xib; sourceTree = "<group>"; };
@@ -94,6 +169,7 @@
 		8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsMenuController.m; sourceTree = "<group>"; };
 		8AC01D6A1ABB930F00F8C066 /* IndexSetToIntTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexSetToIntTransformer.h; sourceTree = "<group>"; };
 		8AC01D6B1ABB930F00F8C066 /* IndexSetToIntTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexSetToIntTransformer.m; sourceTree = "<group>"; };
+		8AEB83061C0FB74C00144FF6 /* Vindo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vindo.pch; sourceTree = "<group>"; };
 		AC0580781ABE13F300854813 /* ManageWorlds.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageWorlds.xib; sourceTree = "<group>"; };
 		AC05808A1ABF97F700854813 /* ManageWorldsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageWorldsWindowController.h; sourceTree = "<group>"; };
 		AC05808B1ABF97F700854813 /* ManageWorldsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ManageWorldsWindowController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -106,24 +182,45 @@
 		AC3A4EE41AA12F9A00781626 /* ApplicationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ApplicationController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		AC5219021B225BBC004A322E /* WorldsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsController.h; sourceTree = "<group>"; };
 		AC5219031B225BBC004A322E /* WorldsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsController.m; sourceTree = "<group>"; };
-		AC5219051B23BBF2004A322E /* WinePrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinePrefix.h; sourceTree = "<group>"; };
 		AC5219061B23BBF2004A322E /* WinePrefix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinePrefix.m; sourceTree = "<group>"; };
-		AC5219081B23BC85004A322E /* WineServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineServer.h; sourceTree = "<group>"; };
 		AC5219091B23BC85004A322E /* WineServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineServer.m; sourceTree = "<group>"; };
-		AC52190C1B23C010004A322E /* StartWineServerOperation.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StartWineServerOperation.inl; sourceTree = "<group>"; };
-		AC52190E1B23C064004A322E /* StopWineServerOperation.inl */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = StopWineServerOperation.inl; sourceTree = "<group>"; };
 		AC5AC34F1B3E1E5900538492 /* LaunchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchController.h; sourceTree = "<group>"; };
 		AC5AC3501B3E1E5900538492 /* LaunchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchController.m; sourceTree = "<group>"; };
+		AC5E86131C2363C40027FB80 /* ImageResizingValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageResizingValueTransformer.h; sourceTree = "<group>"; };
+		AC5E86141C2363C40027FB80 /* ImageResizingValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResizingValueTransformer.m; sourceTree = "<group>"; };
+		AC5E86171C2370300027FB80 /* StartMenuButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuButtonCell.h; sourceTree = "<group>"; };
+		AC5E86181C2370300027FB80 /* StartMenuButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuButtonCell.m; sourceTree = "<group>"; };
 		AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		AC9681BD1ABCD59D00A9233B /* WorldsTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsTransformer.h; sourceTree = "<group>"; };
 		AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsTransformer.m; sourceTree = "<group>"; };
-		ACA9D6161AA7E41A00194089 /* winecfg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = winecfg.png; sourceTree = "<group>"; };
 		ACD830031B8D346900D8F285 /* usr */ = {isa = PBXFileReference; lastKnownFileType = folder; name = usr; path = Wine/usr; sourceTree = SOURCE_ROOT; };
 		ACDE7B151BAB76E100A37DE2 /* FirstTimeSetupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTimeSetupController.h; sourceTree = "<group>"; };
 		ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTimeSetupController.m; sourceTree = "<group>"; };
+		ACE47E961C0923C70001808C /* StatusBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarView.h; sourceTree = "<group>"; };
+		ACE47E971C0923C70001808C /* StatusBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarView.m; sourceTree = "<group>"; };
+		BB7303501C388784004B4375 /* AppBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBundle.h; sourceTree = "<group>"; };
+		BB7303511C388784004B4375 /* AppBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBundle.m; sourceTree = "<group>"; };
+		BBBCEAA61C3C8E8D00E5E175 /* WindowsProgramApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowsProgramApplication.h; sourceTree = "<group>"; };
+		BBBCEAA71C3C8E8D00E5E175 /* WindowsProgramApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowsProgramApplication.m; sourceTree = "<group>"; };
+		BBBCEAAA1C3DD8C600E5E175 /* AppBundleCommunicationThing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBundleCommunicationThing.h; sourceTree = "<group>"; };
+		BBBCEAAB1C3DE10700E5E175 /* AppBundleConnectionThingImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppBundleConnectionThingImpl.h; path = Vindo/AppBundleConnectionThingImpl.h; sourceTree = "<group>"; };
+		BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppBundleConnectionThingImpl.m; path = Vindo/AppBundleConnectionThingImpl.m; sourceTree = "<group>"; };
+		BBBCEAAE1C3DE15200E5E175 /* ABCTController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCTController.h; sourceTree = "<group>"; };
+		BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCTController.m; sourceTree = "<group>"; };
+		BBF18B771C41FE050060092B /* StartMenuDefaultsSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuDefaultsSync.h; sourceTree = "<group>"; };
+		BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuDefaultsSync.m; sourceTree = "<group>"; };
+		BBF18B7A1C433F150060092B /* NSUserDefaults+KeyPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+KeyPaths.h"; sourceTree = "<group>"; };
+		BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+KeyPaths.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8A5B97511C24DF24001FF0EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AC3A4ED91AA12F9900781626 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,16 +234,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A041E9C1BFBFD4500D60E08 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				8A041E971BFBFD4100D60E08 /* PopupViewController.h */,
+				8A041E981BFBFD4100D60E08 /* PopupViewController.m */,
+				8A041E991BFBFD4100D60E08 /* Popup.xib */,
+				AC5E86161C2363E40027FB80 /* Start Menu */,
+				8A36AF561C1F530D0012D115 /* SetupViewController.h */,
+				8A36AF571C1F530D0012D115 /* SetupViewController.m */,
+				8A36AF581C1F530D0012D115 /* SetupViewController.xib */,
+			);
+			name = Popup;
+			path = Vindo;
+			sourceTree = "<group>";
+		};
+		8A5B97551C24DF24001FF0EF /* Windows Program */ = {
+			isa = PBXGroup;
+			children = (
+				8A5B97561C24DF24001FF0EF /* WindowsProgramAppDelegate.h */,
+				8A5B97571C24DF24001FF0EF /* WindowsProgramAppDelegate.m */,
+				8A5B975E1C24DF24001FF0EF /* MainMenu.xib */,
+				8A5B97611C24DF24001FF0EF /* Info.plist */,
+				BBBCEAA61C3C8E8D00E5E175 /* WindowsProgramApplication.h */,
+				BBBCEAA71C3C8E8D00E5E175 /* WindowsProgramApplication.m */,
+				8A5B97591C24DF24001FF0EF /* Supporting Files */,
+			);
+			path = "Windows Program";
+			sourceTree = "<group>";
+		};
+		8A5B97591C24DF24001FF0EF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8A5B975A1C24DF24001FF0EF /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		8A655B7C1AA6773E00FFCD0C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				8A6E189E1C03B963003E9F58 /* SoftwareUpdate.icns */,
+				8A23F3BE1AA91EF600F1467C /* MainMenu.xib */,
 				ACD830031B8D346900D8F285 /* usr */,
 				8A66CCB71BACD35500D7E592 /* vindo.icns */,
 				8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */,
 				8AC01D5C1ABB84D100F8C066 /* Executable.icns */,
 				AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */,
-				ACA9D6161AA7E41A00194089 /* winecfg.png */,
 			);
 			name = Resources;
 			path = Vindo;
@@ -175,6 +309,35 @@
 			name = Status;
 			sourceTree = "<group>";
 		};
+		8A6880A51BC332D80032352B /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				8A041E9C1BFBFD4500D60E08 /* Popup */,
+				8ABB4AC11AB8D8FF00CDB93C /* Status */,
+				AC1957C21AA52AB50077A25C /* Worlds Manager */,
+			);
+			name = Windows;
+			sourceTree = "<group>";
+		};
+		8A6880A61BC3330C0032352B /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				8A6880AA1BC3336E0032352B /* StartMenuController.h */,
+				8A6880AB1BC3336E0032352B /* StartMenuController.m */,
+				BBF18B771C41FE050060092B /* StartMenuDefaultsSync.h */,
+				BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */,
+				8A6880A71BC333620032352B /* StartMenu.h */,
+				8A6880A81BC333620032352B /* StartMenu.m */,
+				8A6880AD1BC333E10032352B /* StartMenuItem.h */,
+				8A6880AE1BC333E10032352B /* StartMenuItem.m */,
+				BB7303501C388784004B4375 /* AppBundle.h */,
+				BB7303511C388784004B4375 /* AppBundle.m */,
+				8A713E0D1C249BB800918B1A /* World+StartMenu.h */,
+				8A713E0E1C249BB800918B1A /* World+StartMenu.m */,
+			);
+			name = Start;
+			sourceTree = "<group>";
+		};
 		8A70BF061BAA2BCF00F58EBE /* LetsMove */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,15 +347,31 @@
 			name = LetsMove;
 			sourceTree = "<group>";
 		};
-		8ABB4AC11AB8D8FF00CDB93C /* UI */ = {
+		8A713E071C2492D200918B1A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC9681BC1ABCD57400A9233B /* Worlds */,
+				8A6880A61BC3330C0032352B /* Start */,
+			);
+			name = Models;
+			path = Vindo;
+			sourceTree = "<group>";
+		};
+		8ABB4AC11AB8D8FF00CDB93C /* Status */ = {
 			isa = PBXGroup;
 			children = (
 				AC1957C21AA52AB50077A25C /* Worlds Manager */,
 				8A6E189C1C03B5C2003E9F58 /* Preferences */,
 				8A6E189D1C03B5D9003E9F58 /* Status */,
 				8A23F3BE1AA91EF600F1467C /* MainMenu.xib */,
+				8A1D00C51BF6AAFD00D5FC1C /* PreferencesWindowController.h */,
+				8A1D00C61BF6AAFD00D5FC1C /* PreferencesWindowController.m */,
+				8A1D00C71BF6AAFD00D5FC1C /* Preferences.xib */,
+				8ABB4AC21AB8DE7B00CDB93C /* StatusWindowController.h */,
+				8ABB4AC31AB8DE7B00CDB93C /* StatusWindowController.m */,
+				8ABB4AC41AB8DE7B00CDB93C /* Status.xib */,
 			);
-			name = UI;
+			name = Status;
 			path = Vindo;
 			sourceTree = "<group>";
 		};
@@ -239,6 +418,8 @@
 			children = (
 				AC3A4EE31AA12F9A00781626 /* ApplicationController.h */,
 				AC3A4EE41AA12F9A00781626 /* ApplicationController.m */,
+				8A041E9D1BFBFF0400D60E08 /* PopupController.h */,
+				8A041E9E1BFBFF0400D60E08 /* PopupController.m */,
 				AC2D42AF1B3A1F8100F3C2FA /* BootCycleController.h */,
 				AC2D42B01B3A1F8100F3C2FA /* BootCycleController.m */,
 				AC5AC34F1B3E1E5900538492 /* LaunchController.h */,
@@ -249,8 +430,13 @@
 				8A341B671BFD490800207E6C /* AnalyticsController.m */,
 				8A341B691BFD4C4500207E6C /* uuid.c */,
 				8A341B6A1BFD4C4500207E6C /* uuid.h */,
+				8AC01D611ABB879D00F8C066 /* WorldsMenuController.h */,
+				8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */,
+				BBBCEAAE1C3DE15200E5E175 /* ABCTController.h */,
+				BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */,
 			);
 			name = Controllers;
+			path = Vindo;
 			sourceTree = "<group>";
 		};
 		AC3A4ED31AA12F9900781626 = {
@@ -258,6 +444,12 @@
 			children = (
 				AC8DB5AF1AA130A1000A6C51 /* Code */,
 				8ABB4AC11AB8D8FF00CDB93C /* UI */,
+				8A713E071C2492D200918B1A /* Models */,
+				8A6880A51BC332D80032352B /* Windows */,
+				AC2D42B21B3A1FA700F3C2FA /* Controllers */,
+				8A5B97551C24DF24001FF0EF /* Windows Program */,
+				BBBCEAA91C3DD66F00E5E175 /* DO */,
+				AC8DB5AF1AA130A1000A6C51 /* Other Stuff */,
 				8A655B7C1AA6773E00FFCD0C /* Resources */,
 				AC3A4EDF1AA12F9A00781626 /* Supporting Files */,
 				AC1957D01AA52BB10077A25C /* Frameworks */,
@@ -270,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				AC3A4EDC1AA12F9900781626 /* Vindo.app */,
+				8A5B97541C24DF24001FF0EF /* Windows Program.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -279,6 +472,9 @@
 			children = (
 				8A23F3BD1AA91EF600F1467C /* Info.plist */,
 				AC3A4EE11AA12F9A00781626 /* main.m */,
+				8AEB83061C0FB74C00144FF6 /* Vindo.pch */,
+				BBF18B7A1C433F150060092B /* NSUserDefaults+KeyPaths.h */,
+				BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */,
 			);
 			name = "Supporting Files";
 			path = Vindo;
@@ -287,59 +483,87 @@
 		AC5219101B23C0BC004A322E /* Wine Prefix */ = {
 			isa = PBXGroup;
 			children = (
-				AC5219051B23BBF2004A322E /* WinePrefix.h */,
 				AC5219061B23BBF2004A322E /* WinePrefix.m */,
-				AC5219111B23C0E9004A322E /* Wine Server */,
+				AC5219091B23BC85004A322E /* WineServer.m */,
 			);
 			name = "Wine Prefix";
 			sourceTree = "<group>";
 		};
-		AC5219111B23C0E9004A322E /* Wine Server */ = {
+		AC5E86161C2363E40027FB80 /* Start Menu */ = {
 			isa = PBXGroup;
 			children = (
-				AC52190C1B23C010004A322E /* StartWineServerOperation.inl */,
-				AC52190E1B23C064004A322E /* StopWineServerOperation.inl */,
-				AC5219081B23BC85004A322E /* WineServer.h */,
-				AC5219091B23BC85004A322E /* WineServer.m */,
+				8A36AF511C1F4D1B0012D115 /* StartMenuViewController.h */,
+				8A36AF521C1F4D1B0012D115 /* StartMenuViewController.m */,
+				8A36AF531C1F4D1B0012D115 /* StartMenuViewController.xib */,
+				AC5E86131C2363C40027FB80 /* ImageResizingValueTransformer.h */,
+				AC5E86141C2363C40027FB80 /* ImageResizingValueTransformer.m */,
+				AC5E86171C2370300027FB80 /* StartMenuButtonCell.h */,
+				AC5E86181C2370300027FB80 /* StartMenuButtonCell.m */,
 			);
-			name = "Wine Server";
+			name = "Start Menu";
 			sourceTree = "<group>";
 		};
-		AC8DB5AF1AA130A1000A6C51 /* Code */ = {
+		AC8DB5AF1AA130A1000A6C51 /* Other Stuff */ = {
 			isa = PBXGroup;
 			children = (
-				AC2D42B21B3A1FA700F3C2FA /* Controllers */,
-				8A525F071AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.h */,
-				8A525F081AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m */,
-				AC9681BC1ABCD57400A9233B /* World */,
-				AC5219101B23C0BC004A322E /* Wine Prefix */,
+				ACE47E961C0923C70001808C /* StatusBarView.h */,
+				ACE47E971C0923C70001808C /* StatusBarView.m */,
 				8A70BF061BAA2BCF00F58EBE /* LetsMove */,
 				8AC01C331C03E0A5004FEF69 /* LaunchAtLogin */,
+				8A22BA5B1C18C165002B4351 /* NSObject+Notifications.h */,
+				8A22BA5C1C18C165002B4351 /* NSObject+Notifications.m */,
 			);
-			name = Code;
+			name = "Other Stuff";
 			path = Vindo;
 			sourceTree = "<group>";
 		};
-		AC9681BC1ABCD57400A9233B /* World */ = {
+		AC9681BC1ABCD57400A9233B /* Worlds */ = {
 			isa = PBXGroup;
 			children = (
-				AC5219021B225BBC004A322E /* WorldsController.h */,
-				AC5219031B225BBC004A322E /* WorldsController.m */,
+				AC5219101B23C0BC004A322E /* Wine Prefix */,
 				8AC01D591ABB72E200F8C066 /* World.h */,
 				8AC01D5A1ABB72E200F8C066 /* World.m */,
-				8AC01D611ABB879D00F8C066 /* WorldsMenuController.h */,
-				8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */,
+				8A713E0B1C249AB400918B1A /* World+PasteboardSupport.m */,
+				AC5219021B225BBC004A322E /* WorldsController.h */,
+				AC5219031B225BBC004A322E /* WorldsController.m */,
 				AC9681BD1ABCD59D00A9233B /* WorldsTransformer.h */,
 				AC9681BE1ABCD59D00A9233B /* WorldsTransformer.m */,
 				8AC01D6A1ABB930F00F8C066 /* IndexSetToIntTransformer.h */,
 				8AC01D6B1ABB930F00F8C066 /* IndexSetToIntTransformer.m */,
 			);
-			name = World;
+			name = Worlds;
+			sourceTree = "<group>";
+		};
+		BBBCEAA91C3DD66F00E5E175 /* DO */ = {
+			isa = PBXGroup;
+			children = (
+				BBBCEAAA1C3DD8C600E5E175 /* AppBundleCommunicationThing.h */,
+				BBBCEAAB1C3DE10700E5E175 /* AppBundleConnectionThingImpl.h */,
+				BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */,
+			);
+			name = DO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8A5B97531C24DF24001FF0EF /* Windows Program */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A5B97641C24DF24001FF0EF /* Build configuration list for PBXNativeTarget "Windows Program" */;
+			buildPhases = (
+				8A5B97501C24DF24001FF0EF /* Sources */,
+				8A5B97511C24DF24001FF0EF /* Frameworks */,
+				8A5B97521C24DF24001FF0EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Windows Program";
+			productName = "Windows Program";
+			productReference = 8A5B97541C24DF24001FF0EF /* Windows Program.app */;
+			productType = "com.apple.product-type.application";
+		};
 		AC3A4EDB1AA12F9900781626 /* Vindo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC3A4EF91AA12F9B00781626 /* Build configuration list for PBXNativeTarget "Vindo" */;
@@ -357,6 +581,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8A5B97661C24DF53001FF0EF /* PBXTargetDependency */,
 			);
 			name = Vindo;
 			productName = Vindo;
@@ -372,6 +597,9 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Theodore Dubois";
 				TargetAttributes = {
+					8A5B97531C24DF24001FF0EF = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					AC3A4EDB1AA12F9900781626 = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = W2NF7BNM62;
@@ -392,26 +620,41 @@
 			projectRoot = "";
 			targets = (
 				AC3A4EDB1AA12F9900781626 /* Vindo */,
+				8A5B97531C24DF24001FF0EF /* Windows Program */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8A5B97521C24DF24001FF0EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A5B97601C24DF24001FF0EF /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AC3A4EDA1AA12F9900781626 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8AC01C2F1C03DA63004FEF69 /* GeneralPreferencesViewController.xib in Resources */,
+				8A5B97671C24DF61001FF0EF /* Windows Program.app in Resources */,
 				ACD830041B8D346900D8F285 /* usr in Resources */,
 				8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */,
-				ACA9D6171AA7E41A00194089 /* winecfg.png in Resources */,
 				8A66CCB81BACD35500D7E592 /* vindo.icns in Resources */,
 				8A6E189F1C03B963003E9F58 /* SoftwareUpdate.icns in Resources */,
 				AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */,
+				8A36AF5A1C1F530D0012D115 /* SetupViewController.xib in Resources */,
 				8AC01D5F1ABB84D100F8C066 /* Executable.icns in Resources */,
 				8A6E189B1C03B5BF003E9F58 /* UpdatePreferencesViewController.xib in Resources */,
 				8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */,
 				AC05807A1ABE13F300854813 /* ManageWorlds.xib in Resources */,
+				8A36AF551C1F4D1B0012D115 /* StartMenuViewController.xib in Resources */,
+				8ABB4AC61AB8DE7B00CDB93C /* Status.xib in Resources */,
+				AC05807A1ABE13F300854813 /* ManageWorlds.xib in Resources */,
+				8A1D00C91BF6AAFD00D5FC1C /* Preferences.xib in Resources */,
+				8A041E9B1BFBFD4100D60E08 /* Popup.xib in Resources */,
 				8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,28 +742,57 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8A5B97501C24DF24001FF0EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A5B975B1C24DF24001FF0EF /* main.m in Sources */,
+				8A5B97581C24DF24001FF0EF /* WindowsProgramAppDelegate.m in Sources */,
+				BBBCEAA81C3C8E8D00E5E175 /* WindowsProgramApplication.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AC3A4ED81AA12F9900781626 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8AC01C2E1C03DA63004FEF69 /* GeneralPreferencesViewController.m in Sources */,
+				8A713E0F1C249BB800918B1A /* World+StartMenu.m in Sources */,
 				8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */,
 				ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
+				BBF18B7C1C433F150060092B /* NSUserDefaults+KeyPaths.m in Sources */,
 				8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */,
 				8A6E189A1C03B5BF003E9F58 /* UpdatePreferencesViewController.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
+				BBF18B791C41FE050060092B /* StartMenuDefaultsSync.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				8A341B6B1BFD4C4500207E6C /* uuid.c in Sources */,
+				AC5E86191C2370300027FB80 /* StartMenuButtonCell.m in Sources */,
+				BB7303521C388784004B4375 /* AppBundle.m in Sources */,
+				BBBCEAB01C3DE15200E5E175 /* ABCTController.m in Sources */,
+				8A36AF541C1F4D1B0012D115 /* StartMenuViewController.m in Sources */,
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
+				8A713E0C1C249AB400918B1A /* World+PasteboardSupport.m in Sources */,
 				AC05808C1ABF97F700854813 /* ManageWorldsWindowController.m in Sources */,
+				BBBCEAAD1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m in Sources */,
+				8A041E9F1BFBFF0400D60E08 /* PopupController.m in Sources */,
+				AC5E86151C2363C40027FB80 /* ImageResizingValueTransformer.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 				8AC01C321C03E0A0004FEF69 /* LaunchAtLoginController.m in Sources */,
 				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
 				8A341B681BFD490800207E6C /* AnalyticsController.m in Sources */,
+				8A6880AC1BC3336E0032352B /* StartMenuController.m in Sources */,
+				8A1D00C81BF6AAFD00D5FC1C /* PreferencesWindowController.m in Sources */,
+				8A36AF591C1F530D0012D115 /* SetupViewController.m in Sources */,
+				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
+				8A6880AF1BC333E10032352B /* StartMenuItem.m in Sources */,
+				8A22BA5D1C18C165002B4351 /* NSObject+Notifications.m in Sources */,
 				AC5219071B23BBF2004A322E /* WinePrefix.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */,
-				8A525F091AC20F2F00D9538A /* NSOperationQueue+DefaultQueue.m in Sources */,
+				8A041E9A1BFBFD4100D60E08 /* PopupViewController.m in Sources */,
+				8A6880A91BC333620032352B /* StartMenu.m in Sources */,
+				ACE47E981C0923C70001808C /* StatusBarView.m in Sources */,
 				AC5AC3511B3E1E5900538492 /* LaunchController.m in Sources */,
 				AC52190A1B23BC85004A322E /* WineServer.m in Sources */,
 				AC2D42B11B3A1F8100F3C2FA /* BootCycleController.m in Sources */,
@@ -529,7 +801,63 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8A5B97661C24DF53001FF0EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A5B97531C24DF24001FF0EF /* Windows Program */;
+			targetProxy = 8A5B97651C24DF53001FF0EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8A5B975E1C24DF24001FF0EF /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A5B975F1C24DF24001FF0EF /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		8A5B97621C24DF24001FF0EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Windows Program/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tbodt.Windows-Program";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = i386;
+			};
+			name = Debug;
+		};
+		8A5B97631C24DF24001FF0EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Windows Program/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tbodt.Windows-Program";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = i386;
+			};
+			name = Release;
+		};
 		AC3A4EF71AA12F9B00781626 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -547,7 +875,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application: Beth Dubois (W2NF7BNM62)";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -588,7 +916,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application: Beth Dubois (W2NF7BNM62)";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -611,19 +939,21 @@
 			baseConfigurationReference = 86910AAF59F070ED1ED06789 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application: Beth Dubois (W2NF7BNM62)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application: Beth Dubois (W2NF7BNM62)";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/RHPreferences-cosvbmytbofgiedgafmaepmnrzzq/Build/Products/Debug",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREFIX_HEADER = $SRCROOT/Vindo/Vindo.pch;
 				INFOPLIST_FILE = Vindo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -632,25 +962,36 @@
 			baseConfigurationReference = 3A16529B78CFC04B47D2FCD0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application: Beth Dubois (W2NF7BNM62)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application: Beth Dubois (W2NF7BNM62)";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/RHPreferences-cosvbmytbofgiedgafmaepmnrzzq/Build/Products/Debug",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREFIX_HEADER = $SRCROOT/Vindo/Vindo.pch;
 				INFOPLIST_FILE = Vindo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8A5B97641C24DF24001FF0EF /* Build configuration list for PBXNativeTarget "Windows Program" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A5B97621C24DF24001FF0EF /* Debug */,
+				8A5B97631C24DF24001FF0EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AC3A4ED71AA12F9900781626 /* Build configuration list for PBXProject "Vindo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -6,15 +6,17 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
+#import <ReactiveCocoa/ReactiveCocoa.h>
+
 #import "ApplicationController.h"
 #import "LaunchController.h"
 #import "UpdatePreferencesViewController.h"
 #import "GeneralPreferencesViewController.h"
+#import "PopupController.h"
 
 #import "ManageWorldsWindowController.h"
 
 #import "World.h"
-#import "WinePrefix.h"
 #import "WorldsController.h"
 
 #import "PFMoveApplication.h"
@@ -22,30 +24,22 @@
 #import "LaunchAtLoginController.h"
 
 @interface ApplicationController ()
+
 @property ManageWorldsWindowController *manageWorlds;
 @property RHPreferencesWindowController *preferences;
+
 @property IBOutlet LaunchController *launcher;
+@property IBOutlet PopupController *popupController;
 
 @end
 
 @implementation ApplicationController
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
-#ifdef DEBUG
+#ifndef DEBUG
     PFMoveToApplicationsFolderIfNecessary();
-    
-#endif
     [LaunchAtLoginController new].launchAtLogin = YES;
-}
-
-- (void)applicationDidFinishLaunching: (NSNotification *)aNotification {
-    NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
-    statusItem = [statusBar statusItemWithLength:NSSquareStatusItemLength];
-    statusItem.highlightMode = YES;
-    NSImage *statusBarImage = [NSImage imageNamed:@"statusbar"];
-    statusBarImage.template = YES;
-    statusItem.image = statusBarImage;
-    statusItem.menu = _statusBarMenu;
+#endif
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {

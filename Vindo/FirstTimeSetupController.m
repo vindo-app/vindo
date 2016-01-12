@@ -8,9 +8,8 @@
 
 #import "FirstTimeSetupController.h"
 #import "World.h"
-#import "WinePrefix.h"
 #import "WorldsController.h"
-#import "NSOperationQueue+DefaultQueue.h"
+#import "NSObject+Notifications.h"
 
 @interface FirstTimeSetupController ()
 
@@ -18,9 +17,14 @@
 
 @end
 
+static FirstTimeSetupController *sharedInstance;
+
 @implementation FirstTimeSetupController
 
 - (id)init {
+    if (sharedInstance)
+        return sharedInstance;
+    
     if (self = [super init]) {
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
@@ -28,26 +32,37 @@
                        name:NSApplicationDidFinishLaunchingNotification
                      object:nil];
     }
+    sharedInstance = self;
     return self;
 }
 
 - (void)checkForFirstTimeSetup:(NSNotification *)notification {
     WorldsController *worlds = [WorldsController sharedController];
-
+    
     if ([worlds.arrangedObjects count] == 0) {
-        [[NSOperationQueue defaultQueue] addOperationWithBlock:^{
-            self.happening = YES;
-
-            World *defaultWorld = [[World alloc] initWithName:@"Default World"];
-
-            [worlds addObject:defaultWorld];
-            worlds.selectedObjects = @[defaultWorld];
-
-            [defaultWorld.prefix startServerAndWait];
-            
-            self.happening = NO;
-        }];
+        self.happening = YES;
+        [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidStartNotification object:self];
+        
+        World *defaultWorld = [[World alloc] initWithName:@"Default World"];
+        
+        [worlds addObject:defaultWorld];
+        worlds.selectedObjects = @[defaultWorld];
+        
+        [defaultWorld start];
+        
+        [defaultWorld onNext:WorldDidStartNotification
+                          do:^(id n) {
+                              [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidCompleteNotification object:self];
+                              self.happening = NO;
+                          }];
     }
 }
 
++ (FirstTimeSetupController *)sharedInstance {
+    return [self new];
+}
+
 @end
+
+NSString *const FirstTimeSetupDidStartNotification = @"FirstTimeSetupDidStartNotification";
+NSString *const FirstTimeSetupDidCompleteNotification = @"FirstTimeSetupDidStartNotification";

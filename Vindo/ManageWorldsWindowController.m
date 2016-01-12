@@ -8,10 +8,9 @@
 
 #import "WorldsController.h"
 #import "World.h"
-#import "WinePrefix.h"
 #import "ManageWorldsWindowController.h"
 #import "StatusWindowController.h"
-#import "NSOperationQueue+DefaultQueue.h"
+#import "NSObject+Notifications.h"
 
 @interface ManageWorldsWindowController ()
 
@@ -21,7 +20,7 @@
 @property IBOutlet NSArrayController *arrayController;
 @property IBOutlet NSTableView *table;
 
-@property id strongReference; // need a strong reference to the sheet
+@property StatusWindowController *statusWindow;
 
 @end
 
@@ -30,6 +29,9 @@
 - (instancetype)init {
     return [super initWithWindowNibName:@"ManageWorlds"];
 }
+
+#pragma mark -
+#pragma mark Creating Worlds
 
 - (IBAction)addWorld:(id)sender {
     [NSApp beginSheet:_querySheet
@@ -46,16 +48,29 @@
 - (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
     if (returnCode == 0) {
         NSString *worldName = self.queryText.stringValue;
-        [self runBlock:^{
-            World *world = [[World alloc] initWithName:worldName];
-            [world.prefix startServerAndWait];
-            [self.arrayController addObject:world];
-            self.arrayController.selectedObjects = @[world];
-        } message:[NSString stringWithFormat:@"Creating world \"%@\"…", worldName]];
+        
+        
+        World *world = [[World alloc] initWithName:worldName];
+        
+        self.statusWindow = [[StatusWindowController alloc] initWithMessage:[NSString stringWithFormat:@"Creating world \"%@\"…", worldName]
+                                                                sheetWindow:self.window];
+        [self.statusWindow appear];
+        
+        [world onNext:WorldDidStartNotification
+                   do:^(id n) {
+                       [self.arrayController addObject:world];
+                       self.arrayController.selectedObjects = @[world];
+                       [self.statusWindow disappear];
+                   }];
+        [world start];
+        
     }
     [NSApp endSheet:_querySheet];
     [_querySheet orderOut:self];
 }
+
+#pragma mark -
+#pragma mark Removing Worlds
 
 - (IBAction)removeWorld:(id)sender {
     if ([_arrayController.selectedObjects indexOfObject:[[WorldsController sharedController] selectedWorld]] != NSNotFound) {
@@ -67,39 +82,36 @@
     if (_arrayController.selectedObjects.count < 1)
         return; // don't bother deleting nothing
     
-    NSArray *worldsToDelete = self.arrayController.selectedObjects;
+    NSMutableArray *worldsToDelete = [self.arrayController.selectedObjects mutableCopy];
     
     NSString *message;
     if (worldsToDelete.count == 1)
         message = [NSString stringWithFormat:@"Deleting world \"%@\"…",
-                       [worldsToDelete[0] name]];
+                   [worldsToDelete[0] name]];
     else
         message = [NSString stringWithFormat:@"Deleting %lu worlds…",
-                       (unsigned long) worldsToDelete.count];
-
-    [self runBlock:^{
-        for (World *world in worldsToDelete) {
-            [world.prefix stopServerAndWait];
-            NSError *error;
-            [[NSFileManager defaultManager]
-                trashItemAtURL:world.prefix.prefixURL resultingItemURL:nil error:&error]; // move world to trash
-            if (error != nil) {
-                [NSApp presentError:error];
-                continue;
-            }
-            [self.arrayController removeObject:world]; // remove object from worlds
-        }
-    } message:message];
+                   (unsigned long) worldsToDelete.count];
+    
+    self.statusWindow = [[StatusWindowController alloc] initWithMessage:message sheetWindow:self.window];
+    [self.statusWindow appear];
+    
+    for (World *world in worldsToDelete) {
+        [world onNext:WorldDidStopNotification
+                   do:^(id n) {
+                       [[NSFileManager defaultManager] trashItemAtURL:world.url
+                                                     resultingItemURL:nil
+                                                                error:nil]; // move world to trash
+                       [self.arrayController removeObject:world]; // remove object from worlds
+                       [[NSUserDefaults standardUserDefaults] removeObjectForKey:[NSString stringWithFormat:@"startMenuItems_%@", world.name]];
+                       
+                       [worldsToDelete removeObject:world];
+                       if (worldsToDelete.count == 0) {
+                           [self.statusWindow disappear];
+                       }
+                   }];
+        [world stop];
+    }
 }
-
-- (void)runBlock:(void (^)(void))block message:(NSString *)message {
-    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:block];
-    self.strongReference = [[StatusWindowController alloc] initWithMessage:message
-                                                               sheetWindow:self.window
-                                                                 operation:op];
-    [[NSOperationQueue defaultQueue] addOperation:op];
-}
-
 
 -           (id)tableView:(NSTableView *)tableView
 objectValueForTableColumn:(NSTableColumn *)tableColumn
