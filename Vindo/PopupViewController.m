@@ -10,6 +10,8 @@
 #import "FirstTimeSetupController.h"
 #import "SetupViewController.h"
 #import "StartMenuViewController.h"
+#import "NoProgramsViewController.h"
+#import "StartMenuController.h"
 
 @interface PopupViewController ()
 
@@ -17,6 +19,7 @@
 
 @property StartMenuViewController *defaultViewController;
 @property SetupViewController *setupViewController;
+@property NoProgramsViewController *noProgramsViewController;
 
 @property (nonatomic) NSViewController *importantViewController;
 @property IBOutlet NSView *placeholderView;
@@ -37,16 +40,28 @@
 - (void)awakeFromNib {
     self.defaultViewController = [StartMenuViewController new];
     self.setupViewController = [SetupViewController new];
-
+    self.noProgramsViewController = [NoProgramsViewController new];
+    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self
+               selector:@selector(makeNoProgramsImportant:)
+                   name:@"MakeNoProgramsImportant"
+                 object:nil];
+    [center addObserver:self
+               selector:@selector(makeDefaultImportant:)
+                   name:@"MakeDefaultImportant"
+                 object:nil];
+    
     [self findMathConstants];
     
     if ([FirstTimeSetupController sharedInstance].happening) {
         self.importantViewController = self.setupViewController;
+    } else if ([StartMenuController sharedInstance].menu.items.count == 0){
+        self.importantViewController = self.noProgramsViewController;
     } else {
         self.importantViewController = self.defaultViewController;
     }
-
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    
     [center addObserver:self
                selector:@selector(firstTimeSetupStarted:)
                    name:FirstTimeSetupDidStartNotification
@@ -86,6 +101,14 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"EliminatePopup" object:self];
 }
 
+- (void)makeNoProgramsImportant:(NSNotification *)notification {
+    self.importantViewController = self.noProgramsViewController;
+}
+
+- (void)makeDefaultImportant:(NSNotification *)notification {
+    self.importantViewController = self.defaultViewController;
+}
+
 - (void)setImportantViewController:(NSViewController *)importantViewController {
     NSView *oldView;
     if (!_importantViewController)
@@ -97,11 +120,11 @@
     [self doTheMath];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:NSViewBoundsDidChangeNotification
+                                                    name:NSViewFrameDidChangeNotification
                                                   object:oldView];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(importantViewResized:)
-                                                 name:NSViewBoundsDidChangeNotification
+                                                 name:NSViewFrameDidChangeNotification
                                                object:importantViewController.view];
 }
 
@@ -123,16 +146,14 @@ static CGFloat actionRightPadding;
     NSSize popupSize;
     popupSize.width = self.importantViewController.view.frame.size.width;
     popupSize.height = self.importantViewController.view.frame.size.height + bottomPadding;
-    NSRect popupFrame = self.view.frame;
-    popupFrame.size = popupSize;
-    self.view.frame = popupFrame;
-
+    [self.view setFrameSize:popupSize];
+    
     NSRect actionFrame;
     actionFrame.size = self.actionButton.frame.size;
     actionFrame.origin.y = actionY;
     actionFrame.origin.x = self.view.frame.size.width - actionRightPadding;
     self.actionButton.frame = actionFrame;
-
+    
     NSRect importantRect;
     importantRect.size = self.importantViewController.view.frame.size;
     importantRect.origin.x = 0;

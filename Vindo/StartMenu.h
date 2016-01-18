@@ -18,4 +18,6 @@
 
 @property World *world;
 
+- (void)moveItemAtIndex:(NSUInteger)index toIndex:(NSUInteger)newIndex;
+
 @end

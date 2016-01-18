@@ -24,6 +24,8 @@
 
 @property (readonly) AppBundle *bundle;
 
+@property NSUInteger subrank;
+
 - (instancetype)initWithNativeIdentifier:(NSString *)nativeIdentifier inWorld:(World *)world;
 
 @end

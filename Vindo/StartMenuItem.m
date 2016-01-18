@@ -10,6 +10,7 @@
 #import "World.h"
 #import "World+StartMenu.h"
 #import "WorldsController.h"
+#import "NSUserDefaults+KeyPaths.h"
 
 @implementation StartMenuItem
 
@@ -49,6 +50,21 @@
         [_bundle generate];
     }
     return self;
+}
+
+- (NSUInteger)subrank {
+    NSUInteger subrank = [[[NSUserDefaults standardUserDefaults] objectForKeyPath:
+                           [NSString stringWithFormat:@"subrank.%@.%@", self.world.name, self.nativeIdentifier]]
+                          unsignedIntegerValue];
+    if (subrank == 0) {
+        subrank = self.subrank = 10;
+    }
+    return subrank;
+}
+
+- (void)setSubrank:(NSUInteger)subrank {
+    [[NSUserDefaults standardUserDefaults] setObject:@(subrank) forKeyPath:
+     [NSString stringWithFormat:@"subrank.%@.%@", self.world.name, self.nativeIdentifier]];
 }
 
 - (BOOL)isEqual:(StartMenuItem *)item {

@@ -137,6 +137,19 @@
     return url.path.stringByDeletingPathExtension.lastPathComponent;
 }
 
+- (void)moveItemAtIndex:(NSUInteger)index toIndex:(NSUInteger)newIndex {
+    if (newIndex == index)
+        return;
+    
+    NSAssert(newIndex < index, @"");
+    
+    [self willChangeValueForKey:@"items"];
+    StartMenuItem *item = self.mutableItems[index];
+    [self.mutableItems removeObjectAtIndex:index];
+    [self.mutableItems insertObject:item atIndex:newIndex];
+    [self didChangeValueForKey:@"items"];
+}
+
 - (NSArray *)items {
     return [_mutableItems copy];
 }

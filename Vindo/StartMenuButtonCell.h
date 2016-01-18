@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface StartMenuButtonCell : NSButtonCell
+@interface StartMenuButtonCell : NSButtonCell <NSDraggingSource>
 
 @end

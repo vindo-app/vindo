@@ -20,7 +20,7 @@
 
 - (NSImage *)transformedValue:(NSImage *)image {
     image = [image copy];
-    image.size = NSMakeSize(40, 40);
+    image.size = NSMakeSize(48, 48);
     return image;
 }
 
