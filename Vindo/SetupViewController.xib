@@ -39,7 +39,7 @@
                     <rect key="frame" x="114" y="83" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </progressIndicator>
-                <popUpButton id="UcL-E2-9Ph">
+                <popUpButton hidden="YES" id="UcL-E2-9Ph">
                     <rect key="frame" x="204" y="11" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <popUpButtonCell key="cell" type="bevel" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="yu8-7S-ioS" id="tOy-Ab-B5U">

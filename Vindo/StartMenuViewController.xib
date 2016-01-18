@@ -55,6 +55,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="showApps:" target="-2" id="z6H-Vi-eZc"/>
+                    </connections>
                 </button>
             </subviews>
             <point key="canvasLocation" x="340" y="410"/>

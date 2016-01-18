@@ -10,7 +10,6 @@
                 <outlet property="actionButton" destination="A1p-5i-oTs" id="E3k-AT-Jho"/>
                 <outlet property="placeholderView" destination="6pp-wv-anu" id="ygA-0R-RkR"/>
                 <outlet property="popupMenu" destination="wdU-3y-svf" id="yex-th-DOg"/>
-                <outlet property="runMenu" destination="2dF-qH-EXV" id="5mi-fp-bUn"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
                 <outlet property="worldsMenu" destination="96w-7W-w55" id="SvA-5Q-dHV"/>
             </connections>
@@ -26,70 +25,39 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </customView>
                 <popUpButton id="A1p-5i-oTs">
-                    <rect key="frame" x="136" y="11" width="42" height="21"/>
+                    <rect key="frame" x="133" y="11" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="bevel" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="hGG-hV-5jo">
+                    <popUpButtonCell key="cell" type="bevel" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="PVs-pv-uQ1" id="hGG-hV-5jo">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
                         <menu key="menu" id="wdU-3y-svf">
                             <items>
                                 <menuItem state="on" image="NSActionTemplate" hidden="YES" id="RFg-dw-mMS"/>
-                                <menuItem title="Run" id="8B3-h6-LPH">
+                                <menuItem title="Show C: Drive in Finder" id="00B-JH-IDw">
                                     <modifierMask key="keyEquivalentModifierMask"/>
-                                    <menu key="submenu" title="Run" id="2dF-qH-EXV">
-                                        <items>
-                                            <menuItem title="File Manager" id="QcS-nD-0RK">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                <connections>
-                                                    <action selector="runCannedProgram:" target="-1" id="Rbf-zQ-FTc"/>
-                                                </connections>
-                                            </menuItem>
-                                            <menuItem title="Internet Explorer" tag="1" id="h60-TO-7M2">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                <connections>
-                                                    <action selector="runCannedProgram:" target="-1" id="PSj-qg-8T1"/>
-                                                </connections>
-                                            </menuItem>
-                                            <menuItem title="Minesweeper" tag="2" id="0ju-jF-vMs">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                <connections>
-                                                    <action selector="runCannedProgram:" target="-1" id="rN6-61-SFx"/>
-                                                </connections>
-                                            </menuItem>
-                                            <menuItem title="Notepad" tag="3" id="WDw-dx-Kuy">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                <connections>
-                                                    <action selector="runCannedProgram:" target="-1" id="g7a-xI-ws5"/>
-                                                </connections>
-                                            </menuItem>
-                                            <menuItem title="Console" tag="4" id="Hk4-z1-DVi">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                <connections>
-                                                    <action selector="runCannedProgram:" target="-1" id="OgB-ED-o6u"/>
-                                                </connections>
-                                            </menuItem>
-                                            <menuItem title="Wine Configuration" tag="5" id="n3v-zG-pTN">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                <connections>
-                                                    <action selector="runCannedProgram:" target="-1" id="lQ4-DV-DxB"/>
-                                                </connections>
-                                            </menuItem>
-                                            <menuItem title="Registry Editor" tag="6" id="Now-fu-b9T">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                <connections>
-                                                    <action selector="runCannedProgram:" target="-1" id="ObL-b7-Hmn"/>
-                                                </connections>
-                                            </menuItem>
-                                            <menuItem isSeparatorItem="YES" id="4mg-WJ-Fuf"/>
-                                            <menuItem title="Other…" id="Cgd-hc-b0t">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                <connections>
-                                                    <action selector="runProgram:" target="-1" id="Zex-Fp-qnF"/>
-                                                </connections>
-                                            </menuItem>
-                                        </items>
-                                    </menu>
+                                    <connections>
+                                        <action selector="showCDriveInFinder:" target="-1" id="N7k-Xz-UuK"/>
+                                    </connections>
                                 </menuItem>
+                                <menuItem title="Simulate Reboot" id="2e5-Qj-2dN">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="simulateReboot:" target="-1" id="tcg-FJ-oG9"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="Control Panels…" id="FJa-rl-AnJ">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="controlPanels:" target="-1" id="Aac-X6-SGH"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="Command Prompt…" id="PVs-pv-uQ1">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="commandPrompt:" target="-1" id="JtD-iS-H5u"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="yc2-yS-xgL"/>
                                 <menuItem title="World" id="GgM-Sg-iaT">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                     <menu key="submenu" title="World" id="96w-7W-w55">
@@ -135,6 +103,119 @@
                 <outlet property="worldsMenu" destination="96w-7W-w55" id="fcb-bL-bVn"/>
             </connections>
         </customObject>
+        <customView id="eYb-Cg-Cvf">
+            <rect key="frame" x="0.0" y="0.0" width="192" height="162"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <popUpButton id="ss4-FU-B1D">
+                    <rect key="frame" x="136" y="11" width="39" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="bevel" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="JIA-Pd-61j">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="5j1-gI-Djb">
+                            <items>
+                                <menuItem state="on" image="NSActionTemplate" hidden="YES" id="cgr-k0-m7c"/>
+                                <menuItem title="Run" id="FFc-ov-Ueo">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <menu key="submenu" title="Run" id="FRO-fB-Mtx">
+                                        <items>
+                                            <menuItem title="File Manager" id="Csx-Um-XUi">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                <connections>
+                                                    <action selector="runCannedProgram:" target="-1" id="h9r-QK-1TR"/>
+                                                </connections>
+                                            </menuItem>
+                                            <menuItem title="Internet Explorer" tag="1" id="bY0-aB-zpa">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                <connections>
+                                                    <action selector="runCannedProgram:" target="-1" id="hQQ-UT-kIu"/>
+                                                </connections>
+                                            </menuItem>
+                                            <menuItem title="Minesweeper" tag="2" id="fsS-Sm-CC8">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                <connections>
+                                                    <action selector="runCannedProgram:" target="-1" id="Nze-Xa-82m"/>
+                                                </connections>
+                                            </menuItem>
+                                            <menuItem title="Notepad" tag="3" id="dB8-ln-J56">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                <connections>
+                                                    <action selector="runCannedProgram:" target="-1" id="sH6-dg-7I6"/>
+                                                </connections>
+                                            </menuItem>
+                                            <menuItem title="Console" tag="4" id="IhJ-bm-59b">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                <connections>
+                                                    <action selector="runCannedProgram:" target="-1" id="V3T-7d-g1I"/>
+                                                </connections>
+                                            </menuItem>
+                                            <menuItem title="Wine Configuration" tag="5" id="75S-mE-KIK">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                <connections>
+                                                    <action selector="runCannedProgram:" target="-1" id="fsW-03-elq"/>
+                                                </connections>
+                                            </menuItem>
+                                            <menuItem title="Registry Editor" tag="6" id="jha-TK-4rU">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                <connections>
+                                                    <action selector="runCannedProgram:" target="-1" id="dCJ-XJ-kcd"/>
+                                                </connections>
+                                            </menuItem>
+                                            <menuItem isSeparatorItem="YES" id="I8v-dx-r4c"/>
+                                            <menuItem title="Other…" id="vi5-i0-up4">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                <connections>
+                                                    <action selector="runProgram:" target="-1" id="pH6-JH-jha"/>
+                                                </connections>
+                                            </menuItem>
+                                        </items>
+                                    </menu>
+                                </menuItem>
+                                <menuItem title="World" id="t1b-n9-PBE">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <menu key="submenu" title="World" id="mqe-Af-tAP">
+                                        <items>
+                                            <menuItem isSeparatorItem="YES" id="a88-uq-Dqh"/>
+                                            <menuItem title="Manage Worlds…" id="o6M-ch-vyR">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                <connections>
+                                                    <action selector="manageWorlds:" target="-1" id="e3I-Zs-obl"/>
+                                                </connections>
+                                            </menuItem>
+                                        </items>
+                                    </menu>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="b1G-6M-VeZ"/>
+                                <menuItem title="Preferences..." id="7Qk-1s-nbC">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="showPreferences:" target="-1" id="Mg8-Oz-Yl4"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="About Vindo" id="VPf-rl-us0">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="orderFrontStandardAboutPanel:" target="-1" id="Jed-fl-IAf"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="Quit" id="AD7-Z5-vYe">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="terminate:" target="-1" id="nE2-JW-gwE"/>
+                                    </connections>
+                                </menuItem>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                </popUpButton>
+                <customView id="FZx-pC-rsp">
+                    <rect key="frame" x="0.0" y="20" width="192" height="142"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+            </subviews>
+            <point key="canvasLocation" x="536" y="355"/>
+        </customView>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>

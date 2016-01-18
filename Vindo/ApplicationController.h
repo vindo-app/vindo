@@ -13,8 +13,6 @@
     NSStatusItem *statusItem;
 }
 
-- (IBAction)runCannedProgram:(id)sender;
-- (IBAction)runProgram:(id)sender;
 - (IBAction)manageWorlds:(id)sender;
 
 @end

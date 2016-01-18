@@ -52,43 +52,20 @@
         [self application:sender openFile:file];
 }
 
-- (void)runCannedProgram:(id)sender {
-    switch ([sender tag]) {
-        case 0: // file manager
-            [self.launcher run:@"winefile"];
-            break;
-        case 1: // internet explorer
-            [self.launcher run:@"iexplore"];
-            break;
-        case 2: // minesweeper
-            [self.launcher run:@"winemine"];
-            break;
-        case 3: // notepad
-            [self.launcher run:@"notepad"];
-            break;
-        case 4: // console
-            [self.launcher run:@"wineconsole" withArguments:@[@"cmd"]];
-            break;
-        case 5: // winecfg
-            [self.launcher run:@"winecfg"];
-            break;
-        case 6: // regedit
-            [self.launcher run:@"regedit"];
-            break;
-        default:
-            break;
-    }
+- (IBAction)controlPanels:(id)sender {
+    [self.launcher run:@"control"];
 }
 
-- (IBAction)runProgram:(id)sender {
-    NSOpenPanel *panel = [NSOpenPanel openPanel];
-    panel.canChooseDirectories = NO;
-    panel.allowsMultipleSelection = NO;
-    [panel beginWithCompletionHandler:^(NSInteger result) {
-        if (result == NSFileHandlingPanelOKButton) {
-            [self.launcher launch:panel.URLs[0]];
-        }
-    }];
+- (IBAction)simulateReboot:(id)sender {
+    [self.launcher run:@"wineboot" withArguments:@[@"--restart"]];
+}
+
+- (IBAction)commandPrompt:(id)sender {
+    [self.launcher run:@"start" withArguments:@[@"cmd"]];
+}
+
+- (IBAction)showCDriveInFinder:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[[WorldsController sharedController].selectedWorld.url URLByAppendingPathComponent:@"drive_c"]];
 }
 
 - (IBAction)manageWorlds:(id)sender {
