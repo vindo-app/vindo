@@ -90,6 +90,24 @@
     [[NSStatusBar systemStatusBar] removeStatusItem:statusItem];
 }
 
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+    World *world = [WorldsController sharedController].selectedWorld;
+    if (world.running) {
+        [world stop];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(worldDidStop:)
+                                                     name:WorldDidStopNotification
+                                                   object:world];
+        return NSTerminateLater;
+    } else {
+        return NSTerminateNow;
+    }
+}
+
+- (void)worldDidStop:(NSNotification *)notification {
+    [NSApp terminate:self];
+}
+
 - (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
     return NO;
 }

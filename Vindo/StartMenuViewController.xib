@@ -10,6 +10,7 @@
                 <outlet property="arrayController" destination="tXh-Hy-JhN" id="MLP-ZJ-CUy"/>
                 <outlet property="buttonView" destination="hT9-Nt-Kmv" id="CqN-vb-4ed"/>
                 <outlet property="collectionView" destination="f1p-v1-osb" id="dVj-sg-Y8F"/>
+                <outlet property="scrollView" destination="krd-8L-AFw" id="Bf0-d5-0yb"/>
                 <outlet property="searchBox" destination="x7f-uj-c6A" id="ogN-E2-8XR"/>
                 <outlet property="view" destination="CgY-nL-ODH" id="wJY-bt-K9I"/>
             </connections>
@@ -38,17 +39,7 @@
                         <outlet property="nextKeyView" destination="f1p-v1-osb" id="Log-Lc-jc1"/>
                     </connections>
                 </searchField>
-                <collectionView id="f1p-v1-osb" customClass="WorkingCollectionView">
-                    <rect key="frame" x="10" y="37" width="216" height="144"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <color key="primaryBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
-                    <connections>
-                        <binding destination="tXh-Hy-JhN" name="content" keyPath="arrangedObjects" id="8np-oj-7xz"/>
-                        <outlet property="delegate" destination="-2" id="t5P-8P-eHR"/>
-                        <outlet property="itemPrototype" destination="i9d-L3-toA" id="cj8-wG-5Rs"/>
-                    </connections>
-                </collectionView>
-                <button verticalHuggingPriority="750" id="zL9-Lk-dKL">
+                <button toolTip="Show All Programs" verticalHuggingPriority="750" id="zL9-Lk-dKL">
                     <rect key="frame" x="20" y="11" width="18" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="SidebarApplicationsFolderTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="14W-ES-boT">
@@ -59,6 +50,35 @@
                         <action selector="showApps:" target="-2" id="z6H-Vi-eZc"/>
                     </connections>
                 </button>
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="krd-8L-AFw">
+                    <rect key="frame" x="9" y="36" width="218" height="146"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="1zB-do-Jtw">
+                        <rect key="frame" x="0.0" y="0.0" width="218" height="146"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView id="f1p-v1-osb" customClass="WorkingCollectionView">
+                                <rect key="frame" x="0.0" y="0.0" width="218" height="146"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="primaryBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                <connections>
+                                    <binding destination="tXh-Hy-JhN" name="content" keyPath="arrangedObjects" id="8np-oj-7xz"/>
+                                    <outlet property="delegate" destination="-2" id="t5P-8P-eHR"/>
+                                    <outlet property="itemPrototype" destination="i9d-L3-toA" id="cj8-wG-5Rs"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="c9t-lm-UZc">
+                        <rect key="frame" x="0.0" y="130" width="218" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="X0o-Lb-qaZ">
+                        <rect key="frame" x="202" y="0.0" width="16" height="146"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
             </subviews>
             <point key="canvasLocation" x="340" y="410"/>
         </customView>
@@ -71,7 +91,7 @@
             <rect key="frame" x="0.0" y="0.0" width="84" height="84"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <button verticalHuggingPriority="750" id="Bat-fR-7as">
+                <button verticalHuggingPriority="750" allowsExpansionToolTips="YES" id="Bat-fR-7as">
                     <rect key="frame" x="0.0" y="0.0" width="84" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="bevel" title="Button" bezelStyle="rounded" imagePosition="above" alignment="center" lineBreakMode="truncatingMiddle" truncatesLastVisibleLine="YES" inset="2" id="WrU-Df-CQe" customClass="StartMenuButtonCell">
@@ -86,7 +106,6 @@
                             </dictionary>
                         </binding>
                         <binding destination="i9d-L3-toA" name="title" keyPath="representedObject.name" previousBinding="gKF-Wg-nQl" id="l58-X5-OKT"/>
-                        <binding destination="i9d-L3-toA" name="toolTip" keyPath="representedObject.name" previousBinding="l58-X5-OKT" id="sBX-Ih-qcH"/>
                     </connections>
                 </button>
             </subviews>

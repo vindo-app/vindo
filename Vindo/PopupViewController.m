@@ -26,7 +26,6 @@
 @property IBOutlet NSPopUpButton *actionButton;
 
 @property (weak) IBOutlet NSMenu *popupMenu;
-@property (weak) IBOutlet NSMenu *runMenu;
 @property (weak) IBOutlet NSMenu *worldsMenu;
 
 @end
@@ -75,10 +74,6 @@
                selector:@selector(menuItemWasClicked:)
                    name:NSMenuDidSendActionNotification
                  object:self.popupMenu];
-    [center addObserver:self
-               selector:@selector(menuItemWasClicked:)
-                   name:NSMenuDidSendActionNotification
-                 object:self.runMenu];
     [center addObserver:self
                selector:@selector(menuItemWasClicked:)
                    name:NSMenuDidSendActionNotification

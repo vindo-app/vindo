@@ -88,6 +88,7 @@
         [self.serverTask waitUntilExit];
 
         self.state = WineServerStopped;
+        [[NSNotificationCenter defaultCenter] postNotificationName:WorldDidStopNotification object:self];
         NSLog(@"state is now stopped");
     };
     [endSession launch];

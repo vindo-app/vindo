@@ -14,6 +14,7 @@
 
 @interface StartMenuViewController ()
 
+@property (weak) IBOutlet NSScrollView *scrollView;
 @property (weak) IBOutlet NSCollectionView *collectionView;
 @property (weak) IBOutlet NSView *buttonView;
 @property (weak) IBOutlet NSSearchField *searchBox;
@@ -73,12 +74,12 @@
     
     CGFloat cellWidth = self.buttonView.frame.size.width;
     CGFloat cellHeight = self.buttonView.frame.size.height;
-    CGFloat extraHeight = self.view.frame.size.height - self.collectionView.frame.size.height;
+    CGFloat extraHeight = self.view.frame.size.height - self.scrollView.frame.size.height;
     
     NSSize collectionSize = (NSSize) {.width = _columns * cellWidth, .height = _rows * cellHeight};
     NSSize overallSize = (NSSize) {.width = collectionSize.width + 20, .height = collectionSize.height + extraHeight};
     [self.view setFrameSize:overallSize];
-    [self.collectionView setFrameSize:collectionSize];
+    //[self.scrollView setFrameSize:collectionSize];
 }
 
 - (IBAction)buttonClicked:(id)sender {
