@@ -116,7 +116,7 @@
                                                                  inDomain:NSUserDomainMask
                                                         appropriateForURL:nil create:YES error:nil]
     URLByAppendingPathComponent:@"Vindo"];
-    [[NSWorkspace sharedWorkspace] openURL:vindoAppsURL];
+    [[NSWorkspace sharedWorkspace] selectFile:nil inFileViewerRootedAtPath:vindoAppsURL.URLByDeletingLastPathComponent.path];
 }
 
 @end
