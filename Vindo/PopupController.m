@@ -126,7 +126,9 @@
 }
 
 - (void)reshowPopup:(NSNotification *)notification {
+    NSLog(@"reshowing popup to %@", [NSValue valueWithSize:self.pvc.view.bounds.size]);
     self.popover.contentSize = self.pvc.view.bounds.size;
+    NSLog(@"popup size now %@", [NSValue valueWithSize:self.popover.contentSize]);
 }
 
 - (void)eliminatePopup:(NSNotification *)notification {

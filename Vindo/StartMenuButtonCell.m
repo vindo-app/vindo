@@ -16,31 +16,6 @@
     return self;
 }
 
-//- (NSRect)drawTitle:(NSAttributedString *)title withFrame:(NSRect)frame inView:(NSView *)controlView {
-//    NSColor *textColor;
-//    if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9) { // mavericks or before
-//        textColor = [NSColor controlTextColor];
-//    } else {
-//        textColor = [NSColor labelColor];
-//    }
-//    
-//    // center frame
-//    NSSize textSize = [title size];
-//    
-//    
-//    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-//    paragraphStyle.alignment = NSCenterTextAlignment;
-//    
-//    title = [[NSAttributedString alloc] initWithString:title.string
-//                                            attributes:@{
-//                                                         NSFontAttributeName: [NSFont systemFontOfSize:12],
-//                                                         NSForegroundColorAttributeName: textColor,
-//                                                         NSParagraphStyleAttributeName: paragraphStyle,
-//                                                         }];
-//    [title drawInRect:frame];
-//    return frame;
-//}
-
 - (void)startDraggingSessionWithEvent:(NSEvent *)event {
     StartMenuItem *item = self.representedObject;
     NSURL *bundleURL = item.bundle.bundleURL;

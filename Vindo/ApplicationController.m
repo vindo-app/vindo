@@ -86,10 +86,6 @@
     [NSApp activateIgnoringOtherApps:YES];
 }
 
-- (void)applicationWillTerminate:(NSNotification *)notification {
-    [[NSStatusBar systemStatusBar] removeStatusItem:statusItem];
-}
-
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
     World *world = [WorldsController sharedController].selectedWorld;
     if (world.running) {
@@ -106,10 +102,6 @@
 
 - (void)worldDidStop:(NSNotification *)notification {
     [NSApp terminate:self];
-}
-
-- (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
-    return NO;
 }
 
 @end

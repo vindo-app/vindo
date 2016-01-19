@@ -106,6 +106,7 @@
                             </dictionary>
                         </binding>
                         <binding destination="i9d-L3-toA" name="title" keyPath="representedObject.name" previousBinding="gKF-Wg-nQl" id="l58-X5-OKT"/>
+                        <binding destination="i9d-L3-toA" name="toolTip" keyPath="representedObject.name" previousBinding="l58-X5-OKT" id="wl4-SV-hIE"/>
                     </connections>
                 </button>
             </subviews>

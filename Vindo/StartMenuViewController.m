@@ -10,8 +10,6 @@
 #import "StartMenuItem.h"
 #import "StartMenuController.h"
 
-#define COLUMNS 3
-
 @interface StartMenuViewController ()
 
 @property (weak) IBOutlet NSScrollView *scrollView;
@@ -38,7 +36,19 @@
     self.searchBox.nextKeyView = self.collectionView;
     self.collectionView.nextKeyView = self.searchBox;
     
-    [self.arrayController addObserver:self forKeyPath:@"arrangedObjects" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:NULL];
+    [self.arrayController addObserver:self
+                           forKeyPath:@"arrangedObjects"
+                              options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:NULL];
+    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
+                                                              forKeyPath:@"values.numColumns"
+                                                                 options:0
+                                                                 context:NULL];
+    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
+                                                              forKeyPath:@"values.maxRows"
+                                                                 options:0
+                                                                 context:NULL];
+    
+    [self observeValueForKeyPath:nil ofObject:nil change:nil context:nil]; // muahahaha
 }
 
 - (void)fixFirstResponder {
@@ -46,32 +56,36 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    NSUInteger numberOfItems = [self.arrayController.arrangedObjects count];
-    
-    if (numberOfItems == 0) {
+    if ([self.arrayController.content count] == 0) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"MakeNoProgramsImportant" object:self];
     }
     
-    NSUInteger rows;
-    if (numberOfItems % COLUMNS == 0)
-        rows = numberOfItems / COLUMNS;
-    else
-        rows = (numberOfItems / COLUMNS) + 1;
+    NSUInteger numberOfItems = [self.arrayController.arrangedObjects count];
     
-    [self setRows:rows columns:COLUMNS];
+    NSUInteger columns = [[NSUserDefaults standardUserDefaults] integerForKey:@"numColumns"];
+    NSUInteger maxRows = [[NSUserDefaults standardUserDefaults] integerForKey:@"maxRows"];
+    NSUInteger rows;
+    if (numberOfItems % columns == 0)
+        rows = numberOfItems / columns;
+    else
+        rows = (numberOfItems / columns) + 1;
+    if (rows == 0)
+        rows = 1;
+    rows = MIN(rows, maxRows);
+    
+    [self setRows:rows columns:columns];
 }
 
 - (void)setRows:(NSUInteger)rows columns:(NSUInteger)columns {
+    if (rows == _rows && columns == _columns)
+        return;
     _rows = rows;
     _columns = columns;
     NSLog(@"resizing to %lu rows and %lu columns", (unsigned long)_rows, (unsigned long)_columns);
-    [self resizeStuff];
+    [self performSelector:@selector(resizeStuff) withObject:nil afterDelay:0];
 }
 
 - (void)resizeStuff {
-    self.collectionView.maxNumberOfColumns = _columns;
-    self.collectionView.maxNumberOfRows = _rows;
-    
     CGFloat cellWidth = self.buttonView.frame.size.width;
     CGFloat cellHeight = self.buttonView.frame.size.height;
     CGFloat extraHeight = self.view.frame.size.height - self.scrollView.frame.size.height;
@@ -79,7 +93,6 @@
     NSSize collectionSize = (NSSize) {.width = _columns * cellWidth, .height = _rows * cellHeight};
     NSSize overallSize = (NSSize) {.width = collectionSize.width + 20, .height = collectionSize.height + extraHeight};
     [self.view setFrameSize:overallSize];
-    //[self.scrollView setFrameSize:collectionSize];
 }
 
 - (IBAction)buttonClicked:(id)sender {
@@ -118,6 +131,10 @@
                                                         appropriateForURL:nil create:YES error:nil]
     URLByAppendingPathComponent:@"Vindo"];
     [[NSWorkspace sharedWorkspace] selectFile:nil inFileViewerRootedAtPath:vindoAppsURL.URLByDeletingLastPathComponent.path];
+}
+
++ (void)initialize {
+    [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"maxRows": @2, @"numColumns": @3}];
 }
 
 @end
