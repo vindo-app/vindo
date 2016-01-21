@@ -82,7 +82,8 @@
     _rows = rows;
     _columns = columns;
     NSLog(@"resizing to %lu rows and %lu columns", (unsigned long)_rows, (unsigned long)_columns);
-    [self performSelector:@selector(resizeStuff) withObject:nil afterDelay:0];
+    [self resizeStuff];
+    //[self performSelector:@selector(resizeStuff) withObject:nil afterDelay:0];
 }
 
 - (void)resizeStuff {
@@ -125,16 +126,8 @@
     [menu moveItemAtIndex:itemIndex toIndex:newIndex];
 }
 
-- (IBAction)showApps:(id)sender {
-    NSURL *vindoAppsURL = [[[NSFileManager defaultManager] URLForDirectory:NSApplicationDirectory
-                                                                 inDomain:NSUserDomainMask
-                                                        appropriateForURL:nil create:YES error:nil]
-    URLByAppendingPathComponent:@"Vindo"];
-    [[NSWorkspace sharedWorkspace] selectFile:nil inFileViewerRootedAtPath:vindoAppsURL.URLByDeletingLastPathComponent.path];
-}
-
 + (void)initialize {
-    [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"maxRows": @2, @"numColumns": @3}];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"maxRows": @3, @"numColumns": @3}];
 }
 
 @end

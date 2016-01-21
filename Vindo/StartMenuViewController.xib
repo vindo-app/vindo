@@ -39,17 +39,6 @@
                         <outlet property="nextKeyView" destination="f1p-v1-osb" id="Log-Lc-jc1"/>
                     </connections>
                 </searchField>
-                <button toolTip="Show All Programs" verticalHuggingPriority="750" id="zL9-Lk-dKL">
-                    <rect key="frame" x="20" y="11" width="18" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="SidebarApplicationsFolderTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="14W-ES-boT">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="showApps:" target="-2" id="z6H-Vi-eZc"/>
-                    </connections>
-                </button>
                 <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="krd-8L-AFw">
                     <rect key="frame" x="9" y="36" width="218" height="146"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,7 +113,4 @@
             </connections>
         </objectController>
     </objects>
-    <resources>
-        <image name="SidebarApplicationsFolderTemplate" width="32" height="32"/>
-    </resources>
 </document>

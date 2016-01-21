@@ -34,11 +34,8 @@
     statusBarImage.template = YES;
     
     self.statusBarView = [[StatusBarView alloc] initWithImage:statusBarImage statusItem:self.statusItem];
-    
     self.statusBarView.target = self;
-    
     self.statusBarView.action = @selector(togglePopover:);
-    
     self.statusItem.view = self.statusBarView;
     
     self.pvc = [PopupViewController new];
