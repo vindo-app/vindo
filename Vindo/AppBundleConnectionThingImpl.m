@@ -18,23 +18,10 @@
     return [[[NSBundle mainBundle] resourceURL] URLByAppendingPathComponent:@"usr"];
 }
 
-- (WorldStatus)statusOfWorldNamed:(NSString *)worldName {
-    WorldsController *worlds = [WorldsController sharedController];
-    
+- (BOOL)activateWorldNamed:(NSString *)worldName {    
     World *world = [self worldForName:worldName];
-    if (world == nil) {
-        return WorldStatusNonexistent;
-    }
-    
-    if (![worlds.selectedWorld isEqual:world]) {
-        worlds.selectedObjects = @[world];
-    }
-    
-    if (world.state == WineServerRunning) {
-        return WorldStatusRunning;
-    } else {
-        return WorldStatusStarting;
-    }
+    [world start];
+    return world != nil;
 }
 
 - (bycopy NSDictionary *)environmentForWorld:(NSString *)world {

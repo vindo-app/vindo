@@ -49,6 +49,7 @@
                                                                  context:NULL];
     
     [self observeValueForKeyPath:nil ofObject:nil change:nil context:nil]; // muahahaha
+    [self resizeStuff];
 }
 
 - (void)fixFirstResponder {
@@ -82,8 +83,7 @@
     _rows = rows;
     _columns = columns;
     NSLog(@"resizing to %lu rows and %lu columns", (unsigned long)_rows, (unsigned long)_columns);
-    [self resizeStuff];
-    //[self performSelector:@selector(resizeStuff) withObject:nil afterDelay:0];
+    [self performSelector:@selector(resizeStuff) withObject:nil afterDelay:0];
 }
 
 - (void)resizeStuff {

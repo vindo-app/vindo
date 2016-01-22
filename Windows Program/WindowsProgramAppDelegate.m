@@ -54,14 +54,10 @@ static WindowsProgramApplication *app;
     // wait for the world to become available
     NSString *world = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"World"];
     while (YES) {
-        WorldStatus status = [self.communicationThing statusOfWorldNamed:world];
-        if (status == WorldStatusNonexistent) {
-            [self failBecause:@"This app bundle appears to be corrupted or something. It won't work."];
-        } else if (status == WorldStatusStarting) {
-            NSLog(@"waiting...");
-            sleep(1);
-        } else {
+        if ([self.communicationThing activateWorldNamed:world]) {
             break;
+        } else {
+            [self failBecause:@"This app bundle appears to be corrupted or something. It won't work."];
         }
     }
 }

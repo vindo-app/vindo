@@ -15,9 +15,7 @@
     NSString *version = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
     NSString *uuid = [self uuid];
     if (!uuid) {
-#ifdef DEBUG
         NSLog(@"no hardware id somehow failed");
-#endif
         return; // it's not mission critical
     }
     

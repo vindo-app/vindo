@@ -56,13 +56,13 @@
                                                                 sheetWindow:self.window];
         [self.statusWindow appear];
         
-        [world onNext:WorldDidStartNotification
+        [world onNext:WorldDidFinishSetupNotification
                    do:^(id n) {
                        [self.arrayController addObject:world];
                        self.arrayController.selectedObjects = @[world];
                        [self.statusWindow disappear];
                    }];
-        [world start];
+        [world setup];
         
     }
     [NSApp endSheet:_querySheet];

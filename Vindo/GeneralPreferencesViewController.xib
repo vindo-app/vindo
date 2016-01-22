@@ -63,22 +63,23 @@
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="eXe-xo-ztP" name="value" keyPath="values.numColumns" id="SZc-rJ-wuq"/>
+                    </connections>
                 </textField>
                 <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" id="HFq-V0-fGs">
                     <rect key="frame" x="187" y="42" width="19" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="10" doubleValue="1" id="paQ-cZ-Qdh"/>
+                    <stepperCell key="cell" continuous="YES" alignment="left" minValue="2" maxValue="10" doubleValue="3" id="paQ-cZ-Qdh"/>
                     <connections>
-                        <action selector="takeIntValueFrom:" target="hMH-td-VMm" id="onF-ag-R1i"/>
                         <binding destination="eXe-xo-ztP" name="value" keyPath="values.maxRows" id="idf-7p-ZP7"/>
                     </connections>
                 </stepper>
                 <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" id="uX6-0m-aq8">
                     <rect key="frame" x="187" y="17" width="19" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="10" doubleValue="1" id="Klj-Fy-0lg"/>
+                    <stepperCell key="cell" continuous="YES" alignment="left" minValue="3" maxValue="10" doubleValue="3" id="Klj-Fy-0lg"/>
                     <connections>
-                        <action selector="takeIntValueFrom:" target="PWh-cD-57n" id="KDV-bA-KIx"/>
                         <binding destination="eXe-xo-ztP" name="value" keyPath="values.numColumns" id="l2J-Se-ex9"/>
                     </connections>
                 </stepper>
@@ -91,6 +92,9 @@
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="eXe-xo-ztP" name="value" keyPath="values.maxRows" id="8KF-Kc-PuZ"/>
+                    </connections>
                 </textField>
             </subviews>
             <point key="canvasLocation" x="363.5" y="331.5"/>

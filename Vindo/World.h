@@ -10,13 +10,6 @@
 
 extern NSString *const WorldPasteboardType;
 
-typedef enum {
-    WineServerStopped = 0,
-    WineServerStarting,
-    WineServerRunning,
-    WineServerStopping
-} WineServerState;
-
 @interface World : NSObject <NSPasteboardReading, NSPasteboardWriting> {
     NSFileHandle *_logFileHandle;
 }
@@ -31,12 +24,12 @@ typedef enum {
 
 - (void)run:(NSString *)program withArguments:(NSArray *)arguments;
 - (void)run:(NSString *)program;
+- (void)setup;
 
 #pragma mark -
 #pragma mark Server variables
 
 @property NSTask *serverTask;
-@property WineServerState state;
 
 @end
 
@@ -57,7 +50,5 @@ typedef enum {
 
 @end
 
-extern NSString *const WorldDidStartNotification;
 extern NSString *const WorldDidStopNotification;
-
-
+extern NSString *const WorldDidFinishSetupNotification;

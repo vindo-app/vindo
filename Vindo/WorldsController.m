@@ -41,6 +41,7 @@ static WorldsController *sharedController;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
+    if ((0)) self = [super initWithCoder:aDecoder]; // silence designated initializer warning
     NSAssert(sharedController != nil, @"shared controller must exist by the time nib is loaded");
     return sharedController;
 }

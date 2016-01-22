@@ -8,18 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-#define CONNECTION_NAME @"com.tbodt.Vindo.app-bundle-communication"
-
-typedef NS_ENUM(NSInteger, WorldStatus) {
-    WorldStatusNonexistent,
-    WorldStatusStarting,
-    WorldStatusRunning,
-};
+#define CONNECTION_NAME @"co.vindo.app-bundle-communication"
 
 @protocol AppBundleCommunicationThing <NSObject>
 
 - (bycopy NSURL *)usrURL;
-- (WorldStatus)statusOfWorldNamed:(NSString *)world;
+- (BOOL)activateWorldNamed:(NSString *)world;
 - (bycopy NSDictionary *)environmentForWorld:(NSString *)world;
 - (NSString *)programForStartMenuItem:(NSString *)nativeIdentifier inWorld:(NSString *)world;
 - (NSString *)argumentsForStartMenuItem:(NSString *)nativeIdentifier inWorld:(NSString *)world;

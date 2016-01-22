@@ -10,6 +10,12 @@
 
 static NSMapTable *worlds;
 
+@interface World ()
+
+@property NSTask *winebootTask;
+
+@end
+
 @implementation World
 
 - (instancetype)initWithName:(NSString *)name {
@@ -36,6 +42,7 @@ static NSMapTable *worlds;
 }
 
 - (void)run:(NSString *)program withArguments:(NSArray *)arguments {
+    [self start];
     NSTask *task = [self wineTaskWithProgram:@"wine"
                                    arguments:[@[program] arrayByAddingObjectsFromArray:arguments]];
     [task launch];
@@ -43,6 +50,23 @@ static NSMapTable *worlds;
 
 - (void)run:(NSString *)program {
     [self run:program withArguments:@[]];
+}
+
+// FIXME: that warning is right, weakify
+- (void)setup {
+    if (self.winebootTask)
+        return;
+
+    [self start];
+    
+    self.winebootTask = [self wineTaskWithProgram:@"wine" arguments:@[@"wineboot", @"--init"]];
+    self.winebootTask.terminationHandler = ^(id t) {
+        NSLog(@"termination happened");
+        self.winebootTask = nil;
+        [[NSNotificationCenter defaultCenter] postNotificationName:WorldDidFinishSetupNotification object:self];
+    };
+    [self.winebootTask launch];
+    NSLog(@"wineboot pid: %d", self.winebootTask.processIdentifier);
 }
 
 #pragma mark -
@@ -62,3 +86,4 @@ static NSMapTable *worlds;
 
 @end
 
+NSString *const WorldDidFinishSetupNotification = @"WorldDidFinishSetupNotification";
