@@ -17,10 +17,7 @@
 @property IBOutlet NSWindow *querySheet;
 @property IBOutlet NSTextField *queryText;
 
-@property IBOutlet NSArrayController *arrayController;
 @property IBOutlet NSTableView *table;
-
-@property StatusWindowController *statusWindow;
 
 @end
 
@@ -48,21 +45,9 @@
 - (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
     if (returnCode == 0) {
         NSString *worldName = self.queryText.stringValue;
-        
-        
-        World *world = [[World alloc] initWithName:worldName];
-        
         self.statusWindow = [[StatusWindowController alloc] initWithMessage:[NSString stringWithFormat:@"Creating world \"%@\"…", worldName]
                                                                 sheetWindow:self.window];
-        [self.statusWindow appear];
-        
-        [world onNext:WorldDidFinishSetupNotification
-                   do:^(id n) {
-                       [self.arrayController addObject:world];
-                       self.arrayController.selectedObjects = @[world];
-                       [self.statusWindow disappear];
-                   }];
-        [world setup];
+        [self addWorldNamed:worldName];
         
     }
     [NSApp endSheet:_querySheet];
@@ -93,31 +78,15 @@
                    (unsigned long) worldsToDelete.count];
     
     self.statusWindow = [[StatusWindowController alloc] initWithMessage:message sheetWindow:self.window];
-    [self.statusWindow appear];
-    
-    for (World *world in worldsToDelete) {
-        [world onNext:WorldDidStopNotification
-                   do:^(id n) {
-                       [[NSFileManager defaultManager] trashItemAtURL:world.url
-                                                     resultingItemURL:nil
-                                                                error:nil]; // move world to trash
-                       [self.arrayController removeObject:world]; // remove object from worlds
-                       [[NSUserDefaults standardUserDefaults] removeObjectForKey:[NSString stringWithFormat:@"startMenuItems_%@", world.name]];
-                       
-                       [worldsToDelete removeObject:world];
-                       if (worldsToDelete.count == 0) {
-                           [self.statusWindow disappear];
-                       }
-                   }];
-        [world stop];
-    }
+
+    [self removeWorlds:worldsToDelete];
 }
 
 -           (id)tableView:(NSTableView *)tableView
 objectValueForTableColumn:(NSTableColumn *)tableColumn
                       row:(NSInteger)row {
     if ([tableColumn.identifier isEqualToString:@"world"]) {
-        return [self.arrayController.arrangedObjects[row] name];
+        return [self.arrayController.arrangedObjects[row] displayName];
     }
     return nil;
 }
@@ -161,7 +130,8 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
    setObjectValue:(id)object
    forTableColumn:(NSTableColumn *)tableColumn
               row:(NSInteger)row {
-    // not implemented yet
+    World *world = self.arrayController.arrangedObjects[row];
+    [self renameWorld:world toName:object];
 }
 
 @end

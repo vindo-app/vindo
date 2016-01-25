@@ -31,7 +31,7 @@ static NSURL *windowsProgramBundle;
     _parenthesized = NO;
     if (!self.exists && [fm fileExistsAtPath:_bundleURL.path]) {
         _bundleURL = [[appBundleFolder URLByAppendingPathComponent:
-                        [NSString stringWithFormat:@"%@ (%@)", self.item.name, self.item.world.name]]
+                        [NSString stringWithFormat:@"%@ (%@)", self.item.name, self.item.world.displayName]]
                       URLByAppendingPathExtension:@"app"];
         NSLog(@"that didn't work, using %@", _bundleURL);
         _parenthesized = YES;

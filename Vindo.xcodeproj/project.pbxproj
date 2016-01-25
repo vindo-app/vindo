@@ -57,6 +57,7 @@
 		ACD830041B8D346900D8F285 /* usr in Resources */ = {isa = PBXBuildFile; fileRef = ACD830031B8D346900D8F285 /* usr */; };
 		ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */; };
 		ACE47E981C0923C70001808C /* StatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE47E971C0923C70001808C /* StatusBarView.m */; };
+		BB094B2A1C56D54B006C0AB0 /* ManageWorldsWindowController+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = BB094B291C56D54B006C0AB0 /* ManageWorldsWindowController+Operations.m */; };
 		BB57B9661C4879E500331BA4 /* WorkingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57B9651C4879E500331BA4 /* WorkingCollectionView.m */; };
 		BB7303521C388784004B4375 /* AppBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7303511C388784004B4375 /* AppBundle.m */; };
 		BBBCEAA81C3C8E8D00E5E175 /* WindowsProgramApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAA71C3C8E8D00E5E175 /* WindowsProgramApplication.m */; };
@@ -184,6 +185,7 @@
 		ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTimeSetupController.m; sourceTree = "<group>"; };
 		ACE47E961C0923C70001808C /* StatusBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarView.h; sourceTree = "<group>"; };
 		ACE47E971C0923C70001808C /* StatusBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarView.m; sourceTree = "<group>"; };
+		BB094B291C56D54B006C0AB0 /* ManageWorldsWindowController+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ManageWorldsWindowController+Operations.m"; sourceTree = "<group>"; };
 		BB57B9641C4879E500331BA4 /* WorkingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingCollectionView.h; sourceTree = "<group>"; };
 		BB57B9651C4879E500331BA4 /* WorkingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingCollectionView.m; sourceTree = "<group>"; };
 		BB602CBA1C4714E900314C1C /* NSUserDefaults+KeyPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+KeyPaths.h"; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			children = (
 				AC05808A1ABF97F700854813 /* ManageWorldsWindowController.h */,
 				AC05808B1ABF97F700854813 /* ManageWorldsWindowController.m */,
+				BB094B291C56D54B006C0AB0 /* ManageWorldsWindowController+Operations.m */,
 				AC0580781ABE13F300854813 /* ManageWorlds.xib */,
 			);
 			name = "Worlds Manager";
@@ -738,6 +741,7 @@
 				8AC01C2E1C03DA63004FEF69 /* GeneralPreferencesViewController.m in Sources */,
 				8A713E0F1C249BB800918B1A /* World+StartMenu.m in Sources */,
 				8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */,
+				BB094B2A1C56D54B006C0AB0 /* ManageWorldsWindowController+Operations.m in Sources */,
 				ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
 				BBF18B7C1C433F150060092B /* NSUserDefaults+KeyPaths.m in Sources */,

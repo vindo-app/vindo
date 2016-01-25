@@ -101,6 +101,8 @@
     NSAssert([item isKindOfClass:[StartMenuItem class]], @"should be an item");
     [self moveButtonForStartMenuItem:item];
     
+    self.searchBox.stringValue = @"";
+    
     [[NSWorkspace sharedWorkspace] openURL:item.bundle.bundleURL];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"EliminatePopup" object:self];
 }

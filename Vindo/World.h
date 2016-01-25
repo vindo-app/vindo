@@ -20,6 +20,7 @@ extern NSString *const WorldPasteboardType;
 - (instancetype)initWithName:(NSString *)name;
 
 @property (readonly) NSString *name;
+@property NSString *displayName;
 @property (readonly) NSURL *url;
 
 - (void)run:(NSString *)program withArguments:(NSArray *)arguments;

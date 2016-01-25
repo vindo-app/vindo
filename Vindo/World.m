@@ -7,6 +7,7 @@
 //
 
 #import "World.h"
+#import "NSUserDefaults+KeyPaths.h"
 
 static NSMapTable *worlds;
 
@@ -67,6 +68,18 @@ static NSMapTable *worlds;
     };
     [self.winebootTask launch];
     NSLog(@"wineboot pid: %d", self.winebootTask.processIdentifier);
+}
+
+- (NSString *)displayName {
+    NSString *displayName = [[NSUserDefaults standardUserDefaults] objectForKeyPath:[NSString stringWithFormat:@"displayNames.%@", self.name]];
+    if (displayName)
+        return displayName;
+    else
+        return self.name;
+}
+
+- (void)setDisplayName:(NSString *)displayName {
+    [[NSUserDefaults standardUserDefaults] setObject:displayName forKeyPath:[NSString stringWithFormat:@"displayNames.%@", self.name]];
 }
 
 #pragma mark -

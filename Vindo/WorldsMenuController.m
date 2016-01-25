@@ -47,7 +47,7 @@
     
     for (World *world in self.worldsArrayController.arrangedObjects) {
         NSMenuItem *item = [NSMenuItem new];
-        item.title = world.name;
+        item.title = world.displayName;
         item.representedObject = world;
         item.target = self;
         item.action = @selector(worldSelected:);

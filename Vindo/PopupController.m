@@ -116,6 +116,7 @@
 }
 
 - (void)showPopover {
+    NSLog(@"showing popover relative to rect %@ of view %@", [NSValue valueWithRect:self.statusItem.view.bounds], self.statusItem.view);
     [self.popover showRelativeToRect:self.statusItem.view.bounds
                               ofView:self.statusItem.view
                        preferredEdge:NSMaxYEdge];

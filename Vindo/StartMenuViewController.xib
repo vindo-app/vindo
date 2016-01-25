@@ -43,11 +43,11 @@
                     <rect key="frame" x="9" y="36" width="218" height="146"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="1zB-do-Jtw">
-                        <rect key="frame" x="0.0" y="0.0" width="203" height="131"/>
+                        <rect key="frame" x="0.0" y="0.0" width="218" height="146"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView id="f1p-v1-osb" customClass="WorkingCollectionView">
-                                <rect key="frame" x="0.0" y="0.0" width="203" height="131"/>
+                                <rect key="frame" x="0.0" y="0.0" width="218" height="146"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="primaryBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                 <connections>
@@ -60,21 +60,21 @@
                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </clipView>
                     <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="c9t-lm-UZc">
-                        <rect key="frame" x="0.0" y="131" width="203" height="15"/>
+                        <rect key="frame" x="0.0" y="130" width="218" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="X0o-Lb-qaZ">
-                        <rect key="frame" x="203" y="0.0" width="15" height="131"/>
+                        <rect key="frame" x="202" y="0.0" width="16" height="146"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="kcN-8t-xfa">
-                    <rect key="frame" x="18" y="15" width="182" height="14"/>
+                    <rect key="frame" x="18" y="14" width="182" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="You can drag these to your dock!" id="jLn-Jt-LkX">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <popUpButton hidden="YES" id="jn8-yj-dLu">
