@@ -26,6 +26,7 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     NSUInteger numberOfItems = [self.arrayController.arrangedObjects count];
     if (numberOfItems != 0) {
+        NSLog(@"made default important");
         [[NSNotificationCenter defaultCenter] postNotificationName:@"MakeDefaultImportant"
                                                             object:self];
     }

@@ -1,4 +1,4 @@
-//
+ //
 //  AppDelegate.m
 //  Vindo
 //
@@ -13,11 +13,11 @@
 #import "UpdatePreferencesViewController.h"
 #import "GeneralPreferencesViewController.h"
 #import "PopupController.h"
-
 #import "ManageWorldsWindowController.h"
 
 #import "World.h"
 #import "WorldsController.h"
+#import "NSObject+Notifications.h"
 
 #import "PFMoveApplication.h"
 #import "RHPreferences/RHPreferences.h"
@@ -39,6 +39,15 @@
 #ifndef DEBUG
     PFMoveToApplicationsFolderIfNecessary();
     [LaunchAtLoginController new].launchAtLogin = YES;
+#endif
+    
+#ifdef DEBUG
+    [[NSNotificationCenter defaultCenter] addObserverForName:nil object:NSApp queue:nil usingBlock:^(NSNotification *notification) {
+        if (!([notification.name isEqualToString:NSApplicationWillUpdateNotification] ||
+              [notification.name isEqualToString:NSApplicationDidUpdateNotification] ||
+              [notification.name isEqualToString:NSApplicationDidChangeOcclusionStateNotification]))
+            NSLog(@"%@", notification);
+    }];
 #endif
 }
 
@@ -86,22 +95,32 @@
     [NSApp activateIgnoringOtherApps:YES];
 }
 
+static NSInteger nWorlds = -1;
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-    World *world = [WorldsController sharedController].selectedWorld;
-    if (world.running) {
-        [world stop];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(worldDidStop:)
-                                                     name:WorldDidStopNotification
-                                                   object:world];
-        return NSTerminateLater;
-    } else {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EliminatePopup" object:self];
+    
+    if (nWorlds == 0)
         return NSTerminateNow;
+    if (nWorlds != -1)
+        return NSTerminateLater;
+    
+    NSArray *worlds = [WorldsController sharedController].arrangedObjects;
+    nWorlds = worlds.count;
+    
+    for (World *world in worlds) {
+        if (world.running) {
+            [world onNext:WorldDidStopNotification do:^(id n) {
+                if (--nWorlds == 0)
+                    [NSApp terminate:nil];
+            }];
+            [world stop];
+        } else {
+            nWorlds--;
+        }
     }
-}
-
-- (void)worldDidStop:(NSNotification *)notification {
-    [NSApp terminate:self];
+    if (nWorlds == 0)
+        return NSTerminateNow;
+    return NSTerminateLater;
 }
 
 @end

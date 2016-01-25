@@ -20,6 +20,7 @@
 - (void)start;
 
 @property (readonly) NSURL *bundleURL;
+@property (readonly, getter=isParenthesized) BOOL parenthesized;
 
 @property (weak) StartMenuItem *item;
 

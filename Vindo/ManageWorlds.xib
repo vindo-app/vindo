@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ManageWorldsWindowController">
@@ -22,7 +22,7 @@
             <rect key="contentRect" x="109" y="198" width="412" height="101"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1024"/>
             <view key="contentView" id="N3x-as-mkr">
-                <rect key="frame" x="0.0" y="5" width="412" height="101"/>
+                <rect key="frame" x="0.0" y="0.0" width="412" height="101"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="cSl-yU-453">
@@ -165,12 +165,27 @@ Gw
                             <action selector="removeWorld:" target="-2" id="N4y-oN-jHc"/>
                         </connections>
                     </button>
+                    <popUpButton verticalHuggingPriority="750" id="jyv-pI-Ofv">
+                        <rect key="frame" x="79" y="19" width="35" height="23"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="37m-iZ-igQ">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="XDi-ly-9Th">
+                                <items>
+                                    <menuItem state="on" image="NSActionTemplate" hidden="YES" id="d9I-fM-7JM"/>
+                                    <menuItem title="Stuff will be here eventually" id="eV2-2B-u6g"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
                 </subviews>
             </view>
             <point key="canvasLocation" x="-174" y="181"/>
         </window>
     </objects>
     <resources>
+        <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>

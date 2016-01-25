@@ -26,6 +26,20 @@ static NSURL *windowsProgramBundle;
     if (self.exists)
         return;
     
+    _bundleURL = [[appBundleFolder URLByAppendingPathComponent:_item.name] URLByAppendingPathExtension:@"app"];
+    NSLog(@"trying %@ for bundleURL", _bundleURL);
+    _parenthesized = NO;
+    if (!self.exists && [fm fileExistsAtPath:_bundleURL.path]) {
+        _bundleURL = [[appBundleFolder URLByAppendingPathComponent:
+                        [NSString stringWithFormat:@"%@ (%@)", self.item.name, self.item.world.name]]
+                      URLByAppendingPathExtension:@"app"];
+        NSLog(@"that didn't work, using %@", _bundleURL);
+        _parenthesized = YES;
+    }
+    
+    if (self.exists)
+        return;
+    
     NSError *error;
         
     if (![fm createDirectoryAtURL:appBundleFolder
@@ -39,6 +53,7 @@ static NSURL *windowsProgramBundle;
     if (![fm copyItemAtURL:windowsProgramBundle
                      toURL:self.bundleURL
                      error:&error]) {
+        NSLog(@"%@ exists: %d", self.bundleURL, [fm fileExistsAtPath:self.bundleURL.path]);
         [NSApp presentError:error];
         return;
     }
@@ -108,11 +123,29 @@ static NSURL *windowsProgramBundle;
 }
 
 - (BOOL)exists {
-    return [fm fileExistsAtPath:self.bundleURL.path];
-}
-
-- (NSURL *)bundleURL {
-    return [[appBundleFolder URLByAppendingPathComponent:_item.name] URLByAppendingPathExtension:@"app"];
+    NSLog(@"==== EXISTENCE CHECKING ====");
+    NSLog(@"for %@ in %@", self.item.name, self.item.world.name);
+    if (self.bundleURL == nil) {
+        NSLog(@"bundle URL is nil, returning no");
+        return NO;
+    }
+    
+    if (![fm fileExistsAtPath:self.bundleURL.path]) {
+        NSLog(@"nothing at bundle URL (%@), returning no", self.bundleURL);
+        return NO;
+    }
+    
+    NSDictionary *info = [NSDictionary dictionaryWithContentsOfURL:[self.bundleURL URLByAppendingPathComponent:@"Contents/Info.plist"]];
+    if (info == nil)
+        return NO;
+    
+    if ([info[@"World"] isEqualToString:self.item.world.name]) {
+        NSLog(@"world in info matches, returning YES");
+        return YES;
+    } else {
+        NSLog(@"world in info does NOT match, returning NO");
+        return NO;
+    }
 }
 
 + (void)initialize {

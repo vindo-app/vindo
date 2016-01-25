@@ -56,7 +56,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "killall wine wineserver Vindo&#10;rm -rf ~/Library/Application\ Support/Vindo/Worlds/Default\ World&#10;defaults delete com.tbodt.Vindo&#10;rm -rf ~/Applications/Vindo">
+               scriptText = "killall wine wineserver Vindo&#10;rm -rf ~/Library/Application\ Support/Vindo/Worlds/&#10;defaults delete com.tbodt.Vindo&#10;rm -rf ~/Applications/Vindo">
             </ActionContent>
          </ExecutionAction>
       </PreActions>

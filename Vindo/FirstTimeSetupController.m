@@ -50,6 +50,7 @@ static FirstTimeSetupController *sharedInstance;
         
         [defaultWorld on:WorldDidFinishSetupNotification do:^(id n) {
             self.happening = NO;
+            [[NSNotificationCenter defaultCenter] postNotificationName:FirstTimeSetupDidCompleteNotification object:self];
         }];
         [defaultWorld setup];
     }

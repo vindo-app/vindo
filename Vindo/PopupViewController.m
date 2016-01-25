@@ -81,15 +81,11 @@
 }
 
 - (void)firstTimeSetupStarted:(NSNotification *)notification {
-    [self performSelectorOnMainThread:@selector(setImportantViewController:)
-                           withObject:self.setupViewController
-                        waitUntilDone:NO];
+    self.importantViewController = self.setupViewController;
 }
 
 - (void)firstTimeSetupEnded:(NSNotification *)notification {
-    [self performSelectorOnMainThread:@selector(setImportantViewController:)
-                           withObject:self.defaultViewController
-                        waitUntilDone:NO];
+    self.importantViewController = self.defaultViewController;
 }
 
 - (void)menuItemWasClicked:(NSNotification *)notification {
@@ -97,7 +93,7 @@
 }
 
 - (void)makeNoProgramsImportant:(NSNotification *)notification {
-    self.importantViewController = self.noProgramsViewController;
+    [self performSelector:@selector(setImportantViewController:) withObject:self.noProgramsViewController afterDelay:0];
 }
 
 - (void)makeDefaultImportant:(NSNotification *)notification {
@@ -105,6 +101,8 @@
 }
 
 - (void)setImportantViewController:(NSViewController *)importantViewController {
+    NSLog(@"view controller becoming %@ from %@", importantViewController, _importantViewController);
+    
     NSView *oldView;
     if (!_importantViewController)
         oldView = self.placeholderView;
@@ -124,6 +122,7 @@
 }
 
 - (void)importantViewResized:(NSNotification *)notification {
+    //NSLog(@"subviews of view that resized: %@", [notification.object subviews]);
     [self doTheMath];
 }
 
@@ -138,10 +137,9 @@ static CGFloat actionRightPadding;
 }
 
 - (void)doTheMath {
-    NSSize popupSize;
-    popupSize.width = self.importantViewController.view.frame.size.width;
-    popupSize.height = self.importantViewController.view.frame.size.height + bottomPadding;
-    [self.view setFrameSize:popupSize];
+    NSLog(@"important view controller: %@", self.importantViewController);
+    NSLog(@"important size: %@", [NSValue valueWithSize:self.importantViewController.view.frame.size]);
+    [self.view setFrameSize:self.importantViewController.view.frame.size];
     
     NSRect actionFrame;
     actionFrame.size = self.actionButton.frame.size;
@@ -149,11 +147,7 @@ static CGFloat actionRightPadding;
     actionFrame.origin.x = self.view.frame.size.width - actionRightPadding;
     self.actionButton.frame = actionFrame;
     
-    NSRect importantRect;
-    importantRect.size = self.importantViewController.view.frame.size;
-    importantRect.origin.x = 0;
-    importantRect.origin.y = bottomPadding;
-    self.importantViewController.view.frame = importantRect;
+    [self.importantViewController.view setFrameOrigin:NSMakePoint(0, bottomPadding)];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReshowPopup" object:self];
 }

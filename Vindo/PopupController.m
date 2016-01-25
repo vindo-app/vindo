@@ -65,6 +65,10 @@
             doAction:@selector(createEventMonitors:)
             onTarget:self];
     
+    [NSApp on:NSApplicationDidFinishLaunchingNotification
+           do:^(id n) {
+               [self showPopover];
+           }];
     [NSApp on:NSApplicationDidResignActiveNotification
            do:^(id n) {
                [self hidePopover];
@@ -115,7 +119,6 @@
     [self.popover showRelativeToRect:self.statusItem.view.bounds
                               ofView:self.statusItem.view
                        preferredEdge:NSMaxYEdge];
-    [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (void)hidePopover {
@@ -123,9 +126,9 @@
 }
 
 - (void)reshowPopup:(NSNotification *)notification {
-    NSLog(@"reshowing popup to %@", [NSValue valueWithSize:self.pvc.view.bounds.size]);
+    //NSLog(@"reshowing popup to %@", [NSValue valueWithSize:self.pvc.view.bounds.size]);
     self.popover.contentSize = self.pvc.view.bounds.size;
-    NSLog(@"popup size now %@", [NSValue valueWithSize:self.popover.contentSize]);
+    //NSLog(@"popup size now %@", [NSValue valueWithSize:self.popover.contentSize]);
 }
 
 - (void)eliminatePopup:(NSNotification *)notification {

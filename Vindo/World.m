@@ -20,7 +20,7 @@ static NSMapTable *worlds;
 
 - (instancetype)initWithName:(NSString *)name {
     if (worlds == nil)
-        worlds = [NSMapTable mapTableWithStrongToWeakObjects];
+        worlds = [NSMapTable strongToWeakObjectsMapTable];
     
     if ([worlds objectForKey:name])
         return [worlds objectForKey:name];
