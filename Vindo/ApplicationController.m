@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Theodore Dubois. All rights reserved.
 //
 
-#import <ReactiveCocoa/ReactiveCocoa.h>
-
 #import "ApplicationController.h"
 #import "LaunchController.h"
 #import "UpdatePreferencesViewController.h"

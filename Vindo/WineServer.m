@@ -7,7 +7,6 @@
 //
 
 #import "World.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "NSObject+Notifications.h"
 
 @implementation World (WineServer);
