@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
@@ -8,8 +8,10 @@
         <customObject id="-2" userLabel="File's Owner" customClass="ManageWorldsWindowController">
             <connections>
                 <outlet property="arrayController" destination="Dir-K8-Rli" id="gG0-Ts-AlJ"/>
+                <outlet property="duplicateItem" destination="eV2-2B-u6g" id="zbR-zx-CPk"/>
                 <outlet property="querySheet" destination="oXA-Yo-anN" id="Icg-zq-hSg"/>
                 <outlet property="queryText" destination="8uy-JD-MfM" id="nde-GR-k4B"/>
+                <outlet property="removeButton" destination="3rN-FQ-1qc" id="rQw-du-9m5"/>
                 <outlet property="table" destination="NAj-ty-2OG" id="vsZ-nE-2Vn"/>
                 <outlet property="window" destination="ax6-Og-Ght" id="bRg-0C-70P"/>
             </connections>
@@ -168,13 +170,17 @@ Gw
                     <popUpButton verticalHuggingPriority="750" id="jyv-pI-Ofv">
                         <rect key="frame" x="79" y="19" width="35" height="23"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="37m-iZ-igQ">
+                        <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" autoenablesItems="NO" id="37m-iZ-igQ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
-                            <menu key="menu" id="XDi-ly-9Th">
+                            <menu key="menu" autoenablesItems="NO" id="XDi-ly-9Th">
                                 <items>
                                     <menuItem state="on" image="NSActionTemplate" hidden="YES" id="d9I-fM-7JM"/>
-                                    <menuItem title="Stuff will be here eventually" id="eV2-2B-u6g"/>
+                                    <menuItem title="Duplicate…" id="eV2-2B-u6g">
+                                        <connections>
+                                            <action selector="duplicateWorld:" target="-2" id="9bq-J5-3C3"/>
+                                        </connections>
+                                    </menuItem>
                                 </items>
                             </menu>
                         </popUpButtonCell>

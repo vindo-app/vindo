@@ -24,4 +24,6 @@
 
 - (void)renameWorld:(World *)world toName:(NSString *)name;
 
+- (void)duplicateThisWorld:(World *)world;
+
 @end

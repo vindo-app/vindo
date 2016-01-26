@@ -19,12 +19,29 @@
 
 @property IBOutlet NSTableView *table;
 
+@property (weak) IBOutlet NSButton *removeButton;
+@property (weak) IBOutlet NSMenuItem *duplicateItem;
+
 @end
 
 @implementation ManageWorldsWindowController
 
 - (instancetype)init {
     return [super initWithWindowNibName:@"ManageWorlds"];
+}
+
+- (void)awakeFromNib {
+    [self.table registerForDraggedTypes:@[WorldPasteboardType]];
+    
+    [self.arrayController addObserver:self
+                           forKeyPath:@"selectedObjects"
+                              options:NSKeyValueObservingOptionInitial
+                              context:NULL];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+    self.removeButton.enabled = self.arrayController.selectedObjects.count > 0;
+    self.duplicateItem.enabled = self.arrayController.selectedObjects.count == 1;
 }
 
 #pragma mark -
@@ -72,7 +89,7 @@
     NSString *message;
     if (worldsToDelete.count == 1)
         message = [NSString stringWithFormat:@"Deleting world \"%@\"…",
-                   [worldsToDelete[0] name]];
+                   [worldsToDelete[0] displayName]];
     else
         message = [NSString stringWithFormat:@"Deleting %lu worlds…",
                    (unsigned long) worldsToDelete.count];
@@ -82,6 +99,14 @@
     [self removeWorlds:worldsToDelete];
 }
 
+- (IBAction)duplicateWorld:(id)sender {
+    World *world = self.arrayController.selectedObjects[0];
+    NSLog(@"%@", world);
+    NSLog(@"%@", self.arrayController.arrangedObjects);
+    self.statusWindow = [[StatusWindowController alloc] initWithMessage:[NSString stringWithFormat:@"Duplicating world \"%@\"…", world.displayName] sheetWindow:self.window];
+    [self duplicateThisWorld:self.arrayController.selectedObjects[0]];
+}
+
 -           (id)tableView:(NSTableView *)tableView
 objectValueForTableColumn:(NSTableColumn *)tableColumn
                       row:(NSInteger)row {
@@ -89,10 +114,6 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
         return [self.arrayController.arrangedObjects[row] displayName];
     }
     return nil;
-}
-
-- (void)awakeFromNib {
-    [self.table registerForDraggedTypes:@[WorldPasteboardType]];
 }
 
 -    (BOOL)tableView:(NSTableView *)tableView
