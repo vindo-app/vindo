@@ -128,6 +128,10 @@
     [menu moveItemAtIndex:itemIndex toIndex:newIndex];
 }
 
+- (IBAction)hideTip:(id)sender {
+    [[NSUserDefaultsController sharedUserDefaultsController].values setValue:@YES forKey:@"tipHidden"];
+}
+
 + (void)initialize {
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"maxRows": @3, @"numColumns": @3}];
 }

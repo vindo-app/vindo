@@ -120,6 +120,7 @@
     [self.popover showRelativeToRect:self.statusItem.view.bounds
                               ofView:self.statusItem.view
                        preferredEdge:NSMaxYEdge];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (void)hidePopover {
