@@ -1,24 +1,20 @@
 PODS:
   - CDEvents (1.2.2)
-  - ReactiveCocoa (2.3.1):
-    - ReactiveCocoa/UI (= 2.3.1)
-  - ReactiveCocoa/Core (2.3.1):
-    - ReactiveCocoa/no-arc
-  - ReactiveCocoa/no-arc (2.3.1)
-  - ReactiveCocoa/UI (2.3.1):
-    - ReactiveCocoa/Core
+  - Rebel (0.4):
+    - Rebel/NSColorExtensions (= 0.4)
+  - Rebel/NSColorExtensions (0.4)
   - RHPreferences (1.0.0)
   - Sparkle (1.13.0)
 
 DEPENDENCIES:
   - CDEvents
-  - ReactiveCocoa
+  - Rebel
   - RHPreferences
   - Sparkle (~> 1.10)
 
 SPEC CHECKSUMS:
   CDEvents: f311f23de13414f4b3625f1a663b2e1d9a85d982
-  ReactiveCocoa: 3fe9b233ca6db810e86681b5749488564c1179a1
+  Rebel: 0bcc935386cf2528eb8f4c338166cac497929faa
   RHPreferences: 6871f9614347f4b45197c51f7c93c3cde2744ce8
   Sparkle: d04d17a32eaddab19471d0c3d9db15164afdbc6e
 
