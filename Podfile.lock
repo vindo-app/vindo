@@ -1,20 +1,52 @@
 PODS:
   - CDEvents (1.2.2)
-  - Rebel (0.4):
-    - Rebel/NSColorExtensions (= 0.4)
-  - Rebel/NSColorExtensions (0.4)
+  - libextobjc (0.4.1):
+    - libextobjc/EXTADT (= 0.4.1)
+    - libextobjc/EXTConcreteProtocol (= 0.4.1)
+    - libextobjc/EXTKeyPathCoding (= 0.4.1)
+    - libextobjc/EXTNil (= 0.4.1)
+    - libextobjc/EXTSafeCategory (= 0.4.1)
+    - libextobjc/EXTScope (= 0.4.1)
+    - libextobjc/EXTSelectorChecking (= 0.4.1)
+    - libextobjc/EXTSynthesize (= 0.4.1)
+    - libextobjc/NSInvocation+EXT (= 0.4.1)
+    - libextobjc/NSMethodSignature+EXT (= 0.4.1)
+    - libextobjc/RuntimeExtensions (= 0.4.1)
+    - libextobjc/UmbrellaHeader (= 0.4.1)
+  - libextobjc/EXTADT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTConcreteProtocol (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTKeyPathCoding (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTNil (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSafeCategory (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTScope (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSelectorChecking (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSynthesize (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSInvocation+EXT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSMethodSignature+EXT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4.1)
+  - libextobjc/UmbrellaHeader (0.4.1)
   - RHPreferences (1.0.0)
   - Sparkle (1.13.0)
 
 DEPENDENCIES:
   - CDEvents
-  - Rebel
+  - libextobjc (~> 0.4)
   - RHPreferences
   - Sparkle (~> 1.10)
 
 SPEC CHECKSUMS:
   CDEvents: f311f23de13414f4b3625f1a663b2e1d9a85d982
-  Rebel: 0bcc935386cf2528eb8f4c338166cac497929faa
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   RHPreferences: 6871f9614347f4b45197c51f7c93c3cde2744ce8
   Sparkle: d04d17a32eaddab19471d0c3d9db15164afdbc6e
 

@@ -1,7 +1,7 @@
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Sparkle" "${PODS_ROOT}/Sparkle"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CDEvents" "${PODS_ROOT}/Headers/Public/RHPreferences" "${PODS_ROOT}/Headers/Public/Rebel" "${PODS_ROOT}/Headers/Public/Sparkle"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CDEvents" "${PODS_ROOT}/Headers/Public/RHPreferences" "${PODS_ROOT}/Headers/Public/Sparkle" "${PODS_ROOT}/Headers/Public/libextobjc"
 LD_RUNPATH_SEARCH_PATHS = @loader_path/../Frameworks
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/CDEvents" -isystem "${PODS_ROOT}/Headers/Public/RHPreferences" -isystem "${PODS_ROOT}/Headers/Public/Rebel" -isystem "${PODS_ROOT}/Headers/Public/Sparkle"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"CDEvents" -l"RHPreferences" -l"Rebel" -framework "Cocoa" -framework "CoreServices" -framework "QuartzCore" -framework "Sparkle" -framework "WebKit"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/CDEvents" -isystem "${PODS_ROOT}/Headers/Public/RHPreferences" -isystem "${PODS_ROOT}/Headers/Public/Sparkle" -isystem "${PODS_ROOT}/Headers/Public/libextobjc"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"CDEvents" -l"RHPreferences" -l"libextobjc" -framework "Cocoa" -framework "CoreServices" -framework "Sparkle"
 PODS_ROOT = ${SRCROOT}/Pods

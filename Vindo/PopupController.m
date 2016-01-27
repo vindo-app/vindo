@@ -121,6 +121,7 @@
                               ofView:self.statusItem.view
                        preferredEdge:NSMaxYEdge];
     [NSApp activateIgnoringOtherApps:YES];
+    [self.pvc.view.window.parentWindow removeChildWindow:self.pvc.view.window];
 }
 
 - (void)hidePopover {
