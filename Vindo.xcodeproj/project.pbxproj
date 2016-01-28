@@ -63,6 +63,7 @@
 		BBBCEAA81C3C8E8D00E5E175 /* WindowsProgramApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAA71C3C8E8D00E5E175 /* WindowsProgramApplication.m */; };
 		BBBCEAAD1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */; };
 		BBBCEAB01C3DE15200E5E175 /* ABCTController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */; };
+		BBCEC3131C5ABFB700D72F2A /* NSURL+Relativize.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCEC3121C5ABFB700D72F2A /* NSURL+Relativize.m */; };
 		BBF18B791C41FE050060092B /* StartMenuDefaultsSync.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */; };
 		BBF18B7C1C433F150060092B /* NSUserDefaults+KeyPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */; };
 		BBF27D2C1C52A98A00EE7C65 /* Status.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* Status.xib */; };
@@ -186,6 +187,7 @@
 		ACE47E961C0923C70001808C /* StatusBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarView.h; sourceTree = "<group>"; };
 		ACE47E971C0923C70001808C /* StatusBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarView.m; sourceTree = "<group>"; };
 		BB094B291C56D54B006C0AB0 /* ManageWorldsWindowController+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ManageWorldsWindowController+Operations.m"; sourceTree = "<group>"; };
+		BB094B2B1C5AB0DC006C0AB0 /* NSUserDefaults+KeyPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+KeyPaths.h"; sourceTree = "<group>"; };
 		BB57B9641C4879E500331BA4 /* WorkingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingCollectionView.h; sourceTree = "<group>"; };
 		BB57B9651C4879E500331BA4 /* WorkingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingCollectionView.m; sourceTree = "<group>"; };
 		BB7303501C388784004B4375 /* AppBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBundle.h; sourceTree = "<group>"; };
@@ -197,6 +199,8 @@
 		BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppBundleConnectionThingImpl.m; path = Vindo/AppBundleConnectionThingImpl.m; sourceTree = "<group>"; };
 		BBBCEAAE1C3DE15200E5E175 /* ABCTController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCTController.h; sourceTree = "<group>"; };
 		BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCTController.m; sourceTree = "<group>"; };
+		BBCEC3111C5ABFB700D72F2A /* NSURL+Relativize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Relativize.h"; sourceTree = "<group>"; };
+		BBCEC3121C5ABFB700D72F2A /* NSURL+Relativize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Relativize.m"; sourceTree = "<group>"; };
 		BBF18B771C41FE050060092B /* StartMenuDefaultsSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuDefaultsSync.h; sourceTree = "<group>"; };
 		BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuDefaultsSync.m; sourceTree = "<group>"; };
 		BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+KeyPaths.m"; sourceTree = "<group>"; };
@@ -493,6 +497,9 @@
 				8A22BA5B1C18C165002B4351 /* NSObject+Notifications.h */,
 				8A22BA5C1C18C165002B4351 /* NSObject+Notifications.m */,
 				BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */,
+				BB094B2B1C5AB0DC006C0AB0 /* NSUserDefaults+KeyPaths.h */,
+				BBCEC3111C5ABFB700D72F2A /* NSURL+Relativize.h */,
+				BBCEC3121C5ABFB700D72F2A /* NSURL+Relativize.m */,
 			);
 			name = "Other Stuff";
 			path = Vindo;
@@ -756,6 +763,7 @@
 				BBBCEAB01C3DE15200E5E175 /* ABCTController.m in Sources */,
 				8A36AF541C1F4D1B0012D115 /* StartMenuViewController.m in Sources */,
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
+				BBCEC3131C5ABFB700D72F2A /* NSURL+Relativize.m in Sources */,
 				8A713E0C1C249AB400918B1A /* World+PasteboardSupport.m in Sources */,
 				AC05808C1ABF97F700854813 /* ManageWorldsWindowController.m in Sources */,
 				BBBCEAAD1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m in Sources */,

@@ -15,7 +15,7 @@
 - (bycopy NSURL *)usrURL;
 - (BOOL)activateWorldNamed:(NSString *)world;
 - (bycopy NSDictionary *)environmentForWorld:(NSString *)world;
-- (NSString *)programForStartMenuItem:(NSString *)nativeIdentifier inWorld:(NSString *)world;
-- (NSString *)argumentsForStartMenuItem:(NSString *)nativeIdentifier inWorld:(NSString *)world;
+- (NSString *)programForStartMenuItem:(NSString *)itemPath inWorld:(NSString *)world;
+- (NSString *)argumentsForStartMenuItem:(NSString *)itemPath inWorld:(NSString *)world;
 
 @end

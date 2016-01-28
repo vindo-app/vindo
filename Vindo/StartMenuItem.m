@@ -10,18 +10,19 @@
 #import "World.h"
 #import "World+StartMenu.h"
 #import "WorldsController.h"
+#import "NSUserDefaults+KeyPaths.h"
 
 @implementation StartMenuItem
 
-- (instancetype)initWithNativeIdentifier:(NSString *)nativeIdentifier inWorld:(World *)world {
+- (instancetype)initWithItemPath:(NSString *)itemPath inWorld:(World *)world {
     if (self = [super init]) {
-        _nativeIdentifier = nativeIdentifier;
+        _itemPath = itemPath;
         _world = world;
-
+        
         NSURL *programsFolder = world.programsFolder;
-        NSURL *plistFile = [[programsFolder URLByAppendingPathComponent:nativeIdentifier]
+        NSURL *plistFile = [[programsFolder URLByAppendingPathComponent:itemPath]
                             URLByAppendingPathExtension:@"plist"];
-
+        
         NSError *error;
         NSData *fileData = [NSData dataWithContentsOfURL:plistFile options:0 error:&error];
         NSDictionary *itemPlist;
@@ -35,14 +36,15 @@
             NSLog(@"%@", error);
             return nil;
         }
-
         
-        _name = itemPlist[@"Name"];
+        
+        _name = [itemPlist[@"Name"] lastPathComponent];
         _path = itemPlist[@"Path"];
         _args = itemPlist[@"Arguments"];
-
-        _iconURL = [[programsFolder URLByAppendingPathComponent:nativeIdentifier]
-                                    URLByAppendingPathExtension:@"icns"];
+        _explanation = itemPlist[@"Description"];
+        
+        _iconURL = [[programsFolder URLByAppendingPathComponent:itemPath]
+                    URLByAppendingPathExtension:@"icns"];
         _icon = [[NSImage alloc] initByReferencingURL:_iconURL];
         
         _bundle = [[AppBundle alloc] initWithStartMenuItem:self];
@@ -52,8 +54,7 @@
 }
 
 - (NSUInteger)subrank {
-    NSUInteger subrank = [[[NSUserDefaults standardUserDefaults] valueForKeyPath:
-                           [NSString stringWithFormat:@"subrank.%@.%@", self.world.name, self.nativeIdentifier]]
+    NSUInteger subrank = [[[NSUserDefaults standardUserDefaults] valueForKeyPathArray:@[@"subrank", self.world.name, self.itemPath]]
                           unsignedIntegerValue];
     if (subrank == 0) {
         subrank = self.subrank = 10;
@@ -62,20 +63,26 @@
 }
 
 - (void)setSubrank:(NSUInteger)subrank {
-    [[NSUserDefaults standardUserDefaults] setValue:@(subrank) forKeyPath:
-     [NSString stringWithFormat:@"subrank.%@.%@", self.world.name, self.nativeIdentifier]];
+    [[NSUserDefaults standardUserDefaults] setValue:@(subrank) forKeyPathArray:@[@"subrank", self.world.name, self.itemPath]];
+}
+
+- (NSString *)tooltip {
+    if (self.explanation)
+        return [NSString stringWithFormat:@"%@\n%@", self.name, self.explanation];
+    else
+        return self.name;
 }
 
 - (BOOL)isEqual:(StartMenuItem *)item {
-    return [self.nativeIdentifier isEqualToString:item.nativeIdentifier];
+    return [self.itemPath isEqualToString:item.itemPath];
 }
 
 - (NSUInteger)hash {
-    return [self.nativeIdentifier hash];
+    return [self.itemPath hash];
 }
 
 - (NSString *)description {
-    return self.nativeIdentifier;
+    return self.itemPath;
 }
 
 @end

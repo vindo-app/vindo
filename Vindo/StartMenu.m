@@ -10,7 +10,9 @@
 #import "StartMenuItem.h"
 #import "WorldsController.h"
 #import "World.h"
+#import "NSUserDefaults+KeyPaths.h"
 #import "World+StartMenu.h"
+#import "NSURL+Relativize.h"
 #import <CDEvents/CDEvents.h>
 #import <CoreServices/CoreServices.h>
 
@@ -62,7 +64,7 @@
     FSEventStreamEventFlags flags = event.flags;
     if (![event.URL.path hasSuffix:@".plist"])
         return;
-    
+
     if (flags & kFSEventStreamEventFlagItemCreated) {
         [self addItemAtURL:event.URL];
     } else if (flags & kFSEventStreamEventFlagItemRemoved) {
@@ -71,12 +73,12 @@
 }
 
 - (void)addItemAtURL:(NSURL *)url {
-    NSString *nativeIdentifier = [self nativeIdentifierForURL:url];
+    NSString *itemPath = [self itemPathForURL:url];
     
     [self willChange:NSKeyValueChangeInsertion
      valuesAtIndexes:[NSIndexSet indexSetWithIndex:self.mutableItems.count]
               forKey:@"items"];
-    [self.mutableItems addObject:[[StartMenuItem alloc] initWithNativeIdentifier:nativeIdentifier inWorld:self.world]];
+    [self.mutableItems addObject:[[StartMenuItem alloc] initWithItemPath:itemPath inWorld:self.world]];
     [self didChange:NSKeyValueChangeInsertion
     valuesAtIndexes:[NSIndexSet indexSetWithIndex:self.mutableItems.count]
              forKey:@"items"];
@@ -86,11 +88,11 @@
     if (![url.path hasSuffix:@".plist"])
         return;
     
-    NSString *nativeIdentifier = [self nativeIdentifierForURL:url];
+    NSString *itemPath = [self itemPathForURL:url];
     
     int i;
     for (i = 0; i < self.mutableItems.count; i++) {
-        if ([[self.mutableItems[i] nativeIdentifier] isEqualToString:nativeIdentifier]) {
+        if ([[self.mutableItems[i] itemPath] isEqualToString:itemPath]) {
             break;
         }
     }
@@ -110,8 +112,7 @@
 - (void)initializeItems {
     NSMutableArray *newItems = [NSMutableArray new];
 
-    NSString *defaultsKey = [NSString stringWithFormat:@"startMenuItems.%@", self.world.name];
-    NSArray *defaultsItems = [[NSUserDefaults standardUserDefaults] valueForKeyPath:defaultsKey];
+    NSArray *defaultsItems = [[NSUserDefaults standardUserDefaults] valueForKeyPathArray:@[@"startMenuItems", self.world.name]];
     
     NSMutableArray *filesystemItems = [NSMutableArray new];
     for (NSString *filesystemItem in [[NSFileManager defaultManager] enumeratorAtPath:self.programsFolder.path]) {
@@ -122,18 +123,18 @@
     NSMutableArray *addedItems = [filesystemItems mutableCopy];
     [addedItems removeObjectsInArray:defaultsItems];
     for (NSString *addedItem in addedItems) {
-        [newItems addObject:[[StartMenuItem alloc] initWithNativeIdentifier:addedItem inWorld:self.world]];
+        [newItems addObject:[[StartMenuItem alloc] initWithItemPath:addedItem inWorld:self.world]];
     }
     for (NSString *item in defaultsItems) {
         if ([filesystemItems containsObject:item])
-            [newItems addObject:[[StartMenuItem alloc] initWithNativeIdentifier:item inWorld:self.world]];
+            [newItems addObject:[[StartMenuItem alloc] initWithItemPath:item inWorld:self.world]];
     }
     
     self.mutableItems = newItems;
 }
 
-- (NSString *)nativeIdentifierForURL:(NSURL *)url {
-    return url.path.stringByDeletingPathExtension.lastPathComponent;
+- (NSString *)itemPathForURL:(NSURL *)url {
+    return [url pathRelativeToURL:self.programsFolder].stringByDeletingPathExtension;
 }
 
 - (void)moveItemAtIndex:(NSUInteger)index toIndex:(NSUInteger)newIndex {

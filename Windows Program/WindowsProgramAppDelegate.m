@@ -28,9 +28,9 @@ static WindowsProgramApplication *app;
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
     // Make a DO connection to Vindo.
-    NSArray *vindos = [NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.tbodt.Vindo"];
+    NSArray *vindos = [NSRunningApplication runningApplicationsWithBundleIdentifier:@"co.vindo.Vindo"];
     if ([vindos count] == 0) {
-        if (![[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:@"com.tbodt.Vindo"
+        if (![[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:@"co.vindo.Vindo"
                                                                   options:NSWorkspaceLaunchWithoutActivation
                                            additionalEventParamDescriptor:nil
                                                          launchIdentifier:NULL]) {
@@ -90,7 +90,7 @@ static char __wine_shared_heap[0x03000000] __attribute__((section("WINE_SHAREDHE
 
 - (void)becomeWineTask {
     NSString *world = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"World"];
-    NSString *nativeIdentifier = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"NativeIdentifier"];
+    NSString *itemPath = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ItemPath"];
     
     // set necessary environment keys
     NSDictionary *environment = [self.communicationThing environmentForWorld:world];
@@ -117,8 +117,8 @@ static char __wine_shared_heap[0x03000000] __attribute__((section("WINE_SHAREDHE
     char error[1024];
     int argc = 2;
     const char *argv0 = [self.usr URLByAppendingPathComponent:@"bin/wine"].path.UTF8String;
-    const char *argv1 = [self.communicationThing programForStartMenuItem:nativeIdentifier inWorld:world].UTF8String;
-    const char *argv2 = [self.communicationThing argumentsForStartMenuItem:nativeIdentifier inWorld:world].UTF8String;
+    const char *argv1 = [self.communicationThing programForStartMenuItem:itemPath inWorld:world].UTF8String;
+    const char *argv2 = [self.communicationThing argumentsForStartMenuItem:itemPath inWorld:world].UTF8String;
     const char *argv[] = {argv0, argv1, argv2, NULL};
     wine_init(argc, argv, error, sizeof(error));
     

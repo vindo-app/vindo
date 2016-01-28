@@ -9,6 +9,7 @@
 #import "ManageWorldsWindowController.h"
 #import "World.h"
 #import "NSObject+Notifications.h"
+#import "NSUserDefaults+KeyPaths.h"
 #import "StartMenu.h"
 #import "StartMenuItem.h"
 #import "StartMenuController.h"
@@ -42,9 +43,9 @@
                                                                 error:nil]; // move world to trash
                        [self.arrayController removeObject:world]; // remove object from worlds
                        // delete any other world-specific defaults keys
-                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPath:[NSString stringWithFormat:@"startMenuItems.%@", world.name]];
-                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPath:[NSString stringWithFormat:@"displayNames.%@", world.name]];
-                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPath:[NSString stringWithFormat:@"subrank.%@", world.name]];
+                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPathArray:@[@"startMenuItems", world.name]];
+                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPathArray:@[@"displayNames", world.name]];
+                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPathArray:@[@"subrank", world.name]];
                        
                        [worldsToDelete removeObject:world];
                        if (worldsToDelete.count == 0) {

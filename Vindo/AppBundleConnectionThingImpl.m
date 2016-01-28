@@ -18,7 +18,7 @@
     return [[[NSBundle mainBundle] resourceURL] URLByAppendingPathComponent:@"usr"];
 }
 
-- (BOOL)activateWorldNamed:(NSString *)worldName {    
+- (BOOL)activateWorldNamed:(NSString *)worldName {
     World *world = [self worldForName:worldName];
     [world start];
     return world != nil;
@@ -28,37 +28,37 @@
     return [self worldForName:world].wineEnvironment;
 }
 
-- (NSString *)programForStartMenuItem:(NSString *)nativeIdentifier inWorld:(NSString *)worldName {
+- (NSString *)programForStartMenuItem:(NSString *)itemPath inWorld:(NSString *)worldName {
     World *world = [self worldForName:worldName];
     if (world == nil)
         return nil;
     
-    StartMenuItem *item = [self startMenuItemForNativeIdentifier:nativeIdentifier
-                                                         inWorld:world];
+    StartMenuItem *item = [self startMenuItemForItemPath:itemPath
+                                                 inWorld:world];
     if (item == nil)
         return nil;
     
     return item.path;
 }
 
-- (NSString *)argumentsForStartMenuItem:(NSString *)nativeIdentifier inWorld:(NSString *)worldName {
+- (NSString *)argumentsForStartMenuItem:(NSString *)itemPath inWorld:(NSString *)worldName {
     World *world = [self worldForName:worldName];
     if (world == nil)
         return nil;
     
-    StartMenuItem *item = [self startMenuItemForNativeIdentifier:nativeIdentifier
-                                                         inWorld:world];
+    StartMenuItem *item = [self startMenuItemForItemPath:itemPath
+                                                 inWorld:world];
     if (item == nil)
         return nil;
     
     return item.args;
 }
 
-- (StartMenuItem *)startMenuItemForNativeIdentifier:(NSString *)nativeIdentifier inWorld:(World *)world {
+- (StartMenuItem *)startMenuItemForItemPath:(NSString *)itemPath inWorld:(World *)world {
     StartMenu *menu = [StartMenuController sharedInstance].menu;
     
     for (StartMenuItem *item in menu.items) {
-        if ([item.nativeIdentifier isEqualToString:nativeIdentifier]) {
+        if ([item.itemPath isEqualToString:itemPath]) {
             return item;
         }
     }

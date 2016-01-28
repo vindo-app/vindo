@@ -79,10 +79,10 @@ static NSURL *windowsProgramBundle;
     
     // It's fine to cast kCF* from CFString because of toll free bridging.
     [infoPlist setValue:self.item.name forKey:(NSString *)kCFBundleNameKey];
-    [infoPlist setValue:[NSString stringWithFormat:@"co.vindo.windows-program.%@", self.item.nativeIdentifier]
+    [infoPlist setValue:[NSString stringWithFormat:@"co.vindo.windows-program.%@", self.item.itemPath]
                  forKey:(NSString *)kCFBundleIdentifierKey];
     
-    [infoPlist setValue:self.item.nativeIdentifier forKey:@"NativeIdentifier"];
+    [infoPlist setValue:self.item.itemPath forKey:@"ItemPath"];
     [infoPlist setValue:self.item.world.name forKey:@"World"];
     
     NSData *infoPlistData = [NSPropertyListSerialization dataWithPropertyList:infoPlist
@@ -123,27 +123,18 @@ static NSURL *windowsProgramBundle;
 }
 
 - (BOOL)exists {
-    NSLog(@"==== EXISTENCE CHECKING ====");
-    NSLog(@"for %@ in %@", self.item.name, self.item.world.name);
-    if (self.bundleURL == nil) {
-        NSLog(@"bundle URL is nil, returning no");
+    if (self.bundleURL == nil)
         return NO;
-    }
-    
-    if (![fm fileExistsAtPath:self.bundleURL.path]) {
-        NSLog(@"nothing at bundle URL (%@), returning no", self.bundleURL);
+    if (![fm fileExistsAtPath:self.bundleURL.path])
         return NO;
-    }
     
     NSDictionary *info = [NSDictionary dictionaryWithContentsOfURL:[self.bundleURL URLByAppendingPathComponent:@"Contents/Info.plist"]];
     if (info == nil)
         return NO;
     
     if ([info[@"World"] isEqualToString:self.item.world.name]) {
-        NSLog(@"world in info matches, returning YES");
         return YES;
     } else {
-        NSLog(@"world in info does NOT match, returning NO");
         return NO;
     }
 }

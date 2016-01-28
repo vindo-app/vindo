@@ -12,12 +12,14 @@
 
 @interface StartMenuItem : NSObject
 
-@property (readonly) NSString *nativeIdentifier;
+@property (readonly) NSString *itemPath;
 @property (readonly) World *world;
 
 @property (readonly) NSString *name;
 @property (readonly) NSString *path;
 @property (readonly) NSString *args;
+@property (readonly) NSString *explanation;
+@property (readonly) NSString *tooltip;
 
 @property (readonly) NSURL *iconURL;
 @property (readonly) NSImage *icon;
@@ -26,6 +28,6 @@
 
 @property NSUInteger subrank;
 
-- (instancetype)initWithNativeIdentifier:(NSString *)nativeIdentifier inWorld:(World *)world;
+- (instancetype)initWithItemPath:(NSString *)itemPath inWorld:(World *)world;
 
 @end
