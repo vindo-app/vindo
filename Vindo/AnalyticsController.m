@@ -9,6 +9,12 @@
 #import "AnalyticsController.h"
 #import "uuid.h"
 
+@interface AnalyticsController ()
+
+@property NSURLConnection *conn;
+
+@end
+
 @implementation AnalyticsController
 
 - (void)awakeFromNib {
@@ -19,10 +25,8 @@
         return; // it's not mission critical
     }
     
-    NSString *urlString = [NSString stringWithFormat:@"https://vindo-analytics.herokuapp.com/ping?uuid=%@&version=%@", uuid, version];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    
-    NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:self];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://vindo-analytics.herokuapp.com/ping?uuid=%@&version=%@", uuid, version]];    
+    self.conn = [NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL:url] delegate:self];
 }
 
 - (NSString *)uuid {

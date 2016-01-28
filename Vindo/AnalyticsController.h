@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AnalyticsController : NSObject <NSURLConnectionDelegate>
+@interface AnalyticsController : NSObject <NSURLConnectionDataDelegate>
 
 @end

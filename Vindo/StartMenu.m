@@ -13,7 +13,6 @@
 #import "World+StartMenu.h"
 #import <CDEvents/CDEvents.h>
 #import <CoreServices/CoreServices.h>
-#import "NSUserDefaults+KeyPaths.h"
 
 @interface StartMenu ()
 
@@ -112,7 +111,7 @@
     NSMutableArray *newItems = [NSMutableArray new];
 
     NSString *defaultsKey = [NSString stringWithFormat:@"startMenuItems.%@", self.world.name];
-    NSArray *defaultsItems = [[NSUserDefaults standardUserDefaults] objectForKeyPath:defaultsKey];
+    NSArray *defaultsItems = [[NSUserDefaults standardUserDefaults] valueForKeyPath:defaultsKey];
     
     NSMutableArray *filesystemItems = [NSMutableArray new];
     for (NSString *filesystemItem in [[NSFileManager defaultManager] enumeratorAtPath:self.programsFolder.path]) {

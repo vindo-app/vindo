@@ -6,21 +6,11 @@
 //  Copyright © 2016 Theodore Dubois. All rights reserved.
 //
 
-#import "NSUserDefaults+KeyPaths.h"
+#import <Foundation/Foundation.h>
 
 @implementation NSUserDefaults (KeyPaths)
 
-- (id)objectForKeyPath:(NSString *)keyPath {
-    id node = self;
-    for (NSString *key in [keyPath componentsSeparatedByString:@"."]) {
-        if (![node respondsToSelector:@selector(objectForKey:)])
-            return nil;
-        node = [node objectForKey:key];
-    }
-    return node;
-}
-
-- (void)setObject:(id)object forKeyPath:(NSString *)keyPath {
+- (void)setValue:(id)object forKeyPath:(NSString *)keyPath {
     NSArray *keys = [keyPath componentsSeparatedByString:@"."];
     
     if (keys.count == 1) {

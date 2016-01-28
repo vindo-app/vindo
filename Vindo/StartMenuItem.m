@@ -10,7 +10,6 @@
 #import "World.h"
 #import "World+StartMenu.h"
 #import "WorldsController.h"
-#import "NSUserDefaults+KeyPaths.h"
 
 @implementation StartMenuItem
 
@@ -53,7 +52,7 @@
 }
 
 - (NSUInteger)subrank {
-    NSUInteger subrank = [[[NSUserDefaults standardUserDefaults] objectForKeyPath:
+    NSUInteger subrank = [[[NSUserDefaults standardUserDefaults] valueForKeyPath:
                            [NSString stringWithFormat:@"subrank.%@.%@", self.world.name, self.nativeIdentifier]]
                           unsignedIntegerValue];
     if (subrank == 0) {
@@ -63,7 +62,7 @@
 }
 
 - (void)setSubrank:(NSUInteger)subrank {
-    [[NSUserDefaults standardUserDefaults] setObject:@(subrank) forKeyPath:
+    [[NSUserDefaults standardUserDefaults] setValue:@(subrank) forKeyPath:
      [NSString stringWithFormat:@"subrank.%@.%@", self.world.name, self.nativeIdentifier]];
 }
 

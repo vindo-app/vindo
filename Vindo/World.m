@@ -7,7 +7,7 @@
 //
 
 #import "World.h"
-#import "NSUserDefaults+KeyPaths.h"
+#import <libextobjc/extobjc.h>
 
 static NSMapTable *worlds;
 
@@ -61,7 +61,9 @@ static NSMapTable *worlds;
     [self start];
     
     self.winebootTask = [self wineTaskWithProgram:@"wine" arguments:@[@"wineboot", @"--init"]];
+    @weakify(self);
     self.winebootTask.terminationHandler = ^(id t) {
+        @strongify(self);
         NSLog(@"termination happened");
         self.winebootTask = nil;
         [[NSNotificationCenter defaultCenter] postNotificationName:WorldDidFinishSetupNotification object:self];
@@ -71,7 +73,7 @@ static NSMapTable *worlds;
 }
 
 - (NSString *)displayName {
-    NSString *displayName = [[NSUserDefaults standardUserDefaults] objectForKeyPath:[NSString stringWithFormat:@"displayNames.%@", self.name]];
+    NSString *displayName = [[NSUserDefaults standardUserDefaults] valueForKeyPath:[NSString stringWithFormat:@"displayNames.%@", self.name]];
     if (displayName)
         return displayName;
     else
@@ -79,7 +81,7 @@ static NSMapTable *worlds;
 }
 
 - (void)setDisplayName:(NSString *)displayName {
-    [[NSUserDefaults standardUserDefaults] setObject:displayName forKeyPath:[NSString stringWithFormat:@"displayNames.%@", self.name]];
+    [[NSUserDefaults standardUserDefaults] setValue:displayName forKeyPath:[NSString stringWithFormat:@"displayNames.%@", self.name]];
 }
 
 #pragma mark -

@@ -9,7 +9,6 @@
 #import "StartMenuDefaultsSync.h"
 #import "StartMenuController.h"
 #import "StartMenuItem.h"
-#import "NSUserDefaults+KeyPaths.h"
 
 @interface StartMenuDefaultsSync ()
 
@@ -54,7 +53,7 @@
     }
     
     NSLog(@"smdc: writing out items %@", items);
-    [[NSUserDefaults standardUserDefaults] setObject:items forKeyPath:defaultsKey];
+    [[NSUserDefaults standardUserDefaults] setValue:items forKeyPath:defaultsKey];
 }
 
 @end

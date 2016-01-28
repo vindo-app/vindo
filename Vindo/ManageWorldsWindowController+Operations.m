@@ -11,6 +11,7 @@
 #import "NSObject+Notifications.h"
 #import "StartMenu.h"
 #import "StartMenuItem.h"
+#import "StartMenuController.h"
 #import "WorldsController.h"
 
 @implementation ManageWorldsWindowController (Operations)
@@ -40,6 +41,10 @@
                                                      resultingItemURL:nil
                                                                 error:nil]; // move world to trash
                        [self.arrayController removeObject:world]; // remove object from worlds
+                       // delete any other world-specific defaults keys
+                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPath:[NSString stringWithFormat:@"startMenuItems.%@", world.name]];
+                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPath:[NSString stringWithFormat:@"displayNames.%@", world.name]];
+                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPath:[NSString stringWithFormat:@"subrank.%@", world.name]];
                        
                        [worldsToDelete removeObject:world];
                        if (worldsToDelete.count == 0) {
@@ -51,7 +56,11 @@
 }
 
 - (void)renameWorld:(World *)world toName:(NSString *)name {
-    StartMenu *menu = [[StartMenu alloc] initWithWorld:world];
+    StartMenu *menu;
+    if ([[WorldsController sharedController].selectedWorld isEqual:world])
+        menu = [StartMenuController sharedInstance].menu;
+    else
+        menu = [[StartMenu alloc] initWithWorld:world];
     for (StartMenuItem *item in menu.items) {
         if (item.bundle.parenthesized) {
             [item.bundle remove];
