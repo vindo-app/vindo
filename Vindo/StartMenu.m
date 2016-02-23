@@ -70,6 +70,7 @@
     } else if (flags & kFSEventStreamEventFlagItemRemoved) {
         [self removeItemAtURL:event.URL];
     }
+    [self.world run:@"winemenubuilder" withArguments:@[@"-a"]];
 }
 
 - (void)addItemAtURL:(NSURL *)url {

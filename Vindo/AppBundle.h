@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class StartMenuItem;
+@class Filetype;
 
 @interface AppBundle : NSObject
 
@@ -19,9 +20,12 @@
 - (void)remove;
 - (void)start;
 
+- (void)addFiletype:(Filetype *)filetype;
+
 @property (readonly) NSURL *bundleURL;
 @property (readonly, getter=isParenthesized) BOOL parenthesized;
 
 @property (weak) StartMenuItem *item;
+@property (readonly) NSArray<Filetype *> *filetypes;
 
 @end

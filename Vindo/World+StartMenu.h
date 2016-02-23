@@ -11,5 +11,6 @@
 @interface World (StartMenu)
 
 @property (readonly) NSURL *programsFolder;
+@property (readonly) NSURL *filetypesFolder;
 
 @end

@@ -101,8 +101,6 @@
 
 - (IBAction)duplicateWorld:(id)sender {
     World *world = self.arrayController.selectedObjects[0];
-    NSLog(@"%@", world);
-    NSLog(@"%@", self.arrayController.arrangedObjects);
     self.statusWindow = [[StatusWindowController alloc] initWithMessage:[NSString stringWithFormat:@"Duplicating world \"%@\"…", world.displayName] sheetWindow:self.window];
     [self duplicateThisWorld:self.arrayController.selectedObjects[0]];
 }

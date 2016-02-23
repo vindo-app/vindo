@@ -8,6 +8,9 @@
 
 #import "StartMenuItem.h"
 #import "World.h"
+#import "Filetype.h"
+#import "FiletypeDatabase.h"
+#import "StartMenuController.h"
 #import "World+StartMenu.h"
 #import "WorldsController.h"
 #import "NSUserDefaults+KeyPaths.h"
@@ -48,9 +51,20 @@
         _icon = [[NSImage alloc] initByReferencingURL:_iconURL];
         
         _bundle = [[AppBundle alloc] initWithStartMenuItem:self];
+        [self findFiletypes];
         [_bundle generate];
     }
     return self;
+}
+
+- (void)findFiletypes {
+    NSArray *filetypes = [StartMenuController sharedInstance].filetypes.filetypes;
+    for (Filetype *filetype in filetypes) {
+        if ([filetype.appName isEqualToString:self.name]) {
+            NSLog(@"%@: found filetype %@", self.name, filetype.docName);
+            [_bundle addFiletype:filetype];
+        }
+    }
 }
 
 - (NSUInteger)subrank {

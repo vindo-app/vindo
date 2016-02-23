@@ -82,7 +82,6 @@
         return;
     _rows = rows;
     _columns = columns;
-    NSLog(@"resizing to %lu rows and %lu columns", (unsigned long)_rows, (unsigned long)_columns);
     [self performSelector:@selector(resizeStuff) withObject:nil afterDelay:0];
 }
 
@@ -117,13 +116,9 @@
     
     // the formula
     double rank = itemIndex + 1 + ((double) item.subrank)/10;
-    NSLog(@"rank = %lu (itemIndex) + 1 + %lu/10 (item.subrank) = %f", (unsigned long) itemIndex, (unsigned long) item.subrank, rank);
     rank = pow(rank, 0.85);
-    NSLog(@"rank ^ 0.85 = %f", rank);
     item.subrank = (NSUInteger) ceil((rank - floor(rank)) * 10);
-    NSLog(@"item.subrank = (%f - floor(%f)) (%f) * 10 = %lu", rank, rank, rank - floor(rank), item.subrank);
     NSUInteger newIndex = MAX(ceil(rank) - 2, 0);
-    NSLog(@"newIndex = %ld", newIndex);
     
     [menu moveItemAtIndex:itemIndex toIndex:newIndex];
 }

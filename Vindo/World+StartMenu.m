@@ -14,4 +14,8 @@
     return [self.url URLByAppendingPathComponent:@"menu/programs"];
 }
 
+- (NSURL *)filetypesFolder {
+    return [self.url URLByAppendingPathComponent:@"menu/filetypes"];
+}
+
 @end

@@ -65,10 +65,6 @@
             doAction:@selector(createEventMonitors:)
             onTarget:self];
     
-    [NSApp on:NSApplicationDidFinishLaunchingNotification
-           do:^(id n) {
-               [self showPopover];
-           }];
     [NSApp on:NSApplicationDidResignActiveNotification
            do:^(id n) {
                [self hidePopover];
@@ -83,9 +79,8 @@
     void (^monitor)(NSEvent *event) = ^(NSEvent *event) {
         PopupController *strongSelf = weakSelf;
         BOOL mouseInPopoverWindow = ([NSWindow windowNumberAtPoint:NSEvent.mouseLocation belowWindowWithWindowNumber:0] == strongSelf.pvc.view.window.windowNumber);
-        BOOL inParentWindow = ([NSWindow windowNumberAtPoint:NSEvent.mouseLocation belowWindowWithWindowNumber:0] == strongSelf.statusBarView.window.windowNumber);
         
-        if (!mouseInPopoverWindow && !inParentWindow)
+        if (!mouseInPopoverWindow)
             [strongSelf hidePopover];
     };
     self.globalMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseDownMask | NSRightMouseDownMask
@@ -109,14 +104,14 @@
 }
 
 - (void)togglePopover:(id)sender {
-    if (self.popover.shown)
+    if (self.popover.shown) {
         [self hidePopover];
-    else
+    } else {
         [self showPopover];
+    }
 }
 
 - (void)showPopover {
-    NSLog(@"showing popover relative to rect %@ of view %@", [NSValue valueWithRect:self.statusItem.view.bounds], self.statusItem.view);
     [self.popover showRelativeToRect:self.statusItem.view.bounds
                               ofView:self.statusItem.view
                        preferredEdge:NSMaxYEdge];
@@ -129,9 +124,7 @@
 }
 
 - (void)reshowPopup:(NSNotification *)notification {
-    //NSLog(@"reshowing popup to %@", [NSValue valueWithSize:self.pvc.view.bounds.size]);
     self.popover.contentSize = self.pvc.view.bounds.size;
-    //NSLog(@"popup size now %@", [NSValue valueWithSize:self.popover.contentSize]);
 }
 
 - (void)eliminatePopup:(NSNotification *)notification {

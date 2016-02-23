@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "StartMenu.h"
+#import "FiletypeDatabase.h"
 
 @interface StartMenuController : NSObject
 
 @property (readonly) StartMenu *menu;
+@property (readonly) FiletypeDatabase *filetypes;
 
 + (StartMenuController *)sharedInstance;
 

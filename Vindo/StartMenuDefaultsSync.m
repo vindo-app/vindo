@@ -35,7 +35,6 @@
                         change:(NSDictionary *)change
                        context:(void *)context {
     if (object == [StartMenuController sharedInstance]) {
-        NSLog(@"smdc: menu going from %@ to %@", change[NSKeyValueChangeOldKey], change[NSKeyValueChangeNewKey]);
         [change[NSKeyValueChangeOldKey] removeObserver:self forKeyPath:@"items"];
         self.menu = change[NSKeyValueChangeNewKey];
         [change[NSKeyValueChangeNewKey] addObserver:self
@@ -52,7 +51,6 @@
         items[i] = item.itemPath;
     }
     
-    NSLog(@"smdc: writing out items %@", items);
     [[NSUserDefaults standardUserDefaults] setValue:items forKeyPathArray:@[@"startMenuItems", world.name]];
 }
 

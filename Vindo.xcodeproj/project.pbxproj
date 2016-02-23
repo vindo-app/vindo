@@ -64,6 +64,8 @@
 		BBBCEAAD1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */; };
 		BBBCEAB01C3DE15200E5E175 /* ABCTController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */; };
 		BBCEC3131C5ABFB700D72F2A /* NSURL+Relativize.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCEC3121C5ABFB700D72F2A /* NSURL+Relativize.m */; };
+		BBCEC3171C5C1BA500D72F2A /* FiletypeDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCEC3161C5C1BA500D72F2A /* FiletypeDatabase.m */; };
+		BBCEC31A1C5C264400D72F2A /* Filetype.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCEC3191C5C264400D72F2A /* Filetype.m */; };
 		BBF18B791C41FE050060092B /* StartMenuDefaultsSync.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */; };
 		BBF18B7C1C433F150060092B /* NSUserDefaults+KeyPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */; };
 		BBF27D2C1C52A98A00EE7C65 /* Status.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* Status.xib */; };
@@ -201,6 +203,10 @@
 		BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCTController.m; sourceTree = "<group>"; };
 		BBCEC3111C5ABFB700D72F2A /* NSURL+Relativize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Relativize.h"; sourceTree = "<group>"; };
 		BBCEC3121C5ABFB700D72F2A /* NSURL+Relativize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Relativize.m"; sourceTree = "<group>"; };
+		BBCEC3151C5C1BA500D72F2A /* FiletypeDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiletypeDatabase.h; sourceTree = "<group>"; };
+		BBCEC3161C5C1BA500D72F2A /* FiletypeDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiletypeDatabase.m; sourceTree = "<group>"; };
+		BBCEC3181C5C264400D72F2A /* Filetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Filetype.h; sourceTree = "<group>"; };
+		BBCEC3191C5C264400D72F2A /* Filetype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Filetype.m; sourceTree = "<group>"; };
 		BBF18B771C41FE050060092B /* StartMenuDefaultsSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuDefaultsSync.h; sourceTree = "<group>"; };
 		BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuDefaultsSync.m; sourceTree = "<group>"; };
 		BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+KeyPaths.m"; sourceTree = "<group>"; };
@@ -345,6 +351,7 @@
 			children = (
 				AC9681BC1ABCD57400A9233B /* Worlds */,
 				8A6880A61BC3330C0032352B /* Start */,
+				BBCEC3141C5C1B8F00D72F2A /* Filetypes */,
 			);
 			name = Models;
 			path = Vindo;
@@ -530,6 +537,17 @@
 				BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */,
 			);
 			name = DO;
+			sourceTree = "<group>";
+		};
+		BBCEC3141C5C1B8F00D72F2A /* Filetypes */ = {
+			isa = PBXGroup;
+			children = (
+				BBCEC3151C5C1BA500D72F2A /* FiletypeDatabase.h */,
+				BBCEC3161C5C1BA500D72F2A /* FiletypeDatabase.m */,
+				BBCEC3181C5C264400D72F2A /* Filetype.h */,
+				BBCEC3191C5C264400D72F2A /* Filetype.m */,
+			);
+			name = Filetypes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -755,6 +773,7 @@
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
 				BBF18B791C41FE050060092B /* StartMenuDefaultsSync.m in Sources */,
 				BB57B9661C4879E500331BA4 /* WorkingCollectionView.m in Sources */,
+				BBCEC3171C5C1BA500D72F2A /* FiletypeDatabase.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				BBF5FC741C4C7A0B00C18FCC /* NoProgramsViewController.m in Sources */,
 				8A341B6B1BFD4C4500207E6C /* uuid.c in Sources */,
@@ -777,6 +796,7 @@
 				8A36AF591C1F530D0012D115 /* SetupViewController.m in Sources */,
 				8A6880AF1BC333E10032352B /* StartMenuItem.m in Sources */,
 				8A22BA5D1C18C165002B4351 /* NSObject+Notifications.m in Sources */,
+				BBCEC31A1C5C264400D72F2A /* Filetype.m in Sources */,
 				AC5219071B23BBF2004A322E /* WinePrefix.m in Sources */,
 				8ABB4AC51AB8DE7B00CDB93C /* StatusWindowController.m in Sources */,
 				8A041E9A1BFBFD4100D60E08 /* PopupViewController.m in Sources */,

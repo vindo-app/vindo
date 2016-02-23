@@ -10,75 +10,20 @@
 
 @implementation NSURL (Relativize)
 
-// http://stackoverflow.com/questions/23258962/nsurl-display-relative-urls
-
 - (NSString *)pathRelativeToURL:(NSURL *)from {
-    NSURL *to = self;
+    NSMutableArray *fromPC = from.pathComponents.mutableCopy;
+    NSMutableArray *toPC = self.pathComponents.mutableCopy;
     
-    NSString * toString = [[to absoluteString] stringByStandardizingPath];
-    NSMutableArray * toPieces = [NSMutableArray arrayWithArray:[toString pathComponents]];
-    
-    NSString * fromString = [[from absoluteString] stringByStandardizingPath];
-    NSMutableArray * fromPieces = [NSMutableArray arrayWithArray:[fromString pathComponents]];
-    
-    NSMutableString * relPath = [NSMutableString string];
-    
-    NSString * toTrimmed = toString;
-    NSString * toPiece = NULL;
-    NSString * fromTrimmed = fromString;
-    NSString * fromPiece = NULL;
-    
-    NSMutableArray * parents = [NSMutableArray array];
-    NSMutableArray * pieces = [NSMutableArray array];
-    
-    if(toPieces.count >= fromPieces.count) {
-        NSUInteger toCount = toPieces.count;
-        while(toCount > fromPieces.count) {
-            toPiece = [toTrimmed lastPathComponent];
-            toTrimmed = [toTrimmed stringByDeletingLastPathComponent];
-            [pieces insertObject:toPiece atIndex:0];
-            toCount--;
-        }
-        
-        while(![fromTrimmed isEqualToString:toTrimmed]) {
-            toPiece = [toTrimmed lastPathComponent];
-            toTrimmed = [toTrimmed stringByDeletingLastPathComponent];
-            fromPiece = [fromTrimmed lastPathComponent];
-            fromTrimmed = [fromTrimmed stringByDeletingLastPathComponent];
-            if(![toPiece isEqualToString:fromPiece]) {
-                [parents addObject:@".."];
-                [pieces insertObject:toPiece atIndex:0];
-            }
-        }
-        
-    } else {
-        NSUInteger fromCount = fromPieces.count;
-        
-        while(fromCount > toPieces.count) {
-            fromPiece = [fromTrimmed lastPathComponent];
-            fromTrimmed = [fromTrimmed stringByDeletingLastPathComponent];
-            [parents addObject:@".."];
-            fromCount--;
-        }
-        
-        while(![toTrimmed isEqualToString:fromTrimmed]) {
-            toPiece = [toTrimmed lastPathComponent];
-            toTrimmed = [toTrimmed stringByDeletingLastPathComponent];
-            fromPiece = [fromTrimmed lastPathComponent];
-            fromTrimmed = [fromTrimmed stringByDeletingLastPathComponent];
-            [parents addObject:@".."];
-            [pieces insertObject:toPiece atIndex:0];
-        }
-        
+    while (fromPC.count > 0 && toPC.count > 0 &&
+           [fromPC[0] isEqualToString:toPC[0]]) {
+        [fromPC removeObjectAtIndex:0];
+        [toPC removeObjectAtIndex:0];
     }
     
-    [relPath appendString:[parents componentsJoinedByString:@"/"]];
-    if(parents.count > 0) [relPath appendString:@"/"];
-    [relPath appendString:[pieces componentsJoinedByString:@"/"]];
+    for (int i = 0; i < fromPC.count; i++)
+        [toPC insertObject:@".." atIndex:0];
     
-    NSLog(@"%@",relPath);
-    
-    return [NSURL URLWithString:relPath].path;
+    return [NSString pathWithComponents:toPC];
 }
 
 @end

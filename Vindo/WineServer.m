@@ -15,8 +15,6 @@
     if (self.running)
         return;
     
-    NSLog(@"%@ activating wine server", self);
-    
     // make sure prefix directory exists
     NSFileManager *manager = [NSFileManager defaultManager];
     if (![manager createDirectoryAtURL:self.url
@@ -31,8 +29,6 @@
 }
 
 - (void)stop {
-    NSLog(@"%@ shutting down everything", self);
-    
     // first end the session with wineboot
     NSTask *endSession = [self wineTaskWithProgram:@"wine"
                                          arguments:@[@"wineboot", @"--end-session", @"--shutdown"]];
@@ -42,7 +38,6 @@
         [self.serverTask waitUntilExit];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:WorldDidStopNotification object:self];
-        NSLog(@"state is now stopped");
     };
     [endSession launch];
 }

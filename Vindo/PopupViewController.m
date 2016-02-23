@@ -101,8 +101,6 @@
 }
 
 - (void)setImportantViewController:(NSViewController *)importantViewController {
-    NSLog(@"view controller becoming %@ from %@", importantViewController, _importantViewController);
-    
     NSView *oldView;
     if (!_importantViewController)
         oldView = self.placeholderView;
@@ -122,7 +120,6 @@
 }
 
 - (void)importantViewResized:(NSNotification *)notification {
-    //NSLog(@"subviews of view that resized: %@", [notification.object subviews]);
     [self doTheMath];
 }
 
@@ -137,8 +134,6 @@ static CGFloat actionRightPadding;
 }
 
 - (void)doTheMath {
-    NSLog(@"important view controller: %@", self.importantViewController);
-    NSLog(@"important size: %@", [NSValue valueWithSize:self.importantViewController.view.frame.size]);
     [self.view setFrameSize:self.importantViewController.view.frame.size];
     
     NSRect actionFrame;

@@ -64,12 +64,10 @@ static NSMapTable *worlds;
     @weakify(self);
     self.winebootTask.terminationHandler = ^(id t) {
         @strongify(self);
-        NSLog(@"termination happened");
         self.winebootTask = nil;
         [[NSNotificationCenter defaultCenter] postNotificationName:WorldDidFinishSetupNotification object:self];
     };
     [self.winebootTask launch];
-    NSLog(@"wineboot pid: %d", self.winebootTask.processIdentifier);
 }
 
 - (NSString *)displayName {

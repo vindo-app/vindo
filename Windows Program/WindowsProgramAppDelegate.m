@@ -49,7 +49,6 @@ static WindowsProgramApplication *app;
     }
     
     self.usr = [self.communicationThing usrURL];
-    NSLog(@"connection established");
     
     // wait for the world to become available
     NSString *world = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"World"];
