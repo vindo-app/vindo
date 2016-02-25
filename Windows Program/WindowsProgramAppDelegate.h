@@ -12,6 +12,8 @@
 @interface WindowsProgramAppDelegate : NSObject <NSApplicationDelegate> {
     NSDistantObject <AppBundleCommunicationThing> *communicationThing;
     NSURL *usr;
+    NSString *world;
+    NSString *file;
 }
 
 @end

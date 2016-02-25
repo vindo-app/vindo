@@ -15,7 +15,12 @@
 - (bycopy NSURL *)usrURL;
 - (BOOL)activateWorldNamed:(NSString *)world;
 - (bycopy NSDictionary *)environmentForWorld:(NSString *)world;
+
 - (NSString *)programForStartMenuItem:(NSString *)itemPath inWorld:(NSString *)world;
-- (NSString *)argumentsForStartMenuItem:(NSString *)itemPath inWorld:(NSString *)world;
+- (NSArray *)argumentsForStartMenuItem:(NSString *)itemPath inWorld:(NSString *)world;
+
+- (void)openFile:(NSString *)file withFiletype:(NSString *)filetype inWorld:(NSString *)world;
+- (NSString *)programForFile:(NSString *)file withFiletype:(NSString *)filetype inWorld:(NSString *)world;
+- (NSArray *)argumentsForFile:(NSString *)file withFiletype:(NSString *)filetype inWorld:(NSString *)world;
 
 @end

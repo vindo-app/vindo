@@ -106,6 +106,7 @@ static NSURL *windowsProgramBundle;
                                            @"CFBundleTypeIconFile": filetype.filetypeId,
                                            @"CFBundleTypeName": filetype.docName,
                                            @"CFBundleTypeRole": @"Editor",
+                                           @"Command": filetype.command,
                                            };
             [documentTypes addObject:documentType];
         }

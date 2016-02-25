@@ -16,17 +16,25 @@ static WindowsProgramApplication *app;
 
 @interface WindowsProgramAppDelegate ()
 
+@property NSString *world;
+
 @property NSDistantObject <AppBundleCommunicationThing> *communicationThing;
 
-@property (retain) NSURL *usr;
+@property NSURL *usr;
+
+@property NSString *file;
 
 @end
 
 @implementation WindowsProgramAppDelegate
 @synthesize communicationThing;
 @synthesize usr;
+@synthesize world;
+@synthesize file;
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
+    self.world = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"World"];
+    
     // Make a DO connection to Vindo.
     NSArray *vindos = [NSRunningApplication runningApplicationsWithBundleIdentifier:@"co.vindo.Vindo"];
     if ([vindos count] == 0) {
@@ -39,21 +47,20 @@ static WindowsProgramApplication *app;
     }
     
     // We have to wait until it starts.
-    while (!self.communicationThing) {
+    while (!communicationThing) {
         self.communicationThing = (id)[NSConnection rootProxyForConnectionWithRegisteredName:CONNECTION_NAME host:nil];
-        if (!self.communicationThing) {
+        if (!communicationThing) {
             sleep(1);
             continue;
         }
-        [self.communicationThing setProtocolForProxy:@protocol(AppBundleCommunicationThing)];
+        [communicationThing setProtocolForProxy:@protocol(AppBundleCommunicationThing)];
     }
     
-    self.usr = [self.communicationThing usrURL];
+    self.usr = [[communicationThing usrURL] retain];
     
     // wait for the world to become available
-    NSString *world = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"World"];
     while (YES) {
-        if ([self.communicationThing activateWorldNamed:world]) {
+        if ([communicationThing activateWorldNamed:world]) {
             break;
         } else {
             [self failBecause:@"This app bundle appears to be corrupted or something. It won't work."];
@@ -61,9 +68,17 @@ static WindowsProgramApplication *app;
     }
 }
 
+- (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
+    if (file != nil) {
+        [communicationThing openFile:filename withFiletype:typeOfFile(filename) inWorld:world];
+    } else {
+        self.file = [filename retain];
+    }
+    return YES;
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self formatMenuItems];
-    //[NSApp terminate:self];
     [self becomeWineTask];
 }
 
@@ -88,17 +103,26 @@ static char __wine_dos[0x40000000] __attribute__((section("WINE_DOS, WINE_DOS"))
 static char __wine_shared_heap[0x03000000] __attribute__((section("WINE_SHAREDHEAP, WINE_SHAREDHEAP")));
 
 - (void)becomeWineTask {
-    NSString *world = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"World"];
-    NSString *itemPath = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ItemPath"];
+    NSString *program;
+    NSArray *arguments;
+    if (self.file != nil) {
+        NSString *filetype = typeOfFile(self.file);
+        program = [communicationThing programForFile:self.file withFiletype:filetype inWorld:self.world];
+        arguments = [communicationThing argumentsForFile:self.file withFiletype:filetype inWorld:self.world];
+    } else {
+        NSString *itemPath = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ItemPath"];
+        program = [communicationThing programForStartMenuItem:itemPath inWorld:self.world];
+        arguments = [communicationThing argumentsForStartMenuItem:itemPath inWorld:self.world];
+    }
     
     // set necessary environment keys
-    NSDictionary *environment = [self.communicationThing environmentForWorld:world];
+    NSDictionary *environment = [communicationThing environmentForWorld:world];
     [environment enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop) {
         setenv([key UTF8String], [value UTF8String], 1);
     }];
+    NSLog(@"environment = %@", environment);
     
-    
-    const char *libwine = [self.usr URLByAppendingPathComponent:@"lib/libwine.dylib"].path.UTF8String;
+    const char *libwine = [usr URLByAppendingPathComponent:@"lib/libwine.dylib"].path.UTF8String;
     void *libwine_handle = dlopen(libwine, RTLD_LAZY | RTLD_LOCAL);
     if (libwine_handle == NULL) {
         [self failBecause:[NSString stringWithUTF8String:dlerror()]];
@@ -114,14 +138,23 @@ static char __wine_shared_heap[0x03000000] __attribute__((section("WINE_SHAREDHE
     wine_mmap_add_reserved_area(__wine_shared_heap, sizeof(__wine_shared_heap));
     
     char error[1024];
-    int argc = 2;
-    const char *argv0 = [self.usr URLByAppendingPathComponent:@"bin/wine"].path.UTF8String;
-    const char *argv1 = [self.communicationThing programForStartMenuItem:itemPath inWorld:world].UTF8String;
-    const char *argv2 = [self.communicationThing argumentsForStartMenuItem:itemPath inWorld:world].UTF8String;
-    const char *argv[] = {argv0, argv1, argv2, NULL};
-    wine_init(argc, argv, error, sizeof(error));
+    NSString *argv0 = [usr URLByAppendingPathComponent:@"bin/wine"].path;
+    NSArray *args = [@[argv0, program] arrayByAddingObjectsFromArray:arguments];
+    NSLog(@"args = %@", args);
+    const char **argv = [self buildArgv:args];
+    wine_init(args.count, argv, error, sizeof(error));
     
     //[self failBecause:[NSString stringWithUTF8String:error]];
+}
+
+- (const char **)buildArgv:(NSArray *)args {
+    NSUInteger argc = args.count;
+    char **argv = malloc((argc + 1) * sizeof(char *));
+    for (int i = 0; i < argc; i++) {
+        argv[i] = strdup([args[i] UTF8String]);
+    }
+    argv[argc] = NULL;
+    return (const char **)argv;
 }
 
 #pragma mark Delegate methods that need to be passed to Wine
@@ -163,6 +196,11 @@ static char __wine_shared_heap[0x03000000] __attribute__((section("WINE_SHAREDHE
 
 + (void)initialize {
     app = NSApp;
+}
+
+NSString *typeOfFile(NSString *file) {
+    // I know it's deprecated, but it's the only thing that does exactly what I need.
+    return [[NSDocumentController sharedDocumentController] typeFromFileExtension:file.pathExtension];
 }
 
 @end
