@@ -72,7 +72,8 @@
 }
 
 - (IBAction)showCDriveInFinder:(id)sender {
-    [[NSWorkspace sharedWorkspace] selectFile:nil inFileViewerRootedAtPath:[[WorldsController sharedController].selectedWorld.url URLByAppendingPathComponent:@"drive_c"].path];
+    [[NSWorkspace sharedWorkspace] selectFile:nil inFileViewerRootedAtPath:
+     [[WorldsController sharedController].selectedWorld.url URLByAppendingPathComponent:@"drive_c"].path];
 }
 
 - (IBAction)manageWorlds:(id)sender {

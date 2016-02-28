@@ -26,5 +26,6 @@
         <customObject id="kjr-LO-PqR" customClass="SUUpdater"/>
         <customObject id="2iM-kO-TUX" customClass="AnalyticsController"/>
         <customObject id="laL-ZB-drS" customClass="ABCTController"/>
+        <customObject id="TN2-6s-Rg2" customClass="BootCycleController"/>
     </objects>
 </document>

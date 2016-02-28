@@ -24,7 +24,7 @@
         return;
     }
     
-    self.serverTask = [self wineTaskWithProgram:@"wineserver" arguments:@[@"--foreground"]];
+    self.serverTask = [self wineTaskWithProgram:@"wineserver" arguments:@[@"--foreground", @"--persistent"]];
     [self.serverTask launch];
 }
 
