@@ -27,21 +27,30 @@
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
-    [super drawRect:dirtyRect];
-    
     [self.statusItem drawStatusBarBackgroundInRect:self.bounds withHighlight:self.highlighted];
- 
-    if (self.highlighted || [[[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"]  isEqualToString: @"Dark"]) {
-        [self.cell drawWithFrame:self.bounds
-                          inView:self];
-    } else {
-        CGFloat iconX = (self.bounds.size.width - self.image.size.width) / 2;
-        CGFloat iconY = (self.bounds.size.height - self.image.size.height) / 2;
-        [self.image drawAtPoint:NSMakePoint(iconX, iconY)
-                       fromRect:NSZeroRect
-                      operation:NSCompositeSourceOver
-                       fraction:1.0];
+    NSImage *tintedIcon = self.tintedIcon;
+    NSRect centeredIcon;
+    centeredIcon.size = tintedIcon.size;
+    centeredIcon.origin.x = (self.bounds.size.width - tintedIcon.size.width)/2;
+    centeredIcon.origin.y = (self.bounds.size.height - tintedIcon.size.height)/2;
+    [tintedIcon drawInRect:centeredIcon];
+}
+
+- (NSImage *)tintedIcon {
+    NSImage *tintedIcon = [self.image copy];
+    tintedIcon.template = NO;
+    [tintedIcon lockFocus];
+    if (self.highlighted)
+        [[NSColor whiteColor] set];
+    else {
+        if (NSAppKitVersionNumber >= NSAppKitVersionNumber10_10)
+            [[NSColor labelColor] set];
+        else
+            [[NSColor blackColor] set];
     }
+    NSRectFillUsingOperation((NSRect){.origin = NSZeroPoint, .size = tintedIcon.size}, NSCompositeSourceAtop);
+    [tintedIcon unlockFocus];
+    return tintedIcon;
 }
 
 - (void)setHighlighted:(BOOL)highlighted {

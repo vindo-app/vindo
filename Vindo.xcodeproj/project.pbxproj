@@ -72,7 +72,6 @@
 		BBF18B7C1C433F150060092B /* NSUserDefaults+KeyPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */; };
 		BBF27D2C1C52A98A00EE7C65 /* Status.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* Status.xib */; };
 		BBF27D2D1C52A98A00EE7C65 /* ManageWorlds.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC0580781ABE13F300854813 /* ManageWorlds.xib */; };
-		BBF5FC701C4C711200C18FCC /* SidebarApplicationsFolderTemplate.icns in Resources */ = {isa = PBXBuildFile; fileRef = BBF5FC6F1C4C711200C18FCC /* SidebarApplicationsFolderTemplate.icns */; };
 		BBF5FC741C4C7A0B00C18FCC /* NoProgramsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF5FC721C4C7A0B00C18FCC /* NoProgramsViewController.m */; };
 		BBF5FC751C4C7A0B00C18FCC /* NoProgramsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBF5FC731C4C7A0B00C18FCC /* NoProgramsViewController.xib */; };
 		F6D3954A9DA48257AC7EF798 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 258CC4B79A56F9EFB6956C3A /* libPods.a */; };
@@ -216,7 +215,6 @@
 		BBF18B771C41FE050060092B /* StartMenuDefaultsSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuDefaultsSync.h; sourceTree = "<group>"; };
 		BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuDefaultsSync.m; sourceTree = "<group>"; };
 		BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+KeyPaths.m"; sourceTree = "<group>"; };
-		BBF5FC6F1C4C711200C18FCC /* SidebarApplicationsFolderTemplate.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = SidebarApplicationsFolderTemplate.icns; sourceTree = "<group>"; };
 		BBF5FC711C4C7A0B00C18FCC /* NoProgramsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoProgramsViewController.h; sourceTree = "<group>"; };
 		BBF5FC721C4C7A0B00C18FCC /* NoProgramsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoProgramsViewController.m; sourceTree = "<group>"; };
 		BBF5FC731C4C7A0B00C18FCC /* NoProgramsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoProgramsViewController.xib; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 		8A655B7C1AA6773E00FFCD0C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BBF5FC6F1C4C711200C18FCC /* SidebarApplicationsFolderTemplate.icns */,
 				8A6E189E1C03B963003E9F58 /* SoftwareUpdate.icns */,
 				8A23F3BE1AA91EF600F1467C /* MainMenu.xib */,
 				ACD830031B8D346900D8F285 /* usr */,
@@ -654,7 +651,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBF5FC701C4C711200C18FCC /* SidebarApplicationsFolderTemplate.icns in Resources */,
 				8AC01C2F1C03DA63004FEF69 /* GeneralPreferencesViewController.xib in Resources */,
 				8A5B97671C24DF61001FF0EF /* Windows Program.app in Resources */,
 				ACD830041B8D346900D8F285 /* usr in Resources */,
