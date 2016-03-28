@@ -10,7 +10,9 @@
 #import "World.h"
 #import "AppBundle.h"
 
-@interface StartMenuItem : NSObject
+extern NSString *const StartMenuItemPasteboardType;
+
+@interface StartMenuItem : NSObject <NSPasteboardReading, NSPasteboardWriting>
 
 @property (readonly) NSString *itemPath;
 @property (readonly) World *world;
@@ -27,6 +29,7 @@
 @property (readonly) AppBundle *bundle;
 
 @property NSUInteger subrank;
+@property NSImage *dragImage;
 
 - (instancetype)initWithItemPath:(NSString *)itemPath inWorld:(World *)world;
 

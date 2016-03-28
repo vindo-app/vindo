@@ -38,15 +38,6 @@
     PFMoveToApplicationsFolderIfNecessary();
     [LaunchAtLoginController new].launchAtLogin = YES;
 #endif
-    
-#ifdef DEBUG
-    [[NSNotificationCenter defaultCenter] addObserverForName:nil object:NSApp queue:nil usingBlock:^(NSNotification *notification) {
-        if (!([notification.name isEqualToString:NSApplicationWillUpdateNotification] ||
-              [notification.name isEqualToString:NSApplicationDidUpdateNotification] ||
-              [notification.name isEqualToString:NSApplicationDidChangeOcclusionStateNotification]))
-            NSLog(@"%@", notification);
-    }];
-#endif
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {

@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface WorkingCollectionView : NSCollectionView
+@interface StartMenuCollectionView : NSCollectionView
 
 @end

@@ -120,7 +120,6 @@ static char __wine_shared_heap[0x03000000] __attribute__((section("WINE_SHAREDHE
     [environment enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop) {
         setenv([key UTF8String], [value UTF8String], 1);
     }];
-    NSLog(@"environment = %@", environment);
     
     const char *libwine = [usr URLByAppendingPathComponent:@"lib/libwine.dylib"].path.UTF8String;
     void *libwine_handle = dlopen(libwine, RTLD_LAZY | RTLD_LOCAL);
@@ -140,7 +139,6 @@ static char __wine_shared_heap[0x03000000] __attribute__((section("WINE_SHAREDHE
     char error[1024];
     NSString *argv0 = [usr URLByAppendingPathComponent:@"bin/wine"].path;
     NSArray *args = [@[argv0, program] arrayByAddingObjectsFromArray:arguments];
-    NSLog(@"args = %@", args);
     const char **argv = [self buildArgv:args];
     wine_init(args.count, argv, error, sizeof(error));
     

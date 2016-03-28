@@ -43,14 +43,12 @@
 }
 
 - (BOOL)findAnAppBundle {
-    NSLog(@"%@: finding an app bundle", self.filetypeId);
     StartMenu *menu = [StartMenuController sharedInstance].menu;
     NSAssert(menu.world == self.world, @"something bad happened");
     
     for (StartMenuItem *item in menu.items) {
         if ([self.appName isEqualToString:item.name]) {
             _bundle = item.bundle;
-            NSLog(@"%@: found an app bundle (%@)", self.filetypeId, _bundle);
             [_bundle addFiletype:self];
             return YES;
         }

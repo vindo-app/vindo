@@ -40,7 +40,6 @@
             return nil;
         }
         
-        
         _name = [itemPlist[@"Name"] lastPathComponent];
         _path = itemPlist[@"Path"];
         _args = itemPlist[@"Arguments"];
@@ -87,6 +86,15 @@
         return self.name;
 }
 
+- (NSArray<NSString *> *)writableTypesForPasteboard:(NSPasteboard *)pasteboard {
+    return [[self.bundle.bundleURL writableTypesForPasteboard:pasteboard] arrayByAddingObject:StartMenuItemPasteboardType];
+}
+- (id)pasteboardPropertyListForType:(NSString *)type {
+    if ([type isEqualToString:StartMenuItemPasteboardType])
+        return [NSData dataWithBytes:&self length:sizeof(self)];
+    return [self.bundle.bundleURL pasteboardPropertyListForType:type];
+}
+
 - (BOOL)isEqual:(StartMenuItem *)item {
     return [self.itemPath isEqualToString:item.itemPath];
 }
@@ -100,3 +108,5 @@
 }
 
 @end
+
+NSString *const StartMenuItemPasteboardType = @"co.vindo.StartMenuItem";

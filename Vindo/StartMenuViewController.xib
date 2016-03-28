@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="StartMenuViewController">
@@ -46,7 +46,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="279" height="146"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView id="f1p-v1-osb" customClass="WorkingCollectionView">
+                            <collectionView id="f1p-v1-osb" customClass="StartMenuCollectionView">
                                 <rect key="frame" x="0.0" y="0.0" width="279" height="146"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="primaryBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
@@ -54,6 +54,8 @@
                                     <binding destination="tXh-Hy-JhN" name="content" keyPath="arrangedObjects" id="8np-oj-7xz"/>
                                     <outlet property="delegate" destination="-2" id="t5P-8P-eHR"/>
                                     <outlet property="itemPrototype" destination="i9d-L3-toA" id="cj8-wG-5Rs"/>
+                                    <outlet property="menuContainer" destination="eBW-bw-DFk" id="kYv-gY-MsT"/>
+                                    <outlet property="sf" destination="x7f-uj-c6A" id="nY7-yd-aG0"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -64,7 +66,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="X0o-Lb-qaZ">
-                        <rect key="frame" x="264" y="0.0" width="15" height="146"/>
+                        <rect key="frame" x="263" y="0.0" width="16" height="146"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>

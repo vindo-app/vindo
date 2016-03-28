@@ -110,6 +110,18 @@
     }
 }
 
+
+- (void)moveItemAtIndex:(NSUInteger)index toIndex:(NSUInteger)newIndex {
+    if (newIndex == index)
+        return;
+    
+    [self willChangeValueForKey:@"items"];
+    StartMenuItem *item = self.mutableItems[index];
+    [self.mutableItems removeObjectAtIndex:index];
+    [self.mutableItems insertObject:item atIndex:newIndex];
+    [self didChangeValueForKey:@"items"];
+}
+
 - (void)initializeItems {
     NSMutableArray *newItems = [NSMutableArray new];
 
@@ -136,19 +148,6 @@
 
 - (NSString *)itemPathForURL:(NSURL *)url {
     return [url pathRelativeToURL:self.programsFolder].stringByDeletingPathExtension;
-}
-
-- (void)moveItemAtIndex:(NSUInteger)index toIndex:(NSUInteger)newIndex {
-    if (newIndex == index)
-        return;
-    
-    NSAssert(newIndex < index, @"");
-    
-    [self willChangeValueForKey:@"items"];
-    StartMenuItem *item = self.mutableItems[index];
-    [self.mutableItems removeObjectAtIndex:index];
-    [self.mutableItems insertObject:item atIndex:newIndex];
-    [self didChangeValueForKey:@"items"];
 }
 
 - (NSArray *)items {

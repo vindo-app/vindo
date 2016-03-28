@@ -17,18 +17,14 @@
 }
 
 - (void)startDraggingSessionWithEvent:(NSEvent *)event {
-    StartMenuItem *item = self.representedObject;
-    NSURL *bundleURL = item.bundle.bundleURL;
-    NSDraggingItem *draggingItem = [[NSDraggingItem alloc] initWithPasteboardWriter:bundleURL];
-    
-    [draggingItem setDraggingFrame:self.controlView.bounds contents:[self dragImage]];
-    
+    NSDraggingItem *draggingItem = [[NSDraggingItem alloc] initWithPasteboardWriter:self.representedObject];
+    NSImage *dragImage = [self dragImage];
+    [self.representedObject setDragImage:dragImage];
+    [draggingItem setDraggingFrame:self.controlView.bounds contents:dragImage];
     NSDraggingSession *session = [self.controlView beginDraggingSessionWithItems:@[draggingItem]
                                                                            event:event
                                                                           source:self];
-    session.animatesToStartingPositionsOnCancelOrFail = YES;
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"EliminatePopup" object:self];
+    session.animatesToStartingPositionsOnCancelOrFail = NO;
 }
 
 - (NSImage *)dragImage {

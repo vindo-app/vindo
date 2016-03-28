@@ -98,29 +98,11 @@
 - (IBAction)buttonClicked:(id)sender {
     StartMenuItem *item = [[sender cell] representedObject];
     NSAssert([item isKindOfClass:[StartMenuItem class]], @"should be an item");
-    [self moveButtonForStartMenuItem:item];
     
     self.searchBox.stringValue = @"";
     
     [[NSWorkspace sharedWorkspace] openURL:item.bundle.bundleURL];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"EliminatePopup" object:self];
-}
-
-- (void)moveButtonForStartMenuItem:(StartMenuItem *)item {
-    StartMenu *menu = [StartMenuController sharedInstance].menu;
-    NSUInteger itemIndex = [menu.items indexOfObject:item];
-    if (itemIndex == NSNotFound) {
-        NSLog(@"not found, tell someone");
-        return;
-    }
-    
-    // the formula
-    double rank = itemIndex + 1 + ((double) item.subrank)/10;
-    rank = pow(rank, 0.85);
-    item.subrank = (NSUInteger) ceil((rank - floor(rank)) * 10);
-    NSUInteger newIndex = MAX(ceil(rank) - 2, 0);
-    
-    [menu moveItemAtIndex:itemIndex toIndex:newIndex];
 }
 
 - (IBAction)hideTip:(id)sender {

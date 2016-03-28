@@ -97,7 +97,6 @@ static NSURL *windowsProgramBundle;
     [infoPlist setValue:self.item.itemPath forKey:@"ItemPath"];
     [infoPlist setValue:self.item.world.name forKey:@"World"];
     
-    NSLog(@"generating with %lu filetypes", (unsigned long)self.filetypes.count);
     if (self.filetypes.count != 0) {
         NSMutableArray *documentTypes = [NSMutableArray new];
         for (Filetype *filetype in self.filetypes) {
