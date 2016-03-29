@@ -91,6 +91,8 @@
     CGFloat extraHeight = self.view.frame.size.height - self.scrollView.frame.size.height;
     
     NSSize collectionSize = (NSSize) {.width = _columns * cellWidth, .height = _rows * cellHeight};
+    if ([self.arrayController.arrangedObjects count] > _rows * _columns)
+        collectionSize.height += 20;
     NSSize overallSize = (NSSize) {.width = collectionSize.width + 20, .height = collectionSize.height + extraHeight};
     [self.view setFrameSize:overallSize];
 }

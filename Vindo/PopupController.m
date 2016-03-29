@@ -116,6 +116,7 @@
                               ofView:self.statusItem.view
                        preferredEdge:NSMaxYEdge];
     [NSApp activateIgnoringOtherApps:YES];
+    // This prevents the popup from moving when the menu bar moves up in full screen mode.
     [self.pvc.view.window.parentWindow removeChildWindow:self.pvc.view.window];
 }
 
