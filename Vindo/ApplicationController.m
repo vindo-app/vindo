@@ -12,6 +12,7 @@
 #import "GeneralPreferencesViewController.h"
 #import "PopupController.h"
 #import "ManageWorldsWindowController.h"
+#import "RunWindowController.h"
 
 #import "World.h"
 #import "WorldsController.h"
@@ -25,6 +26,7 @@
 
 @property ManageWorldsWindowController *manageWorlds;
 @property RHPreferencesWindowController *preferences;
+@property IBOutlet RunWindowController *runBox;
 
 @property IBOutlet LaunchController *launcher;
 @property IBOutlet PopupController *popupController;
@@ -58,8 +60,9 @@
     [self.launcher run:@"wineboot" withArguments:@[@"--restart"]];
 }
 
-- (IBAction)commandPrompt:(id)sender {
-    [self.launcher run:@"start" withArguments:@[@"cmd"]];
+- (IBAction)runOtherProgram:(id)sender {
+    [self.runBox showWindow:self];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (IBAction)showCDriveInFinder:(id)sender {

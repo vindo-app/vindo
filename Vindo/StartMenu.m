@@ -92,14 +92,13 @@
     NSString *itemPath = [self itemPathForURL:url];
     
     int i;
-    for (i = 0; i < self.mutableItems.count; i++) {
-        if ([[self.mutableItems[i] itemPath] isEqualToString:itemPath]) {
+    for (i = 0; i < self.mutableItems.count; i++)
+        if ([[self.mutableItems[i] itemPath] isEqualToString:itemPath])
             break;
-        }
-    }
     StartMenuItem *itemToRemove = self.mutableItems[i];
     
     if (itemToRemove) {
+        [itemToRemove.bundle remove];
         [self willChange:NSKeyValueChangeRemoval
          valuesAtIndexes:[NSIndexSet indexSetWithIndex:i]
                   forKey:@"items"];

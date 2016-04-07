@@ -53,8 +53,7 @@
       allowLocationSimulation = "YES">
       <PathRunnable
          runnableDebuggingMode = "0"
-         BundleIdentifier = "co.vindo.windows-program.VideoLAN/VLC media player"
-         FilePath = "/Users/tbodt/Applications/Vindo/VLC media player.app">
+         FilePath = "/Users/tbodt/Applications/Vindo/Steam.app">
       </PathRunnable>
       <MacroExpansion>
          <BuildableReference

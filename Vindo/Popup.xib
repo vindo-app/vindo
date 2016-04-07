@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PopupViewController">
@@ -27,7 +27,7 @@
                 <popUpButton id="A1p-5i-oTs">
                     <rect key="frame" x="133" y="11" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <popUpButtonCell key="cell" type="bevel" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="hGG-hV-5jo">
+                    <popUpButtonCell key="cell" type="bevel" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="fBP-uW-0a9" id="hGG-hV-5jo">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
                         <menu key="menu" id="wdU-3y-svf">
@@ -51,10 +51,10 @@
                                         <action selector="controlPanels:" target="-1" id="Aac-X6-SGH"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Command Prompt…" id="PVs-pv-uQ1">
+                                <menuItem title="Run Other Program…" id="fBP-uW-0a9">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                     <connections>
-                                        <action selector="commandPrompt:" target="-1" id="JtD-iS-H5u"/>
+                                        <action selector="runOtherProgram:" target="-1" id="ao0-Sz-moy"/>
                                     </connections>
                                 </menuItem>
                                 <menuItem isSeparatorItem="YES" id="yc2-yS-xgL"/>

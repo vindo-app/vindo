@@ -147,12 +147,12 @@ static char __wine_shared_heap[0x03000000] __attribute__((section("WINE_SHAREDHE
 
 - (const char **)buildArgv:(NSArray *)args {
     NSUInteger argc = args.count;
-    char **argv = malloc((argc + 1) * sizeof(char *));
+    const char **argv = malloc((argc + 1) * sizeof(char *));
     for (int i = 0; i < argc; i++) {
         argv[i] = strdup([args[i] UTF8String]);
     }
     argv[argc] = NULL;
-    return (const char **)argv;
+    return argv;
 }
 
 #pragma mark Delegate methods that need to be passed to Wine

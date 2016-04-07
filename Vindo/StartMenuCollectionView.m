@@ -38,12 +38,16 @@
     if (self.sf.stringValue.length != 0)
         return NSDragOperationNone;
     
-    if (self.dragStartIndex == NSNotFound)
+    BOOL justStarted = self.dragStartIndex == NSNotFound;
+    if (justStarted)
         self.dragStartIndex = self.dragIndex = [self indexForWindowPoint:info.draggingLocation];
     else
         self.dragIndex = self.dragStartIndex;
     NSView *view = [self itemAtIndex:self.dragStartIndex].view;
-    view.animator.hidden = YES;
+    if (justStarted)
+        view.hidden = YES;
+    else
+        view.animator.hidden = YES;
     return NSDragOperationMove;
 }
 
@@ -79,8 +83,8 @@
     startRect.size = dragImage.size;
     startRect = [self.window convertRectToScreen:startRect];
     NSRect endRect = [self.window convertRectToScreen:[self convertRect:view.frame toView:nil]];
-    startRect.origin.y -= 2;
-    endRect.origin.y -= 2;
+    // I'm not entirely sure why this rect is 5 too high. But this works. OK?
+    endRect.origin.y -= 5;
     
     self.dragAnimation = [[NSWindow alloc] initWithContentRect:startRect
                                                      styleMask:NSBorderlessWindowMask

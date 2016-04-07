@@ -13,7 +13,6 @@
 		8A22BA5D1C18C165002B4351 /* NSObject+Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A22BA5C1C18C165002B4351 /* NSObject+Notifications.m */; };
 		8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A23F3BE1AA91EF600F1467C /* MainMenu.xib */; };
 		8A341B681BFD490800207E6C /* AnalyticsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A341B671BFD490800207E6C /* AnalyticsController.m */; };
-		8A341B6B1BFD4C4500207E6C /* uuid.c in Sources */ = {isa = PBXBuildFile; fileRef = 8A341B691BFD4C4500207E6C /* uuid.c */; };
 		8A341B6D1BFD50D200207E6C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A341B6C1BFD50D200207E6C /* IOKit.framework */; };
 		8A36AF541C1F4D1B0012D115 /* StartMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A36AF521C1F4D1B0012D115 /* StartMenuViewController.m */; };
 		8A36AF551C1F4D1B0012D115 /* StartMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A36AF531C1F4D1B0012D115 /* StartMenuViewController.xib */; };
@@ -74,6 +73,8 @@
 		BBF27D2D1C52A98A00EE7C65 /* ManageWorlds.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC0580781ABE13F300854813 /* ManageWorlds.xib */; };
 		BBF5FC741C4C7A0B00C18FCC /* NoProgramsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF5FC721C4C7A0B00C18FCC /* NoProgramsViewController.m */; };
 		BBF5FC751C4C7A0B00C18FCC /* NoProgramsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBF5FC731C4C7A0B00C18FCC /* NoProgramsViewController.xib */; };
+		BBF9D3901CB5FFEB003FCED3 /* RunWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF9D38E1CB5FFEB003FCED3 /* RunWindowController.m */; };
+		BBF9D3911CB5FFEB003FCED3 /* RunWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBF9D38F1CB5FFEB003FCED3 /* RunWindowController.xib */; };
 		F6D3954A9DA48257AC7EF798 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 258CC4B79A56F9EFB6956C3A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -115,8 +116,6 @@
 		8A23F3BE1AA91EF600F1467C /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		8A341B661BFD490800207E6C /* AnalyticsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsController.h; sourceTree = "<group>"; };
 		8A341B671BFD490800207E6C /* AnalyticsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsController.m; sourceTree = "<group>"; };
-		8A341B691BFD4C4500207E6C /* uuid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uuid.c; sourceTree = "<group>"; };
-		8A341B6A1BFD4C4500207E6C /* uuid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uuid.h; sourceTree = "<group>"; };
 		8A341B6C1BFD50D200207E6C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		8A36AF511C1F4D1B0012D115 /* StartMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuViewController.h; sourceTree = "<group>"; };
 		8A36AF521C1F4D1B0012D115 /* StartMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuViewController.m; sourceTree = "<group>"; };
@@ -218,6 +217,9 @@
 		BBF5FC711C4C7A0B00C18FCC /* NoProgramsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoProgramsViewController.h; sourceTree = "<group>"; };
 		BBF5FC721C4C7A0B00C18FCC /* NoProgramsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoProgramsViewController.m; sourceTree = "<group>"; };
 		BBF5FC731C4C7A0B00C18FCC /* NoProgramsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoProgramsViewController.xib; sourceTree = "<group>"; };
+		BBF9D38D1CB5FFEB003FCED3 /* RunWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RunWindowController.h; path = Vindo/RunWindowController.h; sourceTree = "<group>"; };
+		BBF9D38E1CB5FFEB003FCED3 /* RunWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RunWindowController.m; path = Vindo/RunWindowController.m; sourceTree = "<group>"; };
+		BBF9D38F1CB5FFEB003FCED3 /* RunWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RunWindowController.xib; path = Vindo/RunWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,7 @@
 				8A041E9C1BFBFD4500D60E08 /* Popup */,
 				AC1957C21AA52AB50077A25C /* Worlds Manager */,
 				8A6E189C1C03B5C2003E9F58 /* Preferences */,
+				BBF9D3921CB5FFEF003FCED3 /* Run */,
 				8ABB4AC11AB8D8FF00CDB93C /* Status */,
 			);
 			name = Windows;
@@ -426,8 +429,6 @@
 				ACDE7B161BAB76E100A37DE2 /* FirstTimeSetupController.m */,
 				8A341B661BFD490800207E6C /* AnalyticsController.h */,
 				8A341B671BFD490800207E6C /* AnalyticsController.m */,
-				8A341B691BFD4C4500207E6C /* uuid.c */,
-				8A341B6A1BFD4C4500207E6C /* uuid.h */,
 				8AC01D611ABB879D00F8C066 /* WorldsMenuController.h */,
 				8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */,
 				BBBCEAAE1C3DE15200E5E175 /* ABCTController.h */,
@@ -557,6 +558,16 @@
 			name = Filetypes;
 			sourceTree = "<group>";
 		};
+		BBF9D3921CB5FFEF003FCED3 /* Run */ = {
+			isa = PBXGroup;
+			children = (
+				BBF9D38D1CB5FFEB003FCED3 /* RunWindowController.h */,
+				BBF9D38E1CB5FFEB003FCED3 /* RunWindowController.m */,
+				BBF9D38F1CB5FFEB003FCED3 /* RunWindowController.xib */,
+			);
+			name = Run;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -663,6 +674,7 @@
 				8A6E189B1C03B5BF003E9F58 /* UpdatePreferencesViewController.xib in Resources */,
 				BBF27D2C1C52A98A00EE7C65 /* Status.xib in Resources */,
 				BBF27D2D1C52A98A00EE7C65 /* ManageWorlds.xib in Resources */,
+				BBF9D3911CB5FFEB003FCED3 /* RunWindowController.xib in Resources */,
 				8A36AF551C1F4D1B0012D115 /* StartMenuViewController.xib in Resources */,
 				BBF5FC751C4C7A0B00C18FCC /* NoProgramsViewController.xib in Resources */,
 				8A041E9B1BFBFD4100D60E08 /* Popup.xib in Resources */,
@@ -782,7 +794,6 @@
 				BBCEC3171C5C1BA500D72F2A /* FiletypeDatabase.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,
 				BBF5FC741C4C7A0B00C18FCC /* NoProgramsViewController.m in Sources */,
-				8A341B6B1BFD4C4500207E6C /* uuid.c in Sources */,
 				AC5E86191C2370300027FB80 /* StartMenuButtonCell.m in Sources */,
 				BB7303521C388784004B4375 /* AppBundle.m in Sources */,
 				BBBCEAB01C3DE15200E5E175 /* ABCTController.m in Sources */,
@@ -801,6 +812,7 @@
 				AC9681BF1ABCD59D00A9233B /* WorldsTransformer.m in Sources */,
 				8A341B681BFD490800207E6C /* AnalyticsController.m in Sources */,
 				8A6880AC1BC3336E0032352B /* StartMenuController.m in Sources */,
+				BBF9D3901CB5FFEB003FCED3 /* RunWindowController.m in Sources */,
 				8A36AF591C1F530D0012D115 /* SetupViewController.m in Sources */,
 				8A6880AF1BC333E10032352B /* StartMenuItem.m in Sources */,
 				8A22BA5D1C18C165002B4351 /* NSObject+Notifications.m in Sources */,
@@ -954,6 +966,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 86910AAF59F070ED1ED06789 /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
@@ -978,6 +991,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A16529B78CFC04B47D2FCD0 /* Pods.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";

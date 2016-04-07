@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -16,6 +16,7 @@
             <connections>
                 <outlet property="launcher" destination="kM7-O8-uwl" id="pHe-f9-gzK"/>
                 <outlet property="popupController" destination="gYO-gS-fC3" id="Lt3-UI-yUz"/>
+                <outlet property="runBox" destination="BGb-aC-7ER" id="pd3-VZ-nQY"/>
             </connections>
         </customObject>
         <arrayController objectClassName="World" editable="NO" selectsInsertedObjects="NO" clearsFilterPredicateOnInsertion="NO" id="Qox-EO-R5a" customClass="WorldsController"/>
@@ -27,5 +28,10 @@
         <customObject id="2iM-kO-TUX" customClass="AnalyticsController"/>
         <customObject id="laL-ZB-drS" customClass="ABCTController"/>
         <customObject id="TN2-6s-Rg2" customClass="BootCycleController"/>
+        <customObject id="BGb-aC-7ER" customClass="RunWindowController">
+            <connections>
+                <outlet property="launcher" destination="kM7-O8-uwl" id="5wK-42-ACI"/>
+            </connections>
+        </customObject>
     </objects>
 </document>
