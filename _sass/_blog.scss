@@ -6,13 +6,16 @@
     &:before {
         content: "~";
     }
-    
     margin-top: 15px;
 }
 
 .date {
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+.blog-post img {
+    max-width: 400px;
 }
 
 .blog-post:not(:last-child) {
