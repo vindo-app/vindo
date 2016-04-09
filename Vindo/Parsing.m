@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "World.h"
+#import "NSURL+Relativize.h"
 
 static NSString *scanToken(NSScanner *scanner);
 
@@ -55,6 +57,29 @@ static NSString *scanToken(NSScanner *scanner) {
     return token;
 }
 
-NSString *windowsPathFromUnixPath(NSString *unix) {
-    return [NSString stringWithFormat:@"Z:\\%@", [unix stringByReplacingOccurrencesOfString:@"/" withString:@"\\"]];
+NSString *windowsPathFromUnixPath(NSString *unix, World *world) {
+    NSURL *url = [NSURL fileURLWithPath:unix];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    for (NSURL *driveLink in [fm contentsOfDirectoryAtURL:[world.url URLByAppendingPathComponent:@"dosdevices"]
+         includingPropertiesForKeys:nil options:0 error:nil]) {
+        NSString *destination = [fm destinationOfSymbolicLinkAtPath:driveLink.path error:nil];
+        NSURL *drive;
+        if ([destination characterAtIndex:0] == '/')
+            drive = [NSURL fileURLWithPath:destination];
+        else
+            drive = [NSURL fileURLWithPath:[[driveLink.URLByDeletingLastPathComponent.path stringByAppendingString:@"/"]
+                                            stringByAppendingString:destination].stringByStandardizingPath];
+        if (!drive)
+            continue;
+        NSURLRelationship relationship;
+        if (![fm getRelationship:&relationship ofDirectoryAtURL:drive toItemAtURL:url error:nil])
+            continue;
+        if (relationship != NSURLRelationshipOther) {
+            NSString *pathOnDrive = [[url pathRelativeToURL:drive] stringByReplacingOccurrencesOfString:@"/" withString:@"\\"];
+            NSString *driveLetter = driveLink.lastPathComponent.uppercaseString;
+            return [NSString stringWithFormat:@"%@\\%@", driveLetter, pathOnDrive];
+        }
+    }
+    NSCAssert(NO, @"BAD STUFFZ HAPPAND");
+    return nil;
 }

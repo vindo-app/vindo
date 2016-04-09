@@ -8,6 +8,7 @@
 
 #import "LaunchController.h"
 #import "WorldsController.h"
+#import "Parsing.h"
 
 @implementation LaunchController
 
@@ -21,7 +22,7 @@
 }
 
 - (void)launch:(NSURL *)thing {
-    [self run:@"start" withArguments:@[@"/unix", thing.path]];
+    [self run:@"start" withArguments:@[windowsPathFromUnixPath(thing.path, [WorldsController sharedController].selectedWorld)]];
 }
 
 @end

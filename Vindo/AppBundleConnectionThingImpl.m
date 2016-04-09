@@ -66,14 +66,14 @@
 - (NSString *)programForFile:(NSString *)file withFiletype:(NSString *)filetypeId inWorld:(NSString *)worldName {
     World *world = [self worldForName:worldName];
     Filetype *filetype = [self filetypeForId:filetypeId inWorld:world];
-    NSString *windowsPath = windowsPathFromUnixPath(file);
+    NSString *windowsPath = windowsPathFromUnixPath(file, world);
     return programFromCommand([filetype.command stringByReplacingOccurrencesOfString:@"%1" withString:windowsPath]);
 }
 
 - (NSArray *)argumentsForFile:(NSString *)file withFiletype:(NSString *)filetypeId inWorld:(NSString *)worldName {
     World *world = [self worldForName:worldName];
     Filetype *filetype = [self filetypeForId:filetypeId inWorld:world];
-    NSString *windowsPath = windowsPathFromUnixPath(file);
+    NSString *windowsPath = windowsPathFromUnixPath(file, world);
     return argumentsFromCommand([filetype.command stringByReplacingOccurrencesOfString:@"%1" withString:windowsPath]);
 }
 

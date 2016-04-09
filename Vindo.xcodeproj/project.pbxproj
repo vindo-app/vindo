@@ -503,8 +503,8 @@
 		AC8DB5AF1AA130A1000A6C51 /* Other Stuff */ = {
 			isa = PBXGroup;
 			children = (
-				BB153D1D1C7E73A9006905DC /* Parsing.m */,
 				BB153D1F1C7E73FD006905DC /* Parsing.h */,
+				BB153D1D1C7E73A9006905DC /* Parsing.m */,
 				ACE47E961C0923C70001808C /* StatusBarView.h */,
 				ACE47E971C0923C70001808C /* StatusBarView.m */,
 				8A70BF061BAA2BCF00F58EBE /* LetsMove */,

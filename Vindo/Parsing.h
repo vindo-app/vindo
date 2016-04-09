@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "World.h"
 
 NSString *programFromCommand(NSString *command);
 NSArray *argumentsFromCommand(NSString *command);
 
 NSArray *splitArguments(NSString *arguments);
 
-NSString *windowsPathFromUnixPath(NSString *unix);
+NSString *windowsPathFromUnixPath(NSString *unix, World *world);

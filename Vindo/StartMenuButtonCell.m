@@ -49,6 +49,22 @@
     return NO;
 }
 
+- (NSMenu *)menuForEvent:(NSEvent *)event inRect:(NSRect)cellFrame ofView:(NSView *)view {
+    NSMenu *menu = [NSMenu new];
+    NSMenuItem *showInFinder = [[NSMenuItem alloc] initWithTitle:@"Show in Finder" action:@selector(showInFinder:) keyEquivalent:@""];
+    showInFinder.target = self;
+    [menu addItem:showInFinder];
+    NSMenuItem *open = [[NSMenuItem alloc] initWithTitle:@"Open" action:@selector(performClick:) keyEquivalent:@""];
+    open.target = self;
+    [menu addItem:open];
+    return menu;
+}
+
+- (void)showInFinder:(id)sender {
+    StartMenuItem *item = self.representedObject;
+    [[NSWorkspace sharedWorkspace] selectFile:item.bundle.bundleURL.path inFileViewerRootedAtPath:NSHomeDirectory()];
+}
+
 #pragma mark - Code copied from Stack Overflow. Thanks to Brad Allred.
 
 - (BOOL)trackMouse:(NSEvent *)theEvent inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)untilMouseUp {
