@@ -33,5 +33,6 @@
                 <outlet property="launcher" destination="kM7-O8-uwl" id="5wK-42-ACI"/>
             </connections>
         </customObject>
+        <customObject id="xKf-qV-D38" customClass="SketchyMode"/>
     </objects>
 </document>

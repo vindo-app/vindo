@@ -66,19 +66,6 @@
     }
 }
 
-- (NSUInteger)subrank {
-    NSUInteger subrank = [[[NSUserDefaults standardUserDefaults] valueForKeyPathArray:@[@"subrank", self.world.name, self.itemPath]]
-                          unsignedIntegerValue];
-    if (subrank == 0) {
-        subrank = self.subrank = 10;
-    }
-    return subrank;
-}
-
-- (void)setSubrank:(NSUInteger)subrank {
-    [[NSUserDefaults standardUserDefaults] setValue:@(subrank) forKeyPathArray:@[@"subrank", self.world.name, self.itemPath]];
-}
-
 - (NSString *)tooltip {
     if (self.explanation)
         return [NSString stringWithFormat:@"%@\n%@", self.name, self.explanation];

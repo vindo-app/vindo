@@ -40,6 +40,11 @@
     PFMoveToApplicationsFolderIfNecessary();
     [LaunchAtLoginController new].launchAtLogin = YES;
 #endif
+    self.preferences = [[RHPreferencesWindowController alloc]
+                        initWithViewControllers:@[
+                                                  [GeneralPreferencesViewController new],
+                                                  [UpdatePreferencesViewController new]
+                                                  ]];
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
@@ -78,12 +83,6 @@
 }
 
 - (IBAction)showPreferences:(id)sender {
-    if (self.preferences == nil)
-        self.preferences = [[RHPreferencesWindowController alloc]
-                            initWithViewControllers:@[
-                                                      [GeneralPreferencesViewController new],
-                                                      [UpdatePreferencesViewController new]
-                                                      ]];
     [self.preferences showWindow:self];
     [NSApp activateIgnoringOtherApps:YES];
 }

@@ -38,7 +38,6 @@
 		8AC01C2F1C03DA63004FEF69 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AC01C2D1C03DA63004FEF69 /* GeneralPreferencesViewController.xib */; };
 		8AC01C321C03E0A0004FEF69 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01C311C03E0A0004FEF69 /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8AC01D5B1ABB72E200F8C066 /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01D5A1ABB72E200F8C066 /* World.m */; };
-		8AC01D5F1ABB84D100F8C066 /* Executable.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8AC01D5C1ABB84D100F8C066 /* Executable.icns */; };
 		8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */; };
 		8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC01D6B1ABB930F00F8C066 /* IndexSetToIntTransformer.m */; };
 		AC05808C1ABF97F700854813 /* ManageWorldsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC05808B1ABF97F700854813 /* ManageWorldsWindowController.m */; };
@@ -58,6 +57,10 @@
 		ACE47E981C0923C70001808C /* StatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE47E971C0923C70001808C /* StatusBarView.m */; };
 		BB094B2A1C56D54B006C0AB0 /* ManageWorldsWindowController+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = BB094B291C56D54B006C0AB0 /* ManageWorldsWindowController+Operations.m */; };
 		BB153D1E1C7E73A9006905DC /* Parsing.m in Sources */ = {isa = PBXBuildFile; fileRef = BB153D1D1C7E73A9006905DC /* Parsing.m */; };
+		BB4DE51A1CC02746006DFF3A /* SketchyMode.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4DE5191CC02746006DFF3A /* SketchyMode.m */; };
+		BB4DE51C1CC02D02006DFF3A /* SecurityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB4DE51B1CC02D02006DFF3A /* SecurityFoundation.framework */; };
+		BB4DE51E1CC151D5006DFF3A /* executable.icns in Resources */ = {isa = PBXBuildFile; fileRef = BB4DE51D1CC151D5006DFF3A /* executable.icns */; };
+		BB4DE5201CC154A2006DFF3A /* file.icns in Resources */ = {isa = PBXBuildFile; fileRef = BB4DE51F1CC154A2006DFF3A /* file.icns */; };
 		BB57B9661C4879E500331BA4 /* StartMenuCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57B9651C4879E500331BA4 /* StartMenuCollectionView.m */; };
 		BB7303521C388784004B4375 /* AppBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7303511C388784004B4375 /* AppBundle.m */; };
 		BB7FAFC41C82790A00007870 /* BootCycleController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7FAFC31C82790A00007870 /* BootCycleController.m */; };
@@ -156,7 +159,6 @@
 		8AC01C311C03E0A0004FEF69 /* LaunchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAtLoginController.m; sourceTree = "<group>"; };
 		8AC01D591ABB72E200F8C066 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		8AC01D5A1ABB72E200F8C066 /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
-		8AC01D5C1ABB84D100F8C066 /* Executable.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Executable.icns; sourceTree = "<group>"; };
 		8AC01D611ABB879D00F8C066 /* WorldsMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsMenuController.h; sourceTree = "<group>"; };
 		8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsMenuController.m; sourceTree = "<group>"; };
 		8AC01D6A1ABB930F00F8C066 /* IndexSetToIntTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexSetToIntTransformer.h; sourceTree = "<group>"; };
@@ -192,6 +194,11 @@
 		BB094B2B1C5AB0DC006C0AB0 /* NSUserDefaults+KeyPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+KeyPaths.h"; sourceTree = "<group>"; };
 		BB153D1D1C7E73A9006905DC /* Parsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parsing.m; sourceTree = "<group>"; };
 		BB153D1F1C7E73FD006905DC /* Parsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parsing.h; sourceTree = "<group>"; };
+		BB4DE5181CC02746006DFF3A /* SketchyMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchyMode.h; sourceTree = "<group>"; };
+		BB4DE5191CC02746006DFF3A /* SketchyMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SketchyMode.m; sourceTree = "<group>"; };
+		BB4DE51B1CC02D02006DFF3A /* SecurityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityFoundation.framework; path = System/Library/Frameworks/SecurityFoundation.framework; sourceTree = SDKROOT; };
+		BB4DE51D1CC151D5006DFF3A /* executable.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = executable.icns; sourceTree = "<group>"; };
+		BB4DE51F1CC154A2006DFF3A /* file.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = file.icns; sourceTree = "<group>"; };
 		BB57B9641C4879E500331BA4 /* StartMenuCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuCollectionView.h; sourceTree = "<group>"; };
 		BB57B9651C4879E500331BA4 /* StartMenuCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuCollectionView.m; sourceTree = "<group>"; };
 		BB7303501C388784004B4375 /* AppBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBundle.h; sourceTree = "<group>"; };
@@ -234,6 +241,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB4DE51C1CC02D02006DFF3A /* SecurityFoundation.framework in Frameworks */,
 				8A341B6D1BFD50D200207E6C /* IOKit.framework in Frameworks */,
 				AC13F0A21ADB6A1000254D1F /* CoreServices.framework in Frameworks */,
 				F6D3954A9DA48257AC7EF798 /* libPods.a in Frameworks */,
@@ -290,8 +298,9 @@
 				8A23F3BE1AA91EF600F1467C /* MainMenu.xib */,
 				ACD830031B8D346900D8F285 /* usr */,
 				8A66CCB71BACD35500D7E592 /* vindo.icns */,
+				BB4DE51D1CC151D5006DFF3A /* executable.icns */,
+				BB4DE51F1CC154A2006DFF3A /* file.icns */,
 				8A66CCB51BACCC9E00D7E592 /* statusbar.tiff */,
-				8AC01D5C1ABB84D100F8C066 /* Executable.icns */,
 				AC6E1DAA1AA3ED0D00282977 /* Credits.rtf */,
 			);
 			name = Resources;
@@ -407,6 +416,7 @@
 		AC1957D01AA52BB10077A25C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB4DE51B1CC02D02006DFF3A /* SecurityFoundation.framework */,
 				8A341B6C1BFD50D200207E6C /* IOKit.framework */,
 				AC13F0A11ADB6A1000254D1F /* CoreServices.framework */,
 				258CC4B79A56F9EFB6956C3A /* libPods.a */,
@@ -433,6 +443,8 @@
 				8AC01D621ABB879D00F8C066 /* WorldsMenuController.m */,
 				BBBCEAAE1C3DE15200E5E175 /* ABCTController.h */,
 				BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */,
+				BB4DE5181CC02746006DFF3A /* SketchyMode.h */,
+				BB4DE5191CC02746006DFF3A /* SketchyMode.m */,
 			);
 			name = Controllers;
 			path = Vindo;
@@ -668,12 +680,13 @@
 				8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */,
 				8A66CCB81BACD35500D7E592 /* vindo.icns in Resources */,
 				8A6E189F1C03B963003E9F58 /* SoftwareUpdate.icns in Resources */,
+				BB4DE51E1CC151D5006DFF3A /* executable.icns in Resources */,
 				AC6E1DAB1AA3ED0D00282977 /* Credits.rtf in Resources */,
 				8A36AF5A1C1F530D0012D115 /* SetupViewController.xib in Resources */,
-				8AC01D5F1ABB84D100F8C066 /* Executable.icns in Resources */,
 				8A6E189B1C03B5BF003E9F58 /* UpdatePreferencesViewController.xib in Resources */,
 				BBF27D2C1C52A98A00EE7C65 /* Status.xib in Resources */,
 				BBF27D2D1C52A98A00EE7C65 /* ManageWorlds.xib in Resources */,
+				BB4DE5201CC154A2006DFF3A /* file.icns in Resources */,
 				BBF9D3911CB5FFEB003FCED3 /* RunWindowController.xib in Resources */,
 				8A36AF551C1F4D1B0012D115 /* StartMenuViewController.xib in Resources */,
 				BBF5FC751C4C7A0B00C18FCC /* NoProgramsViewController.xib in Resources */,
@@ -783,6 +796,7 @@
 				8A713E0F1C249BB800918B1A /* World+StartMenu.m in Sources */,
 				8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */,
 				BB094B2A1C56D54B006C0AB0 /* ManageWorldsWindowController+Operations.m in Sources */,
+				BB4DE51A1CC02746006DFF3A /* SketchyMode.m in Sources */,
 				ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
 				BBF18B7C1C433F150060092B /* NSUserDefaults+KeyPaths.m in Sources */,

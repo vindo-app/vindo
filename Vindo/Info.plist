@@ -12,7 +12,7 @@
 				<string>exe</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>Executable</string>
+			<string>executable</string>
 			<key>CFBundleTypeName</key>
 			<string>Windows Program</string>
 			<key>CFBundleTypeRole</key>
@@ -30,7 +30,7 @@
 				<string>msi</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>Executable</string>
+			<string>executable</string>
 			<key>CFBundleTypeName</key>
 			<string>Windows Installer</string>
 			<key>CFBundleTypeRole</key>
@@ -48,7 +48,7 @@
 				<string>bat</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>Executable</string>
+			<string>executable</string>
 			<key>CFBundleTypeName</key>
 			<string>Windows Batch File</string>
 			<key>CFBundleTypeRole</key>
@@ -62,7 +62,7 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeIconFile</key>
-			<string>Executable</string>
+			<string>file</string>
 			<key>CFBundleTypeName</key>
 			<string>File</string>
 			<key>CFBundleTypeRole</key>
@@ -133,7 +133,7 @@
 			<key>UTTypeDescription</key>
 			<string>Windows Installer</string>
 			<key>UTTypeIconFile</key>
-			<string>Executable</string>
+			<string>executable</string>
 			<key>UTTypeIdentifier</key>
 			<string>co.vindo.msi</string>
 			<key>UTTypeTagSpecification</key>
@@ -153,7 +153,7 @@
 			<key>UTTypeDescription</key>
 			<string>Windows Batch File</string>
 			<key>UTTypeIconFile</key>
-			<string>Executable</string>
+			<string>executable</string>
 			<key>UTTypeIdentifier</key>
 			<string>co.vindo.bat</string>
 			<key>UTTypeTagSpecification</key>

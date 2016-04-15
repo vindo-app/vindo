@@ -28,7 +28,6 @@ extern NSString *const StartMenuItemPasteboardType;
 
 @property (readonly) AppBundle *bundle;
 
-@property NSUInteger subrank;
 @property NSImage *dragImage;
 
 - (instancetype)initWithItemPath:(NSString *)itemPath inWorld:(World *)world;
