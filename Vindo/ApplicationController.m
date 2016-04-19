@@ -38,7 +38,6 @@
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
 #ifndef DEBUG
     PFMoveToApplicationsFolderIfNecessary();
-    [LaunchAtLoginController new].launchAtLogin = YES;
 #endif
     self.preferences = [[RHPreferencesWindowController alloc]
                         initWithViewControllers:@[
