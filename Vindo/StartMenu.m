@@ -22,6 +22,7 @@
 @property NSURL *programsFolder;
 @property CDEvents *events;
 
+
 @end
 
 @implementation StartMenu
@@ -50,6 +51,8 @@
                              ignoreEventsFromSubDirs:NO
                                          excludeURLs:nil
                                  streamCreationFlags:kFSEventStreamCreateFlagFileEvents | kFSEventStreamCreateFlagUseCFTypes | kFSEventStreamCreateFlagWatchRoot];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshMenu:) name:@"PopoverJustOpened" object:nil];
     }
     return self;
 }
@@ -65,10 +68,10 @@
     if (![event.URL.path hasSuffix:@".plist"])
         return;
 
-    if (flags & kFSEventStreamEventFlagItemCreated) {
-        [self addItemAtURL:event.URL];
-    } else if (flags & kFSEventStreamEventFlagItemRemoved) {
+    if (flags & kFSEventStreamEventFlagItemRemoved) {
         [self removeItemAtURL:event.URL];
+    } else if (flags & kFSEventStreamEventFlagItemCreated) {
+        [self addItemAtURL:event.URL];
     }
     [self.world run:@"winemenubuilder" withArguments:@[@"-a"]];
 }
@@ -143,6 +146,11 @@
     }
     
     self.mutableItems = newItems;
+}
+
+- (void)refreshMenu:(NSNotification *)notification {
+    NSTask *task = [self.world wineTaskWithProgram:@"wine" arguments:@[@"winemenubuilder", @"-r"]];
+    [task launch];
 }
 
 - (NSString *)itemPathForURL:(NSURL *)url {

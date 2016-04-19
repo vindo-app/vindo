@@ -78,11 +78,9 @@
 }
 
 - (void)setRows:(NSUInteger)rows columns:(NSUInteger)columns {
-    if (rows == _rows && columns == _columns)
-        return;
     _rows = rows;
     _columns = columns;
-    [self performSelector:@selector(resizeStuff) withObject:nil afterDelay:0];
+    [self resizeStuff];
 }
 
 - (void)resizeStuff {
