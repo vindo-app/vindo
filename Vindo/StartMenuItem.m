@@ -47,6 +47,8 @@
         
         _iconURL = [[programsFolder URLByAppendingPathComponent:itemPath]
                     URLByAppendingPathExtension:@"icns"];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:_iconURL.path])
+            _iconURL = [[NSBundle mainBundle] URLForResource:@"executable" withExtension:@"icns"];
         _icon = [[NSImage alloc] initByReferencingURL:_iconURL];
         
         _bundle = [[AppBundle alloc] initWithStartMenuItem:self];
