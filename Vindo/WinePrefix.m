@@ -33,7 +33,8 @@ static NSMapTable *prefixes;
 - (NSDictionary *)wineEnvironment {
     return @{@"WINEPREFIX": [self.url path],
              @"PATH": [[usrURL URLByAppendingPathComponent:@"bin"] path],
-             @"DYLD_FALLBACK_LIBRARY_PATH": [[usrURL URLByAppendingPathComponent:@"lib"] path]
+             @"DYLD_FALLBACK_LIBRARY_PATH": [[usrURL URLByAppendingPathComponent:@"lib"] path],
+             @"THIS_IS_WHERE_THE_EXE_ICON_IS": [[NSBundle mainBundle] pathForResource:@"executable" ofType:@"icns"],
              };
 }
 
