@@ -31,6 +31,13 @@
     return [self worldForName:world].wineEnvironment;
 }
 
+- (NSString *)logFilePathForWorld:(NSString *)worldName {
+    World *world = [self worldForName:worldName];
+    if (world == nil)
+        return nil;
+    return [world.url URLByAppendingPathComponent:@"wine.log"].path;
+}
+
 - (NSString *)programForStartMenuItem:(NSString *)itemPath inWorld:(NSString *)worldName {
     World *world = [self worldForName:worldName];
     if (world == nil)

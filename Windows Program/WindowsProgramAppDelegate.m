@@ -103,6 +103,8 @@ static char __wine_dos[0x40000000] __attribute__((section("WINE_DOS, WINE_DOS"))
 static char __wine_shared_heap[0x03000000] __attribute__((section("WINE_SHAREDHEAP, WINE_SHAREDHEAP")));
 
 - (void)becomeWineTask {
+    [self setupLogging];
+    
     NSString *program;
     NSArray *arguments;
     if (self.file != nil) {
@@ -153,6 +155,26 @@ static char __wine_shared_heap[0x03000000] __attribute__((section("WINE_SHAREDHE
     }
     argv[argc] = NULL;
     return argv;
+}
+
+- (void)setupLogging {
+    NSString *logFilePath = [self.communicationThing logFilePathForWorld:world];
+    int logFileDescriptor = open([logFilePath UTF8String],
+                                 O_WRONLY | O_CREAT | O_APPEND,
+                                 0644); // mode: -rw-r--r--
+    
+    if (logFileDescriptor < 0) {
+        NSLog(@"failed to open log file, but who cares");
+        return;
+    }
+    
+    if (close(STDERR_FILENO) == 0) {
+        if (dup2(logFileDescriptor, STDERR_FILENO) < 0) {
+            NSLog(@"we couldn't dup2(log, 2) because %s", strerror(errno));
+        }
+    } else {
+        NSLog(@"we couldn't close(2) because %s", strerror(errno));
+    }
 }
 
 #pragma mark Delegate methods that need to be passed to Wine
