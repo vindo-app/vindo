@@ -38,14 +38,18 @@
     for (World *world in worldsToDelete) {
         [world onNext:WorldDidStopNotification
                    do:^(id n) {
+                       StartMenu *menu = [[StartMenu alloc] initWithWorld:world];
+                       for (StartMenuItem *item in menu.items) {
+                           [item.bundle remove];
+                       }
                        [[NSFileManager defaultManager] trashItemAtURL:world.url
                                                      resultingItemURL:nil
                                                                 error:nil]; // move world to trash
                        [self.arrayController removeObject:world]; // remove object from worlds
+                       // delete any app bundles
                        // delete any other world-specific defaults keys
                        [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPathArray:@[@"startMenuItems", world.name]];
                        [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPathArray:@[@"displayNames", world.name]];
-                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPathArray:@[@"subrank", world.name]];
                        
                        [worldsToDelete removeObject:world];
                        if (worldsToDelete.count == 0) {

@@ -26,7 +26,10 @@
 
 - (void)setValue:(id)object forKeyPathArray:(NSArray *)keys {
     if (keys.count == 1) {
-        [self setObject:object forKey:keys[0]];
+        if (object)
+            [self setObject:object forKey:keys[0]];
+        else
+            [self removeObjectForKey:keys[0]];
         return;
     }
     
@@ -50,7 +53,10 @@
         node = [node objectForKey:keys[i]];
     }
     
-    [node setObject:object forKey:keys.lastObject];
+    if (object)
+        [node setObject:object forKey:keys.lastObject];
+    else
+        [node removeObjectForKey:keys.lastObject];
     [self setObject:top forKey:keys[0]];
 }
 

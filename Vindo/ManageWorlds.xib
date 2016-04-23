@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ManageWorldsWindowController">
@@ -21,10 +21,10 @@
         <window title="Query Sheet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="oXA-Yo-anN" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" documentModal="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="109" y="198" width="412" height="101"/>
+            <rect key="contentRect" x="109" y="198" width="309" height="101"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1024"/>
             <view key="contentView" id="N3x-as-mkr">
-                <rect key="frame" x="0.0" y="0.0" width="412" height="101"/>
+                <rect key="frame" x="0.0" y="0.0" width="309" height="101"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="cSl-yU-453">
@@ -37,8 +37,8 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" id="8uy-JD-MfM">
-                        <rect key="frame" x="109" y="61" width="283" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <rect key="frame" x="109" y="61" width="180" height="22"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="wE1-ES-dSO">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -46,8 +46,8 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" id="krs-pw-Pn0">
-                        <rect key="frame" x="302" y="13" width="96" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <rect key="frame" x="199" y="13" width="96" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Qgh-BJ-Gan">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -60,8 +60,8 @@ DQ
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" tag="1" id="Nro-UJ-9np">
-                        <rect key="frame" x="206" y="13" width="96" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <rect key="frame" x="103" y="13" width="96" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LhN-cK-SRY">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -75,7 +75,7 @@ Gw
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="363" y="180.5"/>
+            <point key="canvasLocation" x="177.5" y="119.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="xwJ-0n-dk7"/>
         <arrayController objectClassName="World" editable="NO" selectsInsertedObjects="NO" avoidsEmptySelection="NO" clearsFilterPredicateOnInsertion="NO" automaticallyRearrangesObjects="YES" id="Dir-K8-Rli">
@@ -90,27 +90,27 @@ Gw
         </arrayController>
         <window title="Manage Worlds" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="ax6-Og-Ght">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <rect key="contentRect" x="756" y="479" width="522" height="272"/>
+            <rect key="contentRect" x="756" y="479" width="309" height="272"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1080"/>
             <view key="contentView" id="NQZ-Fe-gFF">
-                <rect key="frame" x="0.0" y="0.0" width="522" height="272"/>
+                <rect key="frame" x="0.0" y="0.0" width="309" height="272"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="cEs-YH-DQn">
-                        <rect key="frame" x="20" y="49" width="482" height="203"/>
+                        <rect key="frame" x="20" y="49" width="269" height="203"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" id="Dob-Ic-vef">
-                            <rect key="frame" x="1" y="17" width="238" height="117"/>
+                            <rect key="frame" x="1" y="1" width="267" height="201"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" typeSelect="NO" id="NAj-ty-2OG">
-                                    <rect key="frame" x="0.0" y="0.0" width="480" height="19"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="267" height="201"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn width="477" minWidth="40" maxWidth="1000" id="Yuo-K4-Hk8">
+                                        <tableColumn width="264" minWidth="40" maxWidth="1000" id="Yuo-K4-Hk8">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="World">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -187,7 +187,7 @@ Gw
                     </popUpButton>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="-174" y="181"/>
+            <point key="canvasLocation" x="-280.5" y="181"/>
         </window>
     </objects>
     <resources>

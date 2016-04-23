@@ -38,7 +38,7 @@
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="szo-Oh-aOE">
                     <rect key="frame" x="84" y="101" width="64" height="64"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="executable" id="Mch-np-vyk"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="executable" id="Mch-np-vyk"/>
                 </imageView>
                 <popUpButton hidden="YES" id="94i-fB-Ie6">
                     <rect key="frame" x="177" y="11" width="42" height="21"/>
