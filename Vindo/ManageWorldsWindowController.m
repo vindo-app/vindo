@@ -48,6 +48,7 @@
 #pragma mark Creating Worlds
 
 - (IBAction)addWorld:(id)sender {
+    self.queryText.stringValue = @"";
     [NSApp beginSheet:_querySheet
        modalForWindow:self.window
         modalDelegate:self

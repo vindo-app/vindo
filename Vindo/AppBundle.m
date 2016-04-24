@@ -25,16 +25,22 @@ static NSURL *windowsProgramBundle;
 }
 
 - (void)generate {
-    if (self.exists)
-        return;
-    
-    _bundleURL = [[appBundleFolder URLByAppendingPathComponent:_item.name] URLByAppendingPathExtension:@"app"];
-    _parenthesized = NO;
-    if (!self.exists && [fm fileExistsAtPath:_bundleURL.path]) {
-        _bundleURL = [[appBundleFolder URLByAppendingPathComponent:
-                       [NSString stringWithFormat:@"%@ (%@)", self.item.name, self.item.world.displayName]]
-                      URLByAppendingPathExtension:@"app"];
+    // decide whether it should be parenthesized or not
+    NSURL *noParensURL = [[appBundleFolder URLByAppendingPathComponent:_item.name] URLByAppendingPathExtension:@"app"];
+    NSURL *parensURL = [[appBundleFolder URLByAppendingPathComponent:
+                   [NSString stringWithFormat:@"%@ (%@)", self.item.name, self.item.world.displayName]]
+                  URLByAppendingPathExtension:@"app"];
+    BOOL noParensExistsButWrongWorld = [fm fileExistsAtPath:noParensURL.path];
+    if (noParensExistsButWrongWorld) {
+        NSDictionary *info = [NSDictionary dictionaryWithContentsOfURL:[noParensURL URLByAppendingPathComponent:@"Contents/Info.plist"]];
+        noParensExistsButWrongWorld = noParensExistsButWrongWorld && ![info[@"World"] isEqualToString:self.item.world.name];
+    }
+    if ([fm fileExistsAtPath:parensURL.path] || noParensExistsButWrongWorld) {
+        _bundleURL = parensURL;
         _parenthesized = YES;
+    } else {
+        _bundleURL = noParensURL;
+        _parenthesized = NO;
     }
     
     if (self.exists)
