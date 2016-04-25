@@ -26,9 +26,9 @@ static NSURL *windowsProgramBundle;
 
 - (void)generate {
     // decide whether it should be parenthesized or not
-    NSURL *noParensURL = [[appBundleFolder URLByAppendingPathComponent:_item.name] URLByAppendingPathExtension:@"app"];
+    NSURL *noParensURL = [[appBundleFolder URLByAppendingPathComponent:self.item.itemPath] URLByAppendingPathExtension:@"app"];
     NSURL *parensURL = [[appBundleFolder URLByAppendingPathComponent:
-                   [NSString stringWithFormat:@"%@ (%@)", self.item.name, self.item.world.displayName]]
+                   [NSString stringWithFormat:@"%@ (%@)", self.item.itemPath, self.item.world.displayName]]
                   URLByAppendingPathExtension:@"app"];
     BOOL noParensExistsButWrongWorld = [fm fileExistsAtPath:noParensURL.path];
     if (noParensExistsButWrongWorld) {
@@ -186,9 +186,14 @@ static NSURL *windowsProgramBundle;
 
 + (void)initialize {
     fm = [NSFileManager defaultManager];
+#ifdef DEBUG
     appBundleFolder = [[fm URLsForDirectory:NSApplicationDirectory
-                                  inDomains:NSUserDomainMask][0]
+                                 inDomains:NSUserDomainMask][0]
                        URLByAppendingPathComponent:@"Vindo"];
+#else
+    appBundleFolder = [fm URLsForDirectory:NSApplicationDirectory
+                                 inDomains:NSUserDomainMask][0];
+#endif
     windowsProgramBundle = [[NSBundle mainBundle] URLForResource:@"Windows Program"
                                                    withExtension:@"app"];
 }

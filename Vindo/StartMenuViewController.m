@@ -101,6 +101,7 @@
     
     self.searchBox.stringValue = @"";
     
+    [item.bundle generate];
     [[NSWorkspace sharedWorkspace] openURL:item.bundle.bundleURL];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"EliminatePopup" object:self];
 }
