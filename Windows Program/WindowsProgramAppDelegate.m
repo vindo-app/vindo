@@ -150,8 +150,17 @@ static char __wine_shared_heap[0x03000000] __attribute__((section("WINE_SHAREDHE
 - (const char **)buildArgv:(NSArray *)args {
     NSUInteger argc = args.count;
     const char **argv = malloc((argc + 1) * sizeof(char *));
+    size_t args_size = 0;
+    for (int i = 0; i < argc; i++)
+        args_size += [args[i] lengthOfBytesUsingEncoding:NSUTF8StringEncoding] + 1; // plus one for '\0'
+    args_size++; // and one more for the double null
+    char *args_str = malloc(args_size);
+    char *p = args_str;
     for (int i = 0; i < argc; i++) {
-        argv[i] = strdup([args[i] UTF8String]);
+        memcpy(p, [args[i] UTF8String], [args[i] lengthOfBytesUsingEncoding:NSUTF8StringEncoding] + 1);
+        argv[i] = p;
+        p += [args[i] lengthOfBytesUsingEncoding:NSUTF8StringEncoding] + 1;
+        NSAssert(p - args_str < args_size, @"buffer overflow no should not happen");
     }
     argv[argc] = NULL;
     return argv;
