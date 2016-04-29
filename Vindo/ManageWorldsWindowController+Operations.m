@@ -18,6 +18,13 @@
 @implementation ManageWorldsWindowController (Operations)
 
 - (void)addWorldNamed:(NSString *)name {
+    WorldsController *wc = [WorldsController sharedController];
+    for (World *world in wc.arrangedObjects) {
+        if ([world.displayName isEqualToString:name]) {
+            [self performSelector:@selector(alertWorldExists:) withObject:name afterDelay:0];
+            return;
+        }
+    }
     [self.statusWindow appear];
     World *world = [[World alloc] initWithName:name];
     
@@ -61,6 +68,13 @@
 }
 
 - (void)renameWorld:(World *)world toName:(NSString *)name {
+    WorldsController *wc = [WorldsController sharedController];
+    for (World *world in wc.arrangedObjects) {
+        if ([world.displayName isEqualToString:name]) {
+            [self performSelector:@selector(alertWorldExists:) withObject:name afterDelay:0];
+            return;
+        }
+    }
     StartMenu *menu;
     if ([[WorldsController sharedController].selectedWorld isEqual:world])
         menu = [StartMenuController sharedInstance].menu;
@@ -72,12 +86,18 @@
         }
     }
     // use these kvos to tell worlds menu controller to refresh
-    [[WorldsController sharedController] willChangeValueForKey:@"arrangedObjects"];
+    [wc willChangeValueForKey:@"arrangedObjects"];
     world.displayName = name;
-    [[WorldsController sharedController] didChangeValueForKey:@"arrangedObjects"];
+    [wc didChangeValueForKey:@"arrangedObjects"];
     for (StartMenuItem *item in menu.items) {
         [item.bundle generate];
     }
+}
+
+- (void)alertWorldExists:(NSString *)name {
+    NSAlert *alert = [NSAlert new];
+    alert.messageText = [NSString stringWithFormat:@"There's alredy a world named \"%@\".", name];
+    [alert beginSheetModalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
 }
 
 - (void)duplicateThisWorld:(World *)world {
