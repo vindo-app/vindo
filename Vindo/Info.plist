@@ -60,6 +60,24 @@
 			<key>LSTypeIsPackage</key>
 			<integer>0</integer>
 		</dict>
+        <dict>
+            <key>CFBundleTypeExtensions</key>
+            <array>
+                <string>lnk</string>
+            </array>
+            <key>CFBundleTypeIconFile</key>
+            <string>executable</string>
+            <key>CFBundleTypeName</key>
+            <string>Windows Shortcut</string>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>co.vindo.lnk</string>
+            </array>
+            <key>LSTypeIsPackage</key>
+            <integer>0</integer>
+        </dict>
 		<dict>
 			<key>CFBundleTypeIconFile</key>
 			<string>file</string>
@@ -161,6 +179,25 @@
 				<key>public.filename-extension</key>
 				<array>
 					<string>bat</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Windows Shortcut</string>
+			<key>UTTypeIconFile</key>
+			<string>executable</string>
+			<key>UTTypeIdentifier</key>
+			<string>co.vindo.lnk</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>lnk</string>
 				</array>
 			</dict>
 		</dict>
