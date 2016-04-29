@@ -16,7 +16,8 @@
         <userDefaultsController representsSharedInstance="YES" id="kfT-ch-AvB"/>
         <window title="Run" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="ArG-71-naX" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-            <rect key="contentRect" x="167" y="110" width="401" height="156"/>
+            <windowPositionMask key="initialPositionMask" rightStrut="YES" topStrut="YES"/>
+            <rect key="contentRect" x="1065" y="803" width="401" height="156"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
             <view key="contentView" id="dtO-34-gtr">
                 <rect key="frame" x="0.0" y="0.0" width="401" height="156"/>
