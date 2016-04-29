@@ -53,14 +53,14 @@ static NSURL *windowsProgramBundle;
                        attributes:nil
                             error:&error]) {
         [NSApp presentError:error];
-        return;
+        NSLog(@"%@", error);
     }
     
     if (![fm copyItemAtURL:windowsProgramBundle
                      toURL:self.bundleURL
                      error:&error]) {
         [NSApp presentError:error];
-        return;
+        NSLog(@"%@", error);
     }
     
     // copy the icon(s)
@@ -68,7 +68,7 @@ static NSURL *windowsProgramBundle;
                      toURL:[self.bundleURL URLByAppendingPathComponent:@"Contents/Resources/PrettyPixels.icns"]
                      error:&error]) {
         [NSApp presentError:error];
-        return;
+        NSLog(@"%@", error);
     }
     if (self.filetypes) {
         for (Filetype *filetype in self.filetypes) {
@@ -78,7 +78,7 @@ static NSURL *windowsProgramBundle;
                                     URLByAppendingPathExtension:@"icns"]
                              error:&error]) {
                 [NSApp presentError:error];
-                return;
+                NSLog(@"%@", error);
             }
         }
     }
@@ -91,7 +91,7 @@ static NSURL *windowsProgramBundle;
                                                                                 format:NULL error:&error];
     if (!infoPlist) {
         [NSApp presentError:error];
-        return;
+        NSLog(@"%@", error);
     }
     
     // It's fine to cast kCF* from CFString because of toll free bridging.
@@ -125,7 +125,7 @@ static NSURL *windowsProgramBundle;
                                                                         error:&error];
     if (!infoPlistData) {
         [NSApp presentError:error];
-        return;
+        NSLog(@"%@", error);
     }
     
     if (![infoPlistData writeToURL:infoPlistURL atomically:YES]) {

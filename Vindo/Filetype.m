@@ -49,6 +49,7 @@
     for (StartMenuItem *item in menu.items) {
         if ([self.appName isEqualToString:item.name]) {
             _bundle = item.bundle;
+            NSLog(@"%@ found bundle %@", self, _bundle);
             [_bundle addFiletype:self];
             return YES;
         }
@@ -63,6 +64,10 @@
         [undotted addObject:[extension substringFromIndex:1]];
     }
     return undotted.copy;
+}
+
+- (NSString *)description {
+    return self.filetypeId;
 }
 
 @end
