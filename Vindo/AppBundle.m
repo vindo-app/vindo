@@ -174,6 +174,11 @@ static NSURL *windowsProgramBundle;
 }
 
 - (void)addFiletype:(Filetype *)filetype {
+    // avoid duplicates
+    for (Filetype *ft in self.filetypes)
+        if ([ft.filetypeId isEqualToString:filetype.filetypeId])
+            return;
+    
     _filetypes = [self.filetypes arrayByAddingObject:filetype];
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(regen) object:nil];
     [self performSelector:@selector(regen) withObject:nil afterDelay:0];
