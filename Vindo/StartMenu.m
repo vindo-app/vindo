@@ -149,8 +149,7 @@
 }
 
 - (void)refreshMenu:(NSNotification *)notification {
-    NSTask *task = [self.world wineTaskWithProgram:@"wine" arguments:@[@"winemenubuilder", @"-r"]];
-    [task launch];
+    [self.world run:@"winemenubuilder" withArguments:@[@"-r"]];
 }
 
 - (NSString *)itemPathForURL:(NSURL *)url {

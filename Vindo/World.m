@@ -55,7 +55,6 @@ static NSMapTable *worlds;
     [self run:program withArguments:@[]];
 }
 
-// FIXME: that warning is right, weakify
 - (void)setup {
     if (self.winebootTask)
         return;

@@ -22,6 +22,8 @@
 @property (weak) IBOutlet NSButton *removeButton;
 @property (weak) IBOutlet NSMenuItem *duplicateItem;
 
+@property NSTimer *refreshTimer; // the ol' timer solution
+
 @end
 
 @implementation ManageWorldsWindowController
@@ -37,6 +39,7 @@
                            forKeyPath:@"selectedObjects"
                               options:NSKeyValueObservingOptionInitial
                               context:NULL];
+    self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(refresh:) userInfo:nil repeats:YES];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
@@ -77,9 +80,9 @@
 
 - (IBAction)removeWorld:(id)sender {
     if ([_arrayController.selectedObjects indexOfObject:[[WorldsController sharedController] selectedWorld]] != NSNotFound) {
-        NSBeginAlertSheet(@"The default world cannot be deleted.",
+        NSBeginAlertSheet(@"The selected world cannot be deleted.",
                           @"OK", nil, nil, self.window, nil, nil, nil, NULL,
-                          @"Select another world in the \"Worlds\" menu before deleting this one.");
+                          @"Select a different world before deleting this one.");
         return;
     }
     if (_arrayController.selectedObjects.count < 1)
@@ -106,13 +109,61 @@
     [self duplicateThisWorld:self.arrayController.selectedObjects[0]];
 }
 
+- (IBAction)startWorld:(id)sender {
+    World *world = self.arrayController.selectedObjects[0];
+    [world start];
+}
+
+- (IBAction)shutdownWorld:(id)sender {
+    World *world = self.arrayController.selectedObjects[0];
+    if (world == [WorldsController sharedController].selectedWorld) {
+        NSBeginAlertSheet(@"The selected world can't be shut down.",
+                          @"OK", nil, nil, self.window, nil, nil, nil, NULL,
+                          @"Select a different world before shutting down this one.");
+        return;
+    }
+    if (world.running)
+        [world stop];
+}
+
+- (IBAction)rebootWorld:(id)sender {
+    World *world = self.arrayController.selectedObjects[0];
+    [world run:@"wineboot" withArguments:@[@"--restart"]];
+}
+
+#pragma mark Table View Stuff
+
+- (void)refresh:(NSTimer *)timer {
+    [self.table reloadData];
+}
+
 -           (id)tableView:(NSTableView *)tableView
 objectValueForTableColumn:(NSTableColumn *)tableColumn
                       row:(NSInteger)row {
     if ([tableColumn.identifier isEqualToString:@"world"]) {
         return [self.arrayController.arrangedObjects[row] displayName];
+    } else if ([tableColumn.identifier isEqualToString:@"selected"]) {
+        return @(self.arrayController.arrangedObjects == [WorldsController sharedController].selectedWorld);
     }
     return nil;
+}
+
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(nonnull id)cell forTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row {
+    if ([tableColumn.identifier isEqualToString:@"status"]) {
+        NSImageCell *imageCell = cell;
+        World *world = self.arrayController.arrangedObjects[row];
+        if (world.running)
+            imageCell.image = [NSImage imageNamed:NSImageNameStatusAvailable];
+        else
+            imageCell.image = nil;
+    } else if ([tableColumn.identifier isEqualToString:@"selected"]) {
+        NSButtonCell *buttonCell = cell;
+        World *world = self.arrayController.arrangedObjects[row];
+        if (world == [WorldsController sharedController].selectedWorld)
+            buttonCell.state = NSOnState;
+        else
+            buttonCell.state = NSOffState;
+    }
 }
 
 -    (BOOL)tableView:(NSTableView *)tableView
@@ -150,8 +201,12 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
    setObjectValue:(id)object
    forTableColumn:(NSTableColumn *)tableColumn
               row:(NSInteger)row {
-    World *world = self.arrayController.arrangedObjects[row];
-    [self renameWorld:world toName:object];
+    if ([tableColumn.identifier isEqualToString:@"world"]) {
+        World *world = self.arrayController.arrangedObjects[row];
+        [self renameWorld:world toName:object];
+    } else if ([tableColumn.identifier isEqualToString:@"selected"]) {
+        [WorldsController sharedController].selectedObjects = @[self.arrayController.arrangedObjects[row]];
+    }
 }
 
 @end

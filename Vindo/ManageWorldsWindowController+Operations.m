@@ -130,7 +130,7 @@
         }
         
         World *newWorld = [[World alloc] initWithName:nameWithN];
-        [self.arrayController addObject:newWorld];
+        [self.arrayController performSelectorOnMainThread:@selector(addObject:) withObject:newWorld waitUntilDone:NO];
         
         [self.statusWindow disappear];
     });

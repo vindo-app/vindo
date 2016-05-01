@@ -57,6 +57,7 @@
 		ACE47E981C0923C70001808C /* StatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE47E971C0923C70001808C /* StatusBarView.m */; };
 		BB094B2A1C56D54B006C0AB0 /* ManageWorldsWindowController+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = BB094B291C56D54B006C0AB0 /* ManageWorldsWindowController+Operations.m */; };
 		BB153D1E1C7E73A9006905DC /* Parsing.m in Sources */ = {isa = PBXBuildFile; fileRef = BB153D1D1C7E73A9006905DC /* Parsing.m */; };
+		BB217E561CD42E92007ED318 /* PowerTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = BB217E551CD42E92007ED318 /* PowerTemplate.png */; };
 		BB4DE51A1CC02746006DFF3A /* SketchyMode.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4DE5191CC02746006DFF3A /* SketchyMode.m */; };
 		BB4DE51C1CC02D02006DFF3A /* SecurityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB4DE51B1CC02D02006DFF3A /* SecurityFoundation.framework */; };
 		BB4DE51E1CC151D5006DFF3A /* executable.icns in Resources */ = {isa = PBXBuildFile; fileRef = BB4DE51D1CC151D5006DFF3A /* executable.icns */; };
@@ -194,6 +195,7 @@
 		BB094B2B1C5AB0DC006C0AB0 /* NSUserDefaults+KeyPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+KeyPaths.h"; sourceTree = "<group>"; };
 		BB153D1D1C7E73A9006905DC /* Parsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parsing.m; sourceTree = "<group>"; };
 		BB153D1F1C7E73FD006905DC /* Parsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parsing.h; sourceTree = "<group>"; };
+		BB217E551CD42E92007ED318 /* PowerTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PowerTemplate.png; sourceTree = "<group>"; };
 		BB4DE5181CC02746006DFF3A /* SketchyMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchyMode.h; sourceTree = "<group>"; };
 		BB4DE5191CC02746006DFF3A /* SketchyMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SketchyMode.m; sourceTree = "<group>"; };
 		BB4DE51B1CC02D02006DFF3A /* SecurityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityFoundation.framework; path = System/Library/Frameworks/SecurityFoundation.framework; sourceTree = SDKROOT; };
@@ -295,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				8A6E189E1C03B963003E9F58 /* SoftwareUpdate.icns */,
+				BB217E551CD42E92007ED318 /* PowerTemplate.png */,
 				8A23F3BE1AA91EF600F1467C /* MainMenu.xib */,
 				ACD830031B8D346900D8F285 /* usr */,
 				8A66CCB71BACD35500D7E592 /* vindo.icns */,
@@ -676,6 +679,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AC01C2F1C03DA63004FEF69 /* GeneralPreferencesViewController.xib in Resources */,
+				BB217E561CD42E92007ED318 /* PowerTemplate.png in Resources */,
 				8A5B97671C24DF61001FF0EF /* Windows Program.app in Resources */,
 				ACD830041B8D346900D8F285 /* usr in Resources */,
 				8A23F3C01AA91EF600F1467C /* MainMenu.xib in Resources */,
@@ -988,7 +992,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/RHPreferences-cosvbmytbofgiedgafmaepmnrzzq/Build/Products/Debug",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = $SRCROOT/Vindo/Vindo.pch;
@@ -1013,7 +1016,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/RHPreferences-cosvbmytbofgiedgafmaepmnrzzq/Build/Products/Debug",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = $SRCROOT/Vindo/Vindo.pch;

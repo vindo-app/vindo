@@ -8,13 +8,17 @@
 
 #import "World.h"
 #import "NSObject+Notifications.h"
+#import <libextobjc/extobjc.h>
 
-@implementation World (WineServer);
+@implementation World (WineServer)
 
 - (void)start {
+    NSLog(@"we might start");
     if (self.running)
         return;
     
+    NSLog(@"we will start");
+
     // make sure prefix directory exists
     NSFileManager *manager = [NSFileManager defaultManager];
     if (![manager createDirectoryAtURL:self.url
@@ -25,7 +29,14 @@
     }
     
     self.serverTask = [self wineTaskWithProgram:@"wineserver" arguments:@[@"--foreground", @"--persistent"]];
+    @weakify(self);
+    self.serverTask.terminationHandler = ^(id _) {
+        @strongify(self);
+        [self didChangeValueForKey:@"running"];
+    };
+    [self willChangeValueForKey:@"running"];
     [self.serverTask launch];
+    [self didChangeValueForKey:@"running"];
 }
 
 - (void)stop {
@@ -35,6 +46,7 @@
     endSession.terminationHandler = ^(NSTask *_) {
         NSTask *killServer = [self wineTaskWithProgram:@"wineserver" arguments:@[@"--kill"]];
         [killServer launch];
+        [self willChangeValueForKey:@"running"];
         [self.serverTask waitUntilExit];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:WorldDidStopNotification object:self];
