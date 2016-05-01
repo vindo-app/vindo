@@ -254,6 +254,17 @@ Gw
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
+                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" id="apw-yA-fO1">
+                        <rect key="frame" x="266" y="17" width="25" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="42Q-bg-0Le">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="whatAreWorlds:" target="-2" id="emy-lJ-fJP"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="-280.5" y="181"/>

@@ -131,6 +131,14 @@
     [world run:@"wineboot" withArguments:@[@"--restart"]];
 }
 
+- (IBAction)whatAreWorlds:(id)sender {
+    NSAlert *alert = [NSAlert new];
+    alert.messageText = @"About Worlds";
+    alert.informativeText = @"A world is a container that Windows programs are installed in. All your Windows programs and settings are world-specific.\n\n"
+        @"When you install Vindo, a world called Default World is created for you. Most of the time, you don't need another world.";
+    [alert beginSheetModalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+}
+
 #pragma mark Table View Stuff
 
 - (void)refresh:(NSTimer *)timer {
