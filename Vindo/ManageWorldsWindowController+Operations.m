@@ -117,7 +117,7 @@
     [self.statusWindow appear];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSFileManager *fm = [NSFileManager defaultManager];
-        NSString *worldName = worldURL.lastPathComponent;
+        NSString *worldName = [self addNumberAfterName:worldURL.lastPathComponent];
         World *world = [[World alloc] initWithName:worldName];
         NSError *error;
         if (![fm copyItemAtURL:worldURL toURL:world.url error:&error]) {
