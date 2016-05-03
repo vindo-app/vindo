@@ -51,7 +51,7 @@
         items[i] = item.itemPath;
     }
     
-    [[NSUserDefaults standardUserDefaults] setValue:items forKeyPathArray:@[@"startMenuItems", world.name]];
+    [[NSUserDefaults standardUserDefaults] setValue:items forKeyPathArray:@[@"startMenuItems", world.worldId]];
 }
 
 @end

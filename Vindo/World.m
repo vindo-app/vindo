@@ -20,27 +20,33 @@ static NSMapTable *worlds;
 
 @implementation World
 
-- (instancetype)initWithName:(NSString *)name {
-    if (worlds == nil)
-        worlds = [NSMapTable strongToWeakObjectsMapTable];
-    
-    if ([worlds objectForKey:name])
-        return [worlds objectForKey:name];
-    
+- (instancetype)initWithId:(NSString *)worldId {
+    if ([worlds objectForKey:worldId])
+        return [worlds objectForKey:worldId];
     if (self = [super init]) {
-        _name = name;
-        _url = [self prefixPath:self.name];
-        
-        [worlds setObject:self forKey:name];
+        _worldId = worldId;
+        _url = [self prefixURL:worldId];
+        if (worlds == nil)
+            worlds = [NSMapTable strongToWeakObjectsMapTable];
+        [worlds setObject:self forKey:worldId];
     }
     return self;
 }
 
-- (NSURL *)prefixPath:(NSString *)name {
+- (instancetype)initWithName:(NSString *)name {
+    NSString *worldId = @"";
+    for (int i = 0; i < 20; i++)
+        worldId = [worldId stringByAppendingFormat:@"%c", (rand() % 26) + 'a'];
+    self = [self initWithId:worldId];
+    self.name = name;
+    return self;
+}
+
+- (NSURL *)prefixURL:(NSString *)worldId {
     NSFileManager *manager = [NSFileManager defaultManager];
     NSURL *applicationSupport = [[manager URLsForDirectory:NSApplicationSupportDirectory
                                                  inDomains:NSUserDomainMask][0] URLByAppendingPathComponent:@"Vindo/Worlds"];
-    return [applicationSupport URLByAppendingPathComponent:name];
+    return [applicationSupport URLByAppendingPathComponent:worldId];
 }
 
 
@@ -58,7 +64,7 @@ static NSMapTable *worlds;
 - (void)setup {
     if (self.winebootTask)
         return;
-
+    
     [self start];
     
     self.winebootTask = [self wineTaskWithProgram:@"wine" arguments:@[@"wineboot", @"--init"]];
@@ -71,31 +77,31 @@ static NSMapTable *worlds;
     [self.winebootTask launch];
 }
 
-- (NSString *)displayName {
-    NSString *displayName = [[NSUserDefaults standardUserDefaults] valueForKeyPath:[NSString stringWithFormat:@"displayNames.%@", self.name]];
-    if (displayName)
-        return displayName;
+- (NSString *)name {
+    NSString *name = [[NSUserDefaults standardUserDefaults] valueForKeyPath:[NSString stringWithFormat:@"displayNames.%@", self.worldId]];
+    if (name)
+        return name;
     else
-        return self.name;
+        return self.worldId;
 }
 
-- (void)setDisplayName:(NSString *)displayName {
-    [[NSUserDefaults standardUserDefaults] setValue:displayName forKeyPath:[NSString stringWithFormat:@"displayNames.%@", self.name]];
+- (void)setName:(NSString *)displayName {
+    [[NSUserDefaults standardUserDefaults] setValue:displayName forKeyPath:[NSString stringWithFormat:@"displayNames.%@", self.worldId]];
 }
 
 #pragma mark -
 #pragma mark Random crap
 
 - (BOOL)isEqual:(id)object {
-    return [object isKindOfClass:World.class] && [[object name] isEqualToString:self.name];
+    return [object isKindOfClass:World.class] && [[object worldId] isEqualToString:self.worldId];
 }
 
 - (NSUInteger)hash {
-    return self.name.hash;
+    return self.worldId.hash;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@ %@>", self.class, self.name];
+    return [NSString stringWithFormat:@"<%@ %@>", self.class, self.worldId];
 }
 
 @end

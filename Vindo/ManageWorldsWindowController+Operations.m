@@ -18,13 +18,11 @@
 @implementation ManageWorldsWindowController (Operations)
 
 - (void)addWorldNamed:(NSString *)name {
-    WorldsController *wc = [WorldsController sharedController];
-    for (World *world in wc.arrangedObjects) {
-        if ([world.displayName isEqualToString:name]) {
-            [self performSelector:@selector(alertWorldExists:) withObject:name afterDelay:0];
-            return;
-        }
+    if ([self worldExistsNamed:name]) {
+        [self performSelector:@selector(alertWorldExists:) withObject:name afterDelay:0];
+        return;
     }
+    
     [self.statusWindow appear];
     World *world = [[World alloc] initWithName:name];
     
@@ -55,8 +53,8 @@
                        [self.arrayController removeObject:world]; // remove object from worlds
                        // delete any app bundles
                        // delete any other world-specific defaults keys
-                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPathArray:@[@"startMenuItems", world.name]];
-                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPathArray:@[@"displayNames", world.name]];
+                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPathArray:@[@"startMenuItems", world.worldId]];
+                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPathArray:@[@"displayNames", world.worldId]];
                        
                        [worldsToDelete removeObject:world];
                        if (worldsToDelete.count == 0) {
@@ -68,13 +66,11 @@
 }
 
 - (void)renameWorld:(World *)world toName:(NSString *)name {
-    WorldsController *wc = [WorldsController sharedController];
-    for (World *world in wc.arrangedObjects) {
-        if ([world.displayName isEqualToString:name]) {
-            [self performSelector:@selector(alertWorldExists:) withObject:name afterDelay:0];
-            return;
-        }
+    if ([self worldExistsNamed:name]) {
+        [self performSelector:@selector(alertWorldExists:) withObject:name afterDelay:0];
+        return;
     }
+    
     StartMenu *menu;
     if ([[WorldsController sharedController].selectedWorld isEqual:world])
         menu = [StartMenuController sharedInstance].menu;
@@ -85,19 +81,15 @@
             [item.bundle remove];
         }
     }
+    
     // use these kvos to tell worlds menu controller to refresh
-    [wc willChangeValueForKey:@"arrangedObjects"];
-    world.displayName = name;
-    [wc didChangeValueForKey:@"arrangedObjects"];
+    [[WorldsController sharedController] willChangeValueForKey:@"arrangedObjects"];
+    world.name = name;
+    [[WorldsController sharedController] didChangeValueForKey:@"arrangedObjects"];
+    
     for (StartMenuItem *item in menu.items) {
         [item.bundle generate];
     }
-}
-
-- (void)alertWorldExists:(NSString *)name {
-    NSAlert *alert = [NSAlert new];
-    alert.messageText = [NSString stringWithFormat:@"There's alredy a world named \"%@\".", name];
-    [alert beginSheetModalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
 }
 
 - (void)duplicateThisWorld:(World *)world {
@@ -105,35 +97,45 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSFileManager *fm = [NSFileManager defaultManager];
-        NSURL *worldsDir = [[fm URLsForDirectory:NSApplicationSupportDirectory
-                                       inDomains:NSUserDomainMask][0] URLByAppendingPathComponent:@"Vindo/Worlds"];
         
         // find a good name for the new world
-        NSString *newName = [world.displayName stringByAppendingString:@" copy"];
-        NSString *nameWithN;
-        NSUInteger n = 1;
-        while (YES) {
-            if (n <= 1)
-                nameWithN = newName;
-            else
-                nameWithN = [NSString stringWithFormat:@"%@ %lu", newName, n];
-            
-            if ([fm fileExistsAtPath:[worldsDir URLByAppendingPathComponent:nameWithN].path])
-                n++;
-            else
-                break;
-        }
-        NSURL *newURL = [worldsDir URLByAppendingPathComponent:nameWithN];
-        if (![fm copyItemAtURL:world.url toURL:newURL error:nil]) {
-            NSLog(@"fail fail fail");
-            NSAssert(NO, @"Report this!");
+        NSString *newName = [self addNumberAfterName:[world.name stringByAppendingString:@" copy"]];
+        World *newWorld = [[World alloc] initWithName:newName];
+        NSError *error;
+        if (![fm copyItemAtURL:world.url toURL:newWorld.url error:&error]) {
+            NSLog(@"%@", error);
+            [self.statusWindow disappear];
+            [self.window performSelectorOnMainThread:@selector(presentError:) withObject:error waitUntilDone:NO];
+            return;
         }
         
-        World *newWorld = [[World alloc] initWithName:nameWithN];
         [self.arrayController performSelectorOnMainThread:@selector(addObject:) withObject:newWorld waitUntilDone:NO];
         
         [self.statusWindow disappear];
     });
+}
+
+- (NSString *)addNumberAfterName:(NSString *)name {
+    NSString *nameWithNumber = name;
+    for (int i = 2; [self worldExistsNamed:nameWithNumber]; i++)
+        nameWithNumber = [name stringByAppendingFormat:@" %i", i];
+    return nameWithNumber;
+}
+
+- (BOOL)worldExistsNamed:(NSString *)name {
+    WorldsController *wc = [WorldsController sharedController];
+    for (World *world in wc.arrangedObjects) {
+        if ([world.name isEqualToString:name]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (void)alertWorldExists:(NSString *)name {
+    NSAlert *alert = [NSAlert new];
+    alert.messageText = [NSString stringWithFormat:@"There's alredy a world named \"%@\".", name];
+    [alert beginSheetModalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
 }
 
 @end

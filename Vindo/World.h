@@ -18,9 +18,10 @@ extern NSString *const WorldPasteboardType;
 #pragma mark World
 
 - (instancetype)initWithName:(NSString *)name;
+- (instancetype)initWithId:(NSString *)worldId;
 
-@property (readonly) NSString *name;
-@property NSString *displayName;
+@property (readonly) NSString *worldId;
+@property NSString *name;
 @property (readonly) NSURL *url;
 
 - (void)run:(NSString *)program withArguments:(NSArray *)arguments;

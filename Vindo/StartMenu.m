@@ -127,7 +127,7 @@
 - (void)initializeItems {
     NSMutableArray *newItems = [NSMutableArray new];
 
-    NSArray *defaultsItems = [[NSUserDefaults standardUserDefaults] valueForKeyPathArray:@[@"startMenuItems", self.world.name]];
+    NSArray *defaultsItems = [[NSUserDefaults standardUserDefaults] valueForKeyPathArray:@[@"startMenuItems", self.world.worldId]];
     
     NSMutableArray *filesystemItems = [NSMutableArray new];
     for (NSString *filesystemItem in [[NSFileManager defaultManager] enumeratorAtPath:self.programsFolder.path]) {

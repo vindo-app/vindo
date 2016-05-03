@@ -93,7 +93,7 @@
     NSString *message;
     if (worldsToDelete.count == 1)
         message = [NSString stringWithFormat:@"Deleting world \"%@\"…",
-                   [worldsToDelete[0] displayName]];
+                   [worldsToDelete[0] name]];
     else
         message = [NSString stringWithFormat:@"Deleting %lu worlds…",
                    (unsigned long) worldsToDelete.count];
@@ -105,7 +105,7 @@
 
 - (IBAction)duplicateWorld:(id)sender {
     World *world = self.arrayController.selectedObjects[0];
-    self.statusWindow = [[StatusWindowController alloc] initWithMessage:[NSString stringWithFormat:@"Duplicating world \"%@\"…", world.displayName] sheetWindow:self.window];
+    self.statusWindow = [[StatusWindowController alloc] initWithMessage:[NSString stringWithFormat:@"Duplicating world \"%@\"…", world.name] sheetWindow:self.window];
     [self duplicateThisWorld:self.arrayController.selectedObjects[0]];
 }
 
@@ -149,7 +149,7 @@
 objectValueForTableColumn:(NSTableColumn *)tableColumn
                       row:(NSInteger)row {
     if ([tableColumn.identifier isEqualToString:@"world"]) {
-        return [self.arrayController.arrangedObjects[row] displayName];
+        return [self.arrayController.arrangedObjects[row] name];
     } else if ([tableColumn.identifier isEqualToString:@"selected"]) {
         return @(self.arrayController.arrangedObjects == [WorldsController sharedController].selectedWorld);
     }

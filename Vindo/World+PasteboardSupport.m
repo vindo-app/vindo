@@ -15,7 +15,7 @@
 }
 
 - (id)pasteboardPropertyListForType:(NSString *)type {
-    return [self.name pasteboardPropertyListForType:NSPasteboardTypeString];
+    return [self.worldId pasteboardPropertyListForType:NSPasteboardTypeString];
 }
 
 + (NSArray *)readableTypesForPasteboard:(NSPasteboard *)pasteboard {
@@ -27,10 +27,9 @@
 }
 
 - (id)initWithPasteboardPropertyList:(id)propertyList ofType:(NSString *)type {
-    return [[World alloc] initWithName:
-            [[NSString alloc] initWithPasteboardPropertyList:propertyList ofType:NSPasteboardTypeString]];
+    return [[World alloc] initWithId:[[NSString alloc] initWithPasteboardPropertyList:propertyList ofType:NSPasteboardTypeString]];
 }
 
 @end
 
-NSString *const WorldPasteboardType = @"org.vindo.world";
+NSString *const WorldPasteboardType = @"co.vindo.world";

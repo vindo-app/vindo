@@ -28,7 +28,7 @@ static NSURL *windowsProgramBundle;
     // decide whether it should be parenthesized or not
     NSURL *noParensURL = [[appBundleFolder URLByAppendingPathComponent:self.item.itemPath] URLByAppendingPathExtension:@"app"];
     NSURL *parensURL = [[appBundleFolder URLByAppendingPathComponent:
-                   [NSString stringWithFormat:@"%@ (%@)", self.item.itemPath, self.item.world.displayName]]
+                   [NSString stringWithFormat:@"%@ (%@)", self.item.itemPath, self.item.world.name]]
                   URLByAppendingPathExtension:@"app"];
     BOOL noParensExistsButWrongWorld = [fm fileExistsAtPath:noParensURL.path];
     if (noParensExistsButWrongWorld) {

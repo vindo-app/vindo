@@ -15,10 +15,10 @@
     return [NSArray class];
 }
 
-- (NSArray *)transformedValue:(NSArray *)worldNames {
-    NSMutableArray *worlds = [NSMutableArray arrayWithArray:worldNames];
-    for (int i = 0; i < [worldNames count]; i++) {
-        worlds[i] = [[World alloc] initWithName:worldNames[i]];
+- (NSArray *)transformedValue:(NSArray *)worldIds {
+    NSMutableArray *worlds = [NSMutableArray arrayWithArray:worldIds];
+    for (int i = 0; i < [worldIds count]; i++) {
+        worlds[i] = [[World alloc] initWithId:worldIds[i]];
     }
     return worlds;
 }
@@ -28,11 +28,11 @@
 }
 
 - (NSArray *)reverseTransformedValue:(NSArray *)worlds {
-    NSMutableArray *worldNames = [NSMutableArray arrayWithArray:worlds];
+    NSMutableArray *worldIds = [NSMutableArray arrayWithArray:worlds];
     for (int i = 0; i < [worlds count]; i++) {
-        worldNames[i] = [worlds[i] name];
+        worldIds[i] = [worlds[i] worldId];
     }
-    return worldNames;
+    return worldIds;
 }
 
 @end
