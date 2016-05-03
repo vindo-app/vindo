@@ -192,7 +192,8 @@
 #pragma mark Table View Stuff
 
 - (void)refresh:(NSTimer *)timer {
-    [self.table reloadData];
+    if (self.table.editedRow == -1)
+        [self.table reloadData];
 }
 
 -           (id)tableView:(NSTableView *)tableView
