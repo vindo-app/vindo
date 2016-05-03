@@ -36,7 +36,7 @@ static NSMapTable *worlds;
 - (instancetype)initWithName:(NSString *)name {
     NSString *worldId = @"";
     for (int i = 0; i < 20; i++)
-        worldId = [worldId stringByAppendingFormat:@"%c", (rand() % 26) + 'a'];
+        worldId = [worldId stringByAppendingFormat:@"%c", (arc4random() % 26) + 'a'];
     self = [self initWithId:worldId];
     self.name = name;
     return self;

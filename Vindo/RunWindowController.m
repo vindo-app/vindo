@@ -44,8 +44,10 @@
     browser.allowsMultipleSelection = NO;
     browser.prompt = @"Select";
     browser.directoryURL = [[WorldsController sharedController].selectedWorld.url URLByAppendingPathComponent:@"drive_c"];
-    if ([browser runModal] == NSFileHandlingPanelOKButton)
-        self.box.stringValue = windowsPathFromUnixPath(browser.URL.path, [WorldsController sharedController].selectedWorld);
+    [browser beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton)
+            self.box.stringValue = windowsPathFromUnixPath(browser.URL.path, [WorldsController sharedController].selectedWorld);
+    }];
 }
 
 - (void)appDeactivated:(NSNotification *)notification {

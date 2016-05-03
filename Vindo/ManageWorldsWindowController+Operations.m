@@ -35,34 +35,32 @@
     [world setup];
 }
 
-- (void)removeWorlds:(NSArray *)worlds {
+- (void)removeThisWorld:(World *)world {
     [self.statusWindow appear];
     
-    NSMutableArray *worldsToDelete = worlds.mutableCopy;
-    
-    for (World *world in worldsToDelete) {
-        [world onNext:WorldDidStopNotification
-                   do:^(id n) {
-                       StartMenu *menu = [[StartMenu alloc] initWithWorld:world];
-                       for (StartMenuItem *item in menu.items) {
-                           [item.bundle remove];
-                       }
-                       [[NSFileManager defaultManager] trashItemAtURL:world.url
-                                                     resultingItemURL:nil
-                                                                error:nil]; // move world to trash
-                       [self.arrayController removeObject:world]; // remove object from worlds
-                       // delete any app bundles
-                       // delete any other world-specific defaults keys
-                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPathArray:@[@"startMenuItems", world.worldId]];
-                       [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPathArray:@[@"displayNames", world.worldId]];
-                       
-                       [worldsToDelete removeObject:world];
-                       if (worldsToDelete.count == 0) {
-                           [self.statusWindow disappear];
-                       }
-                   }];
-        [world stop];
-    }
+    [world onNext:WorldDidStopNotification
+               do:^(id n) {
+                   NSFileManager *fm = [NSFileManager defaultManager];
+                   StartMenu *menu = [[StartMenu alloc] initWithWorld:world];
+                   for (StartMenuItem *item in menu.items) {
+                       [item.bundle remove];
+                   }
+                   
+                   NSURL *thingy = [[[fm URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask][0]
+                                     URLByAppendingPathComponent:@"Vindo"]
+                                    URLByAppendingPathComponent:world.name];
+                   [fm moveItemAtURL:world.url toURL:thingy error:nil];
+                   [fm trashItemAtURL:thingy resultingItemURL:nil error:nil]; // move world to trash
+                   
+                   [self.arrayController removeObject:world]; // remove object from worlds
+                   // delete any app bundles
+                   // delete any other world-specific defaults keys
+                   [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPathArray:@[@"startMenuItems", world.worldId]];
+                   [[NSUserDefaults standardUserDefaults] setValue:nil forKeyPathArray:@[@"displayNames", world.worldId]];
+                   
+                   [self.statusWindow disappear];
+               }];
+    [world stop];
 }
 
 - (void)renameWorld:(World *)world toName:(NSString *)name {
@@ -110,6 +108,42 @@
         }
         
         [self.arrayController performSelectorOnMainThread:@selector(addObject:) withObject:newWorld waitUntilDone:NO];
+        
+        [self.statusWindow disappear];
+    });
+}
+
+- (void)importWorldAt:(NSURL *)worldURL {
+    [self.statusWindow appear];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSFileManager *fm = [NSFileManager defaultManager];
+        NSString *worldName = worldURL.lastPathComponent;
+        World *world = [[World alloc] initWithName:worldName];
+        NSError *error;
+        if (![fm copyItemAtURL:worldURL toURL:world.url error:&error]) {
+            NSLog(@"%@", error);
+            [self.statusWindow disappear];
+            [self.window performSelectorOnMainThread:@selector(presentError:) withObject:error waitUntilDone:NO];
+            return;
+        }
+        
+        [self.arrayController performSelectorOnMainThread:@selector(addObject:) withObject:world waitUntilDone:NO];
+        
+        [self.statusWindow disappear];
+    });
+}
+
+- (void)exportWorld:(World *)world to:(NSURL *)destination {
+    [self.statusWindow appear];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSFileManager *fm = [NSFileManager defaultManager];
+        NSError *error;
+        if (![fm copyItemAtURL:world.url toURL:destination error:&error]) {
+            NSLog(@"%@", error);
+            [self.statusWindow disappear];
+            [self.window performSelectorOnMainThread:@selector(presentError:) withObject:error waitUntilDone:NO];
+            return;
+        }
         
         [self.statusWindow disappear];
     });

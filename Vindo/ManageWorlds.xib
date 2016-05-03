@@ -9,6 +9,8 @@
             <connections>
                 <outlet property="arrayController" destination="Dir-K8-Rli" id="gG0-Ts-AlJ"/>
                 <outlet property="duplicateItem" destination="eV2-2B-u6g" id="zbR-zx-CPk"/>
+                <outlet property="exportItem" destination="Fw6-MK-cEe" id="f1B-Mn-yjr"/>
+                <outlet property="importItem" destination="wb7-MJ-kBL" id="iPp-9u-PEr"/>
                 <outlet property="querySheet" destination="oXA-Yo-anN" id="Icg-zq-hSg"/>
                 <outlet property="queryText" destination="8uy-JD-MfM" id="nde-GR-k4B"/>
                 <outlet property="removeButton" destination="3rN-FQ-1qc" id="rQw-du-9m5"/>
@@ -200,12 +202,25 @@ Gw
                     <popUpButton verticalHuggingPriority="750" id="jyv-pI-Ofv">
                         <rect key="frame" x="79" y="19" width="35" height="23"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" autoenablesItems="NO" id="37m-iZ-igQ">
+                        <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" autoenablesItems="NO" selectedItem="Fw6-MK-cEe" id="37m-iZ-igQ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" autoenablesItems="NO" id="XDi-ly-9Th">
                                 <items>
                                     <menuItem state="on" image="NSActionTemplate" hidden="YES" id="d9I-fM-7JM"/>
+                                    <menuItem title="Import…" id="wb7-MJ-kBL">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="import:" target="-2" id="TQC-Fi-lRK"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Export…" id="Fw6-MK-cEe">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="export:" target="-2" id="gHF-eD-5yI"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="Mpg-zH-4EP"/>
                                     <menuItem title="Duplicate…" id="eV2-2B-u6g">
                                         <connections>
                                             <action selector="duplicateWorld:" target="-2" id="9bq-J5-3C3"/>

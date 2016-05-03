@@ -10,7 +10,7 @@
 #import "StatusWindowController.h"
 #import "World.h"
 
-@interface ManageWorldsWindowController : NSWindowController <NSTableViewDataSource>
+@interface ManageWorldsWindowController : NSWindowController <NSTableViewDataSource, NSOpenSavePanelDelegate>
 
 @property IBOutlet NSArrayController *arrayController;
 @property StatusWindowController *statusWindow;
@@ -20,10 +20,13 @@
 @interface ManageWorldsWindowController (Operations)
 
 - (void)addWorldNamed:(NSString *)name;
-- (void)removeWorlds:(NSArray *)worlds;
+- (void)removeThisWorld:(World *)worlds;
 
 - (void)renameWorld:(World *)world toName:(NSString *)name;
 
 - (void)duplicateThisWorld:(World *)world;
+
+- (void)importWorldAt:(NSURL *)worldURL;
+- (void)exportWorld:(World *)world to:(NSURL *)destination;
 
 @end

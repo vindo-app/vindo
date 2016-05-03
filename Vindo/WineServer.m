@@ -40,6 +40,10 @@
 }
 
 - (void)stop {
+    if (!self.running) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:WorldDidStopNotification object:self];
+        return;
+    }
     // first end the session with wineboot
     NSTask *endSession = [self wineTaskWithProgram:@"wine"
                                          arguments:@[@"wineboot", @"--end-session", @"--shutdown"]];

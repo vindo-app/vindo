@@ -21,6 +21,8 @@
 
 @property (weak) IBOutlet NSButton *removeButton;
 @property (weak) IBOutlet NSMenuItem *duplicateItem;
+@property (weak) IBOutlet NSMenuItem *importItem;
+@property (weak) IBOutlet NSMenuItem *exportItem;
 
 @property NSTimer *refreshTimer; // the ol' timer solution
 
@@ -44,7 +46,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     self.removeButton.enabled = self.arrayController.selectedObjects.count > 0;
-    self.duplicateItem.enabled = self.arrayController.selectedObjects.count == 1;
+    self.duplicateItem.enabled = self.exportItem.enabled = self.arrayController.selectedObjects.count == 1;
 }
 
 #pragma mark -
@@ -66,7 +68,7 @@
 - (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
     if (returnCode == 0) {
         NSString *worldName = self.queryText.stringValue;
-        self.statusWindow = [[StatusWindowController alloc] initWithMessage:[NSString stringWithFormat:@"Creating world \"%@\"…", worldName]
+        self.statusWindow = [[StatusWindowController alloc] initWithMessage:[NSString stringWithFormat:@"Creating \"%@\"…", worldName]
                                                                 sheetWindow:self.window];
         [self addWorldNamed:worldName];
         
@@ -79,34 +81,82 @@
 #pragma mark Removing Worlds
 
 - (IBAction)removeWorld:(id)sender {
-    if ([_arrayController.selectedObjects indexOfObject:[[WorldsController sharedController] selectedWorld]] != NSNotFound) {
+    World *world = self.arrayController.selectedObjects[0];
+    if ([[WorldsController sharedController] selectedWorld] == world) {
         NSBeginAlertSheet(@"The selected world cannot be deleted.",
                           @"OK", nil, nil, self.window, nil, nil, nil, NULL,
                           @"Select a different world before deleting this one.");
         return;
     }
-    if (_arrayController.selectedObjects.count < 1)
-        return; // don't bother deleting nothing
-    
-    NSMutableArray *worldsToDelete = [self.arrayController.selectedObjects mutableCopy];
-    
-    NSString *message;
-    if (worldsToDelete.count == 1)
-        message = [NSString stringWithFormat:@"Deleting world \"%@\"…",
-                   [worldsToDelete[0] name]];
-    else
-        message = [NSString stringWithFormat:@"Deleting %lu worlds…",
-                   (unsigned long) worldsToDelete.count];
-    
-    self.statusWindow = [[StatusWindowController alloc] initWithMessage:message sheetWindow:self.window];
-
-    [self removeWorlds:worldsToDelete];
+    NSAlert *confirmation = [NSAlert new];
+    confirmation.messageText = [NSString stringWithFormat:@"Are you sure you want to delete \"%@\"?", world.name];
+    confirmation.informativeText = @"A copy of the world will be moved to the Trash. You can restore it by dragging it out of the trash and importing it.";
+    [confirmation addButtonWithTitle:@"Delete"];
+    [confirmation addButtonWithTitle:@"Cancel"];
+    [confirmation beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse response) {
+        if (response == NSAlertFirstButtonReturn) {
+            self.statusWindow = [[StatusWindowController alloc] initWithMessage:
+                                 [NSString stringWithFormat:@"Deleting \"%@\"…", world.name] sheetWindow:self.window];
+            [self removeThisWorld:world];
+        }
+    }];
 }
 
 - (IBAction)duplicateWorld:(id)sender {
     World *world = self.arrayController.selectedObjects[0];
-    self.statusWindow = [[StatusWindowController alloc] initWithMessage:[NSString stringWithFormat:@"Duplicating world \"%@\"…", world.name] sheetWindow:self.window];
+    self.statusWindow = [[StatusWindowController alloc] initWithMessage:
+                         [NSString stringWithFormat:@"Duplicating \"%@\"…", world.name] sheetWindow:self.window];
     [self duplicateThisWorld:self.arrayController.selectedObjects[0]];
+}
+
+- (IBAction)import:(id)sender {
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    openPanel.canChooseFiles = NO;
+    openPanel.canChooseDirectories = YES;
+    openPanel.allowsMultipleSelection = NO;
+    openPanel.prompt = @"Import";
+    openPanel.delegate = self;
+    [openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton) {
+            NSURL *worldURL = openPanel.URL;
+            NSString *worldName = [worldURL lastPathComponent];
+            self.statusWindow = [[StatusWindowController alloc] initWithMessage:
+                                 [NSString stringWithFormat:@"Importing \"%@\"…", worldName] sheetWindow:self.window];
+            [self importWorldAt:worldURL];
+        }
+    }];
+}
+
+- (BOOL)panel:(id)sender shouldEnableURL:(NSURL *)url {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    BOOL isDir;
+    if (![fm fileExistsAtPath:[url URLByAppendingPathComponent:@"dosdevices"].path isDirectory:&isDir] || !isDir)
+        return NO;
+    if (![fm fileExistsAtPath:[url URLByAppendingPathComponent:@"system.reg"].path isDirectory:&isDir] || isDir)
+        return NO;
+    if (![fm fileExistsAtPath:[url URLByAppendingPathComponent:@"user.reg"].path isDirectory:&isDir] || isDir)
+        return NO;
+    if (![fm fileExistsAtPath:[url URLByAppendingPathComponent:@"userdef.reg"].path isDirectory:&isDir] || isDir)
+        return NO;
+    return YES;
+}
+
+- (IBAction)export:(id)sender {
+    World *world = self.arrayController.selectedObjects[0];
+    NSSavePanel *savePanel = [NSSavePanel savePanel];
+    savePanel.prompt = @"Export";
+    savePanel.nameFieldLabel = @"Export As:";
+    savePanel.nameFieldStringValue = world.name;
+    savePanel.showsTagField = NO;
+    [savePanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton) {
+            NSString *exportName = savePanel.nameFieldStringValue;
+            NSURL *exportDestination = [savePanel.directoryURL URLByAppendingPathComponent:exportName];
+            self.statusWindow = [[StatusWindowController alloc] initWithMessage:
+                                 [NSString stringWithFormat:@"Exporting \"%@\" as \"%@\"…", world.name, exportName] sheetWindow:self.window];
+            [self exportWorld:self.arrayController.selectedObjects[0] to:exportDestination];
+        }
+    }];
 }
 
 - (IBAction)startWorld:(id)sender {
