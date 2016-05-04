@@ -127,18 +127,23 @@
     }];
 }
 
-- (BOOL)panel:(id)sender shouldEnableURL:(NSURL *)url {
+- (BOOL)panel:(id)sender validateURL:(NSURL *)url error:(NSError * _Nullable __autoreleasing *)outError {
     NSFileManager *fm = [NSFileManager defaultManager];
     BOOL isDir;
+    BOOL isValid = YES;
     if (![fm fileExistsAtPath:[url URLByAppendingPathComponent:@"dosdevices"].path isDirectory:&isDir] || !isDir)
-        return NO;
+        isValid = NO;
     if (![fm fileExistsAtPath:[url URLByAppendingPathComponent:@"system.reg"].path isDirectory:&isDir] || isDir)
-        return NO;
+        isValid = NO;
     if (![fm fileExistsAtPath:[url URLByAppendingPathComponent:@"user.reg"].path isDirectory:&isDir] || isDir)
-        return NO;
+        isValid = NO;
     if (![fm fileExistsAtPath:[url URLByAppendingPathComponent:@"userdef.reg"].path isDirectory:&isDir] || isDir)
-        return NO;
-    return YES;
+        isValid = NO;
+    
+    if (!isValid) {
+        *outError = [NSError errorWithDomain:NSCocoaErrorDomain code:44 userInfo:@{NSLocalizedDescriptionKey: @"Please select a world."}];
+    }
+    return isValid;
 }
 
 - (IBAction)export:(id)sender {
