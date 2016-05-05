@@ -14,7 +14,7 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="233" height="185"/>
+            <rect key="frame" x="0.0" y="0.0" width="233" height="201"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Fbw-yj-P4H">
@@ -35,11 +35,6 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="szo-Oh-aOE">
-                    <rect key="frame" x="84" y="101" width="64" height="64"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="executable" id="Mch-np-vyk"/>
-                </imageView>
                 <popUpButton hidden="YES" id="94i-fB-Ie6">
                     <rect key="frame" x="177" y="11" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -142,8 +137,13 @@
                         </menu>
                     </popUpButtonCell>
                 </popUpButton>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="szo-Oh-aOE">
+                    <rect key="frame" x="76" y="101" width="80" height="80"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="executable" id="Mch-np-vyk"/>
+                </imageView>
             </subviews>
-            <point key="canvasLocation" x="443.5" y="257.5"/>
+            <point key="canvasLocation" x="443.5" y="249.5"/>
         </customView>
         <arrayController id="Jki-Cg-jO4">
             <connections>

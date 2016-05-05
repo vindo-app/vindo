@@ -128,7 +128,7 @@
         }
         
         [self.arrayController performSelectorOnMainThread:@selector(addObject:) withObject:world waitUntilDone:NO];
-        
+        __unused StartMenu *menu = [[StartMenu alloc] initWithWorld:world];
         [self.statusWindow disappear];
     });
 }
