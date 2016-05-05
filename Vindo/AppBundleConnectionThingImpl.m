@@ -85,7 +85,11 @@
 }
 
 - (StartMenuItem *)startMenuItemForItemPath:(NSString *)itemPath inWorld:(World *)world {
-    StartMenu *menu = [StartMenuController sharedInstance].menu;
+    StartMenu *menu;
+    if (world == [WorldsController sharedController].selectedWorld)
+        menu = [StartMenuController sharedInstance].menu;
+    else
+        menu = [[StartMenu alloc] initWithWorld:world];
     for (StartMenuItem *item in menu.items) {
         if ([item.itemPath isEqualToString:itemPath]) {
             return item;

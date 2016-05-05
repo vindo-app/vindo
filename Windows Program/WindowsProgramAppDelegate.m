@@ -63,7 +63,7 @@ static WindowsProgramApplication *app;
         if ([communicationThing activateWorldNamed:world]) {
             break;
         } else {
-            [self failBecause:@"This app bundle appears to be corrupted or something. It won't work."];
+            [self failBecause:@"This app bundle appears to be corrupted. In other words, the specified world doesn't exist."];
         }
     }
 }
@@ -115,6 +115,10 @@ static char __wine_shared_heap[0x03000000] __attribute__((section("WINE_SHAREDHE
         NSString *itemPath = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ItemPath"];
         program = [communicationThing programForStartMenuItem:itemPath inWorld:self.world];
         arguments = [communicationThing argumentsForStartMenuItem:itemPath inWorld:self.world];
+    }
+    
+    if (program == nil || arguments == nil) {
+        [self failBecause:@"This app bundle appears to be corrupted. In other words, the specified start menu item doesn't exist."];
     }
     
     // set necessary environment keys
