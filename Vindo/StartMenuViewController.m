@@ -61,7 +61,7 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"MakeNoProgramsImportant" object:self];
     }
     
-    NSUInteger numberOfItems = [self.arrayController.arrangedObjects count];
+    NSUInteger numberOfItems = [self.arrayController.content count];
     
     NSUInteger columns = [[NSUserDefaults standardUserDefaults] integerForKey:@"numColumns"];
     NSUInteger maxRows = [[NSUserDefaults standardUserDefaults] integerForKey:@"maxRows"];
