@@ -8,17 +8,17 @@
 
 #import "StartMenuController.h"
 #import "WorldsController.h"
-#import "StartMenuDefaultsSync.h"
+
+static StartMenuController *sharedInstance;
 
 @interface StartMenuController ()
 
-@property StartMenu *menu;
+@property NSMutableDictionary<NSString *, StartMenu *> *menus;
 @property FiletypeDatabase *filetypes;
-@property StartMenuDefaultsSync *syncer;
+
+@property WorldsController *wc;
 
 @end
-
-static StartMenuController *sharedInstance;
 
 @implementation StartMenuController
 
@@ -28,27 +28,39 @@ static StartMenuController *sharedInstance;
     
     if (self = [super init]) {
         sharedInstance = self;
-        WorldsController *worldsController = [WorldsController sharedController];
-        [worldsController addObserver:self
-                           forKeyPath:@"selectionIndex"
-                              options:NSKeyValueObservingOptionInitial
-                              context:NULL];
-        self.syncer = [StartMenuDefaultsSync new];
+        self.menus = [NSMutableDictionary new];
+        self.wc = [WorldsController sharedController];
+        [self.wc addObserver:self
+                  forKeyPath:@"selectionIndex"
+                     options:NSKeyValueObservingOptionPrior | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
+                     context:NULL];
+        [self.wc addObserver:self
+                  forKeyPath:@"arrangedObjects"
+                     options:NSKeyValueObservingOptionInitial
+                     context:NULL];
     }
     
     return self;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    WorldsController *worldsController = [WorldsController sharedController];
-    
-    // Deal with stupidities.
-    if (worldsController.selectedWorld == nil) {
-        return;
+    if ([keyPath isEqualToString:@"selectionIndex"]) {
+        NSLog(@"%@", change);
+        [self willChangeValueForKey:@"menu"];
+        [self didChangeValueForKey:@"menu"];
+    } else if ([keyPath isEqualToString:@"arrangedObjects"]) {
+        for (World *world in self.wc.arrangedObjects)
+            if (!self.menus[world.worldId])
+                self.menus[world.worldId] = [[StartMenu alloc] initWithWorld:world];
+        
+        for (NSString *worldId in self.menus.keyEnumerator)
+            if (![self.wc worldWithId:worldId])
+                [self.menus removeObjectForKey:worldId];
     }
-    
-    self.menu = [[StartMenu alloc] initWithWorld:worldsController.selectedWorld];
-    self.filetypes = [[FiletypeDatabase alloc] initWithWorld:worldsController.selectedWorld];
+}
+
+- (StartMenu *)menu {
+    return self.menus[self.wc.selectedWorld.worldId];
 }
 
 + (StartMenuController *)sharedInstance {

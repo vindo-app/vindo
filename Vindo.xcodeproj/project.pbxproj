@@ -71,7 +71,6 @@
 		BBCEC3131C5ABFB700D72F2A /* NSURL+Relativize.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCEC3121C5ABFB700D72F2A /* NSURL+Relativize.m */; };
 		BBCEC3171C5C1BA500D72F2A /* FiletypeDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCEC3161C5C1BA500D72F2A /* FiletypeDatabase.m */; };
 		BBCEC31A1C5C264400D72F2A /* Filetype.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCEC3191C5C264400D72F2A /* Filetype.m */; };
-		BBF18B791C41FE050060092B /* StartMenuDefaultsSync.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */; };
 		BBF18B7C1C433F150060092B /* NSUserDefaults+KeyPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */; };
 		BBF27D2C1C52A98A00EE7C65 /* Status.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* Status.xib */; };
 		BBF27D2D1C52A98A00EE7C65 /* ManageWorlds.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC0580781ABE13F300854813 /* ManageWorlds.xib */; };
@@ -220,8 +219,6 @@
 		BBCEC3161C5C1BA500D72F2A /* FiletypeDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiletypeDatabase.m; sourceTree = "<group>"; };
 		BBCEC3181C5C264400D72F2A /* Filetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Filetype.h; sourceTree = "<group>"; };
 		BBCEC3191C5C264400D72F2A /* Filetype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Filetype.m; sourceTree = "<group>"; };
-		BBF18B771C41FE050060092B /* StartMenuDefaultsSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuDefaultsSync.h; sourceTree = "<group>"; };
-		BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuDefaultsSync.m; sourceTree = "<group>"; };
 		BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+KeyPaths.m"; sourceTree = "<group>"; };
 		BBF5FC711C4C7A0B00C18FCC /* NoProgramsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoProgramsViewController.h; sourceTree = "<group>"; };
 		BBF5FC721C4C7A0B00C18FCC /* NoProgramsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoProgramsViewController.m; sourceTree = "<group>"; };
@@ -327,8 +324,6 @@
 			children = (
 				8A6880AA1BC3336E0032352B /* StartMenuController.h */,
 				8A6880AB1BC3336E0032352B /* StartMenuController.m */,
-				BBF18B771C41FE050060092B /* StartMenuDefaultsSync.h */,
-				BBF18B781C41FE050060092B /* StartMenuDefaultsSync.m */,
 				8A6880A71BC333620032352B /* StartMenu.h */,
 				8A6880A81BC333620032352B /* StartMenu.m */,
 				8A6880AD1BC333E10032352B /* StartMenuItem.h */,
@@ -808,7 +803,6 @@
 				8A70BF051BAA2BC500F58EBE /* PFMoveApplication.m in Sources */,
 				8A6E189A1C03B5BF003E9F58 /* UpdatePreferencesViewController.m in Sources */,
 				8AC01D631ABB879D00F8C066 /* WorldsMenuController.m in Sources */,
-				BBF18B791C41FE050060092B /* StartMenuDefaultsSync.m in Sources */,
 				BB57B9661C4879E500331BA4 /* StartMenuCollectionView.m in Sources */,
 				BBCEC3171C5C1BA500D72F2A /* FiletypeDatabase.m in Sources */,
 				AC3A4EE51AA12F9A00781626 /* ApplicationController.m in Sources */,

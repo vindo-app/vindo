@@ -53,6 +53,13 @@ static WorldsController *sharedController;
         return self.arrangedObjects[self.selectionIndex];
 }
 
+- (World *)worldWithId:(NSString *)worldId {
+    for (World *world in self.arrangedObjects)
+        if ([world.worldId isEqualToString:worldId])
+            return world;
+    return nil;
+}
+
 + (WorldsController *)sharedController {
     return sharedController;
 }

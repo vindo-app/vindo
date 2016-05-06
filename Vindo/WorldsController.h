@@ -14,5 +14,6 @@
 + (WorldsController *)sharedController;
 
 - (World *)selectedWorld;
+- (World *)worldWithId:(NSString *)worldId;
 
 @end

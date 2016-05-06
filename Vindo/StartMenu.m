@@ -86,6 +86,7 @@
     [self didChange:NSKeyValueChangeInsertion
     valuesAtIndexes:[NSIndexSet indexSetWithIndex:self.mutableItems.count]
              forKey:@"items"];
+    [self updateDefaults];
 }
 
 - (void)removeItemAtURL:(NSURL *)url {
@@ -109,6 +110,7 @@
         [self didChange:NSKeyValueChangeRemoval
         valuesAtIndexes:[NSIndexSet indexSetWithIndex:i]
                  forKey:@"items"];
+        [self updateDefaults];
     }
 }
 
@@ -122,6 +124,7 @@
     [self.mutableItems removeObjectAtIndex:index];
     [self.mutableItems insertObject:item atIndex:newIndex];
     [self didChangeValueForKey:@"items"];
+    [self updateDefaults];
 }
 
 - (void)initializeItems {
@@ -146,6 +149,16 @@
     }
     
     self.mutableItems = newItems;
+    [self updateDefaults];
+}
+
+- (void)updateDefaults {
+    NSMutableArray *items = self.items.mutableCopy;
+    for (int i = 0; i < items.count; i++) {
+        StartMenuItem *item = items[i];
+        items[i] = item.itemPath;
+    }
+    [[NSUserDefaults standardUserDefaults] setValue:items forKeyPathArray:@[@"startMenuItems", self.world.worldId]];
 }
 
 - (void)refreshMenu:(NSNotification *)notification {
