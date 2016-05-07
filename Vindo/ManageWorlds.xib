@@ -108,24 +108,12 @@ Gw
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" typeSelect="NO" id="NAj-ty-2OG">
-                                    <rect key="frame" x="0.0" y="0.0" width="267" height="19"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="267" height="201"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="" width="17" minWidth="10" maxWidth="3.4028234663852886e+38" id="gOO-kf-EhF">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Status">
-                                                <font key="font" metaFont="smallSystem"/>
-                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </tableHeaderCell>
-                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="BOz-hm-4bG"/>
-                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="identifier" value="status"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </tableColumn>
                                         <tableColumn width="18" minWidth="10" maxWidth="3.4028234663852886e+38" id="9fQ-0p-8AB">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Selected">
                                                 <font key="font" metaFont="smallSystem"/>
@@ -141,7 +129,7 @@ Gw
                                                 <userDefinedRuntimeAttribute type="string" keyPath="identifier" value="selected"/>
                                             </userDefinedRuntimeAttributes>
                                         </tableColumn>
-                                        <tableColumn width="223" minWidth="40" maxWidth="1000" id="Yuo-K4-Hk8">
+                                        <tableColumn width="243" minWidth="40" maxWidth="1000" id="Yuo-K4-Hk8">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="World">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -202,7 +190,7 @@ Gw
                     <popUpButton verticalHuggingPriority="750" id="jyv-pI-Ofv">
                         <rect key="frame" x="79" y="19" width="35" height="23"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" autoenablesItems="NO" selectedItem="Fw6-MK-cEe" id="37m-iZ-igQ">
+                        <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" autoenablesItems="NO" id="37m-iZ-igQ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" autoenablesItems="NO" id="XDi-ly-9Th">
@@ -226,43 +214,11 @@ Gw
                                             <action selector="duplicateWorld:" target="-2" id="9bq-J5-3C3"/>
                                         </connections>
                                     </menuItem>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                    </popUpButton>
-                    <popUpButton verticalHuggingPriority="750" id="Pb7-ba-Upj">
-                        <rect key="frame" x="124" y="19" width="35" height="23"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" autoenablesItems="NO" id="kgv-k9-DUS">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
-                            <menu key="menu" autoenablesItems="NO" id="1mQ-Mc-IN0">
-                                <items>
-                                    <menuItem state="on" image="PowerTemplate" hidden="YES" id="QHM-sB-BzT"/>
-                                    <menuItem title="Start" id="bYK-7S-fuE">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="startWorld:" target="-2" id="Pkq-qy-lv4"/>
-                                            <binding destination="Dir-K8-Rli" name="enabled" keyPath="selection.running" id="wyc-5J-Zyk">
-                                                <dictionary key="options">
-                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                </dictionary>
-                                            </binding>
-                                        </connections>
-                                    </menuItem>
-                                    <menuItem isSeparatorItem="YES" id="AC4-Ne-XMO"/>
-                                    <menuItem title="Shutdown" id="dkE-A0-gke">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="shutdownWorld:" target="-2" id="G6x-1G-C0a"/>
-                                            <binding destination="Dir-K8-Rli" name="enabled" keyPath="selection.running" id="gIm-IN-Dmk"/>
-                                        </connections>
-                                    </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="O9p-wB-rPZ"/>
                                     <menuItem title="Reboot" id="tQ1-PQ-M69">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                         <connections>
                                             <action selector="rebootWorld:" target="-2" id="95s-6D-zM6"/>
-                                            <binding destination="Dir-K8-Rli" name="enabled" keyPath="selection.running" id="WeU-DX-aU7"/>
                                         </connections>
                                     </menuItem>
                                 </items>
@@ -289,6 +245,5 @@ Gw
         <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
-        <image name="PowerTemplate" width="64" height="64"/>
     </resources>
 </document>

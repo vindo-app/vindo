@@ -27,7 +27,6 @@
         <customObject id="kjr-LO-PqR" customClass="SUUpdater"/>
         <customObject id="2iM-kO-TUX" customClass="AnalyticsController"/>
         <customObject id="laL-ZB-drS" customClass="ABCTController"/>
-        <customObject id="TN2-6s-Rg2" customClass="BootCycleController"/>
         <customObject id="BGb-aC-7ER" customClass="RunWindowController">
             <connections>
                 <outlet property="launcher" destination="kM7-O8-uwl" id="5wK-42-ACI"/>

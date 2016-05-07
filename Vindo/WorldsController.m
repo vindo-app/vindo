@@ -36,6 +36,9 @@ static WorldsController *sharedController;
                      NSValueTransformerBindingOption: [IndexSetToIntTransformer new],
                      NSRaisesForNotApplicableKeysBindingOption: @YES
                      }];
+        
+        for (World *world in self.arrangedObjects)
+            [world start];
     }
     return self;
 }
@@ -51,6 +54,11 @@ static WorldsController *sharedController;
         return nil;
     else
         return self.arrangedObjects[self.selectionIndex];
+}
+
+- (void)insertObject:(World *)world atArrangedObjectIndex:(NSUInteger)index {
+    [world start];
+    [super insertObject:world atArrangedObjectIndex:index];
 }
 
 - (World *)worldWithId:(NSString *)worldId {

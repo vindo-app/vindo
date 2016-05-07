@@ -45,8 +45,6 @@ extern NSString *const WorldPasteboardType;
 
 @interface World (WineServer)
 
-@property (readonly, getter=isRunning) BOOL running;
-
 - (void)start;
 - (void)stop;
 

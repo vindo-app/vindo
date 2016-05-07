@@ -164,23 +164,6 @@
     }];
 }
 
-- (IBAction)startWorld:(id)sender {
-    World *world = self.arrayController.selectedObjects[0];
-    [world start];
-}
-
-- (IBAction)shutdownWorld:(id)sender {
-    World *world = self.arrayController.selectedObjects[0];
-    if (world == [WorldsController sharedController].selectedWorld) {
-        NSBeginAlertSheet(@"The selected world can't be shut down.",
-                          @"OK", nil, nil, self.window, nil, nil, nil, NULL,
-                          @"Select a different world before shutting down this one.");
-        return;
-    }
-    if (world.running)
-        [world stop];
-}
-
 - (IBAction)rebootWorld:(id)sender {
     World *world = self.arrayController.selectedObjects[0];
     [world run:@"wineboot" withArguments:@[@"--restart"]];
@@ -213,14 +196,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 }
 
 - (void)tableView:(NSTableView *)tableView willDisplayCell:(nonnull id)cell forTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row {
-    if ([tableColumn.identifier isEqualToString:@"status"]) {
-        NSImageCell *imageCell = cell;
-        World *world = self.arrayController.arrangedObjects[row];
-        if (world.running)
-            imageCell.image = [NSImage imageNamed:NSImageNameStatusAvailable];
-        else
-            imageCell.image = nil;
-    } else if ([tableColumn.identifier isEqualToString:@"selected"]) {
+    if ([tableColumn.identifier isEqualToString:@"selected"]) {
         NSButtonCell *buttonCell = cell;
         World *world = self.arrayController.arrangedObjects[row];
         if (world == [WorldsController sharedController].selectedWorld)

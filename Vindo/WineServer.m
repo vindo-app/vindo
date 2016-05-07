@@ -13,11 +13,9 @@
 @implementation World (WineServer)
 
 - (void)start {
-    NSLog(@"we might start");
-    if (self.running)
-        return;
+    NSAssert(!self.serverTask.running, @"attempt to start %@ which is already started", self);
     
-    NSLog(@"we will start");
+    NSLog(@"%@ starting", self);
 
     // make sure prefix directory exists
     NSFileManager *manager = [NSFileManager defaultManager];
@@ -40,10 +38,8 @@
 }
 
 - (void)stop {
-    if (!self.running) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:WorldDidStopNotification object:self];
-        return;
-    }
+    NSAssert(self.serverTask.running, @"attempt to stop %@ which is already stopped", self);
+    
     // first end the session with wineboot
     NSTask *endSession = [self wineTaskWithProgram:@"wine"
                                          arguments:@[@"wineboot", @"--end-session", @"--shutdown"]];
@@ -56,10 +52,6 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:WorldDidStopNotification object:self];
     };
     [endSession launch];
-}
-
-- (BOOL)isRunning {
-    return self.serverTask.running;
 }
 
 @end

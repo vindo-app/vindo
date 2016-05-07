@@ -64,7 +64,6 @@
 		BB4DE5201CC154A2006DFF3A /* file.icns in Resources */ = {isa = PBXBuildFile; fileRef = BB4DE51F1CC154A2006DFF3A /* file.icns */; };
 		BB57B9661C4879E500331BA4 /* StartMenuCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57B9651C4879E500331BA4 /* StartMenuCollectionView.m */; };
 		BB7303521C388784004B4375 /* AppBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7303511C388784004B4375 /* AppBundle.m */; };
-		BB7FAFC41C82790A00007870 /* BootCycleController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7FAFC31C82790A00007870 /* BootCycleController.m */; };
 		BBBCEAA81C3C8E8D00E5E175 /* WindowsProgramApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAA71C3C8E8D00E5E175 /* WindowsProgramApplication.m */; };
 		BBBCEAAD1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */; };
 		BBBCEAB01C3DE15200E5E175 /* ABCTController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAF1C3DE15200E5E175 /* ABCTController.m */; };
@@ -204,8 +203,6 @@
 		BB57B9651C4879E500331BA4 /* StartMenuCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuCollectionView.m; sourceTree = "<group>"; };
 		BB7303501C388784004B4375 /* AppBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBundle.h; sourceTree = "<group>"; };
 		BB7303511C388784004B4375 /* AppBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBundle.m; sourceTree = "<group>"; };
-		BB7FAFC21C82790A00007870 /* BootCycleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BootCycleController.h; sourceTree = "<group>"; };
-		BB7FAFC31C82790A00007870 /* BootCycleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BootCycleController.m; sourceTree = "<group>"; };
 		BBBCEAA61C3C8E8D00E5E175 /* WindowsProgramApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowsProgramApplication.h; sourceTree = "<group>"; };
 		BBBCEAA71C3C8E8D00E5E175 /* WindowsProgramApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowsProgramApplication.m; sourceTree = "<group>"; };
 		BBBCEAAA1C3DD8C600E5E175 /* AppBundleCommunicationThing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBundleCommunicationThing.h; sourceTree = "<group>"; };
@@ -427,8 +424,6 @@
 			children = (
 				AC3A4EE31AA12F9A00781626 /* ApplicationController.h */,
 				AC3A4EE41AA12F9A00781626 /* ApplicationController.m */,
-				BB7FAFC21C82790A00007870 /* BootCycleController.h */,
-				BB7FAFC31C82790A00007870 /* BootCycleController.m */,
 				8A041E9D1BFBFF0400D60E08 /* PopupController.h */,
 				8A041E9E1BFBFF0400D60E08 /* PopupController.m */,
 				AC5AC34F1B3E1E5900538492 /* LaunchController.h */,
@@ -813,7 +808,6 @@
 				8A36AF541C1F4D1B0012D115 /* StartMenuViewController.m in Sources */,
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
 				BBCEC3131C5ABFB700D72F2A /* NSURL+Relativize.m in Sources */,
-				BB7FAFC41C82790A00007870 /* BootCycleController.m in Sources */,
 				8A713E0C1C249AB400918B1A /* World+PasteboardSupport.m in Sources */,
 				AC05808C1ABF97F700854813 /* ManageWorldsWindowController.m in Sources */,
 				BBBCEAAD1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m in Sources */,

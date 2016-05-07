@@ -51,7 +51,6 @@ static NSMapTable *worlds;
 
 
 - (void)run:(NSString *)program withArguments:(NSArray *)arguments {
-    [self start];
     NSTask *task = [self wineTaskWithProgram:@"wine"
                                    arguments:[@[program] arrayByAddingObjectsFromArray:arguments]];
     [task launch];
@@ -64,8 +63,6 @@ static NSMapTable *worlds;
 - (void)setup {
     if (self.winebootTask)
         return;
-    
-    [self start];
     
     self.winebootTask = [self wineTaskWithProgram:@"wine" arguments:@[@"wineboot", @"--init"]];
     @weakify(self);
@@ -85,8 +82,8 @@ static NSMapTable *worlds;
         return self.worldId;
 }
 
-- (void)setName:(NSString *)displayName {
-    [[NSUserDefaults standardUserDefaults] setValue:displayName forKeyPath:[NSString stringWithFormat:@"displayNames.%@", self.worldId]];
+- (void)setName:(NSString *)name {
+    [[NSUserDefaults standardUserDefaults] setValue:name forKeyPath:[NSString stringWithFormat:@"displayNames.%@", self.worldId]];
 }
 
 #pragma mark -
@@ -101,7 +98,7 @@ static NSMapTable *worlds;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@ %@>", self.class, self.worldId];
+    return [NSString stringWithFormat:@"<%@ %@ (%@)>", self.class, self.worldId, self.name];
 }
 
 @end

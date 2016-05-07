@@ -20,7 +20,6 @@
 
 #import "PFMoveApplication.h"
 #import "RHPreferences/RHPreferences.h"
-#import "LaunchAtLoginController.h"
 
 @interface ApplicationController ()
 
@@ -44,6 +43,30 @@
                                                   [GeneralPreferencesViewController new],
                                                   [UpdatePreferencesViewController new]
                                                   ]];
+}
+
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EliminatePopup" object:self];
+    
+    static NSInteger nWorlds = -1;
+    if (nWorlds == 0)
+        return NSTerminateNow;
+    if (nWorlds != -1)
+        return NSTerminateLater;
+    
+    NSArray *worlds = [WorldsController sharedController].arrangedObjects;
+    nWorlds = worlds.count;
+    
+    for (World *world in worlds) {
+        [world onNext:WorldDidStopNotification do:^(id n) {
+            if (--nWorlds == 0)
+                [NSApp terminate:nil];
+        }];
+        [world stop];
+    }
+    if (nWorlds == 0)
+        return NSTerminateNow;
+    return NSTerminateLater;
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
@@ -84,34 +107,6 @@
 - (IBAction)showPreferences:(id)sender {
     [self.preferences showWindow:self];
     [NSApp activateIgnoringOtherApps:YES];
-}
-
-static NSInteger nWorlds = -1;
-- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"EliminatePopup" object:self];
-    
-    if (nWorlds == 0)
-        return NSTerminateNow;
-    if (nWorlds != -1)
-        return NSTerminateLater;
-    
-    NSArray *worlds = [WorldsController sharedController].arrangedObjects;
-    nWorlds = worlds.count;
-    
-    for (World *world in worlds) {
-        if (world.running) {
-            [world onNext:WorldDidStopNotification do:^(id n) {
-                if (--nWorlds == 0)
-                    [NSApp terminate:nil];
-            }];
-            [world stop];
-        } else {
-            nWorlds--;
-        }
-    }
-    if (nWorlds == 0)
-        return NSTerminateNow;
-    return NSTerminateLater;
 }
 
 @end

@@ -45,7 +45,6 @@ static StartMenuController *sharedInstance;
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"selectionIndex"]) {
-        NSLog(@"%@", change);
         [self willChangeValueForKey:@"menu"];
         [self didChangeValueForKey:@"menu"];
     } else if ([keyPath isEqualToString:@"arrangedObjects"]) {
@@ -53,9 +52,13 @@ static StartMenuController *sharedInstance;
             if (!self.menus[world.worldId])
                 self.menus[world.worldId] = [[StartMenu alloc] initWithWorld:world];
         
+        // do it like this to avoid "mutating while enumerating" exception
+        NSMutableArray *worldsToRemove = [NSMutableArray new];
         for (NSString *worldId in self.menus.keyEnumerator)
             if (![self.wc worldWithId:worldId])
-                [self.menus removeObjectForKey:worldId];
+                [worldsToRemove addObject:worldId];
+        for (NSString *worldId in worldsToRemove)
+            [self.menus removeObjectForKey:worldId];
     }
 }
 

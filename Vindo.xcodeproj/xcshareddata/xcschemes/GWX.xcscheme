@@ -53,7 +53,8 @@
       allowLocationSimulation = "YES">
       <PathRunnable
          runnableDebuggingMode = "0"
-         FilePath = "/Users/tbodt/Applications/Vindo/Steam.app">
+         BundleIdentifier = "co.vindo.windows-program.GWX Control Panel/GWX Control Panel"
+         FilePath = "/Users/tbodt/Applications/Vindo/GWX Control Panel/GWX Control Panel.app">
       </PathRunnable>
       <MacroExpansion>
          <BuildableReference
