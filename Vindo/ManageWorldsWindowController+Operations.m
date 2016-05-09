@@ -77,9 +77,7 @@
     else
         menu = [[StartMenu alloc] initWithWorld:world];
     for (StartMenuItem *item in menu.items) {
-        if (item.bundle.parenthesized) {
-            [item.bundle remove];
-        }
+        [item.bundle remove];
     }
     
     // use these kvos to tell worlds menu controller to refresh
