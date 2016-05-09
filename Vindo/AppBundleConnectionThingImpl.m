@@ -23,7 +23,6 @@
 
 - (BOOL)activateWorldNamed:(NSString *)worldName {
     World *world = [self worldForName:worldName];
-    [world start];
     return world != nil;
 }
 

@@ -13,10 +13,10 @@
 @implementation World (WineServer)
 
 - (void)start {
-    NSAssert(!self.serverTask.running, @"attempt to start %@ which is already started", self);
-    
     NSLog(@"%@ starting", self);
 
+    NSAssert(!self.serverTask.running, @"attempt to start %@ which is already started", self);
+    
     // make sure prefix directory exists
     NSFileManager *manager = [NSFileManager defaultManager];
     if (![manager createDirectoryAtURL:self.url
@@ -30,23 +30,23 @@
     @weakify(self);
     self.serverTask.terminationHandler = ^(id _) {
         @strongify(self);
-        [self didChangeValueForKey:@"running"];
+        [self start];
     };
-    [self willChangeValueForKey:@"running"];
     [self.serverTask launch];
-    [self didChangeValueForKey:@"running"];
 }
 
 - (void)stop {
+    NSLog(@"%@ stopping", self);
+    
     NSAssert(self.serverTask.running, @"attempt to stop %@ which is already stopped", self);
     
     // first end the session with wineboot
     NSTask *endSession = [self wineTaskWithProgram:@"wine"
                                          arguments:@[@"wineboot", @"--end-session", @"--shutdown"]];
     endSession.terminationHandler = ^(NSTask *_) {
+        self.serverTask.terminationHandler = nil;
         NSTask *killServer = [self wineTaskWithProgram:@"wineserver" arguments:@[@"--kill"]];
         [killServer launch];
-        [self willChangeValueForKey:@"running"];
         [self.serverTask waitUntilExit];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:WorldDidStopNotification object:self];

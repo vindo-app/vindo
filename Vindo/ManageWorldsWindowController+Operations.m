@@ -26,6 +26,7 @@
     [self.statusWindow appear];
     World *world = [[World alloc] initWithName:name];
     [world start];
+    [world setup];
     
     [world onNext:WorldDidFinishSetupNotification
                do:^(id n) {

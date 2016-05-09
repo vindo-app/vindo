@@ -8,12 +8,13 @@
         <customObject id="-2" userLabel="File's Owner" customClass="ManageWorldsWindowController">
             <connections>
                 <outlet property="arrayController" destination="Dir-K8-Rli" id="gG0-Ts-AlJ"/>
-                <outlet property="duplicateItem" destination="eV2-2B-u6g" id="zbR-zx-CPk"/>
+                <outlet property="duplicateItem" destination="z89-Ya-dbp" id="QzE-Ru-PQN"/>
                 <outlet property="exportItem" destination="Fw6-MK-cEe" id="f1B-Mn-yjr"/>
                 <outlet property="importItem" destination="wb7-MJ-kBL" id="iPp-9u-PEr"/>
                 <outlet property="querySheet" destination="oXA-Yo-anN" id="Icg-zq-hSg"/>
                 <outlet property="queryText" destination="8uy-JD-MfM" id="nde-GR-k4B"/>
                 <outlet property="removeButton" destination="3rN-FQ-1qc" id="rQw-du-9m5"/>
+                <outlet property="renameItem" destination="z89-Ya-dbp" id="PrC-qf-92C"/>
                 <outlet property="table" destination="NAj-ty-2OG" id="vsZ-nE-2Vn"/>
                 <outlet property="window" destination="ax6-Og-Ght" id="bRg-0C-70P"/>
             </connections>
@@ -108,7 +109,7 @@ Gw
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" typeSelect="NO" id="NAj-ty-2OG">
-                                    <rect key="frame" x="0.0" y="0.0" width="267" height="201"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="267" height="19"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -190,7 +191,7 @@ Gw
                     <popUpButton verticalHuggingPriority="750" id="jyv-pI-Ofv">
                         <rect key="frame" x="79" y="19" width="35" height="23"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" autoenablesItems="NO" id="37m-iZ-igQ">
+                        <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" autoenablesItems="NO" selectedItem="z89-Ya-dbp" id="37m-iZ-igQ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" autoenablesItems="NO" id="XDi-ly-9Th">
@@ -209,9 +210,14 @@ Gw
                                         </connections>
                                     </menuItem>
                                     <menuItem isSeparatorItem="YES" id="Mpg-zH-4EP"/>
-                                    <menuItem title="Duplicate…" id="eV2-2B-u6g">
+                                    <menuItem title="Duplicate" id="eV2-2B-u6g">
                                         <connections>
                                             <action selector="duplicateWorld:" target="-2" id="9bq-J5-3C3"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Rename" id="z89-Ya-dbp">
+                                        <connections>
+                                            <action selector="rename:" target="-2" id="1pL-T6-F4k"/>
                                         </connections>
                                     </menuItem>
                                     <menuItem isSeparatorItem="YES" id="O9p-wB-rPZ"/>

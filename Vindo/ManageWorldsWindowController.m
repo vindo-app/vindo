@@ -20,11 +20,10 @@
 @property IBOutlet NSTableView *table;
 
 @property (weak) IBOutlet NSButton *removeButton;
-@property (weak) IBOutlet NSMenuItem *duplicateItem;
 @property (weak) IBOutlet NSMenuItem *importItem;
 @property (weak) IBOutlet NSMenuItem *exportItem;
-
-@property NSTimer *refreshTimer; // the ol' timer solution
+@property (weak) IBOutlet NSMenuItem *duplicateItem;
+@property (weak) IBOutlet NSMenuItem *renameItem;
 
 @end
 
@@ -41,12 +40,22 @@
                            forKeyPath:@"selectedObjects"
                               options:NSKeyValueObservingOptionInitial
                               context:NULL];
-    self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(refresh:) userInfo:nil repeats:YES];
+    [[WorldsController sharedController] addObserver:self
+                                          forKeyPath:@"selectedObjects"
+                                             options:NSKeyValueObservingOptionInitial
+                                             context:NULL];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    self.removeButton.enabled = self.arrayController.selectedObjects.count > 0;
-    self.duplicateItem.enabled = self.exportItem.enabled = self.arrayController.selectedObjects.count == 1;
+    if (object == self.arrayController) {
+        self.removeButton.enabled = self.arrayController.selectedObjects.count > 0;
+        self.renameItem.enabled =
+        self.duplicateItem.enabled =
+        self.exportItem.enabled =
+        self.arrayController.selectedObjects.count == 1;
+    } else {
+        [self.table reloadData];
+    }
 }
 
 #pragma mark -
@@ -83,7 +92,7 @@
 - (IBAction)removeWorld:(id)sender {
     World *world = self.arrayController.selectedObjects[0];
     if ([[WorldsController sharedController] selectedWorld] == world) {
-        NSBeginAlertSheet(@"The selected world cannot be deleted.",
+        NSBeginAlertSheet(@"The selected world can't be deleted.",
                           @"OK", nil, nil, self.window, nil, nil, nil, NULL,
                           @"Select a different world before deleting this one.");
         return;
@@ -107,6 +116,10 @@
     self.statusWindow = [[StatusWindowController alloc] initWithMessage:
                          [NSString stringWithFormat:@"Duplicating \"%@\"…", world.name] sheetWindow:self.window];
     [self duplicateThisWorld:self.arrayController.selectedObjects[0]];
+}
+
+- (IBAction)rename:(id)sender {
+    [self.table editColumn:1 row:self.table.selectedRow withEvent:nil select:NO];
 }
 
 - (IBAction)import:(id)sender {
@@ -178,11 +191,6 @@
 }
 
 #pragma mark Table View Stuff
-
-- (void)refresh:(NSTimer *)timer {
-    if (self.table.editedRow == -1)
-        [self.table reloadData];
-}
 
 -           (id)tableView:(NSTableView *)tableView
 objectValueForTableColumn:(NSTableColumn *)tableColumn
