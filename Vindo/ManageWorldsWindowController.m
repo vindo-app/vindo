@@ -36,10 +36,6 @@
 - (void)awakeFromNib {
     [self.table registerForDraggedTypes:@[WorldPasteboardType]];
     
-    [self.arrayController addObserver:self
-                           forKeyPath:@"selectedObjects"
-                              options:NSKeyValueObservingOptionInitial
-                              context:NULL];
     [[WorldsController sharedController] addObserver:self
                                           forKeyPath:@"selectedObjects"
                                              options:NSKeyValueObservingOptionInitial
@@ -47,15 +43,14 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    if (object == self.arrayController) {
-        self.removeButton.enabled = self.arrayController.selectedObjects.count > 0;
-        self.renameItem.enabled =
-        self.duplicateItem.enabled =
-        self.exportItem.enabled =
-        self.arrayController.selectedObjects.count == 1;
-    } else {
-        [self.table reloadData];
-    }
+    [self.table reloadData];
+}
+
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+    if (menuItem.action == @selector(import:))
+        return YES;
+    else
+        return self.arrayController.selectedObjects.count == 1;
 }
 
 #pragma mark -
