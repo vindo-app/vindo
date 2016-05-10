@@ -81,7 +81,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8A5B97651C24DF53001FF0EF /* PBXContainerItemProxy */ = {
+		BB5C0EC01CE13DEB00E4C7E9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AC3A4ED41AA12F9900781626 /* Project object */;
 			proxyType = 1;
@@ -611,7 +611,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				8A5B97661C24DF53001FF0EF /* PBXTargetDependency */,
+				BB5C0EC11CE13DEB00E4C7E9 /* PBXTargetDependency */,
 			);
 			name = Vindo;
 			productName = Vindo;
@@ -837,10 +837,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8A5B97661C24DF53001FF0EF /* PBXTargetDependency */ = {
+		BB5C0EC11CE13DEB00E4C7E9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8A5B97531C24DF24001FF0EF /* Windows Program */;
-			targetProxy = 8A5B97651C24DF53001FF0EF /* PBXContainerItemProxy */;
+			targetProxy = BB5C0EC01CE13DEB00E4C7E9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

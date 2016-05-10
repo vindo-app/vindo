@@ -10,9 +10,7 @@
 
 extern NSString *const WorldPasteboardType;
 
-@interface World : NSObject <NSPasteboardReading, NSPasteboardWriting> {
-    NSFileHandle *_logFileHandle;
-}
+@interface World : NSObject <NSPasteboardReading, NSPasteboardWriting>
 
 #pragma mark -
 #pragma mark World

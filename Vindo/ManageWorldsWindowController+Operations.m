@@ -26,7 +26,6 @@
     [self.statusWindow appear];
     World *world = [[World alloc] initWithName:name];
     [world start];
-    [world setup];
     
     [world onNext:WorldDidFinishSetupNotification
                do:^(id n) {
@@ -107,6 +106,7 @@
             return;
         }
         
+        [newWorld start];
         [self.arrayController performSelectorOnMainThread:@selector(addObject:) withObject:newWorld waitUntilDone:NO];
         
         [self.statusWindow disappear];
@@ -127,8 +127,8 @@
             return;
         }
         
+        [world start];
         [self.arrayController performSelectorOnMainThread:@selector(addObject:) withObject:world waitUntilDone:NO];
-        __unused StartMenu *menu = [[StartMenu alloc] initWithWorld:world];
         [self.statusWindow disappear];
     });
 }

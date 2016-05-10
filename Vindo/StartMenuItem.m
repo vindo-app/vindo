@@ -53,6 +53,7 @@
         
         _bundle = [[AppBundle alloc] initWithStartMenuItem:self];
         [self findFiletypes];
+        NSLog(@"generating bundle called %@ in world %@", self.name, self.world);
         [_bundle generate];
     }
     return self;

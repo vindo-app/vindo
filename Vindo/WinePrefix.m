@@ -40,18 +40,15 @@ static NSMapTable *prefixes;
 }
 
 - (NSFileHandle *)logFileHandle {
-    if (_logFileHandle == nil) {
-        // we have to use the unix functions for opening files because NSFileHandle doesn't do appending
-        NSString *logFilePath = [[self.url URLByAppendingPathComponent:@"wine.log"] path];
-        int logFileDescriptor = open([logFilePath UTF8String],
-                                     O_WRONLY | O_CREAT | O_APPEND,
-                                     0644); // mode: -rw-r--r--
+    // we have to use the unix functions for opening files because NSFileHandle doesn't do appending
+    NSString *logFilePath = [[self.url URLByAppendingPathComponent:@"wine.log"] path];
+    int logFileDescriptor = open([logFilePath UTF8String],
+                                 O_WRONLY | O_CREAT | O_APPEND,
+                                 0644); // mode: -rw-r--r--
 
-        if (logFileDescriptor < 0)
-            [NSException raise:NSGenericException format:@"error opening file: %s", strerror(errno)];
-        _logFileHandle = [[NSFileHandle alloc] initWithFileDescriptor:logFileDescriptor closeOnDealloc:YES];
-    }
-    return _logFileHandle;
+    if (logFileDescriptor < 0)
+        [NSException raise:NSGenericException format:@"error opening file: %s", strerror(errno)];
+    return [[NSFileHandle alloc] initWithFileDescriptor:logFileDescriptor closeOnDealloc:YES];
 }
 
 + (void)initialize {

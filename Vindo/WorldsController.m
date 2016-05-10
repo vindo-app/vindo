@@ -56,11 +56,6 @@ static WorldsController *sharedController;
         return self.arrangedObjects[self.selectionIndex];
 }
 
-- (void)insertObject:(World *)world atArrangedObjectIndex:(NSUInteger)index {
-    [world start];
-    [super insertObject:world atArrangedObjectIndex:index];
-}
-
 - (World *)worldWithId:(NSString *)worldId {
     for (World *world in self.arrangedObjects)
         if ([world.worldId isEqualToString:worldId])
