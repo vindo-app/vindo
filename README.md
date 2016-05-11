@@ -1,21 +1,5 @@
-# Vindo
-A Mac program that runs Windows programs.
+# [Vindo](https://vindo.co)
 
-Currently under development.
+Vindo is a Mac program that runs Windows programs. Check the website linked above for (some) details.
 
-Done:
-
- - [x] Run EXEs.
- - [x] Run them when you double-click them.
- - [x] Start and stop the Wineserver successfully.
- - [x] Pretty nice preferences window.
- - [x] Make the preferences window work.
- - [x] Support for multiple prefixes.
- - [x] Stopping and starting prefixes when you switch between them.
-
-Planned:
-
- - [ ] Run .msi files on double-click (almost done)
- - [ ] App bundle packaging
- - [ ] Rewrite winetricks
- - [ ] Start menu
+I'm pretty close to a 1.0 release. I'm basically doing testing and bug fixing right now. The release will be posted on my website when it's done.
