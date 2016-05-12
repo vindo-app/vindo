@@ -60,24 +60,24 @@
 			<key>LSTypeIsPackage</key>
 			<integer>0</integer>
 		</dict>
-        <dict>
-            <key>CFBundleTypeExtensions</key>
-            <array>
-                <string>lnk</string>
-            </array>
-            <key>CFBundleTypeIconFile</key>
-            <string>executable</string>
-            <key>CFBundleTypeName</key>
-            <string>Windows Shortcut</string>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>LSItemContentTypes</key>
-            <array>
-                <string>co.vindo.lnk</string>
-            </array>
-            <key>LSTypeIsPackage</key>
-            <integer>0</integer>
-        </dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>lnk</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>executable</string>
+			<key>CFBundleTypeName</key>
+			<string>Windows Shortcut</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>co.vindo.lnk</string>
+			</array>
+			<key>LSTypeIsPackage</key>
+			<integer>0</integer>
+		</dict>
 		<dict>
 			<key>CFBundleTypeIconFile</key>
 			<string>file</string>
@@ -106,11 +106,11 @@
 	<key>CFBundlePackageType</key>
 	<string>VNDO</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0 beta 2</string>
+	<string>1.0 beta 4</string>
 	<key>CFBundleSignature</key>
 	<string>VNDO</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.0.2</string>
+	<string>1.0.0.4</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.productivity</string>
 	<key>LSMinimumSystemVersion</key>
