@@ -19,7 +19,7 @@
                 <button id="rZh-V2-v8y">
                     <rect key="frame" x="18" y="137" width="232" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Automatically Start Vindo at Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xMa-S5-ZNX">
+                    <buttonCell key="cell" type="check" title="Automatically start Vindo at login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xMa-S5-ZNX">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -30,32 +30,32 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="DNw-db-pFt">
                     <rect key="frame" x="18" y="106" width="75" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Start Menu:" id="Ims-xH-c9q">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Start menu:" id="Ims-xH-c9q">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="4gm-uI-wT1">
-                    <rect key="frame" x="30" y="83" width="102" height="17"/>
+                    <rect key="frame" x="30" y="83" width="99" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Maximum Rows:" id="XOI-CG-h7d">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Maximum rows:" id="XOI-CG-h7d">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="pBm-rR-Oki">
-                    <rect key="frame" x="30" y="58" width="129" height="17"/>
+                    <rect key="frame" x="30" y="58" width="127" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Number of Columns:" id="qeG-qg-rwH">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Number of columns:" id="qeG-qg-rwH">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" id="PWh-cD-57n">
-                    <rect key="frame" x="165" y="58" width="24" height="22"/>
+                    <rect key="frame" x="163" y="58" width="24" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" drawsBackground="YES" id="YBq-jW-meh">
                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="Brv-Hh-Dge">
@@ -71,7 +71,7 @@
                     </connections>
                 </textField>
                 <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" id="HFq-V0-fGs">
-                    <rect key="frame" x="187" y="80" width="19" height="27"/>
+                    <rect key="frame" x="185" y="80" width="19" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <stepperCell key="cell" continuous="YES" alignment="left" minValue="2" maxValue="10" doubleValue="3" id="paQ-cZ-Qdh"/>
                     <connections>
@@ -79,7 +79,7 @@
                     </connections>
                 </stepper>
                 <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" id="uX6-0m-aq8">
-                    <rect key="frame" x="187" y="55" width="19" height="27"/>
+                    <rect key="frame" x="185" y="55" width="19" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <stepperCell key="cell" continuous="YES" alignment="left" minValue="3" maxValue="10" doubleValue="3" id="Klj-Fy-0lg"/>
                     <connections>
@@ -87,7 +87,7 @@
                     </connections>
                 </stepper>
                 <textField verticalHuggingPriority="750" id="hMH-td-VMm">
-                    <rect key="frame" x="165" y="83" width="24" height="22"/>
+                    <rect key="frame" x="163" y="83" width="24" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" drawsBackground="YES" id="FUu-m4-Qix">
                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="yqM-T7-qsi">
@@ -103,9 +103,9 @@
                     </connections>
                 </textField>
                 <button id="qnw-s3-q3a">
-                    <rect key="frame" x="18" y="18" width="150" height="18"/>
+                    <rect key="frame" x="18" y="18" width="148" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Run in Sketchy Mode" bezelStyle="regularSquare" imagePosition="left" inset="2" id="abV-0s-ud5">
+                    <buttonCell key="cell" type="check" title="Run in sketchy mode" bezelStyle="regularSquare" imagePosition="left" inset="2" id="abV-0s-ud5">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
