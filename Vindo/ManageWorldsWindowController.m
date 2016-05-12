@@ -232,11 +232,13 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
        acceptDrop:(id<NSDraggingInfo>)info
               row:(NSInteger)destination
     dropOperation:(NSTableViewDropOperation)dropOperation {
+    World *currentSelectedWorld = [WorldsController sharedController].selectedWorld;
     World *worldToDrop = [[info draggingPasteboard] readObjectsForClasses:@[[World class]] options:nil][0];
     if ([self.arrayController.arrangedObjects indexOfObject:worldToDrop] < destination)
         destination--;
     [self.arrayController removeObject:worldToDrop];
     [self.arrayController insertObject:worldToDrop atArrangedObjectIndex:destination];
+    [WorldsController sharedController].selectedObjects = @[currentSelectedWorld];
     return YES;
 }
 
