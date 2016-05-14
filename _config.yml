@@ -8,13 +8,21 @@ title: "Vindo: Run Windows Programs. On Mac."
 description: "Run Windows Programs. On Mac."
 
 collections:
-    - versions
+    versions:
+    compatibility:
+        output: true
+        permalink: "/compatibility/:path.html"
     
 defaults:
     - scope: 
         path: ""
       values:
         layout: default
+    - scope:
+        path: ""
+        type: compatibility
+      values:
+        layout: compat
 
 # Build settings
 markdown: kramdown

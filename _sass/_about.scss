@@ -1,27 +1,44 @@
-.about-panel {
-    .panel-body {
-        padding: 10px;
-    }
-    
-    .row {
-        margin: 0;
-    }
-    .picture {
-        padding-right: 10px;
+.image-text-panel {
+    img {
+        padding: 0;
+        margin-right: 10px;
+        float: left;
+        &.right {
+            float: right;
+        }
+        &.outdent {
+            margin: -10px;
+            margin-right: 0;
+            padding: 0;
+            @media (max-width: 767px) {
+                margin-top: -15px !important;
+            }
+        }
         
-        width: 192px;
-
         @media (max-width: 767px) {
-            width: 100%;
+            display: block;
+            float: none;
+            margin: 0 auto !important;
             padding-right: 0px;
             padding-bottom: 16px;
         }
-        
-        img {
-            width: 100%;
+    }
+    h1,h2,h3,h4,h5,h6 {
+        margin-top: 0;
+    }
+    .panel-heading {
+        h1,h2,h3,h4,h5,h6 {
+            margin-bottom: 0;
+            .label {
+                float: right;
+            }
         }
     }
     .text {
-        margin-bottom: 10px;
+        margin-bottom: -10px;
     }
+}
+.label {
+    display: inline-block;
+    vertical-align: top;
 }

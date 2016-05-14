@@ -1,0 +1,4 @@
+perfect: "success"
+works: "primary"
+usable: "warning"
+failure: "danger"
