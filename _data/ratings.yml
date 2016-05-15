@@ -1,4 +1,16 @@
-perfect: "Works Pefectly"
-works: "Mostly Works"
-usable: "Gets the Job Done"
-failure: "Doesn't Work"
+perfect:
+    name: "Works Pefectly"
+    description: "Everything works."
+    color: "success"
+works:
+    name: "Mostly Works"
+    description: "Minor features don't work."
+    color: "primary"
+usable:
+    name: "Sort of Works"
+    description: "Major features don't work."
+    color: "warning"
+failure:
+    name: "Doesn't Work"
+    description: "Nothing works at all."
+    color: "danger"

@@ -16,9 +16,14 @@ function buildDatabase() {
 
 function loadEntries() {
     $results.empty();
+    if (results.length == 0)
+        $("#no-results").show();
+    else
+        $("#no-results").hide();
     for (var i = 0; i < results.length && i < 10; i++) {
         $results.append($(results[i].html));
     }
+    $(".label").tooltip();
 }
 
 $(document).ready(function() {
@@ -31,11 +36,17 @@ $(document).ready(function() {
     buildDatabase();
     
     $("#search-box").keyup(function(event) {
+        if ($(this).val() == "") {
+            results = db;
+            loadEntries();
+            return;
+        }
         var fuse = new Fuse(db, {
             keys: ["name", "keywords"]
         });
         results = fuse.search($(this).val());
-        console.log(results);
         loadEntries();
     });
+    results = db;
+    loadEntries();
 });

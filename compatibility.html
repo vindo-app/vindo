@@ -4,20 +4,24 @@ title: "Compatibility"
 permalink: "/compatibility/"
 ---
 <noscript>
-    <div class="alert alert-danger" role="alert">The compatibility database cannot be viewed without JavaScript enabled. Please enable JavaScript and try again later.</div>
+    <div class="alert alert-danger" role="alert">Searching the compatibility requires JavaScript to be enabled.</div>
 </noscript>
-<div class="container-fluid js-only">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="input-group search-box">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-                <input type="text" class="form-control" id="search-box" placeholder="Search">
-            </div>
+
+<div class="row js-only">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="input-group search-box">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            <input type="text" class="form-control" id="search-box" placeholder="Search">
         </div>
     </div>
 </div>
-<div class="container-fluid" id="compatibility-results" class="js-only">
+
+<div id="compatibility-results" class="js-only">
     {% for entry in site.compatibility %}
         {{ entry.output }}
     {% endfor %}
+</div>
+
+<div class="text-center" id="no-results">
+    <h1>No results. 🙁</h1>
 </div>
