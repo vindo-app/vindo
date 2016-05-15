@@ -1,17 +1,12 @@
-<div class="row">
+<div class="row compatibility-entry" data-name="{{ page.name }}" data-keywords="{{ page.keywords }}">
     <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default image-text-panel">
             <div class="panel-heading">
                 <h4>{{ page.name }} <span class="label label-{{ site.data.rating_colors[page.rating] }}">{{ site.data.ratings[page.rating] }}</span></h4>
             </div>
             <div class="panel-body">
-                <a href="{{ page.link }}" target="_blank"><img src="{{ page.icon }}" class="" height="120"></a>
-                <div class="text"><!--
-                    <h2>{{ page.name }}
-                        {% case page.rating %}
-                        {% when "perfect" %}<span class="label label-success">Works Perfectly</span>
-                        {% endcase %}
-                    </h2>-->
+                <a href="{{ page.link }}" target="_blank"><img src="{{ page.icon }}" height="120" width="120"></a>
+                <div class="text">
                     {{ content }}
                 </div>        
             </div>

@@ -17,5 +17,7 @@ permalink: "/compatibility/"
     </div>
 </div>
 <div class="container-fluid" id="compatibility-results" class="js-only">
-    <!-- will be filled in by javascript -->
+    {% for entry in site.compatibility %}
+        {{ entry.output }}
+    {% endfor %}
 </div>
