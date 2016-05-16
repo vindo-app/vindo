@@ -16,7 +16,7 @@ function buildDatabase() {
 
 function loadEntries() {
     $results.empty();
-    if (results.length == 0)
+    if (results != null && results.length == 0)
         $("#no-results").show();
     else
         $("#no-results").hide();
@@ -37,7 +37,7 @@ $(document).ready(function() {
     
     $("#search-box").keyup(function(event) {
         if ($(this).val() == "") {
-            results = db;
+            results = null;
             loadEntries();
             return;
         }
@@ -45,8 +45,8 @@ $(document).ready(function() {
             keys: ["name", "keywords"]
         });
         results = fuse.search($(this).val());
+        console.log(results);
         loadEntries();
     });
-    results = db;
     loadEntries();
 });

@@ -1,0 +1,38 @@
+.navbar {
+    background-color: $brand-background;
+    margin-bottom: 0;
+    border-width: 0;
+
+    .navbar-brand {
+        color: white;
+        img {
+            display: inline-block;
+            margin-top: -6px;
+            margin-right: 5px;
+            padding: 2px;
+        }
+    }
+
+    li > a {
+        transition: background-color 1s, color 0.5s;
+        color: white;
+    }
+
+    li > a:hover {
+        background-color: darken($brand-background, 10%);
+        color: lightgray;
+    }
+
+    .icon-bar {
+        background-color: white;
+    }
+
+    button.navbar-toggle {
+        border: 1px solid white;
+
+        &:hover {
+            background-color: $brand-color;
+        }
+    }
+}
+

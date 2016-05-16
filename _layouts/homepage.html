@@ -3,11 +3,7 @@
     {% include head.html %}
     <body>
         {% include navbar.html %}
-        {% include highlight.html %}
-        <div class="container">
-            {{ content }}
-            {% include postcontent.html %}
-        </div>
+        {{ content }}
         {% include footer.html %}
         {% include footerscript.html %}
     </body>

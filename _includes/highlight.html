@@ -1,23 +1,25 @@
-<div class="container">
-    <div class="row highlight">
-        {% if page.type == 'page' %}
-            <div class="col-sm-12">
-                <h1 class="page-title">{{ page.title }}</h1>
-            </div>
-        {% elsif page.type == 'post' %}
-            <div class="col-sm-12">
-                <h1 class="post-title">{{ page.title }}</h1>
-                <h5 class="date">{{ page.date | date: '%B %d, %Y' }}</h5>
-            </div>
-        {% elsif page.type == 'index' %}
-            <div class="col-sm-4">
-                <img src="/images/512x512.png" alt="">
-            </div>
-            <div class="col-sm-8">
-                <h1 class="very-important">Vindo</h1>
-                <h3>Run Windows programs. On Mac.</h3>
-                <a class="btn btn-download btn-lg btn-block" href="http://bit.ly/vindo0-9-3">Download</a>
-            </div>
-        {% endif %}
+<section class="highlight">
+    <div class="container">
+        <div class="row">
+            {% if page.type == 'page' %}
+                <div class="col-sm-12">
+                    <h1 class="page-title">{{ page.title }}</h1>
+                </div>
+            {% elsif page.type == 'post' %}
+                <div class="col-sm-12">
+                    <h1 class="post-title">{{ page.title }}</h1>
+                    <h5 class="date">{{ page.date | date: '%B %d, %Y' }}</h5>
+                </div>
+            {% elsif page.type == 'index' %}
+                <div class="col-sm-4">
+                    <img src="/images/512x512.png" alt="">
+                </div>
+                <div class="col-sm-8">
+                    <h1 class="very-important">Vindo</h1>
+                    <h3>Run Windows programs. On Mac.</h3>
+                    <a class="btn btn-download btn-lg btn-block" href="http://bit.ly/vindo0-9-3">Download</a>
+                </div>
+            {% endif %}
+        </div>
     </div>
-</div>
+</section>

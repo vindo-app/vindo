@@ -1,31 +1,106 @@
 ---
-type: index
+layout: homepage
 ---
-<div class="row">
-    <div class="col-md-8">
-        <p>
-            Vindo can run Windows games and programs on your Mac, without needing to boot into a separate system or launch a VM program. This means that Vindo will not waste resources in the way that virtual machines do, and won't require irritating boot times.
-        </p>
-        
-        <p>
-            With Vindo, when you want to run an .exe, simply double-click it. The .exe will start, and you're good to go!
-        </p>
-        <!--
+<div class="red-background page">
+    <section class="highlight">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="/images/vindo_icon.png" alt="">
+                </div>
+                <div class="col-sm-8">
+                    <!-- <img class="visible&#45;xs" src="/images/vindo_icon.png" alt=""> -->
+                    <h1 class="very-important">Vindo</h1>
+                    <h3>Run Windows programs. On Mac.</h3>
+                    <a class="btn btn-download btn-lg hidden-xs" href="http://bit.ly/vindo0-9-3">Download</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="arrow hidden-xs">
+        <a href="#second-page">
+            <span class="glyphicon glyphicon-chevron-down"></span>
+        </a>
+    </section>
+</div>
+
+<a name="second-page"></a>
+
+<div class="container">
+    <p>
+    Vindo can run Windows games and programs on your Mac, without needing to boot into a separate system or launch a VM program. This means that Vindo will not waste resources in the way that virtual machines do, and won't require irritating boot times.
+    </p>
+
+    <p>
+    With Vindo, when you want to run an .exe, simply double-click it. The .exe will start, and you're good to go!
+    </p>
+    <!--
         <h2 class="page-header">Screenshots</h2>
 
         <div class="row">
-            {% for screenshot in site.data.screenshots %}
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <a href="images/screenshots/{{ screenshot.file }}" class="thumbnail screenshot-link">
-                        <img src="images/screenshots/{{ screenshot.file }}" alt="{{ screenshot.description }}">
-                    </a>
-                </div>
-            {% endfor %}
+        {% for screenshot in site.data.screenshots %}
+        <div class="col-md-4 col-sm-6 col-xs-12">
+        <a href="images/screenshots/{{ screenshot.file }}" class="thumbnail screenshot-link">
+        <img src="images/screenshots/{{ screenshot.file }}" alt="{{ screenshot.description }}">
+        </a>
+        </div>
+        {% endfor %}
         </div>-->
-    </div>
-    
-    <div class="col-md-4">
-        <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/VindoApp" data-widget-id="657644514790744064">Tweets by @VindoApp</a>
-    </div>
 </div>
 
+<!--
+<section class="compatibility">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <input type="text" class="form-control input-lg text-center" id="search-box" placeholder="Search compatibility database">
+            </div>
+        </div>
+
+        <div id="compatibility-results" class="js-only">
+            {% for entry in site.compatibility %}
+            {{ entry.output }}
+            {% endfor %}
+        </div>
+
+        <div class="text-center" id="no-results">
+            <h1>No results. 🙁</h1>
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <div class="container">
+        <h1 class="page-header">About Us</h1>
+        <div class="panel panel-default image-text-panel">
+            <div class="panel-body">
+                <img src="/images/tbodt.jpeg" alt="Theodore Dubois" class="img-rounded" height="192">
+                <div class="text">
+                    <h3>Theodore Dubois <small>Programmer, Web Designer, Pilot</small></h3>
+                    <p>I'm a programmer. I write code. I wrote all the code in Vindo, and designed this website. Personally, I think I did a good job. If you don't think so, well, you are entitled to your opinion.</p>
+                    <p>Ok, I'm not really a pilot. That picture is from when I was 8, and I had a chance to see what it's like to sit in the pilot's seat. If you want to know, there's so many buttons and switches there that it's hard to imagine how anyone is able to fly a plane.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default image-text-panel">
+            <div class="panel-body">
+                <img src="http://placehold.it/192x192" alt="Joseph Amir" class="img-rounded" height="192">
+                <div class="text">
+                    <h3>Joseph Amir <small>Marketing, Testing, Visual Effects/YouTube Management</small></h3>
+                    <p>Ever wonder why Vindo runs all the Crysis games so well? I may have had a hand in that. I beta test
+                    basically every game that I own (which is many), and I pretend like I’m doing something when I’m asked
+                    what I’m working on by Theodore. It’s a good way to rationalize my gaming habit. I’m currently playing
+                    Crysis Warhead, Batman: Arkham Asylum, and Borderlands 2. I also do some visual effects work on the side. and I enjoy graphic design (to some extent- it's hard!)
+                    I made that awesome icon you see. It was fun (and a good way to better my Maya skills...)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+-->
+
+<div class="container">
+    <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/VindoApp" data-widget-id="657644514790744064">Tweets by @VindoApp</a>
+</div>

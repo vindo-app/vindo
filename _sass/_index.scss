@@ -1,0 +1,115 @@
+.red-background {
+    background-color: $brand-background;
+    color: white;
+    margin-bottom: 20px;
+    .panel {
+        color: black;
+    }
+}
+
+// @media (max-width: 767px) {
+html, body {
+    min-height: 100%;
+    height: 100%;
+}
+// }
+
+.page {
+    min-height: calc(100% - 50px); // -50 for the navbar
+}
+
+.highlight {
+    position: absolute;
+    @media (min-width: 768px) {
+        height: 288px;
+        top: calc(50% - 50px - 144px);
+        width: 700px;
+        left: calc(50% - 350px);
+    }
+    @media (max-width: 767px) {
+        height: 288px;
+        top: calc(50% - 144px);
+        width: 100%;
+    }
+
+    img {
+        margin: 0 auto;
+        height: 288px;
+    }
+
+    h1.very-important {
+        font-weight: 100;
+        font-size: 108px;
+        @media (max-width: 767px) {
+            font-size: 72px;
+        }
+        margin-top: 0;
+    }
+
+    h1.page-title {
+        text-align: center;
+        font-size: 48px;
+        color: white;
+        margin-top: 0;
+    }
+
+    h1.post-title {
+        font-size: 48px;
+        color: white;
+        margin-top: 0;
+    }
+
+    .date {
+        color: white;
+    }
+
+    .btn-download {
+        margin-top: 48px;
+        width: 100%;
+    }
+
+    @media (max-width: 767px) {
+        h1, h3 {
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            height: 168px;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+.compatibility {
+    margin-top: 30px;
+    padding-bottom: 30px;
+
+    .compatibility-entry {
+        &:first-child {
+            margin-top: 20px;
+        }
+    }
+}
+
+.arrow {
+    position: absolute;
+    bottom: 12px;
+    width: 100%;
+
+    text-align: center;
+    a {
+        font-size: 36px;
+        color: white;
+        transition: text-shadow 0.5s;
+        &:hover {
+            text-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+        }
+    }
+}
+
+#search-box {
+    text-overflow: ellipsis;
+}
