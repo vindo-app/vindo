@@ -1,6 +1,6 @@
 ---
 name: "Crysis"
-rating: perfect
+rating: works
 icon:
 link: http://store.steampowered.com/app/17300/
 ---
