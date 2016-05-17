@@ -160,6 +160,13 @@ html, body {
             margin-top: 20px;
         }
     }
+
+    #search-box {
+        text-overflow: ellipsis;
+        @media (min-width: 768px) {
+            text-align: center;
+        }
+    }
 }
 
 .arrow {
@@ -179,6 +186,3 @@ html, body {
     }
 }
 
-#search-box {
-    text-overflow: ellipsis;
-}
