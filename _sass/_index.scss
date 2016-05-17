@@ -22,13 +22,13 @@ html, body {
     position: absolute;
     @media (min-width: 768px) {
         height: 288px;
-        top: calc(50% - 50px - 144px);
+        top: calc(50% - 25px - 144px);
         width: 700px;
         left: calc(50% - 350px);
     }
     @media (max-width: 767px) {
         height: 288px;
-        top: calc(50% - 144px);
+        top: calc(50% - 25px - 144px);
         width: 100%;
     }
 
@@ -103,9 +103,10 @@ html, body {
     a {
         font-size: 36px;
         color: white;
-        transition: text-shadow 0.5s;
+        text-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+        transition: text-shadow 0.3s, color 0.5s;
         &:hover {
-            text-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+            text-shadow: 0px 0px 8px rgba(0,0,0,0.5);
         }
     }
 }
