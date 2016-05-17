@@ -15,21 +15,25 @@ html, body {
 // }
 
 .page {
-    min-height: calc(100% - 50px); // -50 for the navbar
+    min-height: 100%;
 }
 
 .highlight {
     position: absolute;
     @media (min-width: 768px) {
         height: 288px;
-        top: calc(50% - 25px - 144px);
+        top: calc(50% - 144px);
         width: 700px;
         left: calc(50% - 350px);
     }
     @media (max-width: 767px) {
         height: 288px;
-        top: calc(50% - 25px - 144px);
+        top: calc(50% - 138px);
         width: 100%;
+    }
+    @media (max-height: 371px) {
+        height: 168px;
+        top: calc(50% - 84px);
     }
 
     img {
@@ -37,12 +41,27 @@ html, body {
         height: 288px;
     }
 
+    @media (max-height: 371px) {
+        // make them work on xs
+        .col-sm-4 {
+            width: 25%;
+            margin-left: 8.33333333%;
+            float: left;
+        }
+        .col-sm-8 {
+            width: 58.33333333%;
+            float: left;
+        }
+    }
     h1.very-important {
         font-weight: 100;
         font-size: 108px;
         @media (max-width: 767px) {
             font-size: 72px;
         }
+        margin-top: 0;
+    }
+    h3 {
         margin-top: 0;
     }
 
@@ -83,9 +102,58 @@ html, body {
     }
 }
 
+.showcase {
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .program {
+        margin-bottom: 20px;
+    }
+    .screenshot {
+        img {
+            width: 100%;
+        }
+    }
+
+    .blurb {
+        padding-top: 5%;
+        padding-bottom: 5%;
+        text-align: center;
+        img {
+            width: 108px;
+        }
+        position: relative;
+        // hard-code the height of the screenshot at each size
+        // only way to equalize the columns without using flexbox
+        @media (min-width: 768px) { // small
+            height: 333px;
+        }
+        @media (min-width: 992px) { // medium
+            height: 436px;
+        }
+        @media (min-width: 1200px) { // large
+            height: 530px;
+        }
+    }
+
+    @media(min-width: 768px) {
+        .vertically-center {
+            margin-top: 10px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
 .compatibility {
-    margin-top: 30px;
     padding-bottom: 30px;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
 
     .compatibility-entry {
         &:first-child {

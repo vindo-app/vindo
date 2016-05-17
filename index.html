@@ -1,8 +1,8 @@
 ---
 layout: homepage
 ---
-<div class="red-background page">
-    <section class="highlight">
+<section class="red-background page">
+    <div class="highlight">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-4">
@@ -16,16 +16,33 @@ layout: homepage
                 </div>
             </div>
         </div>
-    </section>
-    <section class="arrow hidden-xs">
-        <a href="#second-page">
+    </div>
+    <div class="arrow hidden-xs">
+        <a href="#showcase">
             <span class="glyphicon glyphicon-chevron-down"></span>
         </a>
-    </section>
-</div>
+    </div>
+</section>
 
-<a name="second-page"></a>
+<section class="showcase" id="showcase">
+    <div class="container">
+        <h1>Run tons of cool Windows programs and games &mdash; with just a double-click.</h1>
+        <div class="row program">
+            <div class="col-sm-3 blurb">
+                <div class="vertically-center">
+                    <img src="/icons/steam.png">
+                    <h2>Steam</h2>
+                    <p>Play Windows-only games, browse the Steam store, and even use the Steam in-game overlay.</p>
+                </div>
+            </div>
+            <div class="col-sm-9 screenshot">
+                <img src="/images/screenshots/steam.png">
+            </div>
+        </div>
+    </div>
+</section>
 
+<!--
 <div class="container">
     <p>
     Vindo can run Windows games and programs on your Mac, without needing to boot into a separate system or launch a VM program. This means that Vindo will not waste resources in the way that virtual machines do, and won't require irritating boot times.
@@ -34,7 +51,6 @@ layout: homepage
     <p>
     With Vindo, when you want to run an .exe, simply double-click it. The .exe will start, and you're good to go!
     </p>
-    <!--
         <h2 class="page-header">Screenshots</h2>
 
         <div class="row">
@@ -45,15 +61,19 @@ layout: homepage
         </a>
         </div>
         {% endfor %}
-        </div>-->
+        </div>
 </div>
+-->
 
-<!--
 <section class="compatibility">
     <div class="container">
+        <h1>&hellip;and more&hellip;</h1>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <input type="text" class="form-control input-lg text-center" id="search-box" placeholder="Search compatibility database">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                    <input type="text" class="form-control input-lg text-center" id="search-box" placeholder="Search Compatibility Database">
+                </div>
             </div>
         </div>
 
@@ -69,6 +89,7 @@ layout: homepage
     </div>
 </section>
 
+<!--
 <section class="about">
     <div class="container">
         <h1 class="page-header">About Us</h1>
@@ -99,8 +120,8 @@ layout: homepage
         </div>
     </div>
 </section>
--->
 
 <div class="container">
     <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/VindoApp" data-widget-id="657644514790744064">Tweets by @VindoApp</a>
 </div>
+-->
