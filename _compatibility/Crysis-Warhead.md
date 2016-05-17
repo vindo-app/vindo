@@ -1,6 +1,6 @@
 
 ---
-name: "Crysis-Warhead"
+name: "Crysis Warhead"
 rating: perfect
 icon:
 link: http://store.steampowered.com/app/17330/
