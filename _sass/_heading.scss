@@ -1,0 +1,17 @@
+.heading {
+    margin-top: -20px;
+    h1.page-title {
+        font-size: 48px;
+        color: white;
+        margin-top: 0;
+    }
+
+    h1.post-title {
+        @extends .page-title;
+        text-align: left;
+    }
+
+    .date {
+        color: white;
+    }
+}

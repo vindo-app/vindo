@@ -1,7 +1,5 @@
 .navbar {
     background-color: $brand-background;
-    margin-bottom: 0;
-    border-width: 0;
 
     .navbar-brand {
         color: white;
@@ -36,3 +34,6 @@
     }
 }
 
+body {
+    margin-top: 70px;
+}
