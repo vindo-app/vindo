@@ -1,6 +1,6 @@
 ---
 name: "Depth"
-rating: almost perfect
+rating: works
 icon: 
 link: http://store.steampowered.com/app/274940/
 ---
