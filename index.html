@@ -39,51 +39,26 @@ layout: homepage
                 <img src="/images/screenshots/steam.png">
             </div>
         </div>
-    </div>
-</section>
 
-<!--
-<div class="container">
-    <p>
-    Vindo can run Windows games and programs on your Mac, without needing to boot into a separate system or launch a VM program. This means that Vindo will not waste resources in the way that virtual machines do, and won't require irritating boot times.
-    </p>
-
-    <p>
-    With Vindo, when you want to run an .exe, simply double-click it. The .exe will start, and you're good to go!
-    </p>
-        <h2 class="page-header">Screenshots</h2>
-
-        <div class="row">
-        {% for screenshot in site.data.screenshots %}
-        <div class="col-md-4 col-sm-6 col-xs-12">
-        <a href="images/screenshots/{{ screenshot.file }}" class="thumbnail screenshot-link">
-        <img src="images/screenshots/{{ screenshot.file }}" alt="{{ screenshot.description }}">
-        </a>
-        </div>
-        {% endfor %}
-        </div>
-</div>
--->
-
-<section class="compatibility">
-    <div class="container">
         <h1>&hellip;and more&hellip;</h1>
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="input-group input-group-lg">
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-                    <input type="text" class="form-control input-lg" id="search-box" placeholder="Search Compatibility Database">
-                </div>
-            </div>
+        <div class="input-group input-group-lg search-box js-only">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            <input type="text" class="form-control input-lg" id="search-box" placeholder="Search Compatibility Database">
         </div>
 
-        <div id="compatibility-results" class="js-only">
+        <noscript>
+            <div class="alert alert-danger">
+                JavaScript is disabled, so you can't search the compatibility database. But you can read the full database below.
+            </div>
+        </noscript>
+
+        <div id="compatibility-results">
             {% for entry in site.compatibility %}
-            {{ entry.output }}
+                {{ entry.output }}
             {% endfor %}
         </div>
 
-        <div class="text-center" id="no-results">
+        <div class="text-center js-only" id="no-results">
             <h1>No results. 🙁</h1>
         </div>
     </div>
