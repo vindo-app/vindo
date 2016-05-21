@@ -5,7 +5,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://vindo.co" # the base hostname & protocol for your site
 
 title: "Vindo: Run Windows Programs. On Mac."
-description: "Run Windows Programs. On Mac."
+description: "Vindo can run tons of cool Windows programs and games on a Mac, with just a simple double-click."
 
 collections:
     versions:
