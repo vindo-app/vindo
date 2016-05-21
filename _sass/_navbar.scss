@@ -6,17 +6,20 @@
         img {
             display: inline-block;
             margin-top: -6px;
-            margin-right: 5px;
-            padding: 2px;
+            margin-right: 8px;
+            height: 29px;
         }
     }
 
     li > a {
-        transition: background-color 1s, color 0.5s;
         color: white;
-    }
 
-    li > a:hover {
+        &:hover {
+            background-color: $brand-background;
+            color: lightgray;
+        }
+    }
+    li.active > a {
         background-color: darken($brand-background, 10%);
         color: lightgray;
     }

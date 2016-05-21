@@ -1,0 +1,24 @@
+-
+    name: "One-Click Setup"
+    vindo: "yes"
+    wine: "no"
+    vmware: "no"
+    crossover: "yes"
+-
+    name: "Install Programs with One Click"
+    vindo: "yes"
+    wine: "no"
+    vmware: "yes"
+    crossover: "no"
+-
+    name: "Cost"
+    vindo: "Free"
+    wine: "Free"
+    vmware: "$79.99 + $119.99 (copy of windows)"
+    crossover: "$59.99"
+-
+    name: "Open Source"
+    vindo: "yes"
+    wine: "yes"
+    vmware: "Who cares?"
+    crossover: "Who cares?"

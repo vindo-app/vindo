@@ -7,7 +7,7 @@
     }
 
     h1.post-title {
-        @extends .page-title;
+        @extend .page-title;
         text-align: left;
     }
 

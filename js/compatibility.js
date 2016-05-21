@@ -24,6 +24,7 @@ function loadEntries() {
         $results.append($(results[i].html));
     }
     $(".label").tooltip();
+    $("body").scrollspy("refresh");
 }
 
 $(document).ready(function() {

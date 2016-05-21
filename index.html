@@ -1,5 +1,12 @@
 ---
 layout: homepage
+sections:
+    - id: showcase
+      name: "What Runs"
+    - id: how-it-works
+      name: "How it Works"
+    - id: features
+      name: "Features"
 ---
 <section class="red-background page">
     <div class="highlight">
@@ -54,7 +61,7 @@ layout: homepage
 
         <div id="compatibility-results">
             {% for entry in site.compatibility %}
-                {{ entry.output }}
+            {{ entry.output }}
             {% endfor %}
         </div>
 
@@ -64,39 +71,112 @@ layout: homepage
     </div>
 </section>
 
-<!--
-<section class="about">
+<section class="how-it-works red-background" id="how-it-works">
     <div class="container">
-        <h1 class="page-header">About Us</h1>
-        <div class="panel panel-default image-text-panel">
-            <div class="panel-body">
-                <img src="/images/tbodt.jpeg" alt="Theodore Dubois" class="img-rounded" height="192">
-                <div class="text">
-                    <h3>Theodore Dubois <small>Programmer, Web Designer, Pilot</small></h3>
-                    <p>I'm a programmer. I write code. I wrote all the code in Vindo, and designed this website. Personally, I think I did a good job. If you don't think so, well, you are entitled to your opinion.</p>
-                    <p>Ok, I'm not really a pilot. That picture is from when I was 8, and I had a chance to see what it's like to sit in the pilot's seat. If you want to know, there's so many buttons and switches there that it's hard to imagine how anyone is able to fly a plane.</p>
+        <h1>How it Works</h1>
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-4">
+                <h2>VM Software</h2>
+                <div class="box-container">
+                    <div class="boxes">
+                        <div class="box">Windows Programs</div>
+                        <div class="box">Windows</div>
+                        <div class="box">Virtual Machine</div>
+                        <div class="box">Your Computer</div>
+                    </div>
                 </div>
+                <p>Programs like VMWare or Parallels create a virtual computer inside your real computer, with virtual memory, processor, hard drive, etc. You can then install Windows on the virtual computer and run your Windows programs on that.</p>
             </div>
-        </div>
-
-        <div class="panel panel-default image-text-panel">
-            <div class="panel-body">
-                <img src="http://placehold.it/192x192" alt="Joseph Amir" class="img-rounded" height="192">
-                <div class="text">
-                    <h3>Joseph Amir <small>Marketing, Testing, Visual Effects/YouTube Management</small></h3>
-                    <p>Ever wonder why Vindo runs all the Crysis games so well? I may have had a hand in that. I beta test
-                    basically every game that I own (which is many), and I pretend like I’m doing something when I’m asked
-                    what I’m working on by Theodore. It’s a good way to rationalize my gaming habit. I’m currently playing
-                    Crysis Warhead, Batman: Arkham Asylum, and Borderlands 2. I also do some visual effects work on the side. and I enjoy graphic design (to some extent- it's hard!)
-                    I made that awesome icon you see. It was fun (and a good way to better my Maya skills...)
-                    </p>
+            <div class="col-sm-4">
+                <h2>Vindo</h2>
+                <div class="box-container">
+                    <div class="boxes">
+                        <div class="box">Windows Programs</div>
+                        <div class="box thin">Vindo</div>
+                        <div class="box">Your Computer</div>
+                    </div>
                 </div>
+                <p>Vindo uses your computer's real memory, processor, hard drive, etc. instead of creating virtual versions. This makes Vindo much faster than virtual machine software. Programs generally run at the same speed as they would if you installed Windows on your computer.</p>
             </div>
         </div>
     </div>
 </section>
 
-<div class="container">
-    <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/VindoApp" data-widget-id="657644514790744064">Tweets by @VindoApp</a>
-</div>
--->
+<section class="features" id="features">
+    <div class="container">
+        <h1>Obligatory Checkbox Matrix</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    {% for program in site.data.programs %}
+                    <th>{{ program }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for feature in site.data.features %}
+                <tr>
+                    <th class="feature-name">{{ feature.name }}</th>
+                    {% for program in site.data.programs %}
+                    {% assign pro_gram = program | slugify %}
+                    {% if feature[pro_gram] == 'yes' %}
+                    <td class="yes"><span class="glyphicon glyphicon-ok"></span></td>
+                    {% elsif feature[pro_gram] == 'no' %}
+                    <td class="no"><span class="glyphicon glyphicon-remove"></span></td>
+                    {% else %}
+                    <td>{{ feature[pro_gram] }}</td>
+                    {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- <section class="download&#45;now hidden&#45;xs red&#45;background" id="download&#45;now"> -->
+<!--     <h1>What are you waiting for?</h1> -->
+<!--     <div class="container"> -->
+<!--         {% for i in (1..6) %} -->
+<!--             <div class="row"> -->
+<!--                 {% for i in (1..6) %} -->
+<!--                     <div class="col&#45;xs&#45;6 col&#45;sm&#45;2"> -->
+<!--                         <a class="btn btn&#45;download btn&#45;lg" href="http://bit.ly/vindo0&#45;9&#45;3">Download</a> -->
+<!--                     </div> -->
+<!--                 {% endfor %} -->
+<!--             </div> -->
+<!--         {% endfor %} -->
+<!--     </div> -->
+<!-- </section> -->
+
+<!-- <section class="about red&#45;background" id="about"> -->
+<!--     <div class="container"> -->
+<!--         <h1>About Us</h1> -->
+<!--         <div class="panel panel&#45;default image&#45;text&#45;panel"> -->
+<!--             <div class="panel&#45;body"> -->
+<!--                 <img src="/images/tbodt.jpeg" alt="Theodore Dubois" class="img&#45;rounded" height="192"> -->
+<!--                 <div class="text"> -->
+<!--                     <h3>Theodore Dubois <small>Programmer, Web Designer, Pilot</small></h3> -->
+<!--                     <p>I'm a programmer. I write code. I wrote all the code in Vindo, and designed this website. Personally, I think I did a good job. If you don't think so, well, you are entitled to your opinion.</p> -->
+<!--                     <p>Ok, I'm not really a pilot. That picture is from when I was 8, and I had a chance to see what it's like to sit in the pilot's seat. If you want to know, there's so many buttons and switches there that it's hard to imagine how anyone is able to fly a plane.</p> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--  -->
+<!--         <div class="panel panel&#45;default image&#45;text&#45;panel"> -->
+<!--             <div class="panel&#45;body"> -->
+<!--                 <img src="/images/joseph.png" alt="Joseph Amir" class="img&#45;rounded" height="192"> -->
+<!--                 <div class="text"> -->
+<!--                     <h3>Joseph Amir <small>Marketing, Testing, Visual Effects/YouTube Management</small></h3> -->
+<!--                     <p>Ever wonder why Vindo runs all the Crysis games so well? I may have had a hand in that. I beta test -->
+<!--                     basically every game that I own (which is many), and I pretend like I’m doing something when I’m asked -->
+<!--                     what I’m working on by Theodore. It’s a good way to rationalize my gaming habit. I’m currently playing -->
+<!--                     Crysis Warhead, Batman: Arkham Asylum, and Borderlands 2. I also do some visual effects work on the side. and I enjoy graphic design (to some extent&#45; it's hard!) -->
+<!--                     I made that awesome icon you see. It was fun (and a good way to better my Maya skills...) -->
+<!--                     </p> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+<!-- </section> -->
