@@ -27,16 +27,8 @@
                 </ul>
             {% endif %}
             <ul class="nav navbar-nav navbar-right">
-                {% for page_data in site.data.pages %}
-                    {% assign page_url = page_data | prepend: "/" | append: "/" %}
-                
-                    {% for page_obj in site.pages %}
-                        {% if page_obj.url == page_url %}
-                            <li><a href="{{ page_url }}">{{ page_obj.title }}</a></li>
-                            {% break %}
-                        {% endif %}
-                    {% endfor %}
-                {% endfor %}
+                <li><a href="https://github.com/vindo-app/vindo/releases">Downloads</a></li>
+                <li><a href="/blog/">Blog</a></li>
             </ul>
         </div>
     </div>
