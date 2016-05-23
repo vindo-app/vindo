@@ -11,7 +11,7 @@ a {
         color: darken($brand-color, 15%);
     }
 
-    &:hover {
+    &:hover, &:focus {
         color: lighten($brand-color, 20%);
         text-decoration: none;
     }

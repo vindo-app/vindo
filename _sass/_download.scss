@@ -3,7 +3,7 @@
     color: white;
     transition: background-color 1.5s;
 
-    &:hover {
+    &:hover, &:focus {
         text-decoration: none;
         background-color: rgba(128,128,128,0.5);
         color: white;
