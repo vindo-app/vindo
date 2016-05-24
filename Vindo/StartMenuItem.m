@@ -53,7 +53,6 @@
         
         _bundle = [[AppBundle alloc] initWithStartMenuItem:self];
         [self findFiletypes];
-        NSLog(@"generating bundle called %@ in world %@", self.name, self.world);
         [_bundle generate];
     }
     return self;
@@ -63,7 +62,6 @@
     NSArray *filetypes = [StartMenuController sharedInstance].filetypes.filetypes;
     for (Filetype *filetype in filetypes) {
         if ([filetype.appName isEqualToString:self.name]) {
-            NSLog(@"%@: found filetype %@", self.name, filetype.docName);
             [_bundle addFiletype:filetype];
         }
     }

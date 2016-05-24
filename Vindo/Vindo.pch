@@ -26,8 +26,8 @@ static class *sharedInstance; \
 } \
 @end
 
-#ifndef DEBUG
-#define NSLog(x, ...)
+#ifdef DEBUG
+#define DLog(x) NSLog(x)
+#else
+#define DLog(x)
 #endif
-
-//#import "NSUserDefaults+KeyPaths.h"

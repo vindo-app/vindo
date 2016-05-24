@@ -80,6 +80,7 @@ NSString *windowsPathFromUnixPath(NSString *unix, World *world) {
             return [NSString stringWithFormat:@"%@\\%@", driveLetter, pathOnDrive];
         }
     }
+    // this can't happen because there's a Z drive that matches any path that fails all other drives
     NSCAssert(NO, @"BAD STUFFZ HAPPAND");
     return nil;
 }

@@ -13,8 +13,6 @@
 @implementation World (WineServer)
 
 - (void)start {
-    NSLog(@"%@ starting", self);
-
     NSAssert(!self.serverTask.running, @"attempt to start %@ which is already started", self);
     
     // make sure prefix directory exists
@@ -36,8 +34,6 @@
 }
 
 - (void)stop {
-    NSLog(@"%@ stopping", self);
-    
     NSAssert(self.serverTask.running, @"attempt to stop %@ which is already stopped", self);
     
     // first end the session with wineboot
