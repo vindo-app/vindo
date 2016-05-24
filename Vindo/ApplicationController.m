@@ -109,4 +109,12 @@
     [NSApp activateIgnoringOtherApps:YES];
 }
 
+- (IBAction)sendFeedback:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"mailto:vindo%40vindo.co"]];
+}
+
+- (IBAction)sendCompatibilityReport:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"mailto:vindo%40vindo.co?subject=Vindo%20Compatibility%20Report&body=Program%3A%0A%0A%0ARating%3A%20(works%20perfectly%2C%20minor%20features%20don't%20work%2C%20major%20features%20don't%20work%2C%20or%20nothing%20works)%0A%0A%0ADescription%20of%20what%20works%20and%20what%20doesn't%20work%3A%0A%0A%0ALink%20to%20a%20website%20for%20the%20program%3A%0A%0A%0A"]];
+}
+
 @end
