@@ -15,3 +15,4 @@ NSArray *argumentsFromCommand(NSString *command);
 NSArray *splitArguments(NSString *arguments);
 
 NSString *windowsPathFromUnixPath(NSString *unix, World *world);
+NSString *unixPathFromWindowsPath(NSString *windows, World *world);

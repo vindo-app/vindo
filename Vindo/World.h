@@ -22,6 +22,7 @@ extern NSString *const WorldPasteboardType;
 @property NSString *name;
 @property (readonly) NSURL *url;
 
+- (void)run:(NSString *)program withArguments:(NSArray *)arguments inDirectory:(NSString *)directory;
 - (void)run:(NSString *)program withArguments:(NSArray *)arguments;
 - (void)run:(NSString *)program;
 - (void)setup;
@@ -37,6 +38,7 @@ extern NSString *const WorldPasteboardType;
 @interface World (WinePrefix)
 
 - (NSTask *)wineTaskWithProgram:(NSString *)program arguments:(NSArray *)arguments;
+- (NSTask *)wineTaskWithProgram:(NSString *)program arguments:(NSArray *)arguments currentDirectory:(NSString *)directory;
 - (NSDictionary *)wineEnvironment;
 
 @end

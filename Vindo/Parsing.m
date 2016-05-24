@@ -84,3 +84,9 @@ NSString *windowsPathFromUnixPath(NSString *unix, World *world) {
     NSCAssert(NO, @"BAD STUFFZ HAPPAND");
     return nil;
 }
+
+NSString *unixPathFromWindowsPath(NSString *windows, World *world) {
+    return [[[world.url.path stringByAppendingPathComponent:@"dosdevices"]
+             stringByAppendingPathComponent:[windows stringByReplacingOccurrencesOfString:@"\\" withString:@"/"]]
+            stringByResolvingSymlinksInPath];
+}

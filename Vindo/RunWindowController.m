@@ -30,10 +30,7 @@
 
 - (IBAction)run:(id)sender {
     NSString *what = self.box.stringValue;
-    if ([what characterAtIndex:0] == '/')
-        [self.launcher run:@"start" withArguments:@[windowsPathFromUnixPath(what, [WorldsController sharedController].selectedWorld)]];
-    else
-        [self.launcher run:@"start" withArguments:@[what]];
+    [self.launcher launchProgram:what];
     [self close];
 }
 

@@ -21,8 +21,22 @@
                                              withArguments:arguments];
 }
 
-- (void)launch:(NSURL *)thing {
-    [self run:@"start" withArguments:@[windowsPathFromUnixPath(thing.path, [WorldsController sharedController].selectedWorld)]];
+- (void)launch:(NSURL *)url {
+    [[WorldsController sharedController].selectedWorld run:@"start"
+                                             withArguments:@[windowsPathFromUnixPath(url.path, [WorldsController sharedController].selectedWorld)]
+                                               inDirectory:url.URLByDeletingLastPathComponent.path];
+}
+
+- (void)launchProgram:(NSString *)program {
+    if ([program characterAtIndex:0] == '/')
+        [[WorldsController sharedController].selectedWorld run:@"start"
+                                                 withArguments:@[windowsPathFromUnixPath(program, [WorldsController sharedController].selectedWorld)]
+                                                   inDirectory:[program stringByDeletingLastPathComponent]];
+    else
+        [[WorldsController sharedController].selectedWorld run:@"start"
+                                                 withArguments:@[program]
+                                                   inDirectory:[unixPathFromWindowsPath(program, [WorldsController sharedController].selectedWorld)
+                                                                stringByDeletingLastPathComponent]];
 }
 
 @end

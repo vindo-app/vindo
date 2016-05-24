@@ -49,6 +49,12 @@ static NSMapTable *worlds;
     return [applicationSupport URLByAppendingPathComponent:worldId];
 }
 
+- (void)run:(NSString *)program withArguments:(NSArray *)arguments inDirectory:(NSString *)directory {
+    NSTask *task = [self wineTaskWithProgram:@"wine"
+                                   arguments:[@[program] arrayByAddingObjectsFromArray:arguments]
+                            currentDirectory:directory];
+    [task launch];
+}
 
 - (void)run:(NSString *)program withArguments:(NSArray *)arguments {
     NSTask *task = [self wineTaskWithProgram:@"wine"

@@ -16,13 +16,18 @@ static NSMapTable *prefixes;
 
 - (NSTask *)wineTaskWithProgram:(NSString *)program
                   arguments:(NSArray *)arguments {
+    return [self wineTaskWithProgram:program arguments:arguments currentDirectory:NSHomeDirectory()];
+}
+
+- (NSTask *)wineTaskWithProgram:(NSString *)program arguments:(NSArray *)arguments currentDirectory:(NSString *)directory {
     NSTask *task = [NSTask new];
     task.launchPath = [[[usrURL URLByAppendingPathComponent:@"bin"]
                         URLByAppendingPathComponent:program]
                        path];
     task.arguments = arguments;
     task.environment = self.wineEnvironment;
-    task.currentDirectoryPath = NSHomeDirectory();
+    NSLog(@"%@", directory);
+    task.currentDirectoryPath = directory;
     task.standardInput = [NSFileHandle fileHandleWithNullDevice];
     task.standardOutput = [self logFileHandle];
     task.standardError = [self logFileHandle];

@@ -14,6 +14,6 @@
 - (void)run:(NSString *)program withArguments:(NSArray *)arguments;
 
 - (void)launch:(NSURL *)url;
-
+- (void)launchProgram:(NSString *)program;
 
 @end
