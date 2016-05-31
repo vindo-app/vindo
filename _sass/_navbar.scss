@@ -38,8 +38,12 @@
 
     .social-media a {
         font-size: 20px;
-        padding-left: 7px;
+        padding-left: 8px;
         padding-right: 0;
+        @media (min-width: 768px) and (max-width: 991px) {
+            font-size: 16px;
+            padding-left: 4px;
+        }
     }
 }
 
