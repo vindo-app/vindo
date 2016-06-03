@@ -106,11 +106,11 @@
 	<key>CFBundlePackageType</key>
 	<string>VNDO</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0 beta 4</string>
+	<string>$(VERSION_NUM)</string>
 	<key>CFBundleSignature</key>
 	<string>VNDO</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.0.4</string>
+	<string>$(BUILD_NUM)</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.productivity</string>
 	<key>LSMinimumSystemVersion</key>
