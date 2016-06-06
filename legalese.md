@@ -14,7 +14,7 @@ Vindo collects and sends the following information to servers accessed by us:
 
   - The names of the Windows programs and Steam games you've installed under Vindo (so we can compile statistics for programs and games used the most under Vindo and make sure those programs work correctly.)
 
-By downloading this program, you agree not to sue, litigate, or otherwise take any legal recourse against us for any grievance regarding our programs or services. In response, we will agree to abide by the terms of this agreement and change it on the website ([vindo.co](/)) whenever the terms of it have changed.
+By downloading this program, you agree not to sue, litigate, or otherwise take any legal recourse against us for any grievance regarding our programs or services. In response, we will agree to abide by the terms of this agreement and change it on the website ([vindo.co/legalese](/)) whenever the terms of it have changed.
 
 Also, this program comes with no warranty, implied or otherwise, and we are not responsible for any issues that arise, directly or indirectly, from the use of Vindo. However, we are nice people and if you have an issue feel free to email us and we'll do our best to fix it.
 
