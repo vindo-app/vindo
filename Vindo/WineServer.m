@@ -24,6 +24,10 @@
         return;
     }
     
+    NSTask *killServer = [self wineTaskWithProgram:@"wineserver" arguments:@[@"--kill"]];
+    [killServer launch];
+    [killServer waitUntilExit];
+    
     self.serverTask = [self wineTaskWithProgram:@"wineserver" arguments:@[@"--foreground", @"--persistent"]];
     @weakify(self);
     self.serverTask.terminationHandler = ^(id _) {
