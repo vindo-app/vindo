@@ -13,5 +13,3 @@ So, without further ado, I'd like to announce that Vindo 1.0 is coming to your c
 Goodnight and good luck :)
 
 From,
-
-Joseph
