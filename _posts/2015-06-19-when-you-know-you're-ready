@@ -1,7 +1,7 @@
 ---
 type: post
 author: "Joseph"
-published: false
+published: true
 ---
 
 It done!
