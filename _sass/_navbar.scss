@@ -36,13 +36,19 @@
         }
     }
 
-    .social-media a {
-        font-size: 20px;
-        padding-left: 8px;
-        padding-right: 0;
-        @media (min-width: 768px) and (max-width: 991px) {
-            font-size: 16px;
-            padding-left: 4px;
+    .social-media {
+        padding-left: 7px;
+        a {
+            display: inline-block;
+            font-size: 20px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 8px;
+            margin-right: -18px;
+            @media (min-width: 768px) and (max-width: 991px) {
+                font-size: 16px;
+                padding-left: 4px;
+            }
         }
     }
 }
