@@ -3,7 +3,8 @@
 email: your-email@domain.com
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://vindo.co" # the base hostname & protocol for your site
-repository: "vindo-app/vindo"
+repository: "vindo-app/vindo-app.github.io"
+download_url: "https://github.com/vindo-app/vindo/releases/download/1.0/vindo-1.0.zip"
 
 title: "Vindo: Run Windows Programs. On Mac."
 description: "Vindo can run tons of cool Windows programs and games on a Mac, with just a simple double-click."

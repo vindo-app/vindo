@@ -21,7 +21,7 @@ sections:
                     <!-- <img class="visible&#45;xs" src="/images/vindo_icon.png" alt=""> -->
                     <h1 class="very-important">Vindo</h1>
                     <h3>Run Windows programs. On Mac.</h3>
-                    <a class="btn btn-download btn-lg hidden-xs" href="https://github.com/vindo-app/vindo/releases/download/1.0-beta-5/vindo-1.0-beta-5.zip">Download</a>
+                    <a class="btn btn-download btn-lg hidden-xs" href="{{ site.download_url }}">Download</a>
                 </div>
             </div>
         </div>
@@ -61,15 +61,19 @@ sections:
             </div>
         </noscript>
 
-        <div id="compatibility-results">
-            {% for entry in site.compatibility %}
-            {{ entry.output }}
-            {% endfor %}
+        <div class="results">
+            <div id="compatibility-results">
+                {% for entry in site.compatibility %}
+                    {{ entry.output }}
+                {% endfor %}
+            </div>
+
+            <div class="text-center js-only" id="no-results">
+                <h1>No results. 🙁</h1>
+            </div>
         </div>
 
-        <div class="text-center js-only" id="no-results">
-            <h1>No results. 🙁</h1>
-        </div>
+        <a class="btn btn-primary submit-button" href="mailto:vindo%40vindo.co?subject=Vindo%20Compatibility%20Report&body=Program%3A%0A%0A%0ARating%3A%20(works%20perfectly%2C%20minor%20features%20don't%20work%2C%20major%20features%20don't%20work%2C%20or%20nothing%20works)%0A%0A%0ADescription%20of%20what%20works%20and%20what%20doesn't%20work%3A%0A%0A%0ALink%20to%20a%20website%20for%20the%20program%3A%0A%0A%0A">Submit Compatibilty Report</a>
     </div>
 </section>
 
@@ -140,7 +144,7 @@ sections:
 <section class="download-now red-background" id="download-now">
     <div class="container">
         <h1>What are you waiting for?</h1>
-        <a class="btn btn-download btn-lg" href="http://bit.ly/vindo0-9-3">Download</a>
+        <a class="btn btn-download btn-lg" href="{{ site.download_url }}">Download</a>
     </div>
 </section>
 
