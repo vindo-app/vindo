@@ -37,7 +37,7 @@
 }
 
 - (void)timerPing:(NSTimer *)timer {
-    if ([self.lastPing timeIntervalSinceNow] >= 60*60*24)
+    if ([self.lastPing timeIntervalSinceNow] >= 60*24)
         [self doPing];
 }
 
