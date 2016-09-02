@@ -8,15 +8,14 @@ layout: null
         <link>https://vindo-app.github.io/appcast.xml</link>
         <description>Vindo Appcast</description>
         <language>en</language>
-        {% assign version = site.versions | sort "version" | reverse | first %}
+        {% assign release = site.github.releases | first %}
         <item>
-            <title>Vindo {{ version.version }}</title>
+            <title>Vindo {{ release.name }}</title>
             <description>
-                <![CDATA[
-                        {{ version.content }}
-                    ]]>
+                <![CDATA[{{ release.body }}]]>
             </description>
-            <enclosure url="{{ version.file_url }}" sparkle:version="{{ version.version }}" length="{{ version.file_size }}" type="application/octet-stream" />
+            {% assign asset = release.assets | first %}
+            <enclosure url="{{ asset.browser_download_url }}" sparkle:version="{{ release.tag_name }}" length="{{ asset.size }}" type="application/octet-stream" />
         </item>
     </channel>
 </rss>
