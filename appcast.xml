@@ -17,7 +17,7 @@ layout: null
 Barely anything changed from 1.0 beta 5, except a bug was fixed. Still, you should update. I'm pushing it out to Sparkle.]]>
             </description>
 
-            <enclosure url="https://github.com/vindo-app/vindo/releases/download/1.0/vindo-1.0.zip" sparkle:version="1.0" length="233217776" type="application/octet-stream" />
+            <enclosure url="https://github.com/vindo-app/vindo/releases/download/1.0/vindo-1.0.zip" sparkle:version="1.0.1" length="233217776" type="application/octet-stream" />
         </item>
     </channel>
 </rss>
