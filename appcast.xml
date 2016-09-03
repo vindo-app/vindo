@@ -5,19 +5,17 @@ layout: null
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
         <title>Vindo Changelog</title>
-        <link>https://vindo.co/appcast.xml</link>
+        <link>https://vindo-app.github.io/appcast.xml</link>
         <description>Vindo Appcast</description>
         <language>en</language>
-
+        {% assign release = site.github.releases | first %}
         <item>
-            <title>Vindo 1.0</title>
+            <title>Vindo {{ release.name }}</title>
             <description>
-                <![CDATA[Vindo 1.0!
-
-Barely anything changed from 1.0 beta 5, except a bug was fixed. Still, you should update. I'm pushing it out to Sparkle.]]>
+                <![CDATA[{{ release.body }}]]>
             </description>
-
-            <enclosure url="https://github.com/vindo-app/vindo/releases/download/1.0/vindo-1.0.zip" sparkle:version="1.0.1" length="233217776" type="application/octet-stream" />
+            {% assign asset = release.assets | first %}
+            <enclosure url="{{ asset.browser_download_url }}" sparkle:version="{{ release.tag_name }}" length="{{ asset.size }}" type="application/octet-stream" />
         </item>
     </channel>
 </rss>
