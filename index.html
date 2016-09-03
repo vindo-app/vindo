@@ -10,6 +10,9 @@ sections:
     - id: about
       name: "About Us"
 ---
+{% assign release = site.github.releases | first %}
+{% assign asset = release.assets | first %}
+{% assign download_url = asset.browser_download_url %}
 <section class="red-background page">
     <div class="highlight">
         <div class="container-fluid">
@@ -21,7 +24,7 @@ sections:
                     <!-- <img class="visible&#45;xs" src="/images/vindo_icon.png" alt=""> -->
                     <h1 class="very-important">Vindo</h1>
                     <h3>Run Windows programs. On Mac.</h3>
-                    <a class="btn btn-download btn-lg hidden-xs" href="{{ site.download_url }}">Download</a>
+                    <a class="btn btn-download btn-lg hidden-xs" href="{{ download_url }}">Download</a>
                 </div>
             </div>
         </div>
@@ -144,7 +147,7 @@ sections:
 <section class="download-now red-background" id="download-now">
     <div class="container">
         <h1>What are you waiting for?</h1>
-        <a class="btn btn-download btn-lg" href="{{ site.download_url }}">Download</a>
+        <a class="btn btn-download btn-lg" href="{{ download_url }}">Download</a>
     </div>
 </section>
 
