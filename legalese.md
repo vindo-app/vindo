@@ -19,3 +19,8 @@ By downloading this program, you agree not to sue, litigate, or otherwise take a
 Also, this program comes with no warranty, implied or otherwise, and we are not responsible for any issues that arise, directly or indirectly, from the use of Vindo. However, we are nice people and if you have an issue feel free to email us and we'll do our best to fix it.
 
 Finally, Vindo is not designed or intended to be used to monitor a nuclear reactor or anything else like that. Do not stick Vindo in your ear or use it to clean your ear. Do not submerge Vindo in water, even partially. Most importantly, under no circumstances should you czyfewrhdziofjpxglzuvwvzihghohuha
+
+
+
+
+Also, our website uses Google Analytics and Inspectlet to track and analyze web traffic. If you don't like that, you're free to install a browser addon that blocks trackers such as those. You may also opt out of Inspectlet tracking by clicking  [this link](https://www.inspectlet.com/exclude/527677671 "Opt-out").
