@@ -23,4 +23,4 @@ Finally, Vindo is not designed or intended to be used to monitor a nuclear react
 
 
 
-Also, our website uses Google Analytics and Inspectlet to track and analyze web traffic. If you don't like that, you're free to install a browser addon that blocks trackers such as those. You may also opt out of Inspectlet tracking by clicking this link:  ([https://www.inspectlet.com/exclude/527677671](/))
+Also, our website uses Google Analytics and Inspectlet to track and analyze web traffic. If you don't like that, you're free to install a browser addon that blocks trackers such as those. You may also opt out of Inspectlet tracking by clicking  [this link](https://www.inspectlet.com/exclude/527677671 "Opt-out")
