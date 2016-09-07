@@ -12,7 +12,7 @@ layout: null
         <item>
             <title>Vindo {{ release.name }}</title>
             <description>
-                <![CDATA[{{ release.body }}]]>
+                <![CDATA[{{ release.body | markdownify }}]]>
             </description>
             {% assign asset = release.assets | first %}
             <enclosure url="{{ asset.browser_download_url }}" sparkle:version="{{ release.tag_name }}" length="{{ asset.size }}" type="application/octet-stream" />
