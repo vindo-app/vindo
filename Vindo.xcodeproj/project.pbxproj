@@ -279,9 +279,6 @@
 				BBF5FC711C4C7A0B00C18FCC /* NoProgramsViewController.h */,
 				BBF5FC721C4C7A0B00C18FCC /* NoProgramsViewController.m */,
 				BBF5FC731C4C7A0B00C18FCC /* NoProgramsViewController.xib */,
-				BB5E24661D7E168000CD9DE7 /* MessagesWindowController.h */,
-				BB5E24671D7E168000CD9DE7 /* MessagesWindowController.m */,
-				BB5E24681D7E168000CD9DE7 /* MessagesWindowController.xib */,
 			);
 			name = Popup;
 			sourceTree = "<group>";
@@ -582,6 +579,9 @@
 		BB5E246B1D7E16B700CD9DE7 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				BB5E24661D7E168000CD9DE7 /* MessagesWindowController.h */,
+				BB5E24671D7E168000CD9DE7 /* MessagesWindowController.m */,
+				BB5E24681D7E168000CD9DE7 /* MessagesWindowController.xib */,
 			);
 			name = Messages;
 			sourceTree = "<group>";
