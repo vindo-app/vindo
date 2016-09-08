@@ -36,18 +36,21 @@ PODS:
   - libextobjc/RuntimeExtensions (0.4.1)
   - libextobjc/UmbrellaHeader (0.4.1)
   - RHPreferences (1.0.0)
+  - SocketRocket (0.5.1)
   - Sparkle (1.13.0)
 
 DEPENDENCIES:
   - CDEvents
   - libextobjc (~> 0.4)
   - RHPreferences
+  - SocketRocket
   - Sparkle (~> 1.10)
 
 SPEC CHECKSUMS:
   CDEvents: f311f23de13414f4b3625f1a663b2e1d9a85d982
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   RHPreferences: 6871f9614347f4b45197c51f7c93c3cde2744ce8
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   Sparkle: d04d17a32eaddab19471d0c3d9db15164afdbc6e
 
 COCOAPODS: 0.39.0

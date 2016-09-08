@@ -63,6 +63,11 @@
 		BB4DE51E1CC151D5006DFF3A /* executable.icns in Resources */ = {isa = PBXBuildFile; fileRef = BB4DE51D1CC151D5006DFF3A /* executable.icns */; };
 		BB4DE5201CC154A2006DFF3A /* file.icns in Resources */ = {isa = PBXBuildFile; fileRef = BB4DE51F1CC154A2006DFF3A /* file.icns */; };
 		BB57B9661C4879E500331BA4 /* StartMenuCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57B9651C4879E500331BA4 /* StartMenuCollectionView.m */; };
+		BB5E24641D7E160700CD9DE7 /* MessagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5E24631D7E160700CD9DE7 /* MessagesController.m */; };
+		BB5E24691D7E168000CD9DE7 /* MessagesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5E24671D7E168000CD9DE7 /* MessagesWindowController.m */; };
+		BB5E246A1D7E168000CD9DE7 /* MessagesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB5E24681D7E168000CD9DE7 /* MessagesWindowController.xib */; };
+		BB5E246E1D7E178B00CD9DE7 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5E246D1D7E178B00CD9DE7 /* Message.m */; };
+		BB5E24711D7E183000CD9DE7 /* MessageCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5E24701D7E183000CD9DE7 /* MessageCommunicator.m */; };
 		BB7303521C388784004B4375 /* AppBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7303511C388784004B4375 /* AppBundle.m */; };
 		BBBCEAA81C3C8E8D00E5E175 /* WindowsProgramApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAA71C3C8E8D00E5E175 /* WindowsProgramApplication.m */; };
 		BBBCEAAD1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCEAAC1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m */; };
@@ -70,9 +75,11 @@
 		BBCEC3131C5ABFB700D72F2A /* NSURL+Relativize.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCEC3121C5ABFB700D72F2A /* NSURL+Relativize.m */; };
 		BBCEC3171C5C1BA500D72F2A /* FiletypeDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCEC3161C5C1BA500D72F2A /* FiletypeDatabase.m */; };
 		BBCEC31A1C5C264400D72F2A /* Filetype.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCEC3191C5C264400D72F2A /* Filetype.m */; };
+		BBDE964E1D7FB787001BA43B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBDE964D1D7FB787001BA43B /* WebKit.framework */; };
 		BBF18B7C1C433F150060092B /* NSUserDefaults+KeyPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */; };
 		BBF27D2C1C52A98A00EE7C65 /* Status.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4AC41AB8DE7B00CDB93C /* Status.xib */; };
 		BBF27D2D1C52A98A00EE7C65 /* ManageWorlds.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC0580781ABE13F300854813 /* ManageWorlds.xib */; };
+		BBF41C041D7E2B7000B2D224 /* ChatTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = BBF41C031D7E2B7000B2D224 /* ChatTemplate.png */; };
 		BBF5FC741C4C7A0B00C18FCC /* NoProgramsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF5FC721C4C7A0B00C18FCC /* NoProgramsViewController.m */; };
 		BBF5FC751C4C7A0B00C18FCC /* NoProgramsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBF5FC731C4C7A0B00C18FCC /* NoProgramsViewController.xib */; };
 		BBF9D3901CB5FFEB003FCED3 /* RunWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF9D38E1CB5FFEB003FCED3 /* RunWindowController.m */; };
@@ -201,6 +208,15 @@
 		BB4DE51F1CC154A2006DFF3A /* file.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = file.icns; sourceTree = "<group>"; };
 		BB57B9641C4879E500331BA4 /* StartMenuCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuCollectionView.h; sourceTree = "<group>"; };
 		BB57B9651C4879E500331BA4 /* StartMenuCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuCollectionView.m; sourceTree = "<group>"; };
+		BB5E24621D7E160700CD9DE7 /* MessagesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesController.h; sourceTree = "<group>"; };
+		BB5E24631D7E160700CD9DE7 /* MessagesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesController.m; sourceTree = "<group>"; };
+		BB5E24661D7E168000CD9DE7 /* MessagesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesWindowController.h; sourceTree = "<group>"; };
+		BB5E24671D7E168000CD9DE7 /* MessagesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesWindowController.m; sourceTree = "<group>"; };
+		BB5E24681D7E168000CD9DE7 /* MessagesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagesWindowController.xib; sourceTree = "<group>"; };
+		BB5E246C1D7E178B00CD9DE7 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		BB5E246D1D7E178B00CD9DE7 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		BB5E246F1D7E183000CD9DE7 /* MessageCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCommunicator.h; sourceTree = "<group>"; };
+		BB5E24701D7E183000CD9DE7 /* MessageCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCommunicator.m; sourceTree = "<group>"; };
 		BB7303501C388784004B4375 /* AppBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBundle.h; sourceTree = "<group>"; };
 		BB7303511C388784004B4375 /* AppBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBundle.m; sourceTree = "<group>"; };
 		BBBCEAA61C3C8E8D00E5E175 /* WindowsProgramApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowsProgramApplication.h; sourceTree = "<group>"; };
@@ -216,13 +232,15 @@
 		BBCEC3161C5C1BA500D72F2A /* FiletypeDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiletypeDatabase.m; sourceTree = "<group>"; };
 		BBCEC3181C5C264400D72F2A /* Filetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Filetype.h; sourceTree = "<group>"; };
 		BBCEC3191C5C264400D72F2A /* Filetype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Filetype.m; sourceTree = "<group>"; };
+		BBDE964D1D7FB787001BA43B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		BBF18B7B1C433F150060092B /* NSUserDefaults+KeyPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+KeyPaths.m"; sourceTree = "<group>"; };
+		BBF41C031D7E2B7000B2D224 /* ChatTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChatTemplate.png; sourceTree = "<group>"; };
 		BBF5FC711C4C7A0B00C18FCC /* NoProgramsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoProgramsViewController.h; sourceTree = "<group>"; };
 		BBF5FC721C4C7A0B00C18FCC /* NoProgramsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoProgramsViewController.m; sourceTree = "<group>"; };
 		BBF5FC731C4C7A0B00C18FCC /* NoProgramsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoProgramsViewController.xib; sourceTree = "<group>"; };
-		BBF9D38D1CB5FFEB003FCED3 /* RunWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RunWindowController.h; path = Vindo/RunWindowController.h; sourceTree = "<group>"; };
-		BBF9D38E1CB5FFEB003FCED3 /* RunWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RunWindowController.m; path = Vindo/RunWindowController.m; sourceTree = "<group>"; };
-		BBF9D38F1CB5FFEB003FCED3 /* RunWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RunWindowController.xib; path = Vindo/RunWindowController.xib; sourceTree = "<group>"; };
+		BBF9D38D1CB5FFEB003FCED3 /* RunWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunWindowController.h; sourceTree = "<group>"; };
+		BBF9D38E1CB5FFEB003FCED3 /* RunWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunWindowController.m; sourceTree = "<group>"; };
+		BBF9D38F1CB5FFEB003FCED3 /* RunWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +255,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBDE964E1D7FB787001BA43B /* WebKit.framework in Frameworks */,
 				BB4DE51C1CC02D02006DFF3A /* SecurityFoundation.framework in Frameworks */,
 				8A341B6D1BFD50D200207E6C /* IOKit.framework in Frameworks */,
 				AC13F0A21ADB6A1000254D1F /* CoreServices.framework in Frameworks */,
@@ -260,9 +279,11 @@
 				BBF5FC711C4C7A0B00C18FCC /* NoProgramsViewController.h */,
 				BBF5FC721C4C7A0B00C18FCC /* NoProgramsViewController.m */,
 				BBF5FC731C4C7A0B00C18FCC /* NoProgramsViewController.xib */,
+				BB5E24661D7E168000CD9DE7 /* MessagesWindowController.h */,
+				BB5E24671D7E168000CD9DE7 /* MessagesWindowController.m */,
+				BB5E24681D7E168000CD9DE7 /* MessagesWindowController.xib */,
 			);
 			name = Popup;
-			path = Vindo;
 			sourceTree = "<group>";
 		};
 		8A5B97551C24DF24001FF0EF /* Windows Program */ = {
@@ -290,6 +311,7 @@
 		8A655B7C1AA6773E00FFCD0C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BBF41C031D7E2B7000B2D224 /* ChatTemplate.png */,
 				8A6E189E1C03B963003E9F58 /* SoftwareUpdate.icns */,
 				BB217E551CD42E92007ED318 /* PowerTemplate.png */,
 				8A23F3BE1AA91EF600F1467C /* MainMenu.xib */,
@@ -312,8 +334,10 @@
 				8A6E189C1C03B5C2003E9F58 /* Preferences */,
 				BBF9D3921CB5FFEF003FCED3 /* Run */,
 				8ABB4AC11AB8D8FF00CDB93C /* Status */,
+				BB5E246B1D7E16B700CD9DE7 /* Messages */,
 			);
 			name = Windows;
+			path = Vindo;
 			sourceTree = "<group>";
 		};
 		8A6880A61BC3330C0032352B /* Start */ = {
@@ -344,7 +368,6 @@
 				8AC01C2D1C03DA63004FEF69 /* GeneralPreferencesViewController.xib */,
 			);
 			name = Preferences;
-			path = Vindo;
 			sourceTree = "<group>";
 		};
 		8A70BF061BAA2BCF00F58EBE /* LetsMove */ = {
@@ -362,6 +385,7 @@
 				AC9681BC1ABCD57400A9233B /* Worlds */,
 				8A6880A61BC3330C0032352B /* Start */,
 				BBCEC3141C5C1B8F00D72F2A /* Filetypes */,
+				BB5E24651D7E160A00CD9DE7 /* Messages */,
 			);
 			name = Models;
 			path = Vindo;
@@ -375,7 +399,6 @@
 				8ABB4AC41AB8DE7B00CDB93C /* Status.xib */,
 			);
 			name = Status;
-			path = Vindo;
 			sourceTree = "<group>";
 		};
 		8AC01C331C03E0A5004FEF69 /* LaunchAtLogin */ = {
@@ -405,12 +428,12 @@
 				AC0580781ABE13F300854813 /* ManageWorlds.xib */,
 			);
 			name = "Worlds Manager";
-			path = Vindo;
 			sourceTree = "<group>";
 		};
 		AC1957D01AA52BB10077A25C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BBDE964D1D7FB787001BA43B /* WebKit.framework */,
 				BB4DE51B1CC02D02006DFF3A /* SecurityFoundation.framework */,
 				8A341B6C1BFD50D200207E6C /* IOKit.framework */,
 				AC13F0A11ADB6A1000254D1F /* CoreServices.framework */,
@@ -541,6 +564,26 @@
 				8AC01D6B1ABB930F00F8C066 /* IndexSetToIntTransformer.m */,
 			);
 			name = Worlds;
+			sourceTree = "<group>";
+		};
+		BB5E24651D7E160A00CD9DE7 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				BB5E246C1D7E178B00CD9DE7 /* Message.h */,
+				BB5E246D1D7E178B00CD9DE7 /* Message.m */,
+				BB5E246F1D7E183000CD9DE7 /* MessageCommunicator.h */,
+				BB5E24701D7E183000CD9DE7 /* MessageCommunicator.m */,
+				BB5E24621D7E160700CD9DE7 /* MessagesController.h */,
+				BB5E24631D7E160700CD9DE7 /* MessagesController.m */,
+			);
+			name = Messages;
+			sourceTree = "<group>";
+		};
+		BB5E246B1D7E16B700CD9DE7 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Messages;
 			sourceTree = "<group>";
 		};
 		BBBCEAA91C3DD66F00E5E175 /* DO */ = {
@@ -682,9 +725,11 @@
 				8A6E189B1C03B5BF003E9F58 /* UpdatePreferencesViewController.xib in Resources */,
 				BBF27D2C1C52A98A00EE7C65 /* Status.xib in Resources */,
 				BBF27D2D1C52A98A00EE7C65 /* ManageWorlds.xib in Resources */,
+				BB5E246A1D7E168000CD9DE7 /* MessagesWindowController.xib in Resources */,
 				BB4DE5201CC154A2006DFF3A /* file.icns in Resources */,
 				BBF9D3911CB5FFEB003FCED3 /* RunWindowController.xib in Resources */,
 				8A36AF551C1F4D1B0012D115 /* StartMenuViewController.xib in Resources */,
+				BBF41C041D7E2B7000B2D224 /* ChatTemplate.png in Resources */,
 				BBF5FC751C4C7A0B00C18FCC /* NoProgramsViewController.xib in Resources */,
 				8A041E9B1BFBFD4100D60E08 /* Popup.xib in Resources */,
 				8A66CCB61BACCC9E00D7E592 /* statusbar.tiff in Resources */,
@@ -792,6 +837,7 @@
 				8A713E0F1C249BB800918B1A /* World+StartMenu.m in Sources */,
 				8AC01D6C1ABB930F00F8C066 /* IndexSetToIntTransformer.m in Sources */,
 				BB094B2A1C56D54B006C0AB0 /* ManageWorldsWindowController+Operations.m in Sources */,
+				BB5E24641D7E160700CD9DE7 /* MessagesController.m in Sources */,
 				BB4DE51A1CC02746006DFF3A /* SketchyMode.m in Sources */,
 				ACDE7B171BAB76E100A37DE2 /* FirstTimeSetupController.m in Sources */,
 				8AC01D5B1ABB72E200F8C066 /* World.m in Sources */,
@@ -809,11 +855,14 @@
 				8A36AF541C1F4D1B0012D115 /* StartMenuViewController.m in Sources */,
 				AC5219041B225BBC004A322E /* WorldsController.m in Sources */,
 				BBCEC3131C5ABFB700D72F2A /* NSURL+Relativize.m in Sources */,
+				BB5E24711D7E183000CD9DE7 /* MessageCommunicator.m in Sources */,
 				8A713E0C1C249AB400918B1A /* World+PasteboardSupport.m in Sources */,
 				AC05808C1ABF97F700854813 /* ManageWorldsWindowController.m in Sources */,
 				BBBCEAAD1C3DE10700E5E175 /* AppBundleConnectionThingImpl.m in Sources */,
 				8A041E9F1BFBFF0400D60E08 /* PopupController.m in Sources */,
 				AC5E86151C2363C40027FB80 /* ImageResizingValueTransformer.m in Sources */,
+				BB5E24691D7E168000CD9DE7 /* MessagesWindowController.m in Sources */,
+				BB5E246E1D7E178B00CD9DE7 /* Message.m in Sources */,
 				AC3A4EE21AA12F9A00781626 /* main.m in Sources */,
 				BB153D1E1C7E73A9006905DC /* Parsing.m in Sources */,
 				8AC01C321C03E0A0004FEF69 /* LaunchAtLoginController.m in Sources */,

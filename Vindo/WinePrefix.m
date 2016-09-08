@@ -26,7 +26,6 @@ static NSMapTable *prefixes;
                        path];
     task.arguments = arguments;
     task.environment = self.wineEnvironment;
-    NSLog(@"%@", directory);
     task.currentDirectoryPath = directory;
     task.standardInput = [NSFileHandle fileHandleWithNullDevice];
     task.standardOutput = [self logFileHandle];

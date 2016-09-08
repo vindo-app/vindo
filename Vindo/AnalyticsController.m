@@ -12,7 +12,6 @@
 @interface AnalyticsController ()
 
 @property NSURLConnection *conn;
-@property NSString *uuid;
 
 @property NSDate *lastPing;
 @property NSTimer *timer;
@@ -67,7 +66,7 @@
         }
     }
     
-    NSString *url = @"https://vindo-analytics.herokuapp.com/ping";
+    NSString *url = @"https://homebase.vindo.co/ping";
     url = [url stringByAppendingFormat:@"?uuid=%@", [uuid stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     url = [url stringByAppendingFormat:@"&version=%@", [version stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     for (NSString *program in programs) {

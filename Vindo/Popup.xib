@@ -1,13 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11198.2" systemVersion="16A313a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11198.2"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PopupViewController">
             <connections>
                 <outlet property="actionButton" destination="A1p-5i-oTs" id="E3k-AT-Jho"/>
+                <outlet property="messagesButton" destination="xry-G8-vTs" id="AM3-Vg-rn9"/>
                 <outlet property="placeholderView" destination="6pp-wv-anu" id="ygA-0R-RkR"/>
                 <outlet property="popupMenu" destination="wdU-3y-svf" id="yex-th-DOg"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -108,6 +109,17 @@
                         </menu>
                     </popUpButtonCell>
                 </popUpButton>
+                <button toolTip="Vindo HQ Chat" verticalHuggingPriority="750" misplaced="YES" id="xry-G8-vTs">
+                    <rect key="frame" x="20" y="12" width="40" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="ChatTemplate" imagePosition="left" alignment="left" imageScaling="proportionallyDown" inset="2" id="x2b-4T-xHz">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="openMessages:" target="-2" id="kup-no-Y6f"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="255" y="355"/>
         </customView>
@@ -231,6 +243,7 @@
         </customView>
     </objects>
     <resources>
+        <image name="ChatTemplate" width="626" height="626"/>
         <image name="NSActionTemplate" width="14" height="14"/>
     </resources>
 </document>

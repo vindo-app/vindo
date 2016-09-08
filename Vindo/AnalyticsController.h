@@ -10,4 +10,6 @@
 
 @interface AnalyticsController : NSObject <NSURLConnectionDataDelegate>
 
+@property NSString *uuid;
+
 @end
