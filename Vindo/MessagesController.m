@@ -64,9 +64,7 @@
     [self.messages addObject:message];
     [self didChange:NSKeyValueChangeInsertion valuesAtIndexes:[NSIndexSet indexSetWithIndex:self.messages.count - 1] forKey:@"messages"];
     NSDate *lastNotificationTimestamp = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastNotificationTimestamp"];
-    NSLog(@"comparing %@ (new message timestamp) to %@ (lnt)", message.timestamp, lastNotificationTimestamp);
     if (!message.fromUser && [message.timestamp compare:lastNotificationTimestamp] == NSOrderedDescending) {
-        NSLog(@"descending");
         if (!self.mwc.window.visible)
             self.unreadCount++;
         [self deliverUserNotification:message];
@@ -82,12 +80,10 @@
     NSUserNotificationCenter *unc = [NSUserNotificationCenter defaultUserNotificationCenter];
     unc.delegate = self;
     [unc deliverNotification:notification];
-    NSLog(@"delivered notification");
 }
 
 - (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification {
     if (notification.activationType == NSUserNotificationActivationTypeReplied) {
-        NSLog(@"responding");
         if (notification.response.length == 0)
             return;
         Message *message = [[Message alloc] initWithText:notification.response.string];
@@ -105,7 +101,6 @@
 
 - (void)messagesWindowAppeared:(NSNotification *)n {
     if (self.mwc.window.isVisible) {
-        NSLog(@"window appeared, zeroing unread count");
         self.unreadCount = 0;
     }
 }

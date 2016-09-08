@@ -166,7 +166,6 @@ static CGFloat messagesY;
 
 - (void)setUnreadCount:(NSNotification *)n {
     NSUInteger unreadCount = [n.userInfo[@"unreadCount"] unsignedIntegerValue];
-    NSLog(@"%@", n.userInfo[@"unreadCount"]);
     if (unreadCount > 0)
         self.messagesButton.title = [NSString stringWithFormat:@"%lu", unreadCount];
     else
