@@ -1,0 +1,7 @@
+Tech Support:
+
+You can email us with any questions or concerns. If you're in the heat of the moment and can't figure out why something won't work,
+there's a chat feature built into Vindo where you can message us and we'll get back to you either instantly or as soon as we can 
+(probably same-day, if not within an hour or two.) It's interfaced directly into our private Slack chat that we use to communicate with
+each other, and we monitor it on both our phones when we're in class and our computers when we're working. Tired of not getting
+support for the programs you love? Welcome to a new age.
