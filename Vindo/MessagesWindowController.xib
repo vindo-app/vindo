@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11198.2" systemVersion="16A313a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16A322" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11198.2"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="11198.2"/>
+        <deployment version="101000" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="11201"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MessagesWindowController">
@@ -18,16 +18,26 @@
         <window title="Vindo HQ Chat" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="jt2-Bz-ohm">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" rightStrut="YES" topStrut="YES"/>
-            <rect key="contentRect" x="1117" y="545" width="344" height="400"/>
+            <rect key="contentRect" x="1117" y="545" width="305" height="400"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
             <value key="minSize" type="size" width="237" height="253"/>
             <value key="maxSize" type="size" width="651" height="674"/>
-            <view key="contentView" misplaced="YES" id="u2M-iO-xFZ">
-                <rect key="frame" x="0.0" y="0.0" width="344" height="400"/>
+            <view key="contentView" wantsLayer="YES" misplaced="YES" id="u2M-iO-xFZ">
+                <rect key="frame" x="0.0" y="0.0" width="305" height="400"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <webView misplaced="YES" maintainsBackForwardList="NO" id="YpO-ms-WBe">
+                        <rect key="frame" x="0.0" y="46" width="305" height="354"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <webPreferences key="preferences" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0" plugInsEnabled="NO" javaEnabled="NO" javaScriptEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO" loadsImagesAutomatically="NO" allowsAnimatedImages="NO" allowsAnimatedImageLooping="NO">
+                            <nil key="identifier"/>
+                        </webPreferences>
+                        <connections>
+                            <outlet property="UIDelegate" destination="-2" id="MUN-4i-AHA"/>
+                        </connections>
+                    </webView>
                     <textField verticalHuggingPriority="750" misplaced="YES" id="41O-vK-2SX">
-                        <rect key="frame" x="13" y="13" width="318" height="22"/>
+                        <rect key="frame" x="20" y="16" width="265" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" placeholderString="Vindo HQ Chat" bezelStyle="round" id="vk9-vT-ne8">
                             <font key="font" metaFont="system"/>
@@ -43,16 +53,12 @@
                             <action selector="sendMessage:" target="-2" id="cpZ-tH-FH8"/>
                         </connections>
                     </textField>
-                    <webView misplaced="YES" maintainsBackForwardList="NO" id="YpO-ms-WBe">
-                        <rect key="frame" x="13" y="43" width="318" height="357"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <webPreferences key="preferences" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0" plugInsEnabled="NO" javaEnabled="NO" javaScriptEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO" loadsImagesAutomatically="NO" allowsAnimatedImages="NO" allowsAnimatedImageLooping="NO">
-                            <nil key="identifier"/>
-                        </webPreferences>
-                    </webView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="-91" y="38"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="titlebarAppearsTransparent" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="-110.5" y="38"/>
         </window>
     </objects>
 </document>

@@ -85,8 +85,15 @@ static NSString *messagesCSS =
 @"    font-size: 13px;"
 @"}"
 @"body {"
-@"    margin-left: 0;"
-@"    margin-right: 0;"
+@"    margin-left: 20px;"
+@"    margin-right: 20px;"
+@"    margin-bottom: 42px;"
+@"}"
+
+@"p.info {"
+@"    text-align: center;"
+@"    color: grey;"
+@"    margin-bottom: 2rem;"
 @"}"
 
 @"p span {"
@@ -118,10 +125,26 @@ static NSString *messagesCSS =
     styleElement.innerText = messagesCSS;
     DOMHTMLElement *head = (DOMHTMLElement *) [[document getElementsByTagName:@"head"] item:0];
     [head appendChild:styleElement];
+    
+    DOMHTMLElement *p = (DOMHTMLElement *) [document createElement:@"p"];
+    p.innerText = @"Questions or comments? Type them here, and we'll answer as soon as we can.";
+    p.className = @"info";
+    [document.body appendChild:p];
 }
 
 - (void)messagesResized:(NSNotification *)n {
     [self.messages scrollToEndOfDocument:nil];
+}
+
+- (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element defaultMenuItems:(NSArray *)defaultMenuItems {
+    NSMutableArray *items = defaultMenuItems.mutableCopy;
+    NSUInteger reloadIndex = [items indexOfObjectPassingTest:^BOOL(id item, NSUInteger i, BOOL *stop) {
+        return ((NSMenuItem *) item).tag == WebMenuItemTagReload;
+    }];
+    if (reloadIndex != NSNotFound) {
+        [items removeObjectAtIndex:reloadIndex];
+    }
+    return items;
 }
 
 - (void)reactivateMessageBox:(NSNotification *)n {

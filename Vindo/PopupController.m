@@ -39,6 +39,7 @@
     self.statusItem.view = self.statusBarView;
     
     self.pvc = [PopupViewController new];
+    [self.pvc view];
     
     self.popover = [NSPopover new];
     self.popover.contentViewController = self.pvc;

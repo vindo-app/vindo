@@ -7,9 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <WebKit/WebKit.h>
 #import "MessagesController.h"
 
-@interface MessagesWindowController : NSWindowController
+@interface MessagesWindowController : NSWindowController <WebUIDelegate>
 
 @property MessagesController *messagesController;
 
