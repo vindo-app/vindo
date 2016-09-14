@@ -1,6 +1,6 @@
 section {
-    margin-top: 12px;
-    margin-bottom: 12px;
+    padding: 12px 0;
+    margin: 12px 0;
     h1, h2, h3 {
         text-align: center;
     }
@@ -75,7 +75,7 @@ html, body {
     }
 
     .btn-download {
-        margin-top: 48px;
+        margin-top: 24px;
         width: 100%;
     }
 
@@ -224,10 +224,6 @@ html, body {
 }
 
 .download-now {
-    padding: 12px 0;
-    h1 {
-        margin-bottom: 20px;
-    }
     .btn-download {
         line-height: 250px;
         display: block;
